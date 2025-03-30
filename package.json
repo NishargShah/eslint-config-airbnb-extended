@@ -1,0 +1,41 @@
+{
+  "name": "eslint-config-airbnb-extended",
+  "version": "0.0.1",
+  "description": "Eslint Airbnb Config Extended",
+  "keywords": [
+    "eslint",
+    "airbnb",
+    "eslint-airbnb",
+    "airbnb-eslint",
+    "eslint-airbnb-config",
+    "eslint-airbnb-config-x",
+    "eslint-airbnb-config-base",
+    "eslint-airbnb-config-typescript",
+    "eslint-airbnb-config-extended",
+    "eslint airbnb config",
+    "eslint airbnb config x",
+    "eslint airbnb config base",
+    "eslint airbnb config typescript",
+    "eslint airbnb config extended",
+    "airbnb config",
+    "airbnb config base",
+    "airbnb config typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NishargShah/eslint-config-airbnb-extended.git"
+  },
+  "license": "MIT",
+  "author": "Nisharg Shah",
+  "type": "commonjs",
+  "packageManager": "pnpm@10.7.0",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8",
+    "pnpm": ">=8",
+    "yarn": ">=1.22"
+  }
+}
