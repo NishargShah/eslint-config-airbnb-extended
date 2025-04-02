@@ -11,13 +11,13 @@ import variables from '@/rules/variables';
 import type { Linter } from 'eslint';
 
 export default {
-  'best-practices': [bestPractices],
-  errors: [errors],
-  es6: [es6],
-  imports: [imports],
-  node: [node],
-  strict: [strict],
-  style: [style],
-  variables: [variables],
-  recommended,
+  'flat/best-practices': [bestPractices],
+  'flat/errors': [errors],
+  'flat/es6': [es6],
+  'flat/imports': [imports],
+  'flat/node': [node],
+  'flat/strict': [strict],
+  'flat/style': [style],
+  'flat/variables': [variables],
+  'flat/recommended': recommended,
 } satisfies Record<string, Linter.Config[]>;

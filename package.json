@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
@@ -71,11 +71,15 @@
     "typescript-eslint": "^8.29.0",
     "typescript-transform-paths": "^3.5.5"
   },
+  "peerDependencies": {
+    "eslint": "9.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "5.x"
+  },
   "packageManager": "pnpm@10.7.1",
   "engines": {
-    "node": ">=16",
-    "npm": ">=8",
-    "pnpm": ">=8",
-    "yarn": ">=1.22"
+    "node": ">=16"
   }
 }

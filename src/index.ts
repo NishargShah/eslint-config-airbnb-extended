@@ -1,5 +1,7 @@
 import base from '@/base';
 
 export default {
-  base: base,
+  configs: {
+    base,
+  },
 };
