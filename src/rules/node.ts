@@ -1,6 +1,7 @@
 import globals from 'globals';
 
 export default {
+  name: 'airbnb/config/node',
   languageOptions: {
     globals: {
       ...globals.nodeBuiltin,

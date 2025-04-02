@@ -1,4 +1,5 @@
 export default {
+  name: 'airbnb/config/errors',
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
     // https://eslint.org/docs/rules/for-direction

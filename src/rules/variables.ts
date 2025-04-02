@@ -1,6 +1,7 @@
 import confusingBrowserGlobals from 'confusing-browser-globals';
 
 export default {
+  name: 'airbnb/config/variables',
   rules: {
     // enforce or disallow variable initializations at definition
     'init-declarations': 'off',

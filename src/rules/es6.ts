@@ -1,6 +1,7 @@
 import globals from 'globals';
 
 export default {
+  name: 'airbnb/config/es6',
   languageOptions: {
     globals: {
       ...globals.es2015,

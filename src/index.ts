@@ -7,22 +7,25 @@ import strict from '@/rules/strict';
 import style from '@/rules/style';
 import variables from '@/rules/variables';
 
-export default [
-  bestPractices,
-  errors,
-  es6,
-  imports,
-  node,
-  strict,
-  style,
-  variables,
-  {
-    languageOptions: {
-      parserOptions: {
-        ecmaVersion: 2018,
-        sourceType: 'module',
+export default {
+  base: [
+    bestPractices,
+    errors,
+    es6,
+    imports,
+    node,
+    strict,
+    style,
+    variables,
+    {
+      name: 'airbnb/config/language-configurations',
+      languageOptions: {
+        parserOptions: {
+          ecmaVersion: 2018,
+          sourceType: 'module',
+        },
       },
+      rules: {},
     },
-    rules: {},
-  },
-];
+  ],
+};

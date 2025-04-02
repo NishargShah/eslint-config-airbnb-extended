@@ -3,6 +3,7 @@ import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 
 export default {
+  name: 'airbnb/config/imports',
   languageOptions: {
     globals: {
       ...globals.es2015,
