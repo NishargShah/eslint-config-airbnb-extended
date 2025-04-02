@@ -1,7 +1,5 @@
 import base from '@/base';
 
-export default {
-  configs: {
-    base,
-  },
+export const configs = {
+  base,
 };
