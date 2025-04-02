@@ -1,4 +1,5 @@
 import ESLintPluginImport from 'eslint-plugin-import';
+import ESLintPluginUnusedImports from 'eslint-plugin-unused-imports';
 
 const customImportESLintConfig = [
   // IMPORT CONFIG
@@ -72,6 +73,15 @@ const customImportESLintConfig = [
           ],
         },
       ],
+    },
+  },
+  {
+    name: 'unused-imports/rules',
+    plugins: {
+      'unused-imports': ESLintPluginUnusedImports,
+    },
+    rules: {
+      'unused-imports/no-unused-imports': 'error',
     },
   },
 ];
