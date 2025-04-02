@@ -1,10 +1,13 @@
-// @ts-expect-error no @types package in DefinitelyTyped for below
-import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 
 import type { Linter } from 'eslint';
 
+// @ts-expect-error eslint-plugin-import not working in import
+// eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
+const EsLintPluginImport = require('eslint-plugin-import');
+
 export default {
+  ...EsLintPluginImport.flatConfigs.recommended,
   name: 'airbnb/config/imports',
   languageOptions: {
     globals: {
@@ -15,16 +18,13 @@ export default {
       sourceType: 'module',
     },
   },
-  plugins: {
-    import: importPlugin,
-  },
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.json'],
+        extensions: ['.js', '.cjs', '.mjs', '.json'],
       },
     },
-    'import/extensions': ['.js', '.mjs', '.jsx'],
+    'import/extensions': ['.js', '.cjs', '.mjs', '.jsx'],
     'import/core-modules': [],
     'import/ignore': ['node_modules', String.raw`\.(coffee|scss|css|less|hbs|svg|json)$`],
   },
