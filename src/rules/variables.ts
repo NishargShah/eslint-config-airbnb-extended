@@ -1,5 +1,7 @@
 import confusingBrowserGlobals from 'confusing-browser-globals';
 
+import type { Linter } from 'eslint';
+
 export default {
   name: 'airbnb/config/variables',
   rules: {
@@ -71,4 +73,4 @@ export default {
       },
     ],
   },
-};
+} satisfies Linter.Config;

@@ -2,6 +2,8 @@
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 
+import type { Linter } from 'eslint';
+
 export default {
   name: 'airbnb/config/imports',
   languageOptions: {
@@ -299,4 +301,4 @@ export default {
     // TODO, semver-minor: enable
     'import/no-empty-named-blocks': 'off',
   },
-};
+} satisfies Linter.Config;

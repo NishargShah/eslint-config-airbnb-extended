@@ -1,3 +1,5 @@
+import type { Linter } from 'eslint';
+
 export default {
   name: 'airbnb/config/best-practices',
   rules: {
@@ -457,4 +459,4 @@ export default {
     // https://eslint.org/docs/rules/yoda
     yoda: 'error',
   },
-};
+} satisfies Linter.Config;

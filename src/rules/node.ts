@@ -1,5 +1,7 @@
 import globals from 'globals';
 
+import type { Linter } from 'eslint';
+
 export default {
   name: 'airbnb/config/node',
   languageOptions: {
@@ -44,4 +46,4 @@ export default {
     // disallow use of synchronous methods (off by default)
     'no-sync': 'off',
   },
-};
+} satisfies Linter.Config;

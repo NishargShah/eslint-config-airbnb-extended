@@ -1,5 +1,7 @@
 import globals from 'globals';
 
+import type { Linter } from 'eslint';
+
 export default {
   name: 'airbnb/config/es6',
   languageOptions: {
@@ -219,4 +221,4 @@ export default {
     // https://eslint.org/docs/rules/yield-star-spacing
     'yield-star-spacing': ['error', 'after'],
   },
-};
+} satisfies Linter.Config;

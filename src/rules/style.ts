@@ -1,3 +1,5 @@
+import type { Linter } from 'eslint';
+
 export default {
   name: 'airbnb/config/style',
   rules: {
@@ -627,4 +629,4 @@ export default {
     // require regex literals to be wrapped in parentheses
     'wrap-regex': 'off',
   },
-};
+} satisfies Linter.Config;

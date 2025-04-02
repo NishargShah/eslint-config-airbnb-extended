@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
@@ -37,6 +37,7 @@
     "build": "tsc",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
+    "inspector": "pnpm dlx @eslint/config-inspector",
     "lint": "eslint .",
     "lint:fix": "pnpm --silent lint --fix",
     "prepare": "husky && pnpm ts-patch install -s",
