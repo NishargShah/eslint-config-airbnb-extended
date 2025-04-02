@@ -31,12 +31,16 @@
   "license": "MIT",
   "author": "Nisharg Shah <nishargshah3101@gmail.com>",
   "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
     "lint": "eslint .",
     "lint:fix": "pnpm --silent lint --fix",
-    "prepare": "husky",
+    "prepare": "husky && pnpm ts-patch install -s",
+    "prepublishOnly": "pnpm build",
     "script:lint": "bash -e ./scripts/lint.sh",
     "typecheck": "tsc --noEmit"
   },
@@ -60,8 +64,11 @@
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
     "prettier-plugin-packagejson": "^2.5.10",
+    "ts-patch": "^3.3.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.2",
-    "typescript-eslint": "^8.29.0"
+    "typescript-eslint": "^8.29.0",
+    "typescript-transform-paths": "^3.5.5"
   },
   "packageManager": "pnpm@10.7.1",
   "engines": {
