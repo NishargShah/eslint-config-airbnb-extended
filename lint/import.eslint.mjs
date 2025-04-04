@@ -14,7 +14,9 @@ const customImportESLintConfig = [
     name: 'import/rules',
     settings: {
       'import/resolver': {
-        typescript: true,
+        typescript: {
+          project: 'packages/*/tsconfig.json',
+        },
         node: true,
       },
     },

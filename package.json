@@ -1,22 +1,7 @@
 {
-  "name": "eslint-config-airbnb-extended",
-  "version": "0.0.9",
-  "description": "Eslint Airbnb Config Extended",
-  "keywords": [
-    "eslint",
-    "airbnb",
-    "airbnb config",
-    "eslint config airbnb",
-    "eslint config airbnb x",
-    "eslint config airbnb base",
-    "eslint config airbnb typescript",
-    "eslint config airbnb extended",
-    "eslint airbnb",
-    "eslint airbnb x",
-    "eslint airbnb base",
-    "eslint airbnb typescript",
-    "eslint airbnb extended"
-  ],
+  "name": "eslint-config-airbnb-extended-project",
+  "version": "0.0.0",
+  "description": "Eslint Airbnb Config Extended Project",
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
   },
@@ -27,29 +12,23 @@
   "license": "MIT",
   "author": "Nisharg Shah <nishargshah3101@gmail.com>",
   "type": "commonjs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "pnpm -r build",
+    "cli:build": "pnpm --filter eslint-config-airbnb-extended build",
+    "config:build": "pnpm --filter create-airbnb-x-config build",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
-    "inspector": "pnpm dlx @eslint/config-inspector",
+    "inspector": "pnpm dlx @eslint/config-inspector --config eslint-x.config.mjs",
     "lint": "eslint .",
     "lint:fix": "pnpm --silent lint --fix",
-    "prepare": "husky && pnpm ts-patch install -s",
-    "prepublishOnly": "pnpm build",
+    "prepare": "husky",
     "script:lint": "bash -e ./scripts/lint.sh",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "confusing-browser-globals": "^1.0.11",
-    "globals": "^16.0.0"
+    "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.28.1",
     "@eslint/compat": "^1.2.8",
     "@eslint/js": "^9.23.0",
-    "@types/confusing-browser-globals": "^1.0.3",
-    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-import-resolver-typescript": "^4.3.1",
@@ -57,37 +36,14 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-promise": "^7.2.1",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-unicorn": "^58.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
     "prettier-plugin-packagejson": "^2.5.10",
-    "ts-patch": "^3.3.0",
-    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.2",
-    "typescript-eslint": "^8.29.0",
-    "typescript-transform-paths": "^3.5.5"
-  },
-  "peerDependencies": {
-    "eslint": "9.x",
-    "eslint-plugin-import": "2.x",
-    "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "5.x"
-  },
-  "peerDependenciesMeta": {
-    "eslint-plugin-jsx-a11y": {
-      "optional": true
-    },
-    "eslint-plugin-react": {
-      "optional": true
-    },
-    "eslint-plugin-react-hooks": {
-      "optional": true
-    }
+    "typescript-eslint": "^8.29.0"
   },
   "packageManager": "pnpm@10.7.1",
   "engines": {

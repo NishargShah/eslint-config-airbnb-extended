@@ -1,4 +1,4 @@
-import base from '@/base/index';
+import base from '@/base';
 
 import type { Linter } from 'eslint';
 

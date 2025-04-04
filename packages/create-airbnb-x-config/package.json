@@ -1,0 +1,41 @@
+{
+  "name": "create-airbnb-x-config",
+  "version": "0.1.0",
+  "description": "Airbnb Extended Config CLI",
+  "keywords": [
+    "eslint",
+    "airbnb",
+    "eslint config cli",
+    "eslint config cli x",
+    "eslint config cli extended",
+    "airbnb cli",
+    "airbnb config",
+    "airbnb config cli",
+    "airbnb config cli x",
+    "airbnb config cli extended"
+  ],
+  "bugs": {
+    "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NishargShah/eslint-config-airbnb-extended.git",
+    "directory": "packages/create-airbnb-x-config"
+  },
+  "license": "MIT",
+  "author": "Nisharg Shah <nishargshah3101@gmail.com>",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.4.9",
+    "typescript": "^5.8.2"
+  }
+}

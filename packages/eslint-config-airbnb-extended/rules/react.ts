@@ -5,9 +5,6 @@ import style from '@/rules/style';
 
 import type { Linter } from 'eslint';
 
-// // @ts-expect-error eslint-plugin-import not working in import
-// // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
-// const EsLintPluginReact = require('eslint-plugin-react');
 const dangleRules = style.rules['no-underscore-dangle'];
 
 export default {
