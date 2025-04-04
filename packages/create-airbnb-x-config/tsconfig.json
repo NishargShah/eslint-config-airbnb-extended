@@ -1,19 +1,10 @@
 {
+  "extends": "../../tsconfig.json",
   "ts-node": {
     "transpileOnly": true,
     "require": ["tsconfig-paths/register"]
   },
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "declaration": true,
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
