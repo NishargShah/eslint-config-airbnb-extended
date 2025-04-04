@@ -1,21 +1,21 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
     "skipLibCheck": true,
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    },
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths"
-      },
-      {
-        "transform": "typescript-transform-paths",
-        "afterDeclarations": true
-      }
-    ]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.mjs", "**/*.mts"],
   "exclude": ["node_modules", "dist"]

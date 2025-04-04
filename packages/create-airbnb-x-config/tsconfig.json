@@ -1,5 +1,8 @@
 {
-  "extends": "../../tsconfig.json",
+  "ts-node": {
+    "transpileOnly": true,
+    "require": ["tsconfig-paths/register"]
+  },
   "compilerOptions": {
     "target": "ES6",
     "module": "CommonJS",
@@ -10,7 +13,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "declaration": true
+    "declaration": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.mjs", "**/*.mts"],
   "exclude": ["node_modules", "dist"]

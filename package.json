@@ -15,6 +15,7 @@
   "scripts": {
     "build": "pnpm -r build",
     "cli:build": "pnpm --filter eslint-config-airbnb-extended build",
+    "cli:dev": "pnpm --filter create-airbnb-x-config dev",
     "config:build": "pnpm --filter create-airbnb-x-config build",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
