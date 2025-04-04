@@ -6,8 +6,7 @@ import type { Linter } from 'eslint';
 // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
 const EsLintPluginImport = require('eslint-plugin-import');
 
-export default {
-  ...EsLintPluginImport.flatConfigs.recommended,
+export const importConfig = {
   name: 'airbnb/config/imports',
   languageOptions: {
     globals: {
@@ -301,4 +300,9 @@ export default {
     // TODO, semver-minor: enable
     'import/no-empty-named-blocks': 'off',
   },
+} satisfies Linter.Config;
+
+export default {
+  ...EsLintPluginImport.flatConfigs.recommended,
+  ...importConfig,
 } satisfies Linter.Config;

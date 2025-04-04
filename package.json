@@ -1,25 +1,21 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
     "airbnb",
-    "eslint-airbnb",
-    "airbnb-eslint",
-    "eslint-airbnb-config",
-    "eslint-airbnb-config-x",
-    "eslint-airbnb-config-base",
-    "eslint-airbnb-config-typescript",
-    "eslint-airbnb-config-extended",
-    "eslint airbnb config",
-    "eslint airbnb config x",
-    "eslint airbnb config base",
-    "eslint airbnb config typescript",
-    "eslint airbnb config extended",
     "airbnb config",
-    "airbnb config base",
-    "airbnb config typescript"
+    "eslint config airbnb",
+    "eslint config airbnb x",
+    "eslint config airbnb base",
+    "eslint config airbnb typescript",
+    "eslint config airbnb extended",
+    "eslint airbnb",
+    "eslint airbnb x",
+    "eslint airbnb base",
+    "eslint airbnb typescript",
+    "eslint airbnb extended"
   ],
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
@@ -81,6 +77,17 @@
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "5.x"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-jsx-a11y": {
+      "optional": true
+    },
+    "eslint-plugin-react": {
+      "optional": true
+    },
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    }
   },
   "packageManager": "pnpm@10.7.1",
   "engines": {

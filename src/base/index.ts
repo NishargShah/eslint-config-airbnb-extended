@@ -1,4 +1,3 @@
-import recommended from '@/base/recommended';
 import bestPractices from '@/rules/best-practices';
 import errors from '@/rules/errors';
 import es6 from '@/rules/es6';
@@ -19,5 +18,4 @@ export default {
   strict,
   style,
   variables,
-  recommended,
-} satisfies Record<string, Linter.Config | Linter.Config[]>;
+} satisfies Record<string, Linter.Config>;
