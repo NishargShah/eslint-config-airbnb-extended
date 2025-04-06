@@ -1,5 +1,11 @@
 # eslint-config-airbnb-extended
 
+## 0.2.0
+
+### Minor Changes
+
+- CLI Almost completed and All the configs are completed
+
 ## 0.1.1
 
 ### Patch Changes
