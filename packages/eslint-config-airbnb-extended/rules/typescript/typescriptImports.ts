@@ -10,16 +10,30 @@ import {
 import { getDevDepsList } from '@/helpers/getDevDepsList';
 
 import type { Linter } from 'eslint';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 
+/**
+ * @see https://github.com/un-ts/eslint-plugin-import-x/blob/master/src/config/typescript.ts
+ */
 export default {
   name: 'airbnb/config/typescript/import-x',
   settings: {
+    // Apply special parsing for TypeScript files
+    'import-x/parsers': {
+      '@typescript-eslint/parser': tsExtensionsResolver,
+    },
     // Append 'ts' extensions to Airbnb 'import-x/resolver' setting
     'import-x/resolver': {
       node: {
         extensions: [...jsExtensionsResolver, ...tsExtensionsResolver],
       },
     },
+    // Import Resolver for import-x package
+    'import-x/resolver-next': [
+      createTypeScriptImportResolver({
+        alwaysTryTypes: true,
+      }),
+    ],
     // Append 'ts' extensions to Airbnb 'import-x/extensions' setting
     'import-x/extensions': [...jsExtensionsWithReact, ...tsExtensionsWithReactDTS],
     // Resolve type definition packages
@@ -41,5 +55,12 @@ export default {
         bundledDependencies: true,
       },
     ],
+
+    // See: https://github.com/typescript-eslint/typescript-eslint/blob/13583e65f5973da2a7ae8384493c5e00014db51b/docs/linting/TROUBLESHOOTING.md#eslint-plugin-import
+
+    // TypeScript compilation already ensures that named imports exist in the referenced module
+    'import-x/named': 'off',
+    // warn on accessing default export property names that are also named exports
+    'import-x/no-named-as-default-member': 'off',
   },
 } satisfies Linter.Config;

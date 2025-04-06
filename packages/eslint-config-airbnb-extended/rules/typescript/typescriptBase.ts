@@ -2,7 +2,6 @@ import type { Linter } from 'eslint';
 
 export default {
   name: 'airbnb/config/typescript',
-  files: ['*.ts', '*.tsx'],
   rules: {
     // The following rules are enabled in Airbnb config, but are already checked (more thoroughly) by the TypeScript compiler
     // Rules are inspired by: https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/eslint-recommended-raw.ts
