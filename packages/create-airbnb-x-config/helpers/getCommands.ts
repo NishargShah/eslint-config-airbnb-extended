@@ -7,13 +7,14 @@ const getCommands: GetCommands = (args) => {
   const { typescript, language, config, packageManager } = args;
 
   const pmInstallationCommand = {
-    [packageManagers.NPM]: 'npm install',
-    [packageManagers.YARN]: 'yarn add',
-    [packageManagers.PNPM]: 'pnpm install',
-    [packageManagers.BUN]: 'bun add',
+    [packageManagers.NPM]: 'install',
+    [packageManagers.YARN]: 'add',
+    [packageManagers.PNPM]: 'install',
+    [packageManagers.BUN]: 'add',
   };
 
   const commands = [
+    packageManager,
     pmInstallationCommand[packageManager],
     '-D',
     'eslint',

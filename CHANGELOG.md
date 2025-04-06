@@ -1,3 +1,13 @@
+## 0.2.1 (2025-04-07)
+
+### 🩹 Fixes
+
+- **cli:** Resolved package manager issue
+
+### ❤️ Thank You
+
+- Nisharg Shah @nishargshah
+
 ## 0.2.0 (2025-04-07)
 
 ### 🚀 Features

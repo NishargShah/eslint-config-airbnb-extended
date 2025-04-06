@@ -13,7 +13,7 @@ type InstallPackages = (args: InstallPackagesArgs) => Promise<void>;
  */
 const install: InstallPackages = async (args) => {
   const { packageManager } = args;
-  const commands = getCommands(args);
+  const commands = getCommands(args).slice(1);
 
   return new Promise((resolve, reject) => {
     const child = spawn(packageManager, commands, {
