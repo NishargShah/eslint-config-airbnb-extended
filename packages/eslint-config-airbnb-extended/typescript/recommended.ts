@@ -1,21 +1,13 @@
-import typescript, { importResolverExtensions } from '@/rules/typescript';
-
 import type { Linter } from 'eslint';
+import typescript from '@/typescript';
+import { jsExtensionsResolver, tsExtensionsWithReactDTS } from '@/utils';
 
 export default {
-  base: typescript,
+  base: typescript.typescript,
   react: [
-    ...typescript,
+    ...typescript.typescript,
     {
       name: 'airbnb/config/typescript-react',
-      settings: {
-        // Append 'tsx' extensions to Airbnb 'import/resolver' setting
-        'import/resolver': {
-          node: {
-            extensions: [...importResolverExtensions, '.tsx'],
-          },
-        },
-      },
       rules: {
         // Append 'tsx' to Airbnb 'react/jsx-filename-extension' rule
         'react/jsx-filename-extension': [
@@ -24,6 +16,16 @@ export default {
             extensions: ['.jsx', '.tsx'],
           },
         ],
+      },
+    },
+    {
+      name: 'airbnb/config/typescript-import-x',
+      settings: {
+        'import-x/resolver': {
+          node: {
+            extensions: [...jsExtensionsResolver, ...tsExtensionsWithReactDTS],
+          },
+        },
       },
     },
   ],

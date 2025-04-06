@@ -23,11 +23,6 @@ export default {
     },
   },
   settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.cjs', '.mjs', '.jsx', '.json'],
-      },
-    },
     react: {
       pragma: 'React',
       version: 'detect',

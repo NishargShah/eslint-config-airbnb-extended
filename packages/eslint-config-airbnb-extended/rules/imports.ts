@@ -70,7 +70,7 @@ export default {
 
     // disallow non-import statements appearing before import statements
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/imports-first.md
-    // @deprecated: use `import/first`
+    // @deprecated: use `import-x/first`
     'import-x/imports-first': 'off',
 
     // Forbid modules to have too many dependencies
