@@ -73,7 +73,7 @@ const customTSESLintConfig = config(
   },
   // DISABLED TYPECHECKING FOR JS FILES
   {
-    files: ['**/*.js', '**/*.mjs'],
+    files: ['**/*.{js,cjs,mjs}'],
     ...configs.disableTypeChecked,
   },
 );

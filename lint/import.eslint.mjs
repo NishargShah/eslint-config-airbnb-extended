@@ -1,24 +1,25 @@
-import ESLintPluginImport from 'eslint-plugin-import';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import { flatConfigs } from 'eslint-plugin-import-x';
 import ESLintPluginUnusedImports from 'eslint-plugin-unused-imports';
 
 const customImportESLintConfig = [
   // IMPORT CONFIG
-  ESLintPluginImport.flatConfigs.recommended,
+  flatConfigs.recommended,
   // IMPORT TYPESCRIPT CONFIG
-  {
-    name: 'import/typescript',
-    ...ESLintPluginImport.flatConfigs.typescript,
-  },
+  flatConfigs.typescript,
   // IMPORT CONFIG RULES
   {
-    name: 'import/rules',
+    name: 'import-x/rules',
     settings: {
-      'import/resolver': {
-        typescript: {
-          project: ['tsconfig.json', 'packages/*/tsconfig.json'],
-        },
+      'import-x/resolver': {
         node: true,
       },
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+          project: ['tsconfig.json', 'packages/*/tsconfig.json'],
+        }),
+      ],
     },
     rules: {
       'sort-imports': [
@@ -27,41 +28,12 @@ const customImportESLintConfig = [
           ignoreDeclarationSort: true,
         },
       ],
-      'import/prefer-default-export': 'off',
-      'import/order': [
-        'error',
-        {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            ['parent', 'sibling', 'index'],
-            'object',
-            ['unknown', 'type'],
-          ],
-          pathGroups: [
-            {
-              pattern: 'react',
-              group: 'external',
-              position: 'before',
-            },
-          ],
-          'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
-          },
-          distinctGroup: true,
-          pathGroupsExcludedImportTypes: ['type'],
-          warnOnUnassignedImports: true,
-        },
-      ],
-      'import/no-unresolved': 'error',
+      'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
     },
   },
   // RESTRICTED SOME IMPORTS
   {
-    name: 'import/rules/ts-only',
+    name: 'import-x/rules/ts-only',
     files: ['**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': [

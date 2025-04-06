@@ -11,7 +11,7 @@ const customJSESLintConfig = [
   // PROMISE CONFIG
   ESLintPluginPromise.configs['flat/recommended'],
   // UNICORN CONFIG
-  ESLintPluginUnicorn.configs['flat/recommended'],
+  ESLintPluginUnicorn.configs.recommended,
   // UNICORN CONFIG RULES
   {
     name: 'unicorn/rules',
