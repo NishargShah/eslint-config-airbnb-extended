@@ -1,14 +1,23 @@
-import { blackBright, blue, cyanBright, greenBright, redBright, yellowBright } from 'picocolors';
+import {
+  blackBright,
+  blue,
+  cyan,
+  cyanBright,
+  greenBright,
+  red,
+  redBright,
+  yellowBright,
+} from 'picocolors';
 import prompts from 'prompts';
 
 import { configs, defaults, languages } from '@/constants';
 import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
 import { exit, handleSigTerm, onCancel, success } from '@/utils';
-import installPackages from '@/helpers/installPackages';
 
 import type { ProgramOpts } from '@/helpers/getArgs';
 import type { ValueOf } from '@/utils/types';
 import type { InstallPackagesArgs } from '@/helpers/installPackages';
+import installPackages from '@/helpers/installPackages';
 import getCommands from '@/helpers/getCommands';
 
 process.on('SIGINT', handleSigTerm);
@@ -151,15 +160,32 @@ const run = async () => {
 
   const newArgs = args as InstallPackagesArgs;
   const commands = getCommands(newArgs);
+  console.log();
 
   if (args.skipInstall) {
     const command = commands.join(' ');
+
+    console.log(
+      `${yellowBright('No Worries')}, you can install the packages yourself using your ${blue('favourite')} package manager (${newArgs.packageManager}, maybe? 🤔)`,
+    );
+    console.log();
+    console.log(cyan('Command:'));
     console.log(command);
   } else {
+    console.log(
+      `${blue('Installing')} packages using ${cyanBright(newArgs.packageManager)}, please wait...`,
+    );
+
     await installPackages(newArgs);
+    console.log();
+    console.log(yellowBright('Installation Completed'));
   }
 
-  console.log(args);
+  console.log();
+  console.log(cyan('Config:'));
+  console.log();
+  console.log(red('WIP'));
+  console.log();
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
