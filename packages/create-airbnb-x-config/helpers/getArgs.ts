@@ -1,4 +1,4 @@
-import { configs, languages, packageMangers } from '@/constants';
+import { configs, languages, packageManagers } from '@/constants';
 import program from '@/helpers/program';
 
 import type { ValueOf } from '@/utils/types';
@@ -76,10 +76,10 @@ type GetPackageManagerFromOpts = (opts: Partial<ProgramOpts>) => GetArgsOutput['
 const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
   const { useNpm, useYarn, usePnpm, useBun } = opts;
 
-  if (useNpm) return packageMangers.NPM;
-  if (useYarn) return packageMangers.YARN;
-  if (usePnpm) return packageMangers.PNPM;
-  if (useBun) return packageMangers.BUN;
+  if (useNpm) return packageManagers.NPM;
+  if (useYarn) return packageManagers.YARN;
+  if (usePnpm) return packageManagers.PNPM;
+  if (useBun) return packageManagers.BUN;
   return null;
 };
 
@@ -119,7 +119,7 @@ export interface GetArgsOutput {
   typescript: boolean | null;
   language: ValueOf<typeof languages> | null;
   config: ValueOf<typeof configs>[] | null;
-  packageManager: ValueOf<typeof packageMangers> | null;
+  packageManager: ValueOf<typeof packageManagers> | null;
   skipInstall: true | null;
 }
 

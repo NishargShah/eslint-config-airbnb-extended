@@ -19,7 +19,7 @@ export const defaults = {
   skipInstall: false,
 } as const;
 
-export const packageMangers = {
+export const packageManagers = {
   NPM: 'npm',
   YARN: 'yarn',
   PNPM: 'pnpm',

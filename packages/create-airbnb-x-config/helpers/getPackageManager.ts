@@ -1,7 +1,7 @@
 import type { ValueOf } from '@/utils/types';
-import { packageMangers } from '@/constants';
+import { packageManagers } from '@/constants';
 
-export type PackageManager = ValueOf<typeof packageMangers>;
+export type PackageManager = ValueOf<typeof packageManagers>;
 
 type GetPackageManager = () => PackageManager;
 
@@ -11,17 +11,17 @@ type GetPackageManager = () => PackageManager;
 export const getPackageManager: GetPackageManager = () => {
   const userAgent = process.env.npm_config_user_agent ?? '';
 
-  if (userAgent.startsWith(packageMangers.YARN)) {
-    return packageMangers.YARN;
+  if (userAgent.startsWith(packageManagers.YARN)) {
+    return packageManagers.YARN;
   }
 
-  if (userAgent.startsWith(packageMangers.PNPM)) {
-    return packageMangers.PNPM;
+  if (userAgent.startsWith(packageManagers.PNPM)) {
+    return packageManagers.PNPM;
   }
 
-  if (userAgent.startsWith(packageMangers.BUN)) {
-    return packageMangers.BUN;
+  if (userAgent.startsWith(packageManagers.BUN)) {
+    return packageManagers.BUN;
   }
 
-  return packageMangers.NPM;
+  return packageManagers.NPM;
 };
