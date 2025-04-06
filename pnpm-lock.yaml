@@ -68,6 +68,9 @@ importers:
       commander:
         specifier: ^13.1.0
         version: 13.1.0
+      cross-spawn:
+        specifier: ^7.0.6
+        version: 7.0.6
       picocolors:
         specifier: ^1.1.1
         version: 1.1.1
@@ -75,6 +78,9 @@ importers:
         specifier: ^2.4.2
         version: 2.4.2
     devDependencies:
+      '@types/cross-spawn':
+        specifier: ^6.0.6
+        version: 6.0.6
       '@types/prompts':
         specifier: ^2.4.9
         version: 2.4.9
@@ -354,6 +360,9 @@ packages:
 
   '@types/confusing-browser-globals@1.0.3':
     resolution: {integrity: sha512-q+6axdE3RyjrSsy2ONE4UpF89rwOfpoMBP3lqJ+OzLuOeYHwP+o2GITzuleKb1UT3FSYybO8QmeACgyHleu2CA==}
+
+  '@types/cross-spawn@6.0.6':
+    resolution: {integrity: sha512-fXRhhUkG4H3TQk5dBhQ7m/JDdSNHKwR2BBia62lhwEIq9xGiQKLxd6LymNhn47SjXhsUEPmxi+PKw2OkW4LLjA==}
 
   '@types/doctrine@0.0.9':
     resolution: {integrity: sha512-eOIHzCUSH7SMfonMG1LsC2f8vxBFtho6NGBznK41R84YzPuvSBzrhEps33IsQiOW9+VL6NQ9DbjQJznk/S4uRA==}
@@ -2542,6 +2551,10 @@ snapshots:
 
   '@types/confusing-browser-globals@1.0.3': {}
 
+  '@types/cross-spawn@6.0.6':
+    dependencies:
+      '@types/node': 22.14.0
+
   '@types/doctrine@0.0.9': {}
 
   '@types/eslint-plugin-jsx-a11y@6.10.0':
@@ -2590,10 +2603,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/eslint-plugin@8.29.0(@typescript-eslint/parser@8.29.0(eslint@9.24.0)(typescript@5.8.2))(eslint@9.24.0)(typescript@5.8.2)':
+  '@typescript-eslint/eslint-plugin@8.29.0(@typescript-eslint/parser@8.29.0(eslint@9.23.0)(typescript@5.8.2))(eslint@9.24.0)(typescript@5.8.2)':
     dependencies:
       '@eslint-community/regexpp': 4.12.1
-      '@typescript-eslint/parser': 8.29.0(eslint@9.24.0)(typescript@5.8.2)
+      '@typescript-eslint/parser': 8.29.0(eslint@9.23.0)(typescript@5.8.2)
       '@typescript-eslint/scope-manager': 8.29.0
       '@typescript-eslint/type-utils': 8.29.0(eslint@9.24.0)(typescript@5.8.2)
       '@typescript-eslint/utils': 8.29.0(eslint@9.24.0)(typescript@5.8.2)
@@ -4662,7 +4675,7 @@ snapshots:
 
   typescript-eslint@8.29.0(eslint@9.24.0)(typescript@5.8.2):
     dependencies:
-      '@typescript-eslint/eslint-plugin': 8.29.0(@typescript-eslint/parser@8.29.0(eslint@9.24.0)(typescript@5.8.2))(eslint@9.24.0)(typescript@5.8.2)
+      '@typescript-eslint/eslint-plugin': 8.29.0(@typescript-eslint/parser@8.29.0(eslint@9.23.0)(typescript@5.8.2))(eslint@9.24.0)(typescript@5.8.2)
       '@typescript-eslint/parser': 8.29.0(eslint@9.24.0)(typescript@5.8.2)
       '@typescript-eslint/utils': 8.29.0(eslint@9.24.0)(typescript@5.8.2)
       eslint: 9.24.0

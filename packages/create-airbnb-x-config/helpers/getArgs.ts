@@ -83,6 +83,17 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
   return null;
 };
 
+// Get Install
+
+type GetSkipInstall = (opts: Partial<ProgramOpts>) => GetArgsOutput['skipInstall'];
+
+const getSkipInstall: GetSkipInstall = (opts) => {
+  const { skipInstall } = opts;
+
+  if (skipInstall) return true;
+  return null;
+};
+
 // Get Args
 
 export interface ProgramOpts {
@@ -101,13 +112,15 @@ export interface ProgramOpts {
   useYarn: true;
   usePnpm: true;
   useBun: true;
+  skipInstall: true;
 }
 
-interface GetArgsOutput {
+export interface GetArgsOutput {
   typescript: boolean | null;
   language: ValueOf<typeof languages> | null;
   config: ValueOf<typeof configs>[] | null;
   packageManager: ValueOf<typeof packageMangers> | null;
+  skipInstall: true | null;
 }
 
 type GetArgs = () => GetArgsOutput;
@@ -121,6 +134,7 @@ const getArgs: GetArgs = () => {
     language: config ? languages.OTHER : getLanguage(opts),
     config,
     packageManager: getPackageManagerFromOpts(opts) ?? getPackageManager(),
+    skipInstall: getSkipInstall(opts),
   };
 };
 

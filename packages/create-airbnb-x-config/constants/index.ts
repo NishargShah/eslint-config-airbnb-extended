@@ -16,6 +16,7 @@ export const configs = {
 export const defaults = {
   typescript: true,
   language: 0,
+  skipInstall: false,
 } as const;
 
 export const packageMangers = {

@@ -1,4 +1,4 @@
-import { cyan, red } from 'picocolors';
+import { red } from 'picocolors';
 
 import type { InitialReturnValue } from 'prompts';
 
@@ -58,7 +58,7 @@ type Exit = (reason: ExitReason) => void;
 export const exit: Exit = (reason) => {
   console.log('Aborting installation.');
   if (reason.command) {
-    console.log(`  ${cyan(reason.command)} has failed.`);
+    console.log(`${red(reason.command)} has failed.`);
   } else {
     console.log(red('Unexpected error. Please report it as a bug:') + '\n', reason);
   }

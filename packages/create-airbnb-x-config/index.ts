@@ -1,13 +1,15 @@
 import { blackBright, blue, cyanBright, greenBright, redBright, yellowBright } from 'picocolors';
-// eslint-disable-next-line import-x/no-named-as-default
 import prompts from 'prompts';
 
 import { configs, defaults, languages } from '@/constants';
 import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
 import { exit, handleSigTerm, onCancel, success } from '@/utils';
+import installPackages from '@/helpers/installPackages';
 
 import type { ProgramOpts } from '@/helpers/getArgs';
 import type { ValueOf } from '@/utils/types';
+import type { InstallPackagesArgs } from '@/helpers/installPackages';
+import getCommands from '@/helpers/getCommands';
 
 process.on('SIGINT', handleSigTerm);
 process.on('SIGTERM', handleSigTerm);
@@ -73,56 +75,88 @@ const run = async () => {
     args = { ...args, language };
   }
 
-  if (!args.config && args.language === languages.OTHER) {
-    const { config } = await prompts(
-      {
-        type: 'multiselect',
-        name: 'config',
-        message: 'Select Config:',
-        min: 1,
-        choices: [
-          {
-            title: 'Base',
-            description: yellowBright('Base config without React/JSX configurations'),
-            value: configs.BASE,
-          },
-          {
-            title: 'Node',
-            description: greenBright('Node config with Base config'),
-            value: configs.NODE,
-          },
-          {
-            title: 'React',
-            description: cyanBright('React config with base config'),
-            value: configs.REACT,
-          },
-          {
-            title: 'Next',
-            description: blackBright('Next.js config with base config'),
-            value: configs.NEXT,
-          },
-          {
-            title: 'Remix (React Router)',
-            description: redBright('Remix (React Router) config with base config'),
-            value: configs.REACT_ROUTER,
-          },
-        ],
-        format: (prev) => {
-          const values = prev as ValueOf<typeof configs>[];
-          const opts = values.reduce<Partial<ProgramOpts>>((acc, value) => {
-            return { ...acc, [`${value}Config`]: true };
-          }, {});
+  if (!args.config) {
+    if (args.language === languages.OTHER) {
+      const { config } = await prompts(
+        {
+          type: 'multiselect',
+          name: 'config',
+          message: 'Select Config:',
+          min: 1,
+          choices: [
+            {
+              title: 'Base',
+              description: yellowBright('Base config without React/JSX configurations'),
+              value: configs.BASE,
+            },
+            {
+              title: 'Node',
+              description: greenBright('Node config with Base config'),
+              value: configs.NODE,
+            },
+            {
+              title: 'React',
+              description: cyanBright('React config with base config'),
+              value: configs.REACT,
+            },
+            {
+              title: 'Next',
+              description: blackBright('Next.js config with base config'),
+              value: configs.NEXT,
+            },
+            {
+              title: 'Remix (React Router)',
+              description: redBright('Remix (React Router) config with base config'),
+              value: configs.REACT_ROUTER,
+            },
+          ],
+          format: (prev) => {
+            const values = prev as ValueOf<typeof configs>[];
+            const opts = values.reduce<Partial<ProgramOpts>>((acc, value) => {
+              return { ...acc, [`${value}Config`]: true };
+            }, {});
 
-          return getConfig(opts);
+            return getConfig(opts);
+          },
+          hint: configHelp,
         },
-        hint: configHelp,
+        {
+          onCancel,
+        },
+      );
+
+      args = { ...args, config };
+    } else {
+      args = { ...args, config: [] };
+    }
+  }
+
+  if (args.skipInstall === null) {
+    const { skipInstall } = await prompts(
+      {
+        type: 'toggle',
+        name: 'skipInstall',
+        message: `Do you want to skip the package installation?`,
+        initial: defaults.skipInstall,
+        active: 'Yes',
+        inactive: 'No',
       },
       {
         onCancel,
       },
     );
 
-    args = { ...args, config };
+    args = { ...args, skipInstall };
+  }
+
+  const newArgs = args as InstallPackagesArgs;
+  const commands = getCommands(newArgs);
+
+  if (args.skipInstall) {
+    const command = commands.join(' ');
+    console.log(command);
+  } else {
+    await installPackages(newArgs);
   }
 
   console.log(args);
