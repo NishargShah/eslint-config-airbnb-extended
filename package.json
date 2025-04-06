@@ -23,6 +23,8 @@
     "inspector": "pnpm dlx @eslint/config-inspector --config eslint-x.config.mjs",
     "lint": "eslint .",
     "lint:fix": "pnpm --silent lint --fix",
+    "pkg:prepare": "pnpm changeset && pnpm changeset version",
+    "pkg:publish": "pnpm -r build && pnpm changeset publish",
     "prepare": "husky",
     "script:lint": "bash -e ./scripts/lint.sh",
     "typecheck": "pnpm -r typecheck"
