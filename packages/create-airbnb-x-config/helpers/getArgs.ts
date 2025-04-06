@@ -1,7 +1,8 @@
-import { configs, languages } from '@/constants';
+import { configs, languages, packageMangers } from '@/constants';
 import program from '@/helpers/program';
 
 import type { ValueOf } from '@/utils/types';
+import { getPackageManager } from '@/helpers/getPackageManager';
 
 // Get Typescript Value
 
@@ -68,6 +69,20 @@ export const getConfig: GetConfig = (opts) => {
   return null;
 };
 
+// Get Package Manger from Opts
+
+type GetPackageManagerFromOpts = (opts: Partial<ProgramOpts>) => GetArgsOutput['packageManager'];
+
+const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
+  const { useNpm, useYarn, usePnpm, useBun } = opts;
+
+  if (useNpm) return packageMangers.NPM;
+  if (useYarn) return packageMangers.YARN;
+  if (usePnpm) return packageMangers.PNPM;
+  if (useBun) return packageMangers.BUN;
+  return null;
+};
+
 // Get Args
 
 export interface ProgramOpts {
@@ -82,12 +97,17 @@ export interface ProgramOpts {
   reactConfig: true;
   nextConfig: true;
   reactRouterConfig: true;
+  useNpm: true;
+  useYarn: true;
+  usePnpm: true;
+  useBun: true;
 }
 
 interface GetArgsOutput {
   typescript: boolean | null;
   language: ValueOf<typeof languages> | null;
   config: ValueOf<typeof configs>[] | null;
+  packageManager: ValueOf<typeof packageMangers> | null;
 }
 
 type GetArgs = () => GetArgsOutput;
@@ -100,6 +120,7 @@ const getArgs: GetArgs = () => {
     typescript: getTypescript(opts),
     language: config ? languages.OTHER : getLanguage(opts),
     config,
+    packageManager: getPackageManagerFromOpts(opts) ?? getPackageManager(),
   };
 };
 

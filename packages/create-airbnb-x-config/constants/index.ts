@@ -17,3 +17,10 @@ export const defaults = {
   typescript: true,
   language: 0,
 } as const;
+
+export const packageMangers = {
+  NPM: 'npm',
+  YARN: 'yarn',
+  PNPM: 'pnpm',
+  BUN: 'bun',
+} as const;

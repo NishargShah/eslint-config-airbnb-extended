@@ -1,4 +1,5 @@
 import { blackBright, blue, cyanBright, greenBright, redBright, yellowBright } from 'picocolors';
+// eslint-disable-next-line import-x/no-named-as-default
 import prompts from 'prompts';
 
 import { configs, defaults, languages } from '@/constants';
@@ -72,7 +73,7 @@ const run = async () => {
     args = { ...args, language };
   }
 
-  if (args.language === languages.OTHER) {
+  if (!args.config && args.language === languages.OTHER) {
     const { config } = await prompts(
       {
         type: 'multiselect',
