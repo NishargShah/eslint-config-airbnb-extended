@@ -11,6 +11,13 @@
     "isolatedModules": true,
     "declaration": true
   },
-  "include": ["**/*.mjs"],
-  "exclude": ["node_modules"]
+  "files": [],
+  "references": [
+    {
+      "path": "packages/create-airbnb-x-config"
+    },
+    {
+      "path": "packages/eslint-config-airbnb-extended"
+    }
+  ]
 }

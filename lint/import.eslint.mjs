@@ -17,7 +17,6 @@ const customImportESLintConfig = [
       'import-x/resolver-next': [
         createTypeScriptImportResolver({
           alwaysTryTypes: true,
-          project: ['tsconfig.json', 'packages/*/tsconfig.json'],
         }),
       ],
     },

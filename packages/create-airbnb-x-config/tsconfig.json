@@ -5,6 +5,7 @@
     "require": ["tsconfig-paths/register"]
   },
   "compilerOptions": {
+    "composite": true,
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
