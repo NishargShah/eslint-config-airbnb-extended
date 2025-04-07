@@ -1,3 +1,9 @@
+## 0.3.1 (2025-04-08)
+
+### 🩹 Fixes
+
+- **cli:** Resolved `npx` issue by adding `shebang` line
+
 ## 0.3.0 (2025-04-08)
 
 ### 🚨Breaking Change
