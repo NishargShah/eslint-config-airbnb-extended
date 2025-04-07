@@ -1,12 +1,26 @@
+## 0.3.0 (2025-04-08)
+
+### 🚨Breaking Change
+
+- **eslint-config-airbnb:** Renamed `typescript-only` config to `typescript`
+- **eslint-config-airbnb:** Renamed `typescript` config to `all`
+
+### 🚀 Features
+
+- **eslint-config-airbnb:** Added `node` config
+- **eslint-config-airbnb:** Added README.md
+- **eslint-config-airbnb:** Added MIGRATION.md
+- **cli:** Added README.md
+
+### ❤️ Thank You
+
+- (docs) Thanks to ChatGPT :)
+
 ## 0.2.1 (2025-04-07)
 
 ### 🩹 Fixes
 
 - **cli:** Resolved package manager issue
-
-### ❤️ Thank You
-
-- Nisharg Shah @nishargshah
 
 ## 0.2.0 (2025-04-07)
 
@@ -20,10 +34,6 @@
 
 - **eslint-config-airbnb:** Removed changeset CLI
 - **cli:** Removed changeset CLI
-
-### ❤️ Thank You
-
-- Nisharg Shah @nishargshah
 
 ## 0.1.0 (2025-04-05)
 
