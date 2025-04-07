@@ -32,7 +32,7 @@
     "create-airbnb-x-config": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -b",
     "postbuild": "tsc-alias",
     "dev": "nodemon index.ts",
     "start": "ts-node index.ts",
