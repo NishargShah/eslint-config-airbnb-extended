@@ -21,17 +21,22 @@ export const rules = {
 export const configs = {
   base: {
     recommended: baseRecommended,
-    'typescript-only': typescriptRecommended.base,
-    typescript: [...baseRecommended, ...typescriptRecommended.base],
+    typescript: typescriptRecommended.base,
+    all: [...baseRecommended, ...typescriptRecommended.base],
   },
   react: {
     recommended: reactRecommended,
-    'typescript-only': typescriptRecommended.react,
-    typescript: [...reactRecommended, ...typescriptRecommended.react],
+    typescript: typescriptRecommended.react,
+    all: [...reactRecommended, ...typescriptRecommended.react],
   },
   next: {
     recommended: [...reactRecommended, next],
-    'typescript-only': typescriptRecommended.react,
-    typescript: [...reactRecommended, ...typescriptRecommended.react, next],
+    typescript: typescriptRecommended.react,
+    all: [...reactRecommended, ...typescriptRecommended.react, next],
+  },
+  node: {
+    recommended: baseRecommended,
+    typescript: typescriptRecommended.base,
+    all: [...baseRecommended, ...typescriptRecommended.base],
   },
 } satisfies Record<string, Record<string, Linter.Config[]>>;

@@ -1,1 +1,1 @@
-WIP
+# `eslint-airbnb-x-config`

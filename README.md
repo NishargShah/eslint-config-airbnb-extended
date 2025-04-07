@@ -32,7 +32,7 @@ A powerful ESLint configuration extending the popular Airbnb style guide, with a
 
 This package extends the official Airbnb ESLint configuration to fully support TypeScript, allowing you to enforce consistent coding standards across both JavaScript and TypeScript files.
 
-For detailed installation and configuration instructions, please visit the [package](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended).
+For detailed installation and configuration instructions, please check the [README.md](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#eslint-config-airbnb-extended).
 
 ### `create-airbnb-x-config`
 
@@ -42,7 +42,7 @@ For detailed installation and configuration instructions, please visit the [pack
 
 `create-airbnb-x-config` is a setup tool that allows you to quickly create an ESLint configuration tailored to your project with a few simple commands. It automates the setup of the `eslint-config-airbnb-extended` configuration package and ensuring that your ESLint rules are applied correctly across JavaScript and TypeScript code.
 
-For further details on how to use the tool, visit the [package](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/create-airbnb-x-config).
+For further details on how to use the tool, please check the [README.md](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/create-airbnb-x-config#create-airbnb-x-config).
 
 ## Note
 
