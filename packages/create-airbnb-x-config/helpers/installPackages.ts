@@ -1,6 +1,8 @@
 import spawn from 'cross-spawn';
-import type { GetArgsOutput } from '@/helpers/getArgs';
+
 import getCommands from '@/helpers/getCommands';
+
+import type { GetArgsOutput } from '@/helpers/getArgs';
 
 export type InstallPackagesArgs = {
   [K in keyof GetArgsOutput]: NonNullable<GetArgsOutput[K]>;

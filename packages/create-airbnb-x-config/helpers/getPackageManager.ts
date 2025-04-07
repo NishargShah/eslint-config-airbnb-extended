@@ -1,5 +1,6 @@
-import type { ValueOf } from '@/utils/types';
 import { packageManagers } from '@/constants';
+
+import type { ValueOf } from '@/utils/types';
 
 export type PackageManager = ValueOf<typeof packageManagers>;
 

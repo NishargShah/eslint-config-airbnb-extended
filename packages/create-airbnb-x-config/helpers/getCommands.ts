@@ -1,5 +1,6 @@
-import type { InstallPackagesArgs } from '@/helpers/installPackages';
 import { configs, languages, packageManagers } from '@/constants';
+
+import type { InstallPackagesArgs } from '@/helpers/installPackages';
 
 type GetCommands = (args: InstallPackagesArgs) => string[];
 

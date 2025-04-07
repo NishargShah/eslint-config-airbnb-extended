@@ -1,8 +1,8 @@
 import recommended from '@/base/recommended';
 import react from '@/react';
+import { jsExtensionsWithReact } from '@/utils';
 
 import type { Linter } from 'eslint';
-import { jsExtensionsWithReact } from '@/utils';
 
 export default [
   ...recommended,

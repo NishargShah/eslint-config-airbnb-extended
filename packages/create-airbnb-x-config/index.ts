@@ -14,13 +14,13 @@ import prompts from 'prompts';
 
 import { configs, defaults, languages } from '@/constants';
 import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
+import getCommands from '@/helpers/getCommands';
+import installPackages from '@/helpers/installPackages';
 import { exit, handleSigTerm, onCancel, success } from '@/utils';
 
 import type { ProgramOpts } from '@/helpers/getArgs';
-import type { ValueOf } from '@/utils/types';
 import type { InstallPackagesArgs } from '@/helpers/installPackages';
-import installPackages from '@/helpers/installPackages';
-import getCommands from '@/helpers/getCommands';
+import type { ValueOf } from '@/utils/types';
 
 process.on('SIGINT', handleSigTerm);
 process.on('SIGTERM', handleSigTerm);

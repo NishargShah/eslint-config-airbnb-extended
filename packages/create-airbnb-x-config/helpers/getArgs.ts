@@ -1,8 +1,8 @@
 import { configs, languages, packageManagers } from '@/constants';
+import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
 
 import type { ValueOf } from '@/utils/types';
-import { getPackageManager } from '@/helpers/getPackageManager';
 
 // Get Typescript Value
 

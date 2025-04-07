@@ -1,3 +1,6 @@
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+
+import { getDevDepsList } from '@/helpers/getDevDepsList';
 import {
   jsExtensionsResolver,
   jsExtensionsWithReact,
@@ -7,10 +10,7 @@ import {
   tsExtensionsWithReactDTS,
 } from '@/utils';
 
-import { getDevDepsList } from '@/helpers/getDevDepsList';
-
 import type { Linter } from 'eslint';
-import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 
 /**
  * @see https://github.com/un-ts/eslint-plugin-import-x/blob/master/src/config/typescript.ts

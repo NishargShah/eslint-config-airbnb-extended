@@ -1,6 +1,7 @@
-import type { Linter } from 'eslint';
 import typescript from '@/typescript';
 import { jsExtensionsResolver, tsExtensionsWithReactDTS } from '@/utils';
+
+import type { Linter } from 'eslint';
 
 export default {
   base: typescript.typescript,
