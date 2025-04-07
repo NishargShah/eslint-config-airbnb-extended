@@ -54,6 +54,10 @@ This package was created by taking reference from the following ESLint configura
 
 These packages are no longer maintained. To ensure continued compatibility and keep up-to-date with the latest versions of dependencies, I have updated the dependencies and extended their functionality, resulting in the creation of the `eslint-config-airbnb-extended` package, which is actively maintained and fully supports TypeScript.
 
+## Migration Guide
+
+Already using old [packages](https://github.com/NishargShah/eslint-config-airbnb-extended?tab=readme-ov-file#note) and migrated to flat config, but still encountering issues with your Airbnb config? This package is your solution! For a smooth transition, check out our detailed [Migration Guide](https://github.com/NishargShah/eslint-config-airbnb-extended/blob/master/MIGRATION.md).
+
 ## Community & Support
 
 Feel free to open issues, contribute to the repository, or simply discuss ideas via GitHub discussions or the Issues tab. Pull requests are welcome to improve and extend the configuration.

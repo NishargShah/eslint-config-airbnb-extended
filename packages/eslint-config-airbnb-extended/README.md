@@ -16,7 +16,7 @@
 npx create-airbnb-x-config
 ```
 
-To learn more about the configuration options available for `create-airbnb-x-config`, check out the [README.md](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/create-airbnb-x-config).
+To learn more about the configuration options available for `create-airbnb-x-config`, check out the [README.md](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/create-airbnb-x-config#create-airbnb-x-config).
 
 ### Steps
 
@@ -31,7 +31,7 @@ After completing the steps, you’ll get a **GitHub URL** for the configuration 
 
 While **manual installation** is possible, we strongly recommend using `create-airbnb-x-config` for automatic updates and ease of use.
 
-The configuration may change over time, and `create-airbnb-x-config` will always stay up-to-date with the latest versions. If you're confident in handling manual installations, refer to the [Packages Used](https://github.com/NishargShah/eslint-config-airbnb-extended#packages-used) section for more information on the individual packages.
+The configuration may change over time, and `create-airbnb-x-config` will always stay up-to-date with the latest versions. If you're confident in handling manual installations, refer to the [Packages Used](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#packages-used) section for more information on the individual packages.
 
 ## Packages Used
 
@@ -43,10 +43,6 @@ This configuration relies on the following essential packages:
 - **`eslint-plugin-jsx-a11y`**: Improves accessibility in JSX code.
 - **`typescript-eslint`**: Provides linting support for TypeScript codebases.
 - **`eslint-import-resolver-typescript`**: Ensures TypeScript compatibility for import statements.
-
-## Migration Guide
-
-Already using these [packages](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended) and migrated to flat config, but still encountering issues with your Airbnb config? This package is your solution! For a smooth transition, check out our detailed [Migration Guide](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended/MIGRATION.md).
 
 ## FAQs
 
