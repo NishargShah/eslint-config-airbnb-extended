@@ -12,6 +12,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.mjs", "**/*.mts"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mjs", "**/*.mts", "package.json"],
   "exclude": ["node_modules", "dist"]
 }

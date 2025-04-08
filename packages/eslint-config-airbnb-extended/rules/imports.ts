@@ -1,13 +1,13 @@
+import { flatConfigs } from 'eslint-plugin-import-x';
+import globals from 'globals';
+
+import { getDevDepsList } from '@/helpers/getDevDepsList';
 import {
   jsExtensions,
   jsExtensionsResolver,
   jsExtensionsRule,
   jsExtensionsWithReact,
 } from '@/utils';
-import { flatConfigs } from 'eslint-plugin-import-x';
-import globals from 'globals';
-
-import { getDevDepsList } from '@/helpers/getDevDepsList';
 
 import type { Linter } from 'eslint';
 
@@ -83,7 +83,7 @@ export default {
 
     // Enforces names exist at the time they are dereferenced
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
-    'import-x/namespaces': 'error',
+    'import-x/namespace': 'error',
 
     // Require a newline after the last import/require in a group
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/newline-after-import.md
@@ -219,14 +219,8 @@ export default {
 
     // Reports modules without any exports, or with unused exports
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unused-modules.md
-    'import-x/no-unused-modules': [
-      'off',
-      {
-        ignoreExports: [],
-        missingExports: true,
-        unusedExports: true,
-      },
-    ],
+    // No Common.js support
+    'import-x/no-unused-modules': 'off',
 
     // Ensures that there are no useless path segments
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-useless-path-segments.md

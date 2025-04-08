@@ -1,25 +1,12 @@
-import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-import { flatConfigs } from 'eslint-plugin-import-x';
+import { rules } from 'eslint-config-airbnb-extended';
 import ESLintPluginUnusedImports from 'eslint-plugin-unused-imports';
 
 const customImportESLintConfig = [
-  // IMPORT CONFIG
-  flatConfigs.recommended,
-  // IMPORT TYPESCRIPT CONFIG
-  flatConfigs.typescript,
+  // STRICT IMPORT CONFIG
+  rules.base.importsStrict,
   // IMPORT CONFIG RULES
   {
     name: 'import-x/rules',
-    settings: {
-      'import-x/resolver': {
-        node: true,
-      },
-      'import-x/resolver-next': [
-        createTypeScriptImportResolver({
-          alwaysTryTypes: true,
-        }),
-      ],
-    },
     rules: {
       'sort-imports': [
         'error',

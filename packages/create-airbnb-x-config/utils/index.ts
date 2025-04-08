@@ -60,7 +60,7 @@ export const exit: Exit = (reason) => {
   if (reason.command) {
     console.log(`${red(reason.command)} has failed.`);
   } else {
-    console.log(red('Unexpected error. Please report it as a bug:') + '\n', reason);
+    console.log(`${red('Unexpected error. Please report it as a bug:')}\n`, reason);
   }
   process.exit(1);
 };

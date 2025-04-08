@@ -34,6 +34,7 @@
     "@eslint/compat": "^1.2.8",
     "@eslint/js": "^9.23.0",
     "eslint": "^9.23.0",
+    "eslint-config-airbnb-extended": "workspace:*",
     "eslint-config-prettier": "^10.1.1",
     "eslint-import-resolver-typescript": "^4.3.1",
     "eslint-plugin-import-x": "^4.10.1",

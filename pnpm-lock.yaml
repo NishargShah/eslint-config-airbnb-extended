@@ -20,6 +20,9 @@ importers:
       eslint:
         specifier: ^9.23.0
         version: 9.23.0
+      eslint-config-airbnb-extended:
+        specifier: workspace:*
+        version: link:packages/eslint-config-airbnb-extended
       eslint-config-prettier:
         specifier: ^10.1.1
         version: 10.1.1(eslint@9.23.0)
