@@ -18,7 +18,6 @@ import getCommands from '@/helpers/getCommands';
 import installPackages from '@/helpers/installPackages';
 import { exit, handleSigTerm, onCancel, success } from '@/utils';
 
-import type { ProgramOpts } from '@/helpers/getArgs';
 import type { InstallPackagesArgs } from '@/helpers/installPackages';
 import type { ValueOf } from '@/utils/types';
 
@@ -123,10 +122,7 @@ const run = async () => {
           ],
           format: (prev) => {
             const values = prev as ValueOf<typeof configs>[];
-            const opts = values.reduce<Partial<ProgramOpts>>((acc, value) => {
-              return { ...acc, [`${value}Config`]: true };
-            }, {});
-
+            const opts = Object.fromEntries(values.map((value) => [`${value}Config`, true]));
             return getConfig(opts);
           },
           hint: configHelp,

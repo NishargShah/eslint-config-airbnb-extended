@@ -1,5 +1,6 @@
+import unusedImports from 'eslint-plugin-unused-imports';
+
 import { rules } from 'eslint-config-airbnb-extended';
-import ESLintPluginUnusedImports from 'eslint-plugin-unused-imports';
 
 const customImportESLintConfig = [
   // STRICT IMPORT CONFIG
@@ -38,7 +39,7 @@ const customImportESLintConfig = [
   {
     name: 'unused-imports/rules',
     plugins: {
-      'unused-imports': ESLintPluginUnusedImports,
+      'unused-imports': unusedImports,
     },
     rules: {
       'unused-imports/no-unused-imports': 'error',

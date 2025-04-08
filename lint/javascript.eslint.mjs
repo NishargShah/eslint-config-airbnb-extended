@@ -1,6 +1,8 @@
 import js from '@eslint/js';
-import ESLintPluginPromise from 'eslint-plugin-promise';
-import ESLintPluginUnicorn from 'eslint-plugin-unicorn';
+import promise from 'eslint-plugin-promise';
+import unicorn from 'eslint-plugin-unicorn';
+
+import { configs } from 'eslint-config-airbnb-extended';
 
 const customJSESLintConfig = [
   // ESLINT RECOMMENDED RULES
@@ -8,10 +10,12 @@ const customJSESLintConfig = [
     name: 'js/config',
     ...js.configs.recommended,
   },
+  // AIRBNB CONFIG
+  ...configs.base.recommended,
   // PROMISE CONFIG
-  ESLintPluginPromise.configs['flat/recommended'],
+  promise.configs['flat/recommended'],
   // UNICORN CONFIG
-  ESLintPluginUnicorn.configs.recommended,
+  unicorn.configs.recommended,
   // UNICORN CONFIG RULES
   {
     name: 'unicorn/rules',
