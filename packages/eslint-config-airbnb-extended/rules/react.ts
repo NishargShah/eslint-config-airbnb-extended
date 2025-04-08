@@ -1,4 +1,3 @@
-import EsLintPluginReact from 'eslint-plugin-react';
 import globals from 'globals';
 
 import style from '@/rules/style';
@@ -9,9 +8,6 @@ const dangleRules = style.rules['no-underscore-dangle'];
 
 export default {
   name: 'airbnb/config/react',
-  plugins: {
-    react: EsLintPluginReact,
-  },
   languageOptions: {
     parserOptions: {
       ecmaFeatures: {

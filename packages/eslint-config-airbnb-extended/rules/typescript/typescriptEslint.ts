@@ -1,5 +1,3 @@
-import { parser, plugin } from 'typescript-eslint';
-
 import bestPractices from '@/rules/best-practices';
 import errors from '@/rules/errors';
 import es6 from '@/rules/es6';
@@ -9,16 +7,7 @@ import variables from '@/rules/variables';
 import type { Linter } from 'eslint';
 
 export default {
-  name: 'airbnb/config/typescript/eslint',
-  plugins: {
-    '@typescript-eslint': plugin,
-  },
-  languageOptions: {
-    parser,
-    parserOptions: {
-      projectService: true,
-    },
-  },
+  name: 'airbnb/config/typescript-eslint',
   rules: {
     // Replace Airbnb 'brace-style' rule with '@typescript-eslint' version
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md

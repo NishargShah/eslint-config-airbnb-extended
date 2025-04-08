@@ -1,12 +1,7 @@
-import * as EsLintPluginReactHooks from 'eslint-plugin-react-hooks';
-
 import type { Linter } from 'eslint';
 
 export default {
   name: 'airbnb/config/react-hooks',
-  plugins: {
-    'react-hooks': EsLintPluginReactHooks,
-  },
   languageOptions: {
     parserOptions: {
       ecmaFeatures: {

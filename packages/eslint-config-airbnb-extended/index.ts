@@ -1,5 +1,10 @@
 import base from '@/base';
 import baseRecommended from '@/base/recommended';
+import nextPlugin from '@/plugins/nextPlugin';
+import reactA11yPlugin from '@/plugins/reactA11yPlugin';
+import reactHooksPlugin from '@/plugins/reactHooksPlugin';
+import reactPlugin from '@/plugins/reactPlugin';
+import typescriptEslintPlugin from '@/plugins/typescriptEslintPlugin';
 import react from '@/react';
 import reactRecommended from '@/react/recommended';
 import importsStrict from '@/rules/importsStrict';
@@ -41,3 +46,11 @@ export const configs = {
     all: [...baseRecommended, ...typescriptRecommended.base],
   },
 } satisfies Record<string, Record<string, Linter.Config[]>>;
+
+export const plugins = {
+  next: nextPlugin,
+  react: reactPlugin,
+  reactA11y: reactA11yPlugin,
+  reactHooks: reactHooksPlugin,
+  typescriptEslint: typescriptEslintPlugin,
+} satisfies Record<string, Linter.Config>;

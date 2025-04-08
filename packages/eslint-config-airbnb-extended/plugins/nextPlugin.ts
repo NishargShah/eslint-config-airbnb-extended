@@ -5,9 +5,8 @@ import type { Linter } from 'eslint';
 const ESLintPluginNext = require('@next/eslint-plugin-next');
 
 export default {
-  name: 'airbnb/config/next',
-  rules: {
-    ...ESLintPluginNext.configs.recommended.rules,
-    ...ESLintPluginNext.configs['core-web-vitals'].rules,
+  name: 'airbnb/config/plugin/next',
+  plugins: {
+    '@next/next': ESLintPluginNext,
   },
 } satisfies Linter.Config;
