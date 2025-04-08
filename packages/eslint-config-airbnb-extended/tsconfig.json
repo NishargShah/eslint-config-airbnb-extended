@@ -3,6 +3,7 @@
   "compilerOptions": {
     "composite": true,
     "outDir": "./dist",
+    "declarationDir": "./dist/@types",
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {

@@ -3,3 +3,11 @@
 
 # Not ignored folders
 !dist
+
+# Ignored folders
+dist/tsconfig.tsbuildinfo
+dist/@types/*
+
+# Ignored files
+!dist/@types/index.d.ts
+!dist/@types/tsconfig.tsbuildinfo
