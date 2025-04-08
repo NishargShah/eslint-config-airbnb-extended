@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint';
 
-export default {
-  name: 'airbnb/config/imports-strict',
+const importsStrictRules = {
+  name: 'airbnb/config/import-x/strict',
   rules: {
     // Reports if a module's default export is unnamed
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-anonymous-default-export.md
@@ -60,3 +60,5 @@ export default {
     ],
   },
 } satisfies Linter.Config;
+
+export default importsStrictRules;

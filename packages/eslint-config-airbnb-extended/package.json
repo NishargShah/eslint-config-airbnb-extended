@@ -29,7 +29,7 @@
   "author": "Nisharg Shah <nishargshah3101@gmail.com>",
   "type": "commonjs",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/@types/index.d.ts",
   "scripts": {
     "build": "tsc -b",
     "postbuild": "tsc-alias",

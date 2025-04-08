@@ -2,7 +2,7 @@ import globals from 'globals';
 
 import type { Linter } from 'eslint';
 
-export default {
+const nodeRules = {
   name: 'airbnb/config/node',
   languageOptions: {
     globals: {
@@ -47,3 +47,5 @@ export default {
     'no-sync': 'off',
   },
 } satisfies Linter.Config;
+
+export default nodeRules;

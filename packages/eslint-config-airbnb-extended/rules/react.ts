@@ -3,10 +3,11 @@ import globals from 'globals';
 import style from '@/rules/style';
 
 import type { Linter } from 'eslint';
+import styleRules from '@/rules/style';
 
-const dangleRules = style.rules['no-underscore-dangle'];
+const dangleRules = styleRules.rules['no-underscore-dangle'];
 
-export default {
+const reactRules = {
   name: 'airbnb/config/react',
   languageOptions: {
     parserOptions: {
@@ -681,3 +682,5 @@ export default {
     'react/jsx-props-no-spread-multi': 'off',
   },
 } satisfies Linter.Config;
+
+export default reactRules;

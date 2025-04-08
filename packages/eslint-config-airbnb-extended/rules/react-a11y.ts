@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
 
-export default {
+const reactA11yRules = {
   name: 'airbnb/config/react-a11y',
   languageOptions: {
     parserOptions: {
@@ -286,3 +286,5 @@ export default {
     'jsx-a11y/prefer-tag-over-role': 'off',
   },
 } satisfies Linter.Config;
+
+export default reactA11yRules;

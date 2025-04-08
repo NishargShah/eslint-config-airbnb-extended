@@ -2,7 +2,7 @@ import confusingBrowserGlobals from 'confusing-browser-globals';
 
 import type { Linter } from 'eslint';
 
-export default {
+const variablesRules = {
   name: 'airbnb/config/variables',
   rules: {
     // enforce or disallow variable initializations at definition
@@ -74,3 +74,5 @@ export default {
     ],
   },
 } satisfies Linter.Config;
+
+export default variablesRules;

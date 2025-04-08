@@ -1,9 +1,11 @@
 import type { Linter } from 'eslint';
 
-export default {
+const strictRules = {
   name: 'airbnb/config/strict',
   rules: {
     // babel inserts `'use strict';` for us
     strict: ['error', 'never'],
   },
 } satisfies Linter.Config;
+
+export default strictRules;

@@ -16,7 +16,7 @@ import type { Linter } from 'eslint';
 /**
  * @see https://github.com/un-ts/eslint-plugin-import-x/blob/master/src/config/typescript.ts
  */
-export default {
+const typescriptImportsRules = {
   name: 'airbnb/config/typescript/import-x',
   settings: {
     // Apply special parsing for TypeScript files
@@ -67,3 +67,5 @@ export default {
     'import-x/no-named-as-default-member': 'off',
   },
 } satisfies Linter.Config;
+
+export default typescriptImportsRules;

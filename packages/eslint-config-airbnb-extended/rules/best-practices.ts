@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
 
-export default {
+const bestPracticesRules = {
   name: 'airbnb/config/best-practices',
   rules: {
     // enforces getter/setter pairs in objects
@@ -460,3 +460,5 @@ export default {
     yoda: 'error',
   },
 } satisfies Linter.Config;
+
+export default bestPracticesRules;

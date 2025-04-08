@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
 
-export default {
+const errorsRules = {
   name: 'airbnb/config/errors',
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
@@ -197,3 +197,5 @@ export default {
     'valid-typeof': ['error', { requireStringLiterals: true }],
   },
 } satisfies Linter.Config;
+
+export default errorsRules;

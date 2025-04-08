@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
 
-export default {
+const styleRules = {
   name: 'airbnb/config/style',
   rules: {
     // enforce line breaks after opening and before closing array brackets
@@ -630,3 +630,5 @@ export default {
     'wrap-regex': 'off',
   },
 } satisfies Linter.Config;
+
+export default styleRules;

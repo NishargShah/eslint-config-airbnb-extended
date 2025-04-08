@@ -11,9 +11,9 @@ import {
 
 import type { Linter } from 'eslint';
 
-export default {
+const importsRules = {
   ...(flatConfigs.recommended as Linter.Config),
-  name: 'airbnb/config/imports',
+  name: 'airbnb/config/import-x',
   languageOptions: {
     globals: {
       ...globals.es2015,
@@ -252,3 +252,5 @@ export default {
     'import-x/unambiguous': 'off',
   },
 } satisfies Linter.Config;
+
+export default importsRules;

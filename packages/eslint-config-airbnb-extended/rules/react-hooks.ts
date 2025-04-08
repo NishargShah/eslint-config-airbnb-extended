@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
 
-export default {
+const reactHooksRules = {
   name: 'airbnb/config/react-hooks',
   languageOptions: {
     parserOptions: {
@@ -19,3 +19,5 @@ export default {
     'react-hooks/exhaustive-deps': 'error',
   },
 } satisfies Linter.Config;
+
+export default reactHooksRules;

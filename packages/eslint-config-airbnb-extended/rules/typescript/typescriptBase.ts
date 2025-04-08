@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint';
 
-export default {
-  name: 'airbnb/config/typescript',
+const typescriptBaseRules = {
+  name: 'airbnb/config/typescript/base',
   rules: {
     // The following rules are enabled in Airbnb config, but are already checked (more thoroughly) by the TypeScript compiler
     // Rules are inspired by: https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/eslint-recommended-raw.ts
@@ -24,3 +24,5 @@ export default {
     'valid-typeof': 'off',
   },
 } satisfies Linter.Config;
+
+export default typescriptBaseRules;
