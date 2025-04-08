@@ -1,9 +1,8 @@
 import globals from 'globals';
 
-import style from '@/rules/style';
+import styleRules from '@/rules/style';
 
 import type { Linter } from 'eslint';
-import styleRules from '@/rules/style';
 
 const dangleRules = styleRules.rules['no-underscore-dangle'];
 

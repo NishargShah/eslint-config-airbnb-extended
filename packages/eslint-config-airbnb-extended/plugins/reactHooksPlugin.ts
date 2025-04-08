@@ -3,7 +3,7 @@ import * as EsLintPluginReactHooks from 'eslint-plugin-react-hooks';
 
 import type { Linter } from 'eslint';
 
-export default {
+const reactHooksPlugin = {
   name: 'airbnb/config/plugin/react-hooks',
   plugins: {
     'react-hooks': EsLintPluginReactHooks,
@@ -16,3 +16,5 @@ export default {
     },
   },
 } satisfies Linter.Config;
+
+export default reactHooksPlugin;

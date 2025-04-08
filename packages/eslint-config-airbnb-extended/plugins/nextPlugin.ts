@@ -4,9 +4,11 @@ import type { Linter } from 'eslint';
 // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
 const ESLintPluginNext = require('@next/eslint-plugin-next');
 
-export default {
+const nextPlugin = {
   name: 'airbnb/config/plugin/next',
   plugins: {
     '@next/next': ESLintPluginNext,
   },
 } satisfies Linter.Config;
+
+export default nextPlugin;
