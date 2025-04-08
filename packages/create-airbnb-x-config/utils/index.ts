@@ -46,21 +46,17 @@ export const success = (): void => {
 
 // Run Function Catch Block
 
-interface ExitReason {
-  command?: string;
-}
-
-type Exit = (reason: ExitReason) => void;
+type Exit = (error: Error) => void;
 
 /**
  * @see https://github.com/vercel/next.js/blob/canary/packages/create-next-app/index.ts#L499
  */
-export const exit: Exit = (reason) => {
+export const exit: Exit = (error) => {
   console.log('Aborting installation.');
-  if (reason.command) {
-    console.log(`${red(reason.command)} has failed.`);
+  if (error.cause === 'package-failed') {
+    console.log(`${red(error.message)} has failed.`);
   } else {
-    console.log(`${red('Unexpected error. Please report it as a bug:')}\n`, reason);
+    console.log(`${red('Unexpected error. Please report it as a bug:')}\n`, error);
   }
   process.exit(1);
 };

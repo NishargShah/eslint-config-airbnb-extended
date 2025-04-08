@@ -1,6 +1,6 @@
 type GetDevDepsList = (extensions: string) => string[];
 
-export const getDevDepsList: GetDevDepsList = (extensions) => [
+const getDevDepsList: GetDevDepsList = (extensions) => [
   'test/**',
   'tests/**',
   'spec/**',
@@ -27,3 +27,5 @@ export const getDevDepsList: GetDevDepsList = (extensions) => [
   `**/eslint.config.{${extensions}}`,
   `**/prettier.config.{${extensions}}`,
 ];
+
+export default getDevDepsList;

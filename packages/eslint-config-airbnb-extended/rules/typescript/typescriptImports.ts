@@ -1,7 +1,8 @@
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 
-import { getDevDepsList } from '@/helpers/getDevDepsList';
+import getDevDepsList from '@/helpers/getDevDepsList';
 import {
+  jsExtensions,
   jsExtensionsResolver,
   jsExtensionsWithReact,
   tsExtensions,
@@ -49,7 +50,9 @@ export default {
     'import-x/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: getDevDepsList(tsExtensions.join(',')),
+        devDependencies: getDevDepsList(
+          [...jsExtensions, ...tsExtensions].map((ext) => ext.slice(1)).join(','),
+        ),
         optionalDependencies: false,
         peerDependencies: true,
         bundledDependencies: true,

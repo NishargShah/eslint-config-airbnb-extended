@@ -1,7 +1,7 @@
 import { flatConfigs } from 'eslint-plugin-import-x';
 import globals from 'globals';
 
-import { getDevDepsList } from '@/helpers/getDevDepsList';
+import getDevDepsList from '@/helpers/getDevDepsList';
 import {
   jsExtensions,
   jsExtensionsResolver,
@@ -134,7 +134,7 @@ export default {
     'import-x/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: getDevDepsList(jsExtensions.join(',')),
+        devDependencies: getDevDepsList(jsExtensions.map((ext) => ext.slice(1)).join(',')),
         optionalDependencies: false,
         peerDependencies: true,
         bundledDependencies: true,

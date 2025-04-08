@@ -13,7 +13,7 @@ type InstallPackages = (args: InstallPackagesArgs) => Promise<void>;
 /**
  * @see https://github.com/vercel/next.js/blob/canary/packages/create-next-app/helpers/install.ts
  */
-const install: InstallPackages = async (args) => {
+const installPackages: InstallPackages = async (args) => {
   const { packageManager } = args;
   const commands = getCommands(args).slice(1);
 
@@ -32,7 +32,7 @@ const install: InstallPackages = async (args) => {
 
     child.on('close', (code) => {
       if (code !== 0) {
-        reject({ command: `${packageManager} ${commands.join(' ')}` });
+        reject(new Error(`${packageManager} ${commands.join(' ')}`, { cause: 'package-failed' }));
         return;
       }
 
@@ -41,4 +41,4 @@ const install: InstallPackages = async (args) => {
   });
 };
 
-export default install;
+export default installPackages;
