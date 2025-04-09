@@ -1,6 +1,6 @@
 {
   "name": "create-airbnb-x-config",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Airbnb Extended Config CLI",
   "keywords": [
     "eslint",
@@ -49,8 +49,8 @@
     "@types/prompts": "^2.4.9",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
-    "tsc-alias": "^1.8.13",
+    "tsc-alias": "^1.8.14",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   }
 }

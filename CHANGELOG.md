@@ -1,3 +1,9 @@
+## 0.5.1 (2025-04-10)
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `next` config
+
 ## 0.5.0 (2025-04-10)
 
 ### 🚨Breaking Change
