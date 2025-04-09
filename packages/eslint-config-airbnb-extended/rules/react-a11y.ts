@@ -13,7 +13,7 @@ const reactA11yRules = {
     // ensure emoji are accessible
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/accessible-emoji.md
     // @deprecated
-    'jsx-a11y/accessible-emoji': 'off',
+    // 'jsx-a11y/accessible-emoji': 'off',
 
     // Enforce that all elements that require alternative text have meaningful information
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/alt-text.md
@@ -156,7 +156,7 @@ const reactA11yRules = {
     // require that JSX labels use "htmlFor"
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/label-has-for.md
     // @deprecated: replaced by `label-has-associated-control` rule
-    'jsx-a11y/label-has-for': 'off',
+    // 'jsx-a11y/label-has-for': 'off',
 
     // require HTML element's lang prop to be valid
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/lang.md
@@ -248,7 +248,7 @@ const reactA11yRules = {
     // require onBlur instead of onChange
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-onchange.md
     // @deprecated
-    'jsx-a11y/no-onchange': 'off',
+    // 'jsx-a11y/no-onchange': 'off',
 
     // ensure HTML elements do not specify redundant ARIA roles
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-redundant-roles.md

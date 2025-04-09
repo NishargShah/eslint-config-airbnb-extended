@@ -5,6 +5,7 @@ import importsRules from '@/rules/imports';
 import nodeRules from '@/rules/node';
 import strictRules from '@/rules/strict';
 import styleRules from '@/rules/style';
+import stylisticRules from '@/rules/stylistic';
 import variablesRules from '@/rules/variables';
 
 import type { Linter } from 'eslint';
@@ -17,6 +18,7 @@ const baseConfig = {
   node: nodeRules,
   strict: strictRules,
   style: styleRules,
+  stylistic: stylisticRules,
   variables: variablesRules,
 } satisfies Record<string, Linter.Config>;
 
