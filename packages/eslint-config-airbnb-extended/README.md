@@ -53,3 +53,13 @@ If you're working in a monorepo setup, it's recommended to run the installation 
 ### Why did we switch from `import` to `import-x`?
 
 The switch from the `import` ESLint plugin to `import-x` is due to several improvements. `import-x` provides **better TypeScript support**, ensuring more accurate linting for TypeScript projects. It is **actively maintained**, with regular updates and bug fixes, unlike the original plugin. It also has **fewer issues reported on GitHub**, indicating better stability. Additionally, `import-x` offers a **more performant and lightweight version**, reducing linting overhead and improving build performance. These factors make `import-x` a more reliable and efficient choice.
+
+### Why are `plugins` separated from the `config` in this package?
+
+The main reason for separating `plugins` from the config is to avoid a common issue developers face when extending multiple ESLint configurations. Specifically, many run into the error:
+`Config "package": Key "plugins": Cannot redefine plugin "key".`
+Unfortunately, there's no built-in way to resolve this conflict when plugins are directly included within shared configs.
+
+This package combines multiple ESLint configurations (see [Packages Used](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#packages-used)), and based on experience, it's better to keep `plugins` separate. If you'd like to use the recommended plugins, you can import them directly from the `plugins` export provided by the package.
+
+By doing this, you can safely use this package alongside official ESLint configs without running into plugin redefinition issues.

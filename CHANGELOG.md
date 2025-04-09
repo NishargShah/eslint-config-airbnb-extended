@@ -1,22 +1,40 @@
+## 0.4.0 (2025-04-09)
+
+### 🚨Breaking Change
+
+- **eslint-config-airbnb-extended:** `react` config no longer extends `base` config
+- **eslint-config-airbnb-extended:** Reduce package size from 1.34mb to 200kb around
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Did 50% Code rewrite due to size issues but no breaking change
+- **eslint-config-airbnb-extended:** Added `eslint-config-airbnb-extended` config for project linting
+- **eslint-config-airbnb-extended:** Separate plugins from configs, Check FAQ section for why.
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Added `-b` flag in `tsc` command
+- **eslint-config-airbnb-extended:** Eslint issues resolved by adding `references` and `composite` options in tsconfig
+
 ## 0.3.1 (2025-04-08)
 
 ### 🩹 Fixes
 
-- **cli:** Resolved `npx` issue by adding `shebang` line
+- **eslint-config-airbnb-extended:** Resolved `npx` issue by adding `shebang` line
 
 ## 0.3.0 (2025-04-08)
 
 ### 🚨Breaking Change
 
-- **eslint-config-airbnb:** Renamed `typescript-only` config to `typescript`
-- **eslint-config-airbnb:** Renamed `typescript` config to `all`
+- **eslint-config-airbnb-extended:** Renamed `typescript-only` config to `typescript`
+- **eslint-config-airbnb-extended:** Renamed `typescript` config to `all`
 
 ### 🚀 Features
 
-- **eslint-config-airbnb:** Added `node` config
-- **eslint-config-airbnb:** Added README.md
-- **eslint-config-airbnb:** Added MIGRATION.md
-- **cli:** Added README.md
+- **eslint-config-airbnb-extended:** Added `node` config
+- **eslint-config-airbnb-extended:** Added README.md
+- **eslint-config-airbnb-extended:** Added MIGRATION.md
+- **create-airbnb-x-config:** Added README.md
 
 ### ❤️ Thank You
 
@@ -26,27 +44,27 @@
 
 ### 🩹 Fixes
 
-- **cli:** Resolved package manager issue
+- **create-airbnb-x-config:** Resolved package manager issue
 
 ## 0.2.0 (2025-04-07)
 
 ### 🚀 Features
 
-- **eslint-config-airbnb:** Airbnb Setup added
-- **eslint-config-airbnb:** Next.js config added
-- **cli:** CLI POC Completed
+- **eslint-config-airbnb-extended:** Airbnb Setup added
+- **eslint-config-airbnb-extended:** Next.js config added
+- **create-airbnb-x-config:** CLI POC Completed
 
 ### 🩹 Fixes
 
-- **eslint-config-airbnb:** Removed changeset CLI
-- **cli:** Removed changeset CLI
+- **eslint-config-airbnb-extended:** Removed changeset CLI
+- **create-airbnb-x-config:** Removed changeset CLI
 
 ## 0.1.0 (2025-04-05)
 
 ### 🚀 Features
 
-- **eslint-config-airbnb:** Monorepo setup added
-- **cli:** Monorepo setup added
+- **eslint-config-airbnb-extended:** Monorepo setup added
+- **create-airbnb-x-config:** Monorepo setup added
 
 ### ❤️ Thank You
 
