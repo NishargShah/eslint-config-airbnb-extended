@@ -588,6 +588,12 @@ const stylisticRules = {
         after: true,
       },
     ],
+
+    // Replace Airbnb 'lines-between-class-members' rule with '@typescript-eslint' version
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-between-class-members.md
+    // 'lines-between-class-members': 'off',
+    // '@typescript-eslint/lines-between-class-members':
+    //   stylisticRules.rules['lines-between-class-members'],
   },
 } satisfies Linter.Config;
 

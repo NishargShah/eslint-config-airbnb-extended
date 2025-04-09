@@ -86,12 +86,6 @@ const typescriptEslintRules = {
     'keyword-spacing': 'off',
     '@typescript-eslint/keyword-spacing': stylisticRules.rules['keyword-spacing'],
 
-    // Replace Airbnb 'lines-between-class-members' rule with '@typescript-eslint' version
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-between-class-members.md
-    'lines-between-class-members': 'off',
-    '@typescript-eslint/lines-between-class-members':
-      stylisticRules.rules['lines-between-class-members'],
-
     // Replace Airbnb 'no-array-constructor' rule with '@typescript-eslint' version
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
     'no-array-constructor': 'off',
@@ -151,7 +145,7 @@ const typescriptEslintRules = {
     // Replace Airbnb 'no-throw-literal' rule with '@typescript-eslint' version
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-throw-literal.md
     'no-throw-literal': 'off',
-    '@typescript-eslint/no-throw-literal': bestPracticesRules.rules['no-throw-literal'],
+    '@typescript-eslint/only-throw-error': bestPracticesRules.rules['no-throw-literal'],
 
     // Replace Airbnb 'no-unused-expressions' rule with '@typescript-eslint' version
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
