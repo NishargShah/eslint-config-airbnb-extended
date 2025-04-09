@@ -12,7 +12,6 @@ const baseRecommendedConfig = [
         sourceType: 'module',
       },
     },
-    rules: {},
   },
 ] satisfies Linter.Config[];
 

@@ -14,7 +14,7 @@ const base = {
 const react = {
   recommended: reactRecommendedConfig,
   typescript: typescriptRecommendedConfig.react,
-  all: [...baseRecommendedConfig, ...reactRecommendedConfig, ...typescriptRecommendedConfig.react],
+  all: [...reactRecommendedConfig, ...typescriptRecommendedConfig.react],
 } satisfies Record<string, Linter.Config[]>;
 
 const next = {

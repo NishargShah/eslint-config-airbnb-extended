@@ -6,7 +6,6 @@ import type { Linter } from 'eslint';
 const typescriptRecommendedConfig = {
   base: Object.values(typescriptConfig),
   react: [
-    ...Object.values(typescriptConfig),
     {
       name: 'airbnb/config/typescript-react',
       rules: {

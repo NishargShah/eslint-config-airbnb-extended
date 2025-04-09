@@ -9,9 +9,6 @@ const typescriptEslintPlugin = {
   },
   languageOptions: {
     parser,
-    parserOptions: {
-      projectService: true,
-    },
   },
 } as Linter.Config;
 

@@ -8,6 +8,11 @@ import type { Linter } from 'eslint';
 
 const typescriptEslintRules = {
   name: 'airbnb/config/typescript/typescript-eslint',
+  languageOptions: {
+    parserOptions: {
+      projectService: true,
+    },
+  },
   rules: {
     // Replace Airbnb 'brace-style' rule with '@typescript-eslint' version
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md

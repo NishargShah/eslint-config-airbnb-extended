@@ -8,13 +8,6 @@ const reactHooksPlugin = {
   plugins: {
     'react-hooks': EsLintPluginReactHooks,
   },
-  languageOptions: {
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
-      },
-    },
-  },
 } satisfies Linter.Config;
 
 export default reactHooksPlugin;
