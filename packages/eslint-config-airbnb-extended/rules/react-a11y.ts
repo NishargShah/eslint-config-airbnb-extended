@@ -12,7 +12,7 @@ const reactA11yRules = {
   rules: {
     // ensure emoji are accessible
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/accessible-emoji.md
-    // disabled; rule is deprecated
+    // @deprecated
     'jsx-a11y/accessible-emoji': 'off',
 
     // Enforce that all elements that require alternative text have meaningful information
@@ -34,7 +34,12 @@ const reactA11yRules = {
 
     // Enforce that anchors have content
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-has-content.md
-    'jsx-a11y/anchor-has-content': ['error', { components: [] }],
+    'jsx-a11y/anchor-has-content': [
+      'error',
+      {
+        components: [],
+      },
+    ],
 
     // ensure <a> tags are valid
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-is-valid.md
@@ -76,9 +81,9 @@ const reactA11yRules = {
     // Ensure the autocomplete attribute is correct and suitable for the form field it is used with
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/autocomplete-valid.md
     'jsx-a11y/autocomplete-valid': [
-      'off',
+      'error',
       {
-        inputComponents: [],
+        inputComponents: ['Input'],
       },
     ],
 
@@ -112,7 +117,12 @@ const reactA11yRules = {
 
     // ensure <hX> tags have content and are not aria-hidden
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/heading-has-content.md
-    'jsx-a11y/heading-has-content': ['error', { components: [''] }],
+    'jsx-a11y/heading-has-content': [
+      'error',
+      {
+        components: ['Typography', 'Text'],
+      },
+    ],
 
     // require HTML elements to have a "lang" prop
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/html-has-lang.md
@@ -171,6 +181,10 @@ const reactA11yRules = {
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-access-key.md
     'jsx-a11y/no-access-key': 'error',
 
+    // Enforce that aria-hidden="true" is not set on focusable elements.
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-aria-hidden-on-focusable.md
+    'jsx-a11y/no-aria-hidden-on-focusable': 'off',
+
     // prohibit autoFocus prop
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-autofocus.md
     'jsx-a11y/no-autofocus': [
@@ -179,10 +193,6 @@ const reactA11yRules = {
         ignoreNonDOM: true,
       },
     ],
-
-    // Enforce that aria-hidden="true" is not set on focusable elements.
-    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-aria-hidden-on-focusable.md
-    'jsx-a11y/no-aria-hidden-on-focusable': 'off',
 
     // prevent distracting elements, like <marquee> and <blink>
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-distracting-elements.md
@@ -237,6 +247,7 @@ const reactA11yRules = {
 
     // require onBlur instead of onChange
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-onchange.md
+    // @deprecated
     'jsx-a11y/no-onchange': 'off',
 
     // ensure HTML elements do not specify redundant ARIA roles
