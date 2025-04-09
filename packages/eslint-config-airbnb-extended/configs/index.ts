@@ -1,7 +1,7 @@
 import baseRecommendedConfig from '@/configs/base/recommended';
+import nextRecommendedConfig from '@/configs/next/recommended';
 import reactRecommendedConfig from '@/configs/react/recommended';
 import typescriptRecommendedConfig from '@/configs/typescript/recommended';
-import nextRules from '@/rules/next';
 
 import type { Linter } from 'eslint';
 
@@ -18,9 +18,9 @@ const react = {
 } satisfies Record<string, Linter.Config[]>;
 
 const next = {
-  recommended: [...react.recommended, nextRules],
-  typescript: react.typescript,
-  all: [...react.all, nextRules],
+  recommended: nextRecommendedConfig,
+  typescript: typescriptRecommendedConfig.next,
+  all: [...nextRecommendedConfig, ...typescriptRecommendedConfig.next],
 } satisfies Record<string, Linter.Config[]>;
 
 /**
