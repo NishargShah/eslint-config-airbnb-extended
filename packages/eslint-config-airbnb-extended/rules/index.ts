@@ -3,12 +3,14 @@ import reactConfig from '@/configs/react';
 import typescriptConfig from '@/configs/typescript';
 import importsStrictRules from '@/rules/importsStrict';
 import nextRules from '@/rules/next';
+import reactStrictRules from '@/rules/reactStrict';
 
 import type { Linter } from 'eslint';
 
 const baseRules = {
   ...baseConfig,
   importsStrict: importsStrictRules,
+  reactStrict: reactStrictRules,
 } satisfies Record<string, Linter.Config>;
 
 /**

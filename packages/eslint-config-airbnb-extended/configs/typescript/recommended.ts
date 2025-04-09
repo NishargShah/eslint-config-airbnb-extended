@@ -9,7 +9,8 @@ const typescriptRecommendedConfig = {
     {
       name: 'airbnb/config/typescript-react',
       rules: {
-        // Append 'tsx' to Airbnb 'react/jsx-filename-extension' rule
+        // only .jsx and .tsx files may have JSX
+        // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
         'react/jsx-filename-extension': [
           'error',
           {
