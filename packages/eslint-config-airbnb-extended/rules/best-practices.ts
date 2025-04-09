@@ -9,15 +9,16 @@ const bestPracticesRules = {
 
     // enforces return statements in callbacks of array's methods
     // https://eslint.org/docs/rules/array-callback-return
-    'array-callback-return': ['error', { allowImplicit: true }],
+    'array-callback-return': [
+      'error',
+      {
+        allowImplicit: true,
+      },
+    ],
 
     // treat var statements as if they were block scoped
     // https://eslint.org/docs/rules/block-scoped-var
     'block-scoped-var': 'error',
-
-    // specify the maximum cyclomatic complexity allowed in a program
-    // https://eslint.org/docs/rules/complexity
-    complexity: ['off', 20],
 
     // enforce that class methods use "this"
     // https://eslint.org/docs/rules/class-methods-use-this
@@ -28,17 +29,26 @@ const bestPracticesRules = {
       },
     ],
 
+    // specify the maximum cyclomatic complexity allowed in a program
+    // https://eslint.org/docs/rules/complexity
+    complexity: 'off',
+
     // require return statements to either always or never specify values
     // https://eslint.org/docs/rules/consistent-return
     'consistent-return': 'error',
 
     // specify curly brace conventions for all control statements
     // https://eslint.org/docs/rules/curly
-    curly: ['error', 'multi-line'], // multiline
+    curly: ['error', 'multi-line'],
 
     // require default case in switch statements
     // https://eslint.org/docs/rules/default-case
-    'default-case': ['error', { commentPattern: '^no default$' }],
+    'default-case': [
+      'error',
+      {
+        commentPattern: '^no default$',
+      },
+    ],
 
     // Enforce default clauses in switch statements to be last
     // https://eslint.org/docs/rules/default-case-last
@@ -49,7 +59,12 @@ const bestPracticesRules = {
 
     // encourages use of dot notation whenever possible
     // https://eslint.org/docs/rules/dot-notation
-    'dot-notation': ['error', { allowKeywords: true }],
+    'dot-notation': [
+      'error',
+      {
+        allowKeywords: true,
+      },
+    ],
 
     // enforces consistent newlines before or after dots
     // https://eslint.org/docs/rules/dot-location
@@ -57,7 +72,13 @@ const bestPracticesRules = {
 
     // require the use of === and !==
     // https://eslint.org/docs/rules/eqeqeq
-    eqeqeq: ['error', 'always', { null: 'ignore' }],
+    eqeqeq: [
+      'error',
+      'always',
+      {
+        null: 'ignore',
+      },
+    ],
 
     // Require grouped accessor pairs in object literals and classes
     // https://eslint.org/docs/rules/grouped-accessor-pairs
@@ -73,7 +94,6 @@ const bestPracticesRules = {
 
     // disallow the use of alert, confirm, and prompt
     // https://eslint.org/docs/rules/no-alert
-    // TODO: enable, semver-major
     'no-alert': 'warn',
 
     // disallow use of arguments.caller or arguments.callee
@@ -94,7 +114,12 @@ const bestPracticesRules = {
 
     // disallow else after a return in an if
     // https://eslint.org/docs/rules/no-else-return
-    'no-else-return': ['error', { allowElseIf: false }],
+    'no-else-return': [
+      'error',
+      {
+        allowElseIf: false,
+      },
+    ],
 
     // disallow empty functions, except for standalone funcs/arrows
     // https://eslint.org/docs/rules/no-empty-function
@@ -111,7 +136,6 @@ const bestPracticesRules = {
 
     // Disallow empty static blocks
     // https://eslint.org/docs/latest/rules/no-empty-static-block
-    // TODO: semver-major, enable
     'no-empty-static-block': 'off',
 
     // disallow comparisons to null without a type-checking operator
@@ -144,7 +168,12 @@ const bestPracticesRules = {
 
     // disallow reassignments of native objects or read-only globals
     // https://eslint.org/docs/rules/no-global-assign
-    'no-global-assign': ['error', { exceptions: [] }],
+    'no-global-assign': [
+      'error',
+      {
+        exceptions: [],
+      },
+    ],
 
     // deprecated in favor of no-global-assign
     // https://eslint.org/docs/rules/no-native-reassign
@@ -180,7 +209,13 @@ const bestPracticesRules = {
 
     // disallow use of labels for anything other than loops and switches
     // https://eslint.org/docs/rules/no-labels
-    'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
+    'no-labels': [
+      'error',
+      {
+        allowLoop: false,
+        allowSwitch: false,
+      },
+    ],
 
     // disallow unnecessary nested blocks
     // https://eslint.org/docs/rules/no-lone-blocks
@@ -406,9 +441,15 @@ const bestPracticesRules = {
     // https://eslint.org/docs/rules/no-void
     'no-void': 'error',
 
-    // disallow usage of configurable warning terms in comments: e.g. todo
+    // disallow usage of configurable warning terms in comments
     // https://eslint.org/docs/rules/no-warning-comments
-    'no-warning-comments': ['off', { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],
+    'no-warning-comments': [
+      'off',
+      {
+        terms: ['todo', 'fixme', 'remember'],
+        location: 'start',
+      },
+    ],
 
     // disallow use of the with statement
     // https://eslint.org/docs/rules/no-with
@@ -416,7 +457,12 @@ const bestPracticesRules = {
 
     // require using Error objects as Promise rejection reasons
     // https://eslint.org/docs/rules/prefer-promise-reject-errors
-    'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
+    'prefer-promise-reject-errors': [
+      'error',
+      {
+        allowEmptyReject: true,
+      },
+    ],
 
     // Suggest using named capture group in regular expression
     // https://eslint.org/docs/rules/prefer-named-capture-group
@@ -424,8 +470,7 @@ const bestPracticesRules = {
 
     // Prefer Object.hasOwn() over Object.prototype.hasOwnProperty.call()
     // https://eslint.org/docs/rules/prefer-object-has-own
-    // TODO: semver-major: enable thus rule, once eslint v8.5.0 is required
-    'prefer-object-has-own': 'off',
+    'prefer-object-has-own': 'error',
 
     // https://eslint.org/docs/rules/prefer-regex-literals
     'prefer-regex-literals': [
@@ -453,7 +498,13 @@ const bestPracticesRules = {
 
     // require immediate function invocation to be wrapped in parentheses
     // https://eslint.org/docs/rules/wrap-iife.html
-    'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
+    'wrap-iife': [
+      'error',
+      'outside',
+      {
+        functionPrototypeMethods: false,
+      },
+    ],
 
     // require or disallow Yoda conditions
     // https://eslint.org/docs/rules/yoda
