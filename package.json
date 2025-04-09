@@ -20,7 +20,7 @@
     "config:build": "pnpm --filter create-airbnb-x-config build",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
-    "inspector": "pnpm dlx @eslint/config-inspector --config eslint-x.config.mjs",
+    "inspector": "pnpm dlx @eslint/config-inspector",
     "lint": "eslint .",
     "lint:fix": "pnpm --silent lint --fix",
     "pkg:prepare": "pnpm changeset && pnpm changeset version",
