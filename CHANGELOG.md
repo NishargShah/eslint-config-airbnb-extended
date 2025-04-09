@@ -1,3 +1,18 @@
+## 0.5.0 (2025-04-10)
+
+### 🚨Breaking Change
+
+- **eslint-config-airbnb-extended:** `react` config no longer extends `base` config in `all` and `typescript`
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `reactStricts` rules
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Sorted all the rules alphabetically to match docs
+- **eslint-config-airbnb-extended:** `typescript-eslint` rule deprecation issue fixed
+
 ## 0.4.0 (2025-04-09)
 
 ### 🚨Breaking Change
