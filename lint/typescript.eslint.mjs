@@ -1,9 +1,9 @@
-import { config, configs, parser, plugin } from 'typescript-eslint';
+import { config, configs } from 'typescript-eslint';
 
 import { configs as airbnbExtendedConfigs } from 'eslint-config-airbnb-extended';
 
 const customTSESLintConfig = config(
-  // AIRBNB TYPESCRIPT CONFIG
+  // AIRBNB TYPESCRIPT BASE CONFIG
   ...airbnbExtendedConfigs.base.typescript,
   // TYPESCRIPT CONFIG
   ...configs.recommended,
@@ -12,15 +12,6 @@ const customTSESLintConfig = config(
   // TYPESCRIPT CONFIG RULES
   {
     name: 'typescript-eslint/rules',
-    plugins: {
-      '@typescript-eslint': plugin,
-    },
-    languageOptions: {
-      parser,
-      parserOptions: {
-        projectService: true,
-      },
-    },
     rules: {
       // EXTRA RULES ( NOT IN EXTENDED CONFIG )
       '@typescript-eslint/consistent-type-exports': 'error',
