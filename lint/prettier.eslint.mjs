@@ -7,7 +7,7 @@ const customPrettierESLintConfig = [
     ...prettierConfig,
   },
   {
-    name: 'prettier/rules',
+    name: 'prettier/plugin/config',
     plugins: {
       prettier: prettierPlugin,
     },

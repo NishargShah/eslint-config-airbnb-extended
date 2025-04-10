@@ -1,6 +1,6 @@
 const customGeneralESLintConfig = [
   {
-    name: 'general/rules',
+    name: 'x/general/rules',
     rules: {
       'no-console': 'off',
       'no-void': 'off',

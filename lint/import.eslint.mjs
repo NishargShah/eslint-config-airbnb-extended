@@ -7,7 +7,7 @@ const customImportESLintConfig = [
   rules.base.importsStrict,
   // IMPORT CONFIG RULES
   {
-    name: 'import-x/rules',
+    name: 'x/import-x/rules',
     rules: {
       'sort-imports': [
         'error',
@@ -20,7 +20,7 @@ const customImportESLintConfig = [
   },
   // RESTRICTED SOME IMPORTS
   {
-    name: 'import-x/rules/ts-only',
+    name: 'x/import-x/ts-only',
     files: ['**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': [
@@ -37,7 +37,7 @@ const customImportESLintConfig = [
     },
   },
   {
-    name: 'unused-imports/rules',
+    name: 'unused-imports/config',
     plugins: {
       'unused-imports': unusedImportsPlugin,
     },

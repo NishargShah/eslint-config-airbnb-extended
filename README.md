@@ -20,7 +20,7 @@ A powerful ESLint configuration extending the popular Airbnb style guide, with a
 - **TypeScript Support**: Out-of-the-box TypeScript support for all your code.
 - **Customizable**: Easily extend or modify settings to match your project's coding style.
 - **Pre-configured Rules**: Ready-to-go rules that enforce consistent coding practices.
-- **Monorepo Structure**: Includes both the core ESLint configuration and a CLI utility for quick setup.
+- **CLI Utility for Quick Setup**: Set up your project in seconds with a simple command-line tool.
 
 ## Packages
 

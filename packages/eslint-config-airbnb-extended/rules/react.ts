@@ -615,7 +615,7 @@ const reactRules = {
       {
         forbidDefaultForRequired: true,
         classes: 'defaultProps',
-        functions: 'defaultArguments',
+        functions: 'defaultProps',
       },
     ],
 

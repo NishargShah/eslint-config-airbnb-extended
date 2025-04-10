@@ -11,7 +11,7 @@ const customTSESLintConfig = config(
   ...configs.stylistic,
   // TYPESCRIPT CONFIG RULES
   {
-    name: 'typescript-eslint/rules',
+    name: 'x/typescript-eslint/rules',
     rules: {
       // EXTRA RULES ( NOT IN EXTENDED CONFIG )
       '@typescript-eslint/consistent-type-exports': 'error',
