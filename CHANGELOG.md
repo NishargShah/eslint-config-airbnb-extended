@@ -1,3 +1,11 @@
+## 0.5.2 (2025-04-11)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Added `react-jsx-runtime` rules in next.js as it is not required those rules.
+- **eslint-config-airbnb-extended:** Changed `react/require-default-props` rule and set `defaultProps` (default) in `functions`.
+- **eslint-config-airbnb-extended:** Removed `boolean-prop-naming` from `reactStrict` config as it is very hard to maintain in live projects.
+
 ## 0.5.1 (2025-04-10)
 
 ### 🚀 Features
