@@ -3,6 +3,7 @@
 ### 🩹 Fixes
 
 - **eslint-config-airbnb-extended:** folder structure changed for `configs`
+- **eslint-config-airbnb-extended:** fixed: If you didn't install every deps then you can't run the package
 
 ## 0.8.0 (2025-04-14)
 
