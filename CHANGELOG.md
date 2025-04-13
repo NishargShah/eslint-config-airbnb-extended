@@ -1,3 +1,18 @@
+## 0.7.0 (2025-04-13)
+
+### 🚨Breaking Change
+
+- **eslint-config-airbnb-extended:** `node` config no longer extends `base` config
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `eslint-plugin-n` for `node` config
+- **create-airbnb-x-config:** Added `node` package name in commands list
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Removed `node` typescript config from `templates` folder as it not needed
+
 ## 0.6.0 (2025-04-13)
 
 ### 🚀 Features

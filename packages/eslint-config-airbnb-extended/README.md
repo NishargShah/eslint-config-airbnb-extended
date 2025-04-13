@@ -38,6 +38,7 @@ The configuration may change over time, and `create-airbnb-x-config` will always
 This configuration relies on the following essential packages:
 
 - **`eslint-import-x`**: A powerful tool for managing and validating imports.
+- **`eslint-plugin-n`**: Enforces best practices for Node.js.
 - **`eslint-plugin-react`**: Enforces React-specific linting rules and best practices.
 - **`eslint-plugin-react-hooks`**: Ensures proper use of React hooks.
 - **`eslint-plugin-jsx-a11y`**: Improves accessibility in JSX code.
