@@ -17,6 +17,7 @@
 
 - **eslint-config-airbnb-extended:** differentiate `deprecated` rules from all rules
 - **eslint-config-airbnb-extended:** `node` config typo fixed (`n/no-unsupported-features/es-builtin` => `n/no-unsupported-features/es-builtins`)
+- **create-airbnb-x-config:** Added `import-x` plugin in templates
 
 ## 0.7.0 (2025-04-13)
 
