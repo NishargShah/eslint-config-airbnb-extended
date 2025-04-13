@@ -1,3 +1,13 @@
+## 0.9.1 (2025-04-14)
+
+### 🚀 Features
+
+- **create-airbnb-x-config:** Added `@eslint/js` package for `eslint` recommended rules
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Added `@eslint/compat` package in commands
+
 ## 0.9.0 (2025-04-14)
 
 ### 🚨 Breaking Change
