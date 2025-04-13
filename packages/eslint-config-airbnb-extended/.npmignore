@@ -7,6 +7,7 @@
 # Ignored folders
 dist/tsconfig.tsbuildinfo
 dist/@types/*
+dist/script/*
 
 # Note Ignored files
 !package.json
