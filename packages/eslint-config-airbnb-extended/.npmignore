@@ -8,6 +8,7 @@
 dist/tsconfig.tsbuildinfo
 dist/@types/*
 
-# Ignored files
+# Note Ignored files
+!package.json
+!README.md
 !dist/@types/index.d.ts
-!dist/@types/tsconfig.tsbuildinfo

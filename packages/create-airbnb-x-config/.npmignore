@@ -3,3 +3,10 @@
 
 # Not ignored folders
 !dist
+
+# Ignored folders
+dist/tsconfig.tsbuildinfo
+
+# Note Ignored files
+!package.json
+!README.md
