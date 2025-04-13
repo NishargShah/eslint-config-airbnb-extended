@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
@@ -31,7 +31,7 @@
   "main": "dist/index.js",
   "types": "dist/@types/index.d.ts",
   "scripts": {
-    "prebuild": "pnpm check:updates",
+    "prebuild": "pnpm check:updates && rm -rf ./dist",
     "build": "tsc -b",
     "postbuild": "tsc-alias",
     "check:updates": "ts-node script/checkUpdates.ts",

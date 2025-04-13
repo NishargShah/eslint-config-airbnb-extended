@@ -1,6 +1,6 @@
 {
   "name": "create-airbnb-x-config",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Airbnb Extended Config CLI",
   "keywords": [
     "eslint",
@@ -32,6 +32,7 @@
     "create-airbnb-x-config": "./dist/index.js"
   },
   "scripts": {
+    "prebuild": "rm -rf ./dist",
     "build": "tsc -b",
     "postbuild": "tsc-alias",
     "dev": "nodemon index.ts",

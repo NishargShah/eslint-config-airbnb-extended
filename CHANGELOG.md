@@ -1,9 +1,19 @@
-## 0.8.1 (2025-04-14)
+## 0.9.0 (2025-04-14)
+
+### 🚨 Breaking Change
+
+- **eslint-config-airbnb-extended:** Removed `next` plugin from next config
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `next` plugin in `plugins`
+- **eslint-config-airbnb-extended:** Added `next` rules
+- **eslint-config-airbnb-extended:** `next` function added in `Check Updates`
 
 ### 🩹 Fixes
 
 - **eslint-config-airbnb-extended:** folder structure changed for `configs`
-- **eslint-config-airbnb-extended:** fixed: If you didn't install every deps then you can't run the package
+- **create-airbnb-x-config:** Added `next` plugin in templates
 
 ## 0.8.0 (2025-04-14)
 
