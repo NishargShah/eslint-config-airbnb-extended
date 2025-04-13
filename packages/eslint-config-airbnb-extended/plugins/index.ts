@@ -1,3 +1,4 @@
+import importXPluginConfig from '@/plugins/importXPlugin';
 import nextPlugin from '@/plugins/nextPlugin';
 import nodePlugin from '@/plugins/nodePlugin';
 import reactA11yPlugin from '@/plugins/reactA11yPlugin';
@@ -11,6 +12,7 @@ import type { Linter } from 'eslint';
  * as is given due to less size of index.d.ts
  */
 const plugins = {
+  importX: importXPluginConfig as Linter.Config,
   node: nodePlugin as Linter.Config,
   react: reactPlugin as Linter.Config,
   reactA11y: reactA11yPlugin as Linter.Config,
