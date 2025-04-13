@@ -1,6 +1,6 @@
 ## 0.7.0 (2025-04-13)
 
-### 🚨Breaking Change
+### 🚨 Breaking Change
 
 - **eslint-config-airbnb-extended:** `node` config no longer extends `base` config
 
@@ -36,7 +36,7 @@
 
 ## 0.5.0 (2025-04-10)
 
-### 🚨Breaking Change
+### 🚨 Breaking Change
 
 - **eslint-config-airbnb-extended:** `react` config no longer extends `base` config in `all` and `typescript`
 
@@ -51,7 +51,7 @@
 
 ## 0.4.0 (2025-04-09)
 
-### 🚨Breaking Change
+### 🚨 Breaking Change
 
 - **eslint-config-airbnb-extended:** `react` config no longer extends `base` config
 - **eslint-config-airbnb-extended:** Reduce package size from 1.34mb to 200kb around
@@ -75,7 +75,7 @@
 
 ## 0.3.0 (2025-04-08)
 
-### 🚨Breaking Change
+### 🚨 Breaking Change
 
 - **eslint-config-airbnb-extended:** Renamed `typescript-only` config to `typescript`
 - **eslint-config-airbnb-extended:** Renamed `typescript` config to `all`
