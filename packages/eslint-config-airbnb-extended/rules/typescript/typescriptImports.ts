@@ -1,5 +1,3 @@
-import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-
 import getDevDepsList from '@/helpers/getDevDepsList';
 import {
   jsExtensions,
@@ -29,12 +27,6 @@ const typescriptImportsRules = {
         extensions: [...jsExtensionsResolver, ...tsExtensionsResolver],
       },
     },
-    // Import Resolver for import-x package
-    'import-x/resolver-next': [
-      createTypeScriptImportResolver({
-        alwaysTryTypes: true,
-      }),
-    ],
     // Append 'ts' extensions to Airbnb 'import-x/extensions' setting
     'import-x/extensions': [...jsExtensionsWithReact, ...tsExtensionsWithReactDTS],
     // Resolve type definition packages

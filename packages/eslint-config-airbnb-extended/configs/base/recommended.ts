@@ -5,7 +5,7 @@ import type { Linter } from 'eslint';
 const baseRecommendedConfig = [
   ...Object.values(baseConfig),
   {
-    name: 'airbnb/config/language-configurations',
+    name: 'airbnb/config/base-language-configurations',
     languageOptions: {
       parserOptions: {
         ecmaVersion: 2018,

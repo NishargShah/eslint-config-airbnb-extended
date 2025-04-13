@@ -4,7 +4,7 @@ import type { Linter } from 'eslint';
 
 const reactTypescriptConfig = [
   {
-    name: 'airbnb/config/typescript-react',
+    name: 'airbnb/config/react-typescript-react',
     rules: {
       // only .jsx and .tsx files may have JSX
       // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
@@ -17,7 +17,7 @@ const reactTypescriptConfig = [
     },
   },
   {
-    name: 'airbnb/config/typescript-import-x',
+    name: 'airbnb/config/react-typescript-import-x',
     settings: {
       'import-x/resolver': {
         node: {
