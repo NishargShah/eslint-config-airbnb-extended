@@ -43,22 +43,15 @@
   },
   "devDependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
-    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint": "^9.24.0",
-    "eslint-import-resolver-typescript": "^4.3.1",
-    "eslint-plugin-import-x": "^4.10.2",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-n": "^17.17.0",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
     "ts-node": "^10.9.2",
-    "tsc-alias": "^1.8.14",
+    "tsc-alias": "^1.8.15",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.29.1"
   },
   "peerDependencies": {
     "@next/eslint-plugin-next": "^15.2.4",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint": "9.x",
     "eslint-import-resolver-typescript": "^4.3.1",
     "eslint-plugin-import-x": "4.x",
@@ -72,11 +65,17 @@
     "@next/eslint-plugin-next": {
       "optional": true
     },
-    "eslint-import-resolver-typescript": {
+    "@types/eslint-plugin-jsx-a11y": {
       "optional": true
     },
+    "eslint": {
+      "optional": false
+    },
+    "eslint-import-resolver-typescript": {
+      "optional": false
+    },
     "eslint-plugin-jsx-a11y": {
-      "optional": true
+      "optional": false
     },
     "eslint-plugin-n": {
       "optional": true
