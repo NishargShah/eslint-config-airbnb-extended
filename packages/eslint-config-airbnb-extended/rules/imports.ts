@@ -1,4 +1,3 @@
-import { flatConfigs } from 'eslint-plugin-import-x';
 import globals from 'globals';
 
 import getDevDepsList from '@/helpers/getDevDepsList';
@@ -12,7 +11,6 @@ import {
 import type { Linter } from 'eslint';
 
 const importsRules = {
-  ...(flatConfigs.recommended as Linter.Config),
   name: 'airbnb/config/import-x',
   languageOptions: {
     globals: {
