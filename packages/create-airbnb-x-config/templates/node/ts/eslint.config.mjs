@@ -16,8 +16,6 @@ const nodeConfig = [
 const typescriptConfig = [
   // Airbnb Base TypeScript Config
   ...configs.base.typescript,
-  // Airbnb Node TypeScript Config
-  ...configs.node.typescript,
   // Typescript Recommended Config
   ...tsConfigs.recommended,
   // Disable TypeScript rules for js files
