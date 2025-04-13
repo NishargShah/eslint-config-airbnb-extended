@@ -28,7 +28,11 @@ const getCommands: GetCommands = (args) => {
   }
 
   if (language === languages.OTHER) {
-    if (config.includes(configs.REACT)) {
+    if (config.includes(configs.NODE)) {
+      commands.push('eslint-plugin-n');
+    }
+
+    if (config.includes(configs.REACT) || config.includes(configs.REACT_ROUTER)) {
       commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
     }
 
@@ -42,6 +46,10 @@ const getCommands: GetCommands = (args) => {
 
     if (language === languages.NEXT) {
       commands.push('@next/eslint-plugin-next');
+    }
+
+    if (language === languages.NODE) {
+      commands.push('eslint-plugin-n');
     }
   }
 
