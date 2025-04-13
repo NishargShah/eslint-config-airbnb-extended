@@ -1,3 +1,9 @@
+## 0.8.1 (2025-04-14)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** folder structure changed for `configs`
+
 ## 0.8.0 (2025-04-14)
 
 ### 🚨 Breaking Change
