@@ -5,6 +5,8 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
 import importsRules, { deprecatedImportsRules } from '@/rules/imports';
+import nextBaseRules from '@/rules/next/nextBase';
+import nextCoreWebVitalsRules from '@/rules/next/nextCoreWebVitals';
 import nodeBaseRules, { deprecatedNodeBaseRules } from '@/rules/node/nodeBase';
 import nodeGlobalsRules from '@/rules/node/nodeGlobals';
 import nodeNoUnsupportedFeaturesRules from '@/rules/node/nodeNoUnsupportedFeatures';
@@ -12,6 +14,10 @@ import nodePromisesRules from '@/rules/node/nodePromises';
 import reactRules, { deprecatedReactRules } from '@/rules/react';
 import reactHooksRules from '@/rules/react-hooks';
 import reactJsxA11yRules, { deprecatedReactJsxA11yRules } from '@/rules/react-jsx-a11y';
+
+// @ts-expect-error eslint-plugin-import not working in import
+// eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
+const nextPlugin = require('@next/eslint-plugin-next');
 
 const getRulesArray = (prefix: string, arr: string[]) =>
   arr.filter((rule) => rule.startsWith(prefix));
@@ -79,12 +85,30 @@ const checkReactHooksUpdates = async () => {
   throw new Error('React Hooks Plugin Updated');
 };
 
+const checkNextUpdates = async () => {
+  const localRules = getRulesArray('@next/next/', [
+    ...Object.keys(nextBaseRules.rules),
+    ...Object.keys(nextCoreWebVitalsRules.rules),
+  ]);
+
+  const remoteRules = [
+    ...Object.keys(nextPlugin.configs.recommended.rules),
+    ...Object.keys(nextPlugin.configs['core-web-vitals'].rules),
+  ];
+
+  if (localRules.length === remoteRules.length) return true;
+
+  throw new Error('Next Plugin Updated');
+};
+
 const checkUpdates = async () => {
   await checkImportsUpdates();
   await checkNodeUpdates();
   await checkReactUpdates();
   await checkReactJsxA11yUpdates();
   await checkReactHooksUpdates();
+  await checkNextUpdates();
+  console.log('Done');
 };
 
 // noinspection JSIgnoredPromiseFromCall

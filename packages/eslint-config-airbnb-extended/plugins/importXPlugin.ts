@@ -1,12 +1,11 @@
-// eslint-disable-next-line import-x/no-namespace
-import * as importXPlugin from 'eslint-plugin-import-x';
+import plugin from 'eslint-plugin-import-x';
 
 import type { Linter } from 'eslint';
 
 const importXPluginConfig = {
   name: 'airbnb/config/plugin/import-x',
   plugins: {
-    'import-x': importXPlugin,
+    'import-x': plugin,
   },
 } as unknown as Linter.Config;
 

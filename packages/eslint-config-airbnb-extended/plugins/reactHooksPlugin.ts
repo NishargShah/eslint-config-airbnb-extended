@@ -1,5 +1,4 @@
-// eslint-disable-next-line import-x/no-namespace
-import * as plugin from 'eslint-plugin-react-hooks';
+import plugin from 'eslint-plugin-react-hooks';
 
 import type { Linter } from 'eslint';
 
