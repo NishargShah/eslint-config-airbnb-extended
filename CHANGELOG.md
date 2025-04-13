@@ -1,3 +1,23 @@
+## 0.8.0 (2025-04-14)
+
+### 🚨 Breaking Change
+
+- **eslint-config-airbnb-extended:** renamed `reactA11y` rule to `reactJsxA11y`
+- **eslint-config-airbnb-extended:** moved `React` eslint rules (not the package rules) to `react/recommanded` config
+- **eslint-config-airbnb-extended:** Removed `import-x` plugin from base config
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `node` plugin in `plugins`
+- **eslint-config-airbnb-extended:** Added `import-x` plugin in `plugins`
+- **eslint-config-airbnb-extended:** `Check Updates` functionality added so in future if some new rule comes up then script can automatically check
+- **eslint-config-airbnb-extended:** Added `eslint-inspector.config.mjs` for checking rules status
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** differentiate `deprecated` rules from all rules
+- **eslint-config-airbnb-extended:** `node` config typo fixed (`n/no-unsupported-features/es-builtin` => `n/no-unsupported-features/es-builtins`)
+
 ## 0.7.0 (2025-04-13)
 
 ### 🚨 Breaking Change
