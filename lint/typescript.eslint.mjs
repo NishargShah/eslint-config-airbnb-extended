@@ -3,7 +3,7 @@ import { config, configs } from 'typescript-eslint';
 import { configs as airbnbExtendedConfigs } from 'eslint-config-airbnb-extended';
 
 const customTSESLintConfig = config(
-  // AIRBNB TYPESCRIPT BASE CONFIG
+  // AIRBNB BASE TYPESCRIPT CONFIG
   ...airbnbExtendedConfigs.base.typescript,
   // TYPESCRIPT CONFIG
   ...configs.recommended,
