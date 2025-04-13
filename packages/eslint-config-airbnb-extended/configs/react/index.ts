@@ -1,12 +1,12 @@
 import reactRules from '@/rules/react';
-import reactA11yRules from '@/rules/react-a11y';
 import reactHooksRules from '@/rules/react-hooks';
+import reactJsxA11yRules from '@/rules/react-jsx-a11y';
 
 import type { Linter } from 'eslint';
 
 const reactConfig = {
   react: reactRules,
-  reactA11y: reactA11yRules,
+  reactJsxA11y: reactJsxA11yRules,
   reactHooks: reactHooksRules,
 } satisfies Record<string, Linter.Config>;
 
