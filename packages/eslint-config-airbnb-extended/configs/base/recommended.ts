@@ -1,4 +1,4 @@
-import baseConfig from '@/configs/base/index';
+import baseConfig from '@/configs/base';
 
 import type { Linter } from 'eslint';
 

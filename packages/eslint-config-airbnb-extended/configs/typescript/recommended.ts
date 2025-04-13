@@ -1,4 +1,4 @@
-import typescriptConfig from '@/configs/typescript/index';
+import typescriptConfig from '@/configs/typescript';
 import { jsExtensionsResolver, tsExtensionsWithReactDTS } from '@/utils';
 
 import type { Linter } from 'eslint';

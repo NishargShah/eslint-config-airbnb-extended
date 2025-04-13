@@ -1,4 +1,4 @@
-import reactConfig from '@/configs/react/index';
+import reactConfig from '@/configs/react';
 import { jsExtensionsWithReact } from '@/utils';
 
 import type { Linter } from 'eslint';
