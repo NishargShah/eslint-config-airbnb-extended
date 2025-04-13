@@ -1,9 +1,8 @@
-import typescriptConfig from '@/configs/typescript';
 import { jsExtensionsResolver, tsExtensionsWithReactDTS } from '@/utils';
 
 import type { Linter } from 'eslint';
 
-const react = [
+const reactTypescriptConfig = [
   {
     name: 'airbnb/config/typescript-react',
     rules: {
@@ -29,10 +28,4 @@ const react = [
   },
 ] satisfies Linter.Config[];
 
-const typescriptRecommendedConfig = {
-  base: Object.values(typescriptConfig),
-  react,
-  next: react,
-} satisfies Record<string, Linter.Config[]>;
-
-export default typescriptRecommendedConfig;
+export default reactTypescriptConfig;

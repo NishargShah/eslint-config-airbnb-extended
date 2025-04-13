@@ -1,23 +1,12 @@
-import bestPracticesRules from '@/rules/best-practices';
-import errorsRules from '@/rules/errors';
-import es6Rules from '@/rules/es6';
-import importsRules from '@/rules/imports';
-import strictRules from '@/rules/strict';
-import styleRules from '@/rules/style';
-import stylisticRules from '@/rules/stylistic';
-import variablesRules from '@/rules/variables';
+import baseRecommendedConfig from '@/configs/base/recommended';
+import baseTypescriptConfig from '@/configs/base/typescript';
 
 import type { Linter } from 'eslint';
 
-const baseConfig = {
-  bestPractices: bestPracticesRules,
-  errors: errorsRules,
-  es6: es6Rules,
-  imports: importsRules,
-  strict: strictRules,
-  style: styleRules,
-  stylistic: stylisticRules,
-  variables: variablesRules,
-} satisfies Record<string, Linter.Config>;
+const base = {
+  recommended: baseRecommendedConfig,
+  typescript: baseTypescriptConfig,
+  all: [...baseRecommendedConfig, ...baseTypescriptConfig],
+} satisfies Record<string, Linter.Config[]>;
 
-export default baseConfig;
+export default base;

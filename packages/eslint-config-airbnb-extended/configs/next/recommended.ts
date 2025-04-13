@@ -1,4 +1,4 @@
-import nextConfig from '@/configs/next';
+import nextConfig from '@/configs/next/config';
 import reactRecommendedConfig from '@/configs/react/recommended';
 
 import type { Linter } from 'eslint';

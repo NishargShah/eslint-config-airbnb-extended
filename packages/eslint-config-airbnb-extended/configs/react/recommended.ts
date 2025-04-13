@@ -1,4 +1,4 @@
-import reactConfig from '@/configs/react';
+import reactConfig from '@/configs/react/config';
 import styleRules from '@/rules/style';
 import { jsExtensionsWithReact } from '@/utils';
 

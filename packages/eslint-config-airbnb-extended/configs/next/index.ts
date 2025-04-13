@@ -1,9 +1,12 @@
-import nextRules from '@/rules/next';
+import nextRecommendedConfig from '@/configs/next/recommended';
+import nextTypescriptConfig from '@/configs/next/typescript';
 
 import type { Linter } from 'eslint';
 
-const nextConfig = {
-  next: nextRules,
-} satisfies Record<string, Linter.Config>;
+const next = {
+  recommended: nextRecommendedConfig,
+  typescript: nextTypescriptConfig,
+  all: [...nextRecommendedConfig, ...nextTypescriptConfig],
+} satisfies Record<string, Linter.Config[]>;
 
-export default nextConfig;
+export default next;

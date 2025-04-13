@@ -1,13 +1,12 @@
-import reactRules from '@/rules/react';
-import reactHooksRules from '@/rules/react-hooks';
-import reactJsxA11yRules from '@/rules/react-jsx-a11y';
+import reactRecommendedConfig from '@/configs/react/recommended';
+import reactTypescriptConfig from '@/configs/react/typescript';
 
 import type { Linter } from 'eslint';
 
-const reactConfig = {
-  react: reactRules,
-  reactJsxA11y: reactJsxA11yRules,
-  reactHooks: reactHooksRules,
-} satisfies Record<string, Linter.Config>;
+const react = {
+  recommended: reactRecommendedConfig,
+  typescript: reactTypescriptConfig,
+  all: [...reactRecommendedConfig, ...reactTypescriptConfig],
+} satisfies Record<string, Linter.Config[]>;
 
-export default reactConfig;
+export default react;

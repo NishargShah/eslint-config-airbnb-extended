@@ -1,8 +1,8 @@
-import baseConfig from '@/configs/base';
-import nextConfig from '@/configs/next';
-import nodeConfig from '@/configs/node';
-import reactConfig from '@/configs/react';
-import typescriptConfig from '@/configs/typescript';
+import baseConfig from '@/configs/base/config';
+import nextConfig from '@/configs/next/config';
+import nodeConfig from '@/configs/node/config';
+import reactConfig from '@/configs/react/config';
+import typescriptConfig from '@/configs/typescript/config';
 import importsStrictRules from '@/rules/importsStrict';
 import reactStrictRules from '@/rules/reactStrict';
 

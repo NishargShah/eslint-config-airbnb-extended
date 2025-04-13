@@ -1,6 +1,6 @@
 import nodePlugin from 'eslint-plugin-n';
 
-import nodeConfig from '@/configs/node';
+import nodeConfig from '@/configs/node/config';
 import nodeNoUnsupportedFeaturesRules from '@/rules/node/nodeNoUnsupportedFeatures';
 
 import type { Linter } from 'eslint';
