@@ -19,6 +19,8 @@ const getCommands: GetCommands = (args) => {
     pmInstallationCommand[packageManager],
     '-D',
     'eslint',
+    '@eslint/compat',
+    '@eslint/js',
     'eslint-config-airbnb-extended',
     'eslint-plugin-import-x',
   ];
