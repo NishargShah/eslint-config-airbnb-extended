@@ -15,6 +15,7 @@ import prompts from 'prompts';
 import { configs, defaults, languages } from '@/constants';
 import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
+import getConfigUrl from '@/helpers/getConfigUrl';
 import installPackages from '@/helpers/installPackages';
 import { exit, handleSigTerm, onCancel, success } from '@/utils';
 
@@ -158,17 +159,16 @@ const run = async () => {
 
   const newArgs = args as InstallPackagesArgs;
   const commands = getCommands(newArgs);
+  const command = commands.join(' ');
   console.log();
 
   if (args.skipInstall) {
-    const command = commands.join(' ');
-
     console.log(
       `${yellowBright('No Worries')}, you can install the packages yourself using your ${blue('favourite')} package manager (${newArgs.packageManager}, maybe? 🤔)`,
     );
     console.log();
     console.log(cyan('Command:'));
-    console.log(command);
+    console.log(blue(command));
   } else {
     console.log(
       `${blue('Installing')} packages using ${cyanBright(newArgs.packageManager)}, please wait...`,
@@ -177,12 +177,29 @@ const run = async () => {
     await installPackages(newArgs);
     console.log();
     console.log(yellowBright('Installation Completed'));
+    console.log();
+    console.log(cyan('Executed Command:'));
+    console.log(blue(command));
   }
 
   console.log();
   console.log(cyan('Config:'));
-  console.log();
-  console.log(red('WIP'));
+
+  if (newArgs.language === languages.OTHER) {
+    console.log(
+      red(
+        'Customizing it to your needs requires considerable effort and is still a work in progress. In the meantime, please refer to the documentation and try setting up the configuration yourself using below link.',
+      ),
+    );
+    console.log(
+      blue(
+        'https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended',
+      ),
+    );
+  } else {
+    console.log(getConfigUrl(newArgs));
+  }
+
   console.log();
 };
 
