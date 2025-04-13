@@ -1,3 +1,10 @@
+## 0.6.0 (2025-04-13)
+
+### 🚀 Features
+
+- **create-airbnb-x-config:** Added `templates` folder.
+- **create-airbnb-x-config:** Added `getConfigUrl` function to get the url for GitHub for selected config.
+
 ## 0.5.2 (2025-04-11)
 
 ### 🩹 Fixes
