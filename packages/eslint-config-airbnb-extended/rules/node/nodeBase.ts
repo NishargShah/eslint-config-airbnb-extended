@@ -56,11 +56,6 @@ const nodeBaseRules = {
     // Off due to 'import-x/no-extraneous-dependencies'
     'n/no-extraneous-require': 'off',
 
-    // Disallow third-party modules which are hiding core modules
-    // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-hide-core-modules.md
-    // @deprecated
-    'n/no-hide-core-modules': 'off',
-
     // Disallow import declarations which import non-existence modules
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-missing-import.md
     // Off due to 'import-x/no-unresolved'
@@ -132,6 +127,16 @@ const nodeBaseRules = {
     // Require that process.exit() expressions use the same code path as throw
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/process-exit-as-throw.md
     'n/process-exit-as-throw': 'error',
+  },
+} satisfies Linter.Config;
+
+export const deprecatedNodeBaseRules = {
+  name: 'airbnb/config/node/base/deprecated',
+  rules: {
+    // Disallow third-party modules which are hiding core modules
+    // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-hide-core-modules.md
+    // @deprecated
+    'n/no-hide-core-modules': 'off',
 
     // Require correct usage of hashbang
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/shebang.md

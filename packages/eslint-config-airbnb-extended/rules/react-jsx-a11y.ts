@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint';
 
-const reactA11yRules = {
-  name: 'airbnb/config/react-a11y',
+const reactJsxA11yRules = {
+  name: 'airbnb/config/react-jsx-a11y',
   languageOptions: {
     parserOptions: {
       ecmaFeatures: {
@@ -10,11 +10,6 @@ const reactA11yRules = {
     },
   },
   rules: {
-    // ensure emoji are accessible
-    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/accessible-emoji.md
-    // @deprecated
-    // 'jsx-a11y/accessible-emoji': 'off',
-
     // Enforce that all elements that require alternative text have meaningful information
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/alt-text.md
     'jsx-a11y/alt-text': [
@@ -153,11 +148,6 @@ const reactA11yRules = {
       },
     ],
 
-    // require that JSX labels use "htmlFor"
-    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/label-has-for.md
-    // @deprecated: replaced by `label-has-associated-control` rule
-    // 'jsx-a11y/label-has-for': 'off',
-
     // require HTML element's lang prop to be valid
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/lang.md
     'jsx-a11y/lang': 'error',
@@ -245,11 +235,6 @@ const reactA11yRules = {
       },
     ],
 
-    // require onBlur instead of onChange
-    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-onchange.md
-    // @deprecated
-    // 'jsx-a11y/no-onchange': 'off',
-
     // ensure HTML elements do not specify redundant ARIA roles
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-redundant-roles.md
     'jsx-a11y/no-redundant-roles': [
@@ -292,4 +277,21 @@ const reactA11yRules = {
   },
 } satisfies Linter.Config;
 
-export default reactA11yRules;
+export const deprecatedReactJsxA11yRules = {
+  name: 'airbnb/config/react-jsx-a11y/deprecated',
+  rules: {
+    // ensure emoji are accessible
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/accessible-emoji.md
+    'jsx-a11y/accessible-emoji': 'off',
+
+    // require that JSX labels use "htmlFor"
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/label-has-for.md
+    'jsx-a11y/label-has-for': 'off',
+
+    // require onBlur instead of onChange
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-onchange.md
+    'jsx-a11y/no-onchange': 'off',
+  },
+} satisfies Linter.Config;
+
+export default reactJsxA11yRules;

@@ -370,19 +370,9 @@ const reactRules = {
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
     'react/jsx-props-no-spreading': 'off',
 
-    // Enforce defaultProps declarations alphabetical sorting
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-default-props.md
-    // @deprecated
-    'react/jsx-sort-default-props': 'off',
-
     // Enforce props alphabetical sorting
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
     'react/jsx-sort-props': 'off',
-
-    // Enforce spaces before the closing bracket of self-closing JSX elements, Deprecated in favor of jsx-tag-spacing
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
-    // @deprecated
-    'react/jsx-space-before-closing': 'off',
 
     // Validate whitespace in and around the JSX opening and closing brackets
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md
@@ -717,6 +707,19 @@ const reactRules = {
     // Prevent void DOM elements from receiving children
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
     'react/void-dom-elements-no-children': 'error',
+  },
+} satisfies Linter.Config;
+
+export const deprecatedReactRules = {
+  name: 'airbnb/config/react/deprecated',
+  rules: {
+    // Enforce defaultProps declarations alphabetical sorting
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-default-props.md
+    'react/jsx-sort-default-props': 'off',
+
+    // Enforce spaces before the closing bracket of self-closing JSX elements, Deprecated in favor of jsx-tag-spacing
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
+    'react/jsx-space-before-closing': 'off',
   },
 } satisfies Linter.Config;
 

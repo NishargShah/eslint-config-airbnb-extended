@@ -19,7 +19,7 @@ const importsRules = {
       ...globals.es2015,
     },
     parserOptions: {
-      ecmaVersion: 6,
+      ecmaVersion: 2018,
       sourceType: 'module',
     },
   },
@@ -67,11 +67,6 @@ const importsRules = {
     // in a single file.
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/group-exports.md
     'import-x/group-exports': 'off',
-
-    // disallow non-import statements appearing before import statements
-    // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/imports-first.md
-    // @deprecated: use `import-x/first`
-    // 'import-x/imports-first': 'off',
 
     // Forbid modules to have too many dependencies
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/max-dependencies.md
@@ -250,6 +245,15 @@ const importsRules = {
     // this should not be enabled until this proposal has at least been *presented* to TC39.
     // At the moment, it's not a thing.
     'import-x/unambiguous': 'off',
+  },
+} satisfies Linter.Config;
+
+export const deprecatedImportsRules = {
+  name: 'airbnb/config/import-x/deprecated',
+  rules: {
+    // disallow non-import statements appearing before import statements
+    // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/imports-first.md
+    'import-x/imports-first': 'off',
   },
 } satisfies Linter.Config;
 
