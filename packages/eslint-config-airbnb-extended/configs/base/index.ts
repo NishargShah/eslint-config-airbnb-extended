@@ -2,7 +2,6 @@ import bestPracticesRules from '@/rules/best-practices';
 import errorsRules from '@/rules/errors';
 import es6Rules from '@/rules/es6';
 import importsRules from '@/rules/imports';
-import nodeRules from '@/rules/node';
 import strictRules from '@/rules/strict';
 import styleRules from '@/rules/style';
 import stylisticRules from '@/rules/stylistic';
@@ -15,7 +14,6 @@ const baseConfig = {
   errors: errorsRules,
   es6: es6Rules,
   imports: importsRules,
-  node: nodeRules,
   strict: strictRules,
   style: styleRules,
   stylistic: stylisticRules,
