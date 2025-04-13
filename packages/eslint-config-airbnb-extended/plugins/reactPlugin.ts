@@ -1,11 +1,11 @@
-import EsLintPluginReact from 'eslint-plugin-react';
+import plugin from 'eslint-plugin-react';
 
 import type { Linter } from 'eslint';
 
 const reactPlugin = {
   name: 'airbnb/config/plugin/react',
   plugins: {
-    react: EsLintPluginReact,
+    react: plugin,
   },
 } satisfies Linter.Config;
 

@@ -1,12 +1,12 @@
-import nodePlugin from 'eslint-plugin-n';
+import plugin from 'eslint-plugin-n';
 
 import type { Linter } from 'eslint';
 
-const reactPlugin = {
+const nodePlugin = {
   name: 'airbnb/config/plugin/node',
   plugins: {
-    n: nodePlugin,
+    n: plugin,
   },
 } satisfies Linter.Config;
 
-export default reactPlugin;
+export default nodePlugin;
