@@ -7,6 +7,9 @@ export const projectRoot = path.resolve('.');
 export const gitignorePath = path.resolve(projectRoot, '.gitignore');
 
 const nodeConfig = [
+  // Import X Plugin
+  plugins.importX,
+  // Node Plugin
   plugins.node,
   // Airbnb Node Recommended Config
   ...configs.node.recommended,

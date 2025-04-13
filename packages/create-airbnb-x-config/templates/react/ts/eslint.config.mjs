@@ -8,6 +8,8 @@ export const projectRoot = path.resolve('.');
 export const gitignorePath = path.resolve(projectRoot, '.gitignore');
 
 const reactConfig = [
+  // Import X Plugin
+  plugins.importX,
   // React Plugin
   plugins.react,
   // React Hooks Plugin
