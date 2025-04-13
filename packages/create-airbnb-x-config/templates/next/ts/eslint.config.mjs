@@ -16,6 +16,8 @@ const nextConfig = [
   plugins.reactHooks,
   // React JSX-A11y Plugin
   plugins.reactA11y,
+  // Next Plugin
+  plugins.next,
   // Airbnb Next Recommended Config
   ...configs.next.recommended,
 ];
