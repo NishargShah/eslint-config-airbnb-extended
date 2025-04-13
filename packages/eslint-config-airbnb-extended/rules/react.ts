@@ -1,10 +1,6 @@
 import globals from 'globals';
 
-import styleRules from '@/rules/style';
-
 import type { Linter } from 'eslint';
-
-const dangleRules = styleRules.rules['no-underscore-dangle'];
 
 const reactRules = {
   name: 'airbnb/config/react',
@@ -26,44 +22,6 @@ const reactRules = {
   // View link below for react rules documentation
   // https://github.com/jsx-eslint/eslint-plugin-react#list-of-supported-rules
   rules: {
-    // Allow Redux devtools variable
-    'no-underscore-dangle': [
-      dangleRules[0],
-      {
-        ...dangleRules[1],
-        allow: [...dangleRules[1].allow, '__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'],
-      },
-    ],
-
-    // Specify whether double or single quotes should be used in JSX attributes
-    // https://eslint.org/docs/rules/jsx-quotes
-    'jsx-quotes': ['error', 'prefer-double'],
-
-    // Class Methods can be used in react
-    'class-methods-use-this': [
-      'error',
-      {
-        exceptMethods: [
-          'render',
-          'getInitialState',
-          'getDefaultProps',
-          'getChildContext',
-          'componentWillMount',
-          'UNSAFE_componentWillMount',
-          'componentDidMount',
-          'componentWillReceiveProps',
-          'UNSAFE_componentWillReceiveProps',
-          'shouldComponentUpdate',
-          'componentWillUpdate',
-          'UNSAFE_componentWillUpdate',
-          'componentDidUpdate',
-          'componentWillUnmount',
-          'componentDidCatch',
-          'getSnapshotBeforeUpdate',
-        ],
-      },
-    ],
-
     // Enforces consistent naming for boolean props
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md
     'react/boolean-prop-naming': 'off',
