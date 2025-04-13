@@ -65,6 +65,13 @@ const customTSESLintConfig = config(
       ],
     },
   },
+  {
+    name: 'x/import-x/disable-extraneous-deps',
+    files: ['packages/create-airbnb-x-config/templates/**/eslint.config.mjs'],
+    rules: {
+      'import-x/no-extraneous-dependencies': 'off',
+    },
+  },
   // DISABLED TYPECHECKING FOR JS FILES
   {
     files: ['**/*.{js,cjs,mjs}'],
