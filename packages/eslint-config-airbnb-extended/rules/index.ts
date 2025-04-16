@@ -1,28 +1,32 @@
-import baseConfig from '@/configs/base/config';
-import nextConfig from '@/configs/next/config';
-import nodeConfig from '@/configs/node/config';
-import reactConfig from '@/configs/react/config';
-import typescriptConfig from '@/configs/typescript/config';
-import importsStrictRules from '@/rules/importsStrict';
-import reactStrictRules from '@/rules/reactStrict';
+/* eslint-disable @typescript-eslint/no-require-imports, unicorn/prefer-module */
 
 import type { Linter } from 'eslint';
 
-const baseRules = {
-  ...baseConfig,
-  importsStrict: importsStrictRules,
-  reactStrict: reactStrictRules,
-} satisfies Record<string, Linter.Config>;
+import type { extendedBaseConfig } from '@/configs/base/config';
+import type nextConfig from '@/configs/next/config';
+import type nodeConfig from '@/configs/node/config';
+import type reactConfig from '@/configs/react/config';
+import type typescriptConfig from '@/configs/typescript/config';
 
 /**
  * as is given due to less size of index.d.ts
  */
 const rules = {
-  base: baseRules as Record<keyof typeof baseRules, Linter.Config>,
-  node: nodeConfig as Record<keyof typeof nodeConfig, Linter.Config>,
-  react: reactConfig as Record<keyof typeof reactConfig, Linter.Config>,
-  next: nextConfig as Record<keyof typeof nextConfig, Linter.Config>,
-  typescript: typescriptConfig as Record<keyof typeof typescriptConfig, Linter.Config>,
+  get base(): Record<keyof typeof extendedBaseConfig, Linter.Config> {
+    return require('@/configs/base/config').extendedBaseConfig;
+  },
+  get node(): Record<keyof typeof nodeConfig, Linter.Config> {
+    return require('@/configs/node/config').default;
+  },
+  get react(): Record<keyof typeof reactConfig, Linter.Config> {
+    return require('@/configs/react/config').default;
+  },
+  get next(): Record<keyof typeof nextConfig, Linter.Config> {
+    return require('@/configs/next/config').default;
+  },
+  get typescript(): Record<keyof typeof typescriptConfig, Linter.Config> {
+    return require('@/configs/typescript/config').default;
+  },
 };
 
 export default rules;

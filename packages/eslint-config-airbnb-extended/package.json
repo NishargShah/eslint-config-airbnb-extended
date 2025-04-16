@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
+    "@types/node": "^22.14.1",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.15",
     "tsconfig-paths": "^4.2.0",

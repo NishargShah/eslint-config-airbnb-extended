@@ -15,7 +15,6 @@ import reactRules, { deprecatedReactRules } from '@/rules/react';
 import reactHooksRules from '@/rules/react-hooks';
 import reactJsxA11yRules, { deprecatedReactJsxA11yRules } from '@/rules/react-jsx-a11y';
 
-// @ts-expect-error eslint-plugin-import not working in import
 // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
 const nextPlugin = require('@next/eslint-plugin-next');
 
