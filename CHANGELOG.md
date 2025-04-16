@@ -1,3 +1,9 @@
+## 0.9.3 (2025-04-17)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** base rules typescript issue fixed
+
 ## 0.9.2 (2025-04-17)
 
 ### 🩹 Fixes
