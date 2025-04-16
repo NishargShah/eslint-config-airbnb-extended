@@ -1,3 +1,9 @@
+## 0.9.2 (2025-04-17)
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** fixed: Error: Cannot find module `<plugin>`
+
 ## 0.9.1 (2025-04-14)
 
 ### 🚀 Features
