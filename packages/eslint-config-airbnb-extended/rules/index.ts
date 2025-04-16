@@ -2,7 +2,7 @@
 
 import type { Linter } from 'eslint';
 
-import type { extendedBaseConfig } from '@/configs/base/config';
+import type baseConfigExtended from '@/configs/base/configExtended';
 import type nextConfig from '@/configs/next/config';
 import type nodeConfig from '@/configs/node/config';
 import type reactConfig from '@/configs/react/config';
@@ -12,8 +12,8 @@ import type typescriptConfig from '@/configs/typescript/config';
  * as is given due to less size of index.d.ts
  */
 const rules = {
-  get base(): Record<keyof typeof extendedBaseConfig, Linter.Config> {
-    return require('@/configs/base/config').extendedBaseConfig;
+  get base(): Record<keyof typeof baseConfigExtended, Linter.Config> {
+    return require('@/configs/base/configExtended').default;
   },
   get node(): Record<keyof typeof nodeConfig, Linter.Config> {
     return require('@/configs/node/config').default;
