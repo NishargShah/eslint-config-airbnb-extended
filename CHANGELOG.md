@@ -2,7 +2,7 @@
 
 ### 🩹 Fixes
 
-- **create-airbnb-x-config:** fixed: Error: Cannot find module `<plugin>`
+- **eslint-config-airbnb-extended:** fixed: Error: Cannot find module `<plugin>`
 
 ## 0.9.1 (2025-04-14)
 
