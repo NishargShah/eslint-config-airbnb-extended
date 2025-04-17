@@ -27,6 +27,9 @@ const plugins = {
   get typescriptEslint(): Linter.Config {
     return require('@/plugins/typescriptEslintPlugin').default;
   },
+  get stylistic(): Linter.Config {
+    return require('@/plugins/stylisticPlugin').default;
+  },
 };
 
 export default plugins;
