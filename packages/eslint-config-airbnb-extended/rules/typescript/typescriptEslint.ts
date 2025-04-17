@@ -14,11 +14,6 @@ const typescriptEslintRules = {
     },
   },
   rules: {
-    // Replace Airbnb 'brace-style' rule with '@typescript-eslint' version
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
-    'brace-style': 'off',
-    '@typescript-eslint/brace-style': stylisticRules.rules['brace-style'],
-
     // Replace Airbnb 'camelcase' rule with '@typescript-eslint/naming-convention'
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
     camelcase: 'off',

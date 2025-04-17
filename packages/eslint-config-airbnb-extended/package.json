@@ -42,6 +42,7 @@
     "globals": "^16.0.0"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^4.2.0",
     "@types/confusing-browser-globals": "^1.0.3",
     "@types/node": "^22.14.1",
     "ts-node": "^10.9.2",
@@ -52,6 +53,7 @@
   },
   "peerDependencies": {
     "@next/eslint-plugin-next": "^15.2.4",
+    "@stylistic/eslint-plugin": "^4.2.0",
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint": "9.x",
     "eslint-import-resolver-typescript": "^4.3.1",
@@ -64,6 +66,9 @@
   },
   "peerDependenciesMeta": {
     "@next/eslint-plugin-next": {
+      "optional": true
+    },
+    "@stylistic/eslint-plugin": {
       "optional": true
     },
     "@types/eslint-plugin-jsx-a11y": {
