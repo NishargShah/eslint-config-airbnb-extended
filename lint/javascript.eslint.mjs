@@ -12,6 +12,8 @@ const customJSESLintConfig = [
   },
   // IMPORT X PLUGIN
   plugins.importX,
+  // Stylistic PLUGIN
+  plugins.stylistic,
   // AIRBNB BASE CONFIG
   ...configs.base.recommended,
   // PROMISE CONFIG
