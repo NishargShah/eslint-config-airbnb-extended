@@ -198,16 +198,9 @@ const stylisticRules = {
       },
     ],
 
-    // enforce position of line comments
+    // enforce the position of line comments
     // https://eslint.style/rules/js/line-comment-position
-    '@stylistic/line-comment-position': [
-      'error',
-      {
-        position: 'above',
-        ignorePattern: '',
-        applyDefaultIgnorePatterns: true,
-      },
-    ],
+    '@stylistic/line-comment-position': 'off',
 
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     // https://eslint.style/rules/js/linebreak-style
