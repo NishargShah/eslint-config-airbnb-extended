@@ -1,6 +1,6 @@
 import baseConfig from '@/configs/base/config';
 import importsStrictRules from '@/rules/importsStrict';
-import reactStrictRules from '@/rules/reactStrict';
+import reactStrictRules from '@/rules/react/reactStrict';
 
 import type { Linter } from 'eslint';
 

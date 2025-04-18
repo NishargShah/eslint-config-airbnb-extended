@@ -1,6 +1,6 @@
-import reactRules from '@/rules/react';
-import reactHooksRules from '@/rules/react-hooks';
-import reactJsxA11yRules from '@/rules/react-jsx-a11y';
+import reactRules from '@/rules/react/react';
+import reactHooksRules from '@/rules/react/reactHooks';
+import reactJsxA11yRules from '@/rules/react/reactJsxA11y';
 
 import type { Linter } from 'eslint';
 

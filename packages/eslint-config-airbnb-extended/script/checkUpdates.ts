@@ -11,9 +11,9 @@ import nodeBaseRules, { deprecatedNodeBaseRules } from '@/rules/node/nodeBase';
 import nodeGlobalsRules from '@/rules/node/nodeGlobals';
 import nodeNoUnsupportedFeaturesRules from '@/rules/node/nodeNoUnsupportedFeatures';
 import nodePromisesRules from '@/rules/node/nodePromises';
-import reactRules, { deprecatedReactRules } from '@/rules/react';
-import reactHooksRules from '@/rules/react-hooks';
-import reactJsxA11yRules, { deprecatedReactJsxA11yRules } from '@/rules/react-jsx-a11y';
+import reactRules, { deprecatedReactRules } from '@/rules/react/react';
+import reactHooksRules from '@/rules/react/reactHooks';
+import reactJsxA11yRules, { deprecatedReactJsxA11yRules } from '@/rules/react/reactJsxA11y';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
 const nextPlugin = require('@next/eslint-plugin-next');
