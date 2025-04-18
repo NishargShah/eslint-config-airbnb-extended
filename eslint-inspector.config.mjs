@@ -3,7 +3,7 @@ import { plugins, rules } from 'eslint-config-airbnb-extended';
 const findRules = (rulesObj) =>
   Object.values(rulesObj).reduce((acc, value) => {
     if (value.rules) {
-      acc.push(value.rules);
+      acc.push({ name: value.name, rules: value.rules });
       return acc;
     }
 
@@ -11,12 +11,6 @@ const findRules = (rulesObj) =>
     return acc;
   }, []);
 
-const config = [
-  ...Object.values(plugins),
-  ...findRules(rules).map((item, index) => ({
-    name: `rule/${index}`,
-    rules: item,
-  })),
-];
+const config = [...Object.values(plugins), ...findRules(rules)];
 
 export default config;
