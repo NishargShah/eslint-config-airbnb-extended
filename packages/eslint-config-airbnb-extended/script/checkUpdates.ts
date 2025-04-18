@@ -1,3 +1,4 @@
+import stylisticPlugin from '@stylistic/eslint-plugin';
 import importXPlugin from 'eslint-plugin-import-x';
 import reactJsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import nodePlugin from 'eslint-plugin-n';
@@ -14,6 +15,15 @@ import nodePromisesRules from '@/rules/node/nodePromises';
 import reactRules, { deprecatedReactRules } from '@/rules/react/react';
 import reactHooksRules from '@/rules/react/reactHooks';
 import reactJsxA11yRules, { deprecatedReactJsxA11yRules } from '@/rules/react/reactJsxA11y';
+import reactStylisticRules, {
+  deprecatedReactStylisticPlusRules,
+} from '@/rules/react/reactStylistic';
+import stylisticRules, { deprecatedStylisticRules } from '@/rules/stylistic';
+import stylisticPlusRules from '@/rules/stylisticPlus';
+import typescriptStylisticRules, {
+  deprecatedTypescriptStylisticRules,
+} from '@/rules/typescript/typescriptStylistic';
+import typescriptStylisticPlusRules from '@/rules/typescript/typescriptStylisticPlus';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
 const nextPlugin = require('@next/eslint-plugin-next');
@@ -100,6 +110,27 @@ const checkNextUpdates = async () => {
   throw new Error('Next Plugin Updated');
 };
 
+const checkStylisticUpdates = async () => {
+  const localRules = getRulesArray('@stylistic/', [
+    ...new Set([
+      ...Object.keys(stylisticRules.rules),
+      ...Object.keys(deprecatedStylisticRules.rules),
+      ...Object.keys(typescriptStylisticRules.rules),
+      ...Object.keys(deprecatedTypescriptStylisticRules.rules),
+      ...Object.keys(reactStylisticRules.rules),
+      ...Object.keys(deprecatedReactStylisticPlusRules.rules),
+      ...Object.keys(stylisticPlusRules.rules),
+      ...Object.keys(typescriptStylisticPlusRules.rules),
+    ]),
+  ]);
+
+  const remoteRules = Object.keys(stylisticPlugin.rules);
+
+  if (localRules.length === remoteRules.length) return true;
+
+  throw new Error('Stylistic Plugin Updated');
+};
+
 const checkUpdates = async () => {
   await checkImportsUpdates();
   await checkNodeUpdates();
@@ -107,6 +138,7 @@ const checkUpdates = async () => {
   await checkReactJsxA11yUpdates();
   await checkReactHooksUpdates();
   await checkNextUpdates();
+  await checkStylisticUpdates();
   console.log('Done');
 };
 

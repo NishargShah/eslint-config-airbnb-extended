@@ -1,4 +1,4 @@
-import stylisticRules from '@/rules/stylistic';
+import stylisticRules, { deprecatedStylisticRules } from '@/rules/stylistic';
 
 import type { Linter } from 'eslint';
 
@@ -138,6 +138,15 @@ const typescriptStylisticRules = {
     // enforce consistent spacing inside TypeScript type generics
     // https://eslint.style/rules/plus/type-generic-spacing
     '@stylistic/type-generic-spacing': 'error',
+  },
+} satisfies Linter.Config;
+
+export const deprecatedTypescriptStylisticRules = {
+  name: 'airbnb/config/typescript/typescript-stylistic/deprecated',
+  rules: {
+    // enforce spacing between functions and their invocations
+    // https://eslint.style/rules/ts/function-call-spacing
+    '@stylistic/func-call-spacing': deprecatedStylisticRules.rules['@stylistic/func-call-spacing'],
   },
 } satisfies Linter.Config;
 

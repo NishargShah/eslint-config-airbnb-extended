@@ -1,11 +1,11 @@
-import stylistic from '@stylistic/eslint-plugin';
+import plugin from '@stylistic/eslint-plugin';
 
 import type { Linter } from 'eslint';
 
 const stylisticPlugin = {
   name: 'airbnb/config/plugin/stylistic',
   plugins: {
-    '@stylistic': stylistic,
+    '@stylistic': plugin,
   },
 } satisfies Linter.Config;
 

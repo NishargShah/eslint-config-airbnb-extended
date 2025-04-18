@@ -578,4 +578,13 @@ const stylisticRules = {
   },
 } satisfies Linter.Config;
 
+export const deprecatedStylisticRules = {
+  name: 'airbnb/config/stylistic/deprecated',
+  rules: {
+    // enforce spacing between functions and their invocations
+    // https://eslint.style/rules/js/function-call-spacing
+    '@stylistic/func-call-spacing': 'off',
+  },
+} satisfies Linter.Config;
+
 export default stylisticRules;
