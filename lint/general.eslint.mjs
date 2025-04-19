@@ -6,7 +6,7 @@ const customGeneralESLintConfig = [
       'no-void': 'off',
       'consistent-return': 'off',
       'no-array-constructor': 'off',
-      'no-underscore-dangle': ['error'],
+      'no-underscore-dangle': 'error',
       'no-restricted-syntax': [
         'error',
         'ForStatement',

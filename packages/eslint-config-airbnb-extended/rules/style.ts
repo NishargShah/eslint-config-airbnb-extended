@@ -143,7 +143,7 @@ const styleRules = {
 
     // disallow use of chained assignment expressions
     // https://eslint.org/docs/latest/rules/no-multi-assign
-    'no-multi-assign': ['error'],
+    'no-multi-assign': 'error',
 
     // disallow negated conditions
     // https://eslint.org/docs/latest/rules/no-negated-condition
