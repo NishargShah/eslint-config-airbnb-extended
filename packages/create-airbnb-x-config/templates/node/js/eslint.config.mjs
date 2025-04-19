@@ -13,11 +13,15 @@ const jsConfig = [
     name: 'js/config',
     ...js.configs.recommended,
   },
+  // Stylistic Plugin
+  plugins.stylistic,
+  // Import X Plugin
+  plugins.importX,
+  // Airbnb Base Recommended Config
+  ...configs.base.recommended,
 ];
 
 const nodeConfig = [
-  // Import X Plugin
-  plugins.importX,
   // Node Plugin
   plugins.node,
   // Airbnb Node Recommended Config
@@ -29,8 +33,6 @@ export default [
   includeIgnoreFile(gitignorePath),
   // Javascript Config
   ...jsConfig,
-  // Airbnb Base Recommended Config
-  ...configs.base.recommended,
   // Node Config
   ...nodeConfig,
 ];

@@ -13,11 +13,15 @@ const jsConfig = [
     name: 'js/config',
     ...js.configs.recommended,
   },
+  // Stylistic Plugin
+  plugins.stylistic,
+  // Import X Plugin
+  plugins.importX,
+  // Airbnb Base Recommended Config
+  ...configs.base.recommended,
 ];
 
 const reactConfig = [
-  // Import X Plugin
-  plugins.importX,
   // React Plugin
   plugins.react,
   // React Hooks Plugin
@@ -33,8 +37,6 @@ export default [
   includeIgnoreFile(gitignorePath),
   // Javascript Config
   ...jsConfig,
-  // Airbnb Base Recommended Config
-  ...configs.base.recommended,
   // React Config
   ...reactConfig,
 ];

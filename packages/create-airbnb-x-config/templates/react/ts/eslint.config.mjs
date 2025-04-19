@@ -3,7 +3,6 @@ import path from 'node:path';
 import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
 import { configs, plugins } from 'eslint-config-airbnb-extended';
-import { configs as tsConfigs } from 'typescript-eslint';
 
 export const projectRoot = path.resolve('.');
 export const gitignorePath = path.resolve(projectRoot, '.gitignore');
@@ -14,11 +13,15 @@ const jsConfig = [
     name: 'js/config',
     ...js.configs.recommended,
   },
+  // Stylistic Plugin
+  plugins.stylistic,
+  // Import X Plugin
+  plugins.importX,
+  // Airbnb Base Recommended Config
+  ...configs.base.recommended,
 ];
 
 const reactConfig = [
-  // Import X Plugin
-  plugins.importX,
   // React Plugin
   plugins.react,
   // React Hooks Plugin
@@ -34,13 +37,6 @@ const typescriptConfig = [
   ...configs.base.typescript,
   // Airbnb React TypeScript Config
   ...configs.react.typescript,
-  // Typescript Recommended Config
-  ...tsConfigs.recommended,
-  // Disable TypeScript rules for js files
-  {
-    files: ['**/*.{js,cjs,mjs}'],
-    ...configs.disableTypeChecked,
-  },
 ];
 
 export default [
@@ -48,8 +44,6 @@ export default [
   includeIgnoreFile(gitignorePath),
   // Javascript Config
   ...jsConfig,
-  // Airbnb Base Recommended Config
-  ...configs.base.recommended,
   // React Config
   ...reactConfig,
   // TypeScript Config
