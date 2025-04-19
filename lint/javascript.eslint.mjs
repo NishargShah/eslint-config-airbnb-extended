@@ -10,10 +10,10 @@ const customJSESLintConfig = [
     name: 'js/config',
     ...js.configs.recommended,
   },
-  // IMPORT X PLUGIN
-  plugins.importX,
   // Stylistic PLUGIN
   plugins.stylistic,
+  // IMPORT X PLUGIN
+  plugins.importX,
   // AIRBNB BASE CONFIG
   ...configs.base.recommended,
   // PROMISE CONFIG
