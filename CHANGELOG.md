@@ -1,3 +1,9 @@
+## 0.10.1 (2025-04-20)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Fixed `ignoreTypes` issue
+
 ## 0.10.0 (2025-04-20)
 
 ### 🚨 Breaking Change
