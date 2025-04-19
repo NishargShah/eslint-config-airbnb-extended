@@ -1,3 +1,23 @@
+## 0.10.0 (2025-04-20)
+
+### 🚨 Breaking Change
+
+- **eslint-config-airbnb-extended:** Changed `rules` keys
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `stylistic` plugin of `javascript`, `typescript`, `jsx` and `plus`
+- **eslint-config-airbnb-extended:** Added `stylistic` and `stylistic-plus` in base config
+- **eslint-config-airbnb-extended:** Added `stylistic-disable-legacy` config
+- **eslint-config-airbnb-extended:** Added `stylistic-react` in React config
+- **eslint-config-airbnb-extended:** Added `stylistic-typescript` and `stylistic-typescript-plus` in TypeScript config
+- **eslint-config-airbnb-extended:** Added `stylistic` function in `Check Updates`
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** moved `reactStrict` rules from `base` config to `react` config
+- **create-airbnb-x-config:** Changed `templates` configs
+
 ## 0.9.3 (2025-04-17)
 
 ### 🩹 Fixes
