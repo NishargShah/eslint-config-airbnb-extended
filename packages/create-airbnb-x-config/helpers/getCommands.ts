@@ -22,6 +22,7 @@ const getCommands: GetCommands = (args) => {
     '@eslint/compat',
     '@eslint/js',
     'eslint-config-airbnb-extended',
+    '@stylistic/eslint-plugin@^3.1.0',
     'eslint-plugin-import-x',
   ];
 
