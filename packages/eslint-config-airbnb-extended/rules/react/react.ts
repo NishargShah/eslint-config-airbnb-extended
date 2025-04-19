@@ -2,7 +2,7 @@ import globals from 'globals';
 
 import type { Linter } from 'eslint';
 
-const reactRules = {
+const reactBaseRules = {
   name: 'airbnb/config/react',
   languageOptions: {
     parserOptions: {
@@ -668,7 +668,7 @@ const reactRules = {
   },
 } satisfies Linter.Config;
 
-export const deprecatedReactRules = {
+export const deprecatedReactBaseRules = {
   name: 'airbnb/config/react/deprecated',
   rules: {
     // Enforce defaultProps declarations alphabetical sorting
@@ -681,4 +681,4 @@ export const deprecatedReactRules = {
   },
 } satisfies Linter.Config;
 
-export default reactRules;
+export default reactBaseRules;

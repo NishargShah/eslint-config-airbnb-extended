@@ -8,8 +8,8 @@ import type { Linter } from 'eslint';
 
 const typescriptConfig = {
   base: typescriptBaseRules,
-  typescriptStylistic: typescriptStylisticRules,
-  typescriptStylisticPlus: typescriptStylisticPlusRules,
+  stylistic: typescriptStylisticRules,
+  stylisticPlus: typescriptStylisticPlusRules,
   typescriptEslint: typescriptEslintRules,
   imports: typescriptImportsRules,
 } satisfies Record<string, Linter.Config>;
