@@ -5,7 +5,7 @@ import type { Linter } from 'eslint';
 import type baseConfigExtended from '@/configs/base/configExtended';
 import type nextConfig from '@/configs/next/config';
 import type nodeConfig from '@/configs/node/config';
-import type reactConfig from '@/configs/react/config';
+import type reactConfigExtended from '@/configs/react/configExtended';
 import type typescriptConfig from '@/configs/typescript/config';
 
 /**
@@ -18,8 +18,8 @@ const rules = {
   get node(): Record<keyof typeof nodeConfig, Linter.Config> {
     return require('@/configs/node/config').default;
   },
-  get react(): Record<keyof typeof reactConfig, Linter.Config> {
-    return require('@/configs/react/config').default;
+  get react(): Record<keyof typeof reactConfigExtended, Linter.Config> {
+    return require('@/configs/react/configExtended').default;
   },
   get next(): Record<keyof typeof nextConfig, Linter.Config> {
     return require('@/configs/next/config').default;
