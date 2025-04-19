@@ -6,6 +6,9 @@ import type { Linter } from 'eslint';
  * as is given due to less size of index.d.ts
  */
 const plugins = {
+  get stylistic(): Linter.Config {
+    return require('@/plugins/stylisticPlugin').default;
+  },
   get importX(): Linter.Config {
     return require('@/plugins/importXPlugin').default;
   },
@@ -26,9 +29,6 @@ const plugins = {
   },
   get typescriptEslint(): Linter.Config {
     return require('@/plugins/typescriptEslintPlugin').default;
-  },
-  get stylistic(): Linter.Config {
-    return require('@/plugins/stylisticPlugin').default;
   },
 };
 
