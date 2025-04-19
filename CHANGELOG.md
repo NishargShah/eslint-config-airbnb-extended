@@ -1,3 +1,10 @@
+## 0.10.2 (2025-04-20)
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Added `tsConfigs` in `TypeScript` config
+- **eslint-config-airbnb-extended:** Added `vite` config in dev dependencies allowed list
+
 ## 0.10.1 (2025-04-20)
 
 ### 🩹 Fixes
