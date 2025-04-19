@@ -115,7 +115,8 @@ const typescriptStylisticRules = {
       stylisticRules.rules['@stylistic/space-infix-ops'][0],
       {
         ...stylisticRules.rules['@stylistic/space-infix-ops'][1],
-        ignoreTypes: false,
+        // Due to https://github.com/eslint-stylistic/eslint-stylistic/issues/768
+        // ignoreTypes: false,
       },
     ],
 
