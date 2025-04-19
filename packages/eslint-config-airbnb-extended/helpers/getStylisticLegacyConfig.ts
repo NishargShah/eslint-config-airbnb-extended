@@ -11,26 +11,24 @@ const getStylisticLegacyConfig: GetStylisticLegacyConfig = (language) => {
   const REACT = 'react/';
   const TYPESCRIPT = '@typescript-eslint/';
 
-  const rules = (() => {
-    if (!legacyConfig.rules) return;
+  const rules = Object.entries(legacyConfig.rules ?? {}).reduce<Linter.Config['rules'] | null>(
+    (acc, [key, value]) => {
+      if (language === 'javascript' && !key.startsWith(REACT) && !key.startsWith(TYPESCRIPT)) {
+        return { ...acc, [key]: value };
+      }
 
-    return Object.entries(legacyConfig.rules).reduce<Linter.Config['rules']>(
-      (acc, [key, value]) => {
-        if (language === 'javascript' && !key.startsWith(REACT) && !key.startsWith(TYPESCRIPT)) {
-          return { ...acc, [key]: value };
-        }
+      if (language === 'typescript' && key.startsWith(TYPESCRIPT)) {
+        return { ...acc, [key]: value };
+      }
 
-        if (language === 'typescript' && key.startsWith(TYPESCRIPT)) {
-          return { ...acc, [key]: value };
-        }
+      if (language === 'react' && key.startsWith(REACT)) {
+        return { ...acc, [key]: value };
+      }
 
-        if (language === 'react' && key.startsWith(REACT)) {
-          return { ...acc, [key]: value };
-        }
-      },
-      {},
-    );
-  })();
+      return null;
+    },
+    {},
+  );
 
   return rules ? { ...legacyConfig, rules } : legacyConfig;
 };
