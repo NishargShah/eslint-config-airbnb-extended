@@ -26,6 +26,7 @@ const getDevDepsList: GetDevDepsList = (extensions) => [
   `**/*.eslint.{${extensions}}`,
   `**/eslint.config.{${extensions}}`,
   `**/prettier.config.{${extensions}}`,
+  `**/vite.config.{${extensions}}`,
 ];
 
 export default getDevDepsList;
