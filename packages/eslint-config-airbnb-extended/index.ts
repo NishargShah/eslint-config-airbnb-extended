@@ -5,7 +5,7 @@ import allPlugins from '@/plugins';
 import allRules from '@/rules';
 
 /**
- * Direct export not allowed, it will increase the size of d.ts
+ * Direct export isn't allowed, it will increase the size of d.ts
  */
 export const rules = allRules;
 

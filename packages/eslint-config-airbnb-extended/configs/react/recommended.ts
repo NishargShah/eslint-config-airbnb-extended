@@ -1,4 +1,5 @@
 import reactConfig from '@/configs/react/config';
+import getStylisticLegacyConfig from '@/helpers/getStylisticLegacyConfig';
 import styleRules from '@/rules/style';
 import { jsExtensionsWithReact } from '@/utils';
 
@@ -67,6 +68,10 @@ const reactRecommendedConfig = [
       // https://eslint.style/rules/js/jsx-quotes
       '@stylistic/jsx-quotes': ['error', 'prefer-double'],
     },
+  },
+  {
+    name: 'airbnb/config/react-disable-legacy-stylistic-react-config',
+    ...getStylisticLegacyConfig('react'),
   },
 ] satisfies Linter.Config[];
 
