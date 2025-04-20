@@ -6,7 +6,7 @@ import type baseConfigExtended from '@/configs/base/configExtended';
 import type nextConfig from '@/configs/next/config';
 import type nodeConfig from '@/configs/node/config';
 import type reactConfigExtended from '@/configs/react/configExtended';
-import type typescriptConfig from '@/configs/typescript/config';
+import type typescriptConfigExtended from '@/configs/typescript/configExtended';
 
 /**
  * as is given due to less size of index.d.ts
@@ -24,8 +24,8 @@ const rules = {
   get next(): Record<keyof typeof nextConfig, Linter.Config> {
     return require('@/configs/next/config').default;
   },
-  get typescript(): Record<keyof typeof typescriptConfig, Linter.Config> {
-    return require('@/configs/typescript/config').default;
+  get typescript(): Record<keyof typeof typescriptConfigExtended, Linter.Config> {
+    return require('@/configs/typescript/configExtended').default;
   },
 };
 
