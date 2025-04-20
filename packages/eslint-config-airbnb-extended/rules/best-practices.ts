@@ -215,15 +215,7 @@ const bestPracticesRules = {
 
     // disallow magic numbers
     // https://eslint.org/docs/rules/no-magic-numbers
-    'no-magic-numbers': [
-      'off',
-      {
-        ignore: [],
-        ignoreArrayIndexes: true,
-        enforceConst: true,
-        detectObjects: false,
-      },
-    ],
+    'no-magic-numbers': 'off',
 
     // disallow use of multiline strings
     // https://eslint.org/docs/rules/no-multi-str

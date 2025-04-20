@@ -31,7 +31,7 @@ const typescriptEslintRules = {
 
     // Disallow // tslint:<rule-flag> comments.
     // https://typescript-eslint.io/rules/ban-tslint-comment
-    '@typescript-eslint/ban-tslint-comment': 'off',
+    '@typescript-eslint/ban-tslint-comment': 'error',
 
     // Enforce that literals on classes are exposed in a consistent style.
     // https://typescript-eslint.io/rules/class-literal-property-style
@@ -47,10 +47,11 @@ const typescriptEslintRules = {
 
     // Require or disallow the Record type.
     // https://typescript-eslint.io/rules/consistent-indexed-object-style
-    '@typescript-eslint/consistent-indexed-object-style': 'off',
+    '@typescript-eslint/consistent-indexed-object-style': 'error',
 
     // Require return statements to either always or never specify values.
     // https://typescript-eslint.io/rules/consistent-return
+    // Not recommended by the TypeScript Eslint team due to "noImplicitReturns" TypeScript rule
     '@typescript-eslint/consistent-return': 'off',
 
     // Enforce consistent usage of type assertions.
@@ -59,7 +60,7 @@ const typescriptEslintRules = {
 
     // Enforce type definitions to consistently use either interface or type.
     // https://typescript-eslint.io/rules/consistent-type-definitions
-    '@typescript-eslint/consistent-type-definitions': 'off',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 
     // Enforce consistent usage of type exports.
     // https://typescript-eslint.io/rules/consistent-type-exports
@@ -77,7 +78,15 @@ const typescriptEslintRules = {
     // Enforce dot notation whenever possible.
     // https://typescript-eslint.io/rules/dot-notation
     'dot-notation': 'off',
-    '@typescript-eslint/dot-notation': bestPracticesRules.rules['dot-notation'],
+    '@typescript-eslint/dot-notation': [
+      bestPracticesRules.rules['dot-notation'][0],
+      {
+        ...bestPracticesRules.rules['dot-notation'][1],
+        allowPrivateClassPropertyAccess: false,
+        allowProtectedClassPropertyAccess: false,
+        allowIndexSignaturePropertyAccess: false,
+      },
+    ],
 
     // Require explicit return types on functions and class methods.
     // https://typescript-eslint.io/rules/explicit-function-return-type
@@ -101,6 +110,7 @@ const typescriptEslintRules = {
 
     // Require a consistent member declaration order.
     // https://typescript-eslint.io/rules/member-ordering
+    // Not recommended by the TypeScript Eslint team due to "eslint-plugin-perfectionist"
     '@typescript-eslint/member-ordering': 'off',
 
     // Enforce using a particular method signature syntax.
@@ -153,12 +163,12 @@ const typescriptEslintRules = {
 
     // Disallow duplicate class members.
     // https://typescript-eslint.io/rules/no-dupe-class-members
-    'no-dupe-class-members': 'off',
-    '@typescript-eslint/no-dupe-class-members': es6Rules.rules['no-dupe-class-members'],
+    // Not recommended by the TypeScript Eslint team
+    '@typescript-eslint/no-dupe-class-members': 'off',
 
     // Disallow duplicate enum member values.
     // https://typescript-eslint.io/rules/no-duplicate-enum-values
-    '@typescript-eslint/no-duplicate-enum-values': 'off',
+    '@typescript-eslint/no-duplicate-enum-values': 'error',
 
     // Disallow duplicate constituents of union or intersection types.
     // https://typescript-eslint.io/rules/no-duplicate-type-constituents
@@ -173,10 +183,6 @@ const typescriptEslintRules = {
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': bestPracticesRules.rules['no-empty-function'],
 
-    // Disallow the declaration of empty interfaces.
-    // https://typescript-eslint.io/rules/no-empty-interface
-    '@typescript-eslint/no-empty-interface': 'off',
-
     // Disallow accidentally using the "empty object" type.
     // https://typescript-eslint.io/rules/no-empty-object-type
     '@typescript-eslint/no-empty-object-type': 'off',
@@ -187,7 +193,7 @@ const typescriptEslintRules = {
 
     // Disallow extra non-null assertions.
     // https://typescript-eslint.io/rules/no-extra-non-null-assertion
-    '@typescript-eslint/no-extra-non-null-assertion': 'off',
+    '@typescript-eslint/no-extra-non-null-assertion': 'error',
 
     // Disallow classes used as namespaces.
     // https://typescript-eslint.io/rules/no-extraneous-class
@@ -199,7 +205,7 @@ const typescriptEslintRules = {
 
     // Disallow iterating over an array with a for-in loop.
     // https://typescript-eslint.io/rules/no-for-in-array
-    '@typescript-eslint/no-for-in-array': 'off',
+    '@typescript-eslint/no-for-in-array': 'error',
 
     // Disallow the use of eval()-like functions.
     // https://typescript-eslint.io/rules/no-implied-eval
@@ -213,7 +219,13 @@ const typescriptEslintRules = {
 
     // Disallow explicit type declarations for variables or parameters initialized to a number, string, or boolean.
     // https://typescript-eslint.io/rules/no-inferrable-types
-    '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/no-inferrable-types': [
+      'error',
+      {
+        ignoreParameters: false,
+        ignoreProperties: false,
+      },
+    ],
 
     // Disallow this keywords outside of classes or class-like objects.
     // https://typescript-eslint.io/rules/no-invalid-this
@@ -228,14 +240,9 @@ const typescriptEslintRules = {
     'no-loop-func': 'off',
     '@typescript-eslint/no-loop-func': bestPracticesRules.rules['no-loop-func'],
 
-    // Disallow literal numbers that lose precision.
-    // https://typescript-eslint.io/rules/no-loss-of-precision
-    '@typescript-eslint/no-loss-of-precision': 'off',
-
     // Disallow magic numbers.
     // https://typescript-eslint.io/rules/no-magic-numbers
-    'no-magic-numbers': 'off',
-    '@typescript-eslint/no-magic-numbers': bestPracticesRules.rules['no-magic-numbers'],
+    '@typescript-eslint/no-magic-numbers': 'off',
 
     // Disallow the void operator except when used to discard a value.
     // https://typescript-eslint.io/rules/no-meaningless-void-operator
@@ -243,7 +250,7 @@ const typescriptEslintRules = {
 
     // Enforce valid definition of new and constructor.
     // https://typescript-eslint.io/rules/no-misused-new
-    '@typescript-eslint/no-misused-new': 'off',
+    '@typescript-eslint/no-misused-new': 'error',
 
     // Disallow Promises in places not designed to handle them.
     // https://typescript-eslint.io/rules/no-misused-promises
@@ -255,11 +262,17 @@ const typescriptEslintRules = {
 
     // Disallow enums from having both number and string members.
     // https://typescript-eslint.io/rules/no-mixed-enums
-    '@typescript-eslint/no-mixed-enums': 'off',
+    '@typescript-eslint/no-mixed-enums': 'error',
 
     // Disallow TypeScript namespaces.
     // https://typescript-eslint.io/rules/no-namespace
-    '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/no-namespace': [
+      'error',
+      {
+        allowDeclarations: false,
+        allowDefinitionFiles: true,
+      },
+    ],
 
     // Disallow non-null assertions in the left operand of a nullish coalescing operator.
     // https://typescript-eslint.io/rules/no-non-null-asserted-nullish-coalescing
@@ -564,6 +577,19 @@ const typescriptEslintRules = {
     // Enforce typing arguments in Promise rejection callbacks as unknown.
     // https://typescript-eslint.io/rules/use-unknown-in-catch-callback-variable
     '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
+  },
+} satisfies Linter.Config;
+
+export const deprecatedTypescriptEslintRules = {
+  name: 'airbnb/config/typescript/typescript-eslint/deprecated',
+  rules: {
+    // Disallow the declaration of empty interfaces.
+    // https://typescript-eslint.io/rules/no-empty-interface
+    '@typescript-eslint/no-empty-interface': 'off',
+
+    // Disallow literal numbers that lose precision.
+    // https://typescript-eslint.io/rules/no-loss-of-precision
+    '@typescript-eslint/no-loss-of-precision': 'off',
   },
 } satisfies Linter.Config;
 

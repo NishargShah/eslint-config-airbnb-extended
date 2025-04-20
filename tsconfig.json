@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
+    "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
