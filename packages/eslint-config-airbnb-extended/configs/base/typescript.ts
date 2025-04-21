@@ -1,4 +1,5 @@
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import { configs } from 'typescript-eslint';
 
 import typescriptConfig from '@/configs/typescript/config';
 import getStylisticLegacyConfig from '@/helpers/getStylisticLegacyConfig';
@@ -22,6 +23,11 @@ const baseTypescriptConfig = [
     name: 'airbnb/config/base-typescript-disable-legacy-stylistic-ts-config',
     ...getStylisticLegacyConfig('typescript'),
   },
-] satisfies Linter.Config[];
+  {
+    ...configs.disableTypeChecked,
+    name: 'airbnb/config/base-typescript-disable-type-checked',
+    files: ['**/*.{js,cjs,mjs}'],
+  },
+] as Linter.Config[];
 
 export default baseTypescriptConfig;

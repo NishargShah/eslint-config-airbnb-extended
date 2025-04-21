@@ -558,7 +558,7 @@ const typescriptEslintRules = {
     '@typescript-eslint/triple-slash-reference': [
       'error',
       {
-        ib: 'always',
+        lib: 'always',
         path: 'never',
         types: 'prefer-import',
       },

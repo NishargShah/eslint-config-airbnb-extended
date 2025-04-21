@@ -1,7 +1,10 @@
+import { tsFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const typescriptEslintStrictRules = {
   name: 'airbnb/config/typescript/typescript-eslint/strict',
+  files: tsFiles,
   rules: {
     // Require that function overload signatures be consecutive.
     // https://typescript-eslint.io/rules/adjacent-overload-signatures

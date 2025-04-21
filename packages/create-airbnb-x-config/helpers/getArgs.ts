@@ -126,7 +126,7 @@ export interface GetArgsOutput {
 type GetArgs = () => GetArgsOutput;
 
 const getArgs: GetArgs = () => {
-  const opts = program.opts() as Partial<ProgramOpts>;
+  const opts = program.opts();
   const config = getConfig(opts);
 
   return {
