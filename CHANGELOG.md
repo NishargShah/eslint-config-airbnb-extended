@@ -1,3 +1,19 @@
+## 0.11.0 (2025-04-22)
+
+### 🚨 Breaking Change
+
+- **eslint-config-airbnb-extended:** Changed `typescript-eslint` rules severity
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `disableTypeChecked` config for javascript from `typescript-eslint`
+- **eslint-config-airbnb-extended:** Added `typescriptEslintStrict` rules
+- **eslint-config-airbnb-extended:** Added `typescript-eslint` function in `Check Updates`
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Changed `templates` configs
+
 ## 0.10.2 (2025-04-20)
 
 ### 🩹 Fixes
