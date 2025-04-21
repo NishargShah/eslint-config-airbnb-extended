@@ -4,6 +4,7 @@ import reactJsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import nodePlugin from 'eslint-plugin-n';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import { plugin as typescriptEslintPlugin } from 'typescript-eslint';
 
 import importsRules, { deprecatedImportsRules } from '@/rules/imports';
 import nextBaseRules from '@/rules/next/nextBase';
@@ -20,6 +21,9 @@ import reactStylisticRules, {
 } from '@/rules/react/reactStylistic';
 import stylisticRules, { deprecatedStylisticRules } from '@/rules/stylistic';
 import stylisticPlusRules from '@/rules/stylisticPlus';
+import typescriptEslintRules, {
+  deprecatedTypescriptEslintRules,
+} from '@/rules/typescript/typescriptEslint';
 import typescriptStylisticRules, {
   deprecatedTypescriptStylisticRules,
 } from '@/rules/typescript/typescriptStylistic';
@@ -131,6 +135,19 @@ const checkStylisticUpdates = async () => {
   throw new Error('Stylistic Plugin Updated');
 };
 
+const checkTypescriptEslintUpdates = async () => {
+  const localRules = getRulesArray('@typescript-eslint/', [
+    ...Object.keys(typescriptEslintRules.rules),
+    ...Object.keys(deprecatedTypescriptEslintRules.rules),
+  ]);
+
+  const remoteRules = typescriptEslintPlugin.rules ? Object.keys(typescriptEslintPlugin.rules) : [];
+
+  if (localRules.length === remoteRules.length) return true;
+
+  throw new Error('Typescript Eslint Plugin Updated');
+};
+
 const checkUpdates = async () => {
   await checkImportsUpdates();
   await checkNodeUpdates();
@@ -139,6 +156,7 @@ const checkUpdates = async () => {
   await checkReactHooksUpdates();
   await checkNextUpdates();
   await checkStylisticUpdates();
+  await checkTypescriptEslintUpdates();
   console.log('Done');
 };
 
