@@ -288,8 +288,7 @@ const typescriptEslintRules = {
 
     // Disallow variable redeclaration.
     // https://typescript-eslint.io/rules/no-redeclare
-    'no-redeclare': 'off',
-    '@typescript-eslint/no-redeclare': bestPracticesRules.rules['no-redeclare'],
+    '@typescript-eslint/no-redeclare': 'off',
 
     // Disallow members of unions and intersections that do nothing or override type information.
     // https://typescript-eslint.io/rules/no-redundant-type-constituents
@@ -297,7 +296,13 @@ const typescriptEslintRules = {
 
     // Disallow invocation of require().
     // https://typescript-eslint.io/rules/no-require-imports
-    '@typescript-eslint/no-require-imports': 'off',
+    '@typescript-eslint/no-require-imports': [
+      'error',
+      {
+        allow: [],
+        allowAsImport: false,
+      },
+    ],
 
     // Disallow specified modules when loaded by import.
     // https://typescript-eslint.io/rules/no-restricted-imports
@@ -314,11 +319,13 @@ const typescriptEslintRules = {
 
     // Disallow aliasing this.
     // https://typescript-eslint.io/rules/no-this-alias
-    '@typescript-eslint/no-this-alias': 'off',
-
-    // Disallow type aliases.
-    // https://typescript-eslint.io/rules/no-type-alias
-    '@typescript-eslint/no-type-alias': 'off',
+    '@typescript-eslint/no-this-alias': [
+      'error',
+      {
+        allowDestructuring: true,
+        allowedNames: ['self', 'that'],
+      },
+    ],
 
     // Disallow unnecessary equality comparisons against boolean literals.
     // https://typescript-eslint.io/rules/no-unnecessary-boolean-literal-compare
@@ -330,27 +337,27 @@ const typescriptEslintRules = {
 
     // Disallow unnecessary assignment of constructor property parameter.
     // https://typescript-eslint.io/rules/no-unnecessary-parameter-property-assignment
-    '@typescript-eslint/no-unnecessary-parameter-property-assignment': 'off',
+    '@typescript-eslint/no-unnecessary-parameter-property-assignment': 'error',
 
     // Disallow unnecessary namespace qualifiers.
     // https://typescript-eslint.io/rules/no-unnecessary-qualifier
-    '@typescript-eslint/no-unnecessary-qualifier': 'off',
+    '@typescript-eslint/no-unnecessary-qualifier': 'error',
 
     // Disallow unnecessary template expressions.
     // https://typescript-eslint.io/rules/no-unnecessary-template-expression
-    '@typescript-eslint/no-unnecessary-template-expression': 'off',
+    '@typescript-eslint/no-unnecessary-template-expression': 'error',
 
     // Disallow type arguments that are equal to the default.
     // https://typescript-eslint.io/rules/no-unnecessary-type-arguments
-    '@typescript-eslint/no-unnecessary-type-arguments': 'off',
+    '@typescript-eslint/no-unnecessary-type-arguments': 'error',
 
     // Disallow type assertions that do not change the type of an expression.
     // https://typescript-eslint.io/rules/no-unnecessary-type-assertion
-    '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+    '@typescript-eslint/no-unnecessary-type-assertion': 'error',
 
     // Disallow unnecessary constraints on generic types.
     // https://typescript-eslint.io/rules/no-unnecessary-type-constraint
-    '@typescript-eslint/no-unnecessary-type-constraint': 'off',
+    '@typescript-eslint/no-unnecessary-type-constraint': 'error',
 
     // Disallow type parameters that aren't used multiple times.
     // https://typescript-eslint.io/rules/no-unnecessary-type-parameters
@@ -370,15 +377,15 @@ const typescriptEslintRules = {
 
     // Disallow unsafe declaration merging.
     // https://typescript-eslint.io/rules/no-unsafe-declaration-merging
-    '@typescript-eslint/no-unsafe-declaration-merging': 'off',
+    '@typescript-eslint/no-unsafe-declaration-merging': 'error',
 
     // Disallow comparing an enum value with a non-enum value.
     // https://typescript-eslint.io/rules/no-unsafe-enum-comparison
-    '@typescript-eslint/no-unsafe-enum-comparison': 'off',
+    '@typescript-eslint/no-unsafe-enum-comparison': 'error',
 
     // Disallow using the unsafe built-in Function type.
     // https://typescript-eslint.io/rules/no-unsafe-function-type
-    '@typescript-eslint/no-unsafe-function-type': 'off',
+    '@typescript-eslint/no-unsafe-function-type': 'error',
 
     // Disallow member access on a value with type any.
     // https://typescript-eslint.io/rules/no-unsafe-member-access
@@ -394,7 +401,7 @@ const typescriptEslintRules = {
 
     // Require unary negation to take a number.
     // https://typescript-eslint.io/rules/no-unsafe-unary-minus
-    '@typescript-eslint/no-unsafe-unary-minus': 'off',
+    '@typescript-eslint/no-unsafe-unary-minus': 'error',
 
     // Disallow unused expressions.
     // https://typescript-eslint.io/rules/no-unused-expressions
@@ -420,13 +427,9 @@ const typescriptEslintRules = {
     // https://typescript-eslint.io/rules/no-useless-empty-export
     '@typescript-eslint/no-useless-empty-export': 'off',
 
-    // Disallow require statements except in import statements.
-    // https://typescript-eslint.io/rules/no-var-requires
-    '@typescript-eslint/no-var-requires': 'off',
-
     // Disallow using confusing built-in primitive class wrappers.
     // https://typescript-eslint.io/rules/no-wrapper-object-types
-    '@typescript-eslint/no-wrapper-object-types': 'off',
+    '@typescript-eslint/no-wrapper-object-types': 'error',
 
     // Enforce non-null assertions over explicit type assertions.
     // https://typescript-eslint.io/rules/non-nullable-type-assertion-style
@@ -443,11 +446,12 @@ const typescriptEslintRules = {
 
     // Enforce the use of as const over literal type.
     // https://typescript-eslint.io/rules/prefer-as-const
-    '@typescript-eslint/prefer-as-const': 'off',
+    '@typescript-eslint/prefer-as-const': 'error',
 
     // Require destructuring from arrays and/or objects.
     // https://typescript-eslint.io/rules/prefer-destructuring
-    '@typescript-eslint/prefer-destructuring': 'off',
+    'prefer-destructuring': 'off',
+    '@typescript-eslint/prefer-destructuring': es6Rules.rules['prefer-destructuring'],
 
     // Require each enum member value to be explicitly initialized.
     // https://typescript-eslint.io/rules/prefer-enum-initializers
@@ -455,7 +459,7 @@ const typescriptEslintRules = {
 
     // Enforce the use of Array.prototype.find() over Array.prototype.filter() followed by [0] when looking for a single result.
     // https://typescript-eslint.io/rules/prefer-find
-    '@typescript-eslint/prefer-find': 'off',
+    '@typescript-eslint/prefer-find': 'error',
 
     // Enforce the use of for-of loop over the standard for loop where possible.
     // https://typescript-eslint.io/rules/prefer-for-of
@@ -463,7 +467,7 @@ const typescriptEslintRules = {
 
     // Enforce using function types instead of interfaces with call signatures.
     // https://typescript-eslint.io/rules/prefer-function-type
-    '@typescript-eslint/prefer-function-type': 'off',
+    '@typescript-eslint/prefer-function-type': 'error',
 
     // Enforce includes method over indexOf method.
     // https://typescript-eslint.io/rules/prefer-includes
@@ -473,9 +477,9 @@ const typescriptEslintRules = {
     // https://typescript-eslint.io/rules/prefer-literal-enum-member
     '@typescript-eslint/prefer-literal-enum-member': 'off',
 
-    // Require using namespace keyword over module keyword to declare custom TypeScript modules.
+    // Require using the namespace keyword over module keyword to declare custom TypeScript modules.
     // https://typescript-eslint.io/rules/prefer-namespace-keyword
-    '@typescript-eslint/prefer-namespace-keyword': 'off',
+    '@typescript-eslint/prefer-namespace-keyword': 'error',
 
     // Enforce using the nullish coalescing operator instead of logical assignments or chaining.
     // https://typescript-eslint.io/rules/prefer-nullish-coalescing
@@ -513,10 +517,6 @@ const typescriptEslintRules = {
     // https://typescript-eslint.io/rules/prefer-string-starts-ends-with
     '@typescript-eslint/prefer-string-starts-ends-with': 'off',
 
-    // Enforce using @ts-expect-error over @ts-ignore.
-    // https://typescript-eslint.io/rules/prefer-ts-expect-error
-    '@typescript-eslint/prefer-ts-expect-error': 'off',
-
     // Require any function or method that returns a Promise to be marked async.
     // https://typescript-eslint.io/rules/promise-function-async
     '@typescript-eslint/promise-function-async': 'off',
@@ -531,8 +531,7 @@ const typescriptEslintRules = {
 
     // Disallow async functions which do not return promises and have no await expression.
     // https://typescript-eslint.io/rules/require-await
-    'require-await': 'off',
-    '@typescript-eslint/require-await': bestPracticesRules.rules['require-await'],
+    '@typescript-eslint/require-await': 'off',
 
     // Require both operands of addition to be the same type and be bigint, number, or string.
     // https://typescript-eslint.io/rules/restrict-plus-operands
@@ -546,10 +545,6 @@ const typescriptEslintRules = {
     // https://typescript-eslint.io/rules/return-await
     '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
-    // Enforce constituents of a type union/intersection to be sorted alphabetically.
-    // https://typescript-eslint.io/rules/sort-type-constituents
-    '@typescript-eslint/sort-type-constituents': 'off',
-
     // Disallow certain types in boolean expressions.
     // https://typescript-eslint.io/rules/strict-boolean-expressions
     '@typescript-eslint/strict-boolean-expressions': 'off',
@@ -560,7 +555,14 @@ const typescriptEslintRules = {
 
     // Disallow certain triple slash directives in favor of ES6-style import declarations.
     // https://typescript-eslint.io/rules/triple-slash-reference
-    '@typescript-eslint/triple-slash-reference': 'off',
+    '@typescript-eslint/triple-slash-reference': [
+      'error',
+      {
+        ib: 'always',
+        path: 'never',
+        types: 'prefer-import',
+      },
+    ],
 
     // Require type annotations in certain places.
     // https://typescript-eslint.io/rules/typedef
@@ -590,6 +592,22 @@ export const deprecatedTypescriptEslintRules = {
     // Disallow literal numbers that lose precision.
     // https://typescript-eslint.io/rules/no-loss-of-precision
     '@typescript-eslint/no-loss-of-precision': 'off',
+
+    // Disallow type aliases.
+    // https://typescript-eslint.io/rules/no-type-alias
+    '@typescript-eslint/no-type-alias': 'off',
+
+    // Disallow require statements except in import statements.
+    // https://typescript-eslint.io/rules/no-var-requires
+    '@typescript-eslint/no-var-requires': 'off',
+
+    // Enforce using @ts-expect-error over @ts-ignore.
+    // https://typescript-eslint.io/rules/prefer-ts-expect-error
+    '@typescript-eslint/prefer-ts-expect-error': 'off',
+
+    // Enforce constituents of a type union/intersection to be sorted alphabetically.
+    // https://typescript-eslint.io/rules/sort-type-constituents
+    '@typescript-eslint/sort-type-constituents': 'off',
   },
 } satisfies Linter.Config;
 

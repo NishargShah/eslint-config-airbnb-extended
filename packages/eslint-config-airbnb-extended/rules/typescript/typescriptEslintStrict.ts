@@ -182,6 +182,88 @@ const typescriptEslintStrictRules = {
         allow: [],
       },
     ],
+
+    // Disallow non-null assertions in the left operand of a nullish coalescing operator.
+    // https://typescript-eslint.io/rules/no-non-null-asserted-nullish-coalescing
+    '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'warn',
+
+    // Disallow non-null assertions after an optional chain expression.
+    // https://typescript-eslint.io/rules/no-non-null-asserted-optional-chain
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+
+    // Disallow non-null assertions using the ! postfix operator.
+    // https://typescript-eslint.io/rules/no-non-null-assertion
+    '@typescript-eslint/no-non-null-assertion': 'error',
+
+    // Disallow members of unions and intersections that do nothing or override type information.
+    // https://typescript-eslint.io/rules/no-redundant-type-constituents
+    '@typescript-eslint/no-redundant-type-constituents': 'error',
+
+    // Disallow unnecessary equality comparisons against boolean literals.
+    // https://typescript-eslint.io/rules/no-unnecessary-boolean-literal-compare
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+
+    // Disallow assigning a value with type any to variables and properties.
+    // https://typescript-eslint.io/rules/no-unsafe-assignment
+    '@typescript-eslint/no-unsafe-assignment': 'error',
+
+    // Disallow calling a value with type any.
+    // https://typescript-eslint.io/rules/no-unsafe-call
+    '@typescript-eslint/no-unsafe-call': 'error',
+
+    // Disallow returning a value with type any from a function.
+    // https://typescript-eslint.io/rules/no-unsafe-return
+    '@typescript-eslint/no-unsafe-return': 'error',
+
+    // Disallow empty exports that don't change anything in a module file.
+    // https://typescript-eslint.io/rules/no-useless-empty-export
+    '@typescript-eslint/no-useless-empty-export': 'error',
+
+    // Enforce the use of for-of loop over the standard for loop where possible.
+    // https://typescript-eslint.io/rules/prefer-for-of
+    '@typescript-eslint/prefer-for-of': 'off',
+
+    // Enforce includes method over indexOf method.
+    // https://typescript-eslint.io/rules/prefer-includes
+    '@typescript-eslint/prefer-includes': 'warn',
+
+    // Enforce using the nullish coalescing operator instead of logical assignments or chaining.
+    // https://typescript-eslint.io/rules/prefer-nullish-coalescing
+    '@typescript-eslint/prefer-nullish-coalescing': 'error',
+
+    // Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
+    // https://typescript-eslint.io/rules/prefer-optional-chain
+    '@typescript-eslint/prefer-optional-chain': 'error',
+
+    // Enforce using type parameter when calling Array#reduce instead of using a type assertion.
+    // https://typescript-eslint.io/rules/prefer-reduce-type-parameter
+    '@typescript-eslint/prefer-reduce-type-parameter': 'error',
+
+    // Enforce RegExp#exec over String#match if no global flag is provided.
+    // https://typescript-eslint.io/rules/prefer-regexp-exec
+    '@typescript-eslint/prefer-regexp-exec': 'error',
+
+    // Enforce using String#startsWith and String#endsWith over other equivalent methods of checking substrings.
+    // https://typescript-eslint.io/rules/prefer-string-starts-ends-with
+    '@typescript-eslint/prefer-string-starts-ends-with': 'warn',
+
+    // Require any function or method that returns a Promise to be marked async.
+    // https://typescript-eslint.io/rules/promise-function-async
+    '@typescript-eslint/promise-function-async': 'error',
+
+    // Require Array#sort and Array#toSorted calls to always provide a compareFunction.
+    // https://typescript-eslint.io/rules/require-array-sort-compare
+    '@typescript-eslint/require-array-sort-compare': 'error',
+
+    // Disallow two overloads that could be unified into one with a union or an optional/rest parameter.
+    // https://typescript-eslint.io/rules/unified-signatures
+    '@typescript-eslint/unified-signatures': [
+      'error',
+      {
+        ignoreDifferentlyNamedParameters: false,
+        ignoreOverloadsWithDifferentJSDoc: false,
+      },
+    ],
   },
 } satisfies Linter.Config;
 
