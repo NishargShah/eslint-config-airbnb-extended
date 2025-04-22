@@ -14,7 +14,8 @@
   "type": "commonjs",
   "scripts": {
     "build": "pnpm -r build",
-    "cli:build": "pnpm --filter eslint-config-airbnb-extended build",
+    "cli:build": "pnpm --filter create-airbnb-x-config build",
+    "cli:build-templates": "pnpm --filter create-airbnb-x-config build:templates",
     "cli:dev": "pnpm --filter create-airbnb-x-config dev",
     "cli:start": "pnpm --filter create-airbnb-x-config start",
     "config:build": "pnpm --filter create-airbnb-x-config build",
