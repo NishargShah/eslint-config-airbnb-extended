@@ -1,3 +1,12 @@
+## 0.11.1 (2025-04-23)
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `typescript-eslint` recommended and stylistic rules in `typescriptEslint` config
+- **create-airbnb-x-config:** Added `prettier` functionality
+- **create-airbnb-x-config:** Automated `templates` by the script
+- **create-airbnb-x-config:** Added `templates` for prettier
+
 ## 0.11.0 (2025-04-22)
 
 ### 🚨 Breaking Change
