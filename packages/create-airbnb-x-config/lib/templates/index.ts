@@ -1,6 +1,6 @@
+import createDirectories from '@/lib/templates/createDirectories';
 import writeFiles from '@/lib/templates/writeFiles';
 import { success } from '@/utils';
-import createDirectories from '@/lib/templates/createDirectories';
 
 const run = async () => {
   await createDirectories();

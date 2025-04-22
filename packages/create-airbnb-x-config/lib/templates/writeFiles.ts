@@ -1,9 +1,13 @@
 import fsPromise from 'node:fs/promises';
 
 import { allFolders, subFolders } from '@/lib/templates/constants';
-import getContent, { GetContentParams } from '@/lib/templates/getContent';
+import getContent from '@/lib/templates/getContent';
 
-const writeFiles = async () => {
+import type { GetContentParams } from '@/lib/templates/getContent';
+
+type WriteFiles = () => Promise<void>;
+
+const writeFiles: WriteFiles = async () => {
   await Promise.all(
     allFolders.map(async (folder) => {
       const [, language, subFolder, prettierLanguagePreference] = folder.split('/');

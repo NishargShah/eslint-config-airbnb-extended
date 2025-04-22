@@ -1,3 +1,4 @@
+import { languages } from '@/constants';
 import {
   defaultConfig,
   gitignoreCode,
@@ -10,8 +11,8 @@ import {
 } from '@/lib/templates/configs';
 import { languagePreferences } from '@/lib/templates/constants';
 import contentFormatter from '@/lib/templates/contentFormatter';
-import { languages } from '@/constants';
-import { ValueOf } from '@/utils/types';
+
+import type { ValueOf } from '@/utils/types';
 
 interface GetContentConfigurations {
   prettier: boolean;

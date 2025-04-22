@@ -1,5 +1,5 @@
-import { languagePreferences } from '@/lib/templates/constants';
 import { languages } from '@/constants';
+import { languagePreferences } from '@/lib/templates/constants';
 
 import type { Content } from '@/lib/templates/contentFormatter';
 import type { GetContentParams } from '@/lib/templates/getContent';
