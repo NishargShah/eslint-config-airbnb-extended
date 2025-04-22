@@ -41,13 +41,6 @@ const customJSESLintConfig = [
       'unicorn/consistent-function-scoping': 'off',
     },
   },
-  {
-    name: 'unicorn/disable-rules',
-    files: ['packages/create-airbnb-x-config/**/*.{ts,tsx}'],
-    rules: {
-      'unicorn/no-process-exit': 'off',
-    },
-  },
 ];
 
 export default customJSESLintConfig;

@@ -6,7 +6,12 @@ const customGeneralESLintConfig = [
       'no-void': 'off',
       'consistent-return': 'off',
       'no-array-constructor': 'off',
-      'no-underscore-dangle': 'error',
+      'no-underscore-dangle': [
+        'error',
+        {
+          allow: ['_id'],
+        },
+      ],
       'sort-imports': [
         'error',
         {
@@ -21,6 +26,12 @@ const customGeneralESLintConfig = [
         'WhileStatement',
         'WithStatement',
       ],
+    },
+  },
+  {
+    name: 'x/general/ts-only',
+    files: ['*.{ts,cts,mts,tsx}'],
+    rules: {
       'no-restricted-imports': [
         'error',
         {
