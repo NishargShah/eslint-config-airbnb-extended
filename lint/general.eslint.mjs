@@ -7,6 +7,12 @@ const customGeneralESLintConfig = [
       'consistent-return': 'off',
       'no-array-constructor': 'off',
       'no-underscore-dangle': 'error',
+      'sort-imports': [
+        'error',
+        {
+          ignoreDeclarationSort: true,
+        },
+      ],
       'no-restricted-syntax': [
         'error',
         'ForStatement',
@@ -14,6 +20,17 @@ const customGeneralESLintConfig = [
         'DoWhileStatement',
         'WhileStatement',
         'WithStatement',
+      ],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['./*', '../*'],
+              message: "Please use the absolute path '@/*' instead.",
+            },
+          ],
+        },
       ],
     },
   },

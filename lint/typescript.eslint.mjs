@@ -5,15 +5,8 @@ const customTSESLintConfig = [
   plugins.typescriptEslint,
   // AIRBNB BASE TYPESCRIPT CONFIG
   ...configs.base.typescript,
-  // AIRBNB EXTENDED TYPESCRIPT CONFIG
+  // AIRBNB TYPESCRIPT ESLINT STRICT CONFIG
   rules.typescript.typescriptEslintStrict,
-  {
-    name: 'x/import-x/disable-extraneous-deps',
-    files: ['packages/create-airbnb-x-config/templates/**/eslint.config.mjs'],
-    rules: {
-      'import-x/no-extraneous-dependencies': 'off',
-    },
-  },
 ];
 
 export default customTSESLintConfig;

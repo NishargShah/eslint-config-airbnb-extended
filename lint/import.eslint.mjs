@@ -5,35 +5,11 @@ import { rules } from 'eslint-config-airbnb-extended';
 const customImportESLintConfig = [
   // STRICT IMPORT CONFIG
   rules.base.importsStrict,
-  // IMPORT CONFIG RULES
   {
-    name: 'x/import-x/rules',
+    name: 'x/import-x/disable-extraneous-deps',
+    files: ['packages/create-airbnb-x-config/templates/**/eslint.config.mjs'],
     rules: {
-      'sort-imports': [
-        'error',
-        {
-          ignoreDeclarationSort: true,
-        },
-      ],
-      'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
-    },
-  },
-  // RESTRICTED SOME IMPORTS
-  {
-    name: 'x/import-x/ts-only',
-    files: ['**/*.{ts,tsx}'],
-    rules: {
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              group: ['./*', '../*'],
-              message: "Please use the absolute path '@/*' instead.",
-            },
-          ],
-        },
-      ],
+      'import-x/no-extraneous-dependencies': 'off',
     },
   },
   {
