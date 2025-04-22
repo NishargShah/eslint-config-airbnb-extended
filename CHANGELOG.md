@@ -1,3 +1,9 @@
+## 0.11.3 (2025-04-23)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Fixed `no-confusing-void-expression` rule for arrow function
+
 ## 0.11.2 (2025-04-23)
 
 ### 🩹 Fixes
