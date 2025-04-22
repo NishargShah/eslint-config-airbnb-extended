@@ -3,6 +3,10 @@ import type { Linter } from 'eslint';
 const importsStrictRules = {
   name: 'airbnb/config/import-x/strict',
   rules: {
+    // enforce a consistent style for type specifiers (inline or top-level)
+    // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/consistent-type-specifier-style.md
+    'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+
     // Reports if a module's default export is unnamed
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-anonymous-default-export.md
     'import-x/no-anonymous-default-export': [
