@@ -99,6 +99,7 @@ const getSkipInstall: GetSkipInstall = (opts) => {
 export interface ProgramOpts {
   typescript: true;
   javascript: true;
+  prettier: true;
   react: true;
   reactRouter: true;
   next: true;
@@ -117,6 +118,7 @@ export interface ProgramOpts {
 
 export interface GetArgsOutput {
   typescript: boolean | null;
+  prettier: boolean | null;
   language: ValueOf<typeof languages> | null;
   config: ValueOf<typeof configs>[] | null;
   packageManager: ValueOf<typeof packageManagers> | null;
@@ -126,11 +128,12 @@ export interface GetArgsOutput {
 type GetArgs = () => GetArgsOutput;
 
 const getArgs: GetArgs = () => {
-  const opts = program.opts();
+  const opts = program.opts() as Partial<ProgramOpts>;
   const config = getConfig(opts);
 
   return {
     typescript: getTypescript(opts),
+    prettier: opts.prettier ? true : null,
     language: config ? languages.OTHER : getLanguage(opts),
     config,
     packageManager: getPackageManagerFromOpts(opts) ?? getPackageManager(),

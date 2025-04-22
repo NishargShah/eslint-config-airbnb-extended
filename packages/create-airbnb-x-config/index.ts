@@ -46,6 +46,24 @@ const run = async () => {
     args = { ...args, typescript };
   }
 
+  if (args.prettier === null) {
+    const { prettier } = await prompts(
+      {
+        type: 'toggle',
+        name: 'prettier',
+        message: `Are you using ${cyan('prettier')}?`,
+        initial: defaults.prettier,
+        active: 'Yes',
+        inactive: 'No',
+      },
+      {
+        onCancel,
+      },
+    );
+
+    args = { ...args, prettier };
+  }
+
   if (!args.language) {
     const { language } = await prompts(
       {

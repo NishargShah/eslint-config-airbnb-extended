@@ -5,7 +5,7 @@ import type { InstallPackagesArgs } from '@/helpers/installPackages';
 type GetCommands = (args: InstallPackagesArgs) => string[];
 
 const getCommands: GetCommands = (args) => {
-  const { typescript, language, config, packageManager } = args;
+  const { typescript, prettier, language, config, packageManager } = args;
 
   const pmInstallationCommand = {
     [packageManagers.NPM]: 'install',
@@ -28,6 +28,10 @@ const getCommands: GetCommands = (args) => {
 
   if (typescript) {
     commands.push('eslint-import-resolver-typescript', 'typescript-eslint');
+  }
+
+  if (prettier) {
+    commands.push('prettier', 'eslint-plugin-prettier', 'eslint-config-prettier');
   }
 
   if (language === languages.OTHER) {

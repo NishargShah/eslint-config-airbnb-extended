@@ -42,6 +42,10 @@ Options:
 
     Generate configuration for a JavaScript project.
 
+  --prettier
+
+    Include Prettier specific linting rules.
+
   --react
 
     Include React specific linting rules.

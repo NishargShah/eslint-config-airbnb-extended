@@ -15,6 +15,7 @@ export const configs = {
 
 export const defaults = {
   typescript: true,
+  prettier: true,
   language: 0,
   skipInstall: false,
 } as const;

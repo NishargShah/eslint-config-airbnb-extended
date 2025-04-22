@@ -10,11 +10,11 @@ const baseGithubUrl =
 type GetConfigUrl = (args: InstallPackagesArgs) => string | null;
 
 const getConfigUrl: GetConfigUrl = (args) => {
-  const { typescript, language } = args;
+  const { typescript, prettier, language } = args;
 
   if (language === languages.OTHER) return null;
 
-  const nestedFolderName = typescript ? 'ts' : 'js';
+  const nestedFolderName = `${prettier ? 'prettier/' : ''}${typescript ? 'ts' : 'js'}`;
   const eslintConfigName = 'eslint.config.mjs';
 
   return blue(`${baseGithubUrl}/${language}/${nestedFolderName}/${eslintConfigName}`);

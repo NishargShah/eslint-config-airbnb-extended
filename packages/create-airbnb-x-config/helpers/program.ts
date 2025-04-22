@@ -4,7 +4,7 @@ import { name, version } from '@/package.json';
 
 /**
  * Program Command
- * @example: pnpm cli:start --ts --js --react --remix --next --node --base-config --node-config --react-config --remix-config --next-config --use-npm --use-yarn --use-pnpm --use-bun --skip-install
+ * @example: pnpm cli:start --ts --js --prettier --react --remix --next --node --base-config --node-config --react-config --remix-config --next-config --use-npm --use-yarn --use-pnpm --use-bun --skip-install
  */
 const program = new Command()
   .name(name)
@@ -12,6 +12,7 @@ const program = new Command()
   .helpOption('-h, --help', 'Display this help message.')
   .option('--ts, --typescript', 'Generate configuration for a TypeScript project.')
   .option('--js, --javascript', 'Generate configuration for a JavaScript project.')
+  .option('--prettier', 'Include Prettier specific linting rules.')
   .option('--react', 'Include React specific linting rules.')
   .option('--remix, --react-router', 'Include Remix/React Router specific linting rules.')
   .option('--next', 'Include Next.js specific linting rules.')
