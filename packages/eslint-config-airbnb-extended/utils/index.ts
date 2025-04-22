@@ -14,7 +14,7 @@ export const tsExtensionsWithReact = [...tsExtensions, '.tsx'];
 
 export const tsExtensionsWithReactDTS = [...tsExtensionsWithReact, '.d.ts'];
 
-export const tsExtensionsResolver = [tsExtensions, '.d.ts'];
+export const tsExtensionsResolver = [...tsExtensions, '.d.ts'];
 
 export const tsExtensionsRule = Object.fromEntries(
   Object.values(tsExtensionsWithReact).map((val) => [val.slice(1), 'never']),
@@ -22,4 +22,4 @@ export const tsExtensionsRule = Object.fromEntries(
 
 // ESLINT CONFIG FILES
 
-export const tsFiles = tsExtensionsWithReact.map((val) => `*${val}`);
+export const tsFiles = tsExtensionsWithReact.map((val) => `**/*${val}`);

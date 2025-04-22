@@ -129,15 +129,6 @@ const typescriptEslintStrictRules = {
       },
     ],
 
-    // Disallow the void operator except when used to discard a value.
-    // https://typescript-eslint.io/rules/no-meaningless-void-operator
-    '@typescript-eslint/no-meaningless-void-operator': [
-      'error',
-      {
-        checkNever: false,
-      },
-    ],
-
     // Disallow Promises in places not designed to handle them.
     // https://typescript-eslint.io/rules/no-misused-promises
     '@typescript-eslint/no-misused-promises': [
@@ -178,10 +169,6 @@ const typescriptEslintStrictRules = {
     // https://typescript-eslint.io/rules/no-unnecessary-boolean-literal-compare
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
 
-    // Disallow assigning a value with type any to variables and properties.
-    // https://typescript-eslint.io/rules/no-unsafe-assignment
-    '@typescript-eslint/no-unsafe-assignment': 'error',
-
     // Disallow calling a value with type any.
     // https://typescript-eslint.io/rules/no-unsafe-call
     '@typescript-eslint/no-unsafe-call': 'error',
@@ -196,7 +183,7 @@ const typescriptEslintStrictRules = {
 
     // Enforce the use of for-of loop over the standard for loop where possible.
     // https://typescript-eslint.io/rules/prefer-for-of
-    '@typescript-eslint/prefer-for-of': 'off',
+    '@typescript-eslint/prefer-for-of': 'error',
 
     // Enforce includes method over indexOf method.
     // https://typescript-eslint.io/rules/prefer-includes
