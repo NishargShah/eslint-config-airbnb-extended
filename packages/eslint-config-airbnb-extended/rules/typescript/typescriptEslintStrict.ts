@@ -89,7 +89,7 @@ const typescriptEslintStrictRules = {
     '@typescript-eslint/no-confusing-void-expression': [
       'error',
       {
-        ignoreArrowShorthand: false,
+        ignoreArrowShorthand: true,
         ignoreVoidOperator: true,
         ignoreVoidReturningFunctions: false,
       },
