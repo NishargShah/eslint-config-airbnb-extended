@@ -10,16 +10,6 @@ const typescriptEslintStrictRules = {
     // https://typescript-eslint.io/rules/adjacent-overload-signatures
     '@typescript-eslint/adjacent-overload-signatures': 'error',
 
-    // Require consistently using either T[] or Array<T> for arrays.
-    // https://typescript-eslint.io/rules/array-type
-    '@typescript-eslint/array-type': [
-      'error',
-      {
-        default: 'array',
-        readonly: 'array',
-      },
-    ],
-
     // Disallow awaiting a value that is not a Thenable.
     // https://typescript-eslint.io/rules/await-thenable
     '@typescript-eslint/await-thenable': 'error',
@@ -37,13 +27,9 @@ const typescriptEslintStrictRules = {
       },
     ],
 
-    // Enforce that literals on classes are exposed in a consistent style.
-    // https://typescript-eslint.io/rules/class-literal-property-style
-    '@typescript-eslint/class-literal-property-style': ['error', 'fields'],
-
     // Enforce specifying generic type arguments on type annotation or constructor name of a constructor call.
     // https://typescript-eslint.io/rules/consistent-generic-constructors
-    '@typescript-eslint/consistent-generic-constructors': ['error', 'type-annotation'],
+    '@typescript-eslint/consistent-generic-constructors': ['error', 'constructor'],
 
     // Enforce consistent usage of type assertions.
     // https://typescript-eslint.io/rules/consistent-type-assertions
@@ -98,10 +84,6 @@ const typescriptEslintStrictRules = {
     // https://typescript-eslint.io/rules/no-array-delete
     '@typescript-eslint/no-array-delete': 'error',
 
-    // Disallow non-null assertion in locations that may be confusing.
-    // https://typescript-eslint.io/rules/no-confusing-non-null-assertion
-    '@typescript-eslint/no-confusing-non-null-assertion': 'error',
-
     // Require expressions of type void to appear in statement position.
     // https://typescript-eslint.io/rules/no-confusing-void-expression
     '@typescript-eslint/no-confusing-void-expression': [
@@ -120,16 +102,6 @@ const typescriptEslintStrictRules = {
       {
         ignoreIntersections: false,
         ignoreUnions: false,
-      },
-    ],
-
-    // Disallow accidentally using the "empty object" type.
-    // https://typescript-eslint.io/rules/no-empty-object-type
-    '@typescript-eslint/no-empty-object-type': [
-      'error',
-      {
-        allowInterfaces: 'never',
-        allowObjectTypes: 'never',
       },
     ],
 

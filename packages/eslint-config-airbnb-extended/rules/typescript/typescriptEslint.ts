@@ -15,11 +15,18 @@ const typescriptEslintRules = {
   rules: {
     // Require that function overload signatures be consecutive.
     // https://typescript-eslint.io/rules/adjacent-overload-signatures
+    // Recommended in stylistic by the TypeScript Eslint team
     '@typescript-eslint/adjacent-overload-signatures': 'off',
 
     // Require consistently using either T[] or Array<T> for arrays.
     // https://typescript-eslint.io/rules/array-type
-    '@typescript-eslint/array-type': 'off',
+    '@typescript-eslint/array-type': [
+      'error',
+      {
+        default: 'array',
+        readonly: 'array',
+      },
+    ],
 
     // Disallow awaiting a value that is not a Thenable.
     // https://typescript-eslint.io/rules/await-thenable
@@ -27,6 +34,7 @@ const typescriptEslintRules = {
 
     // Disallow @ts-<directive> comments or require descriptions after directives.
     // https://typescript-eslint.io/rules/ban-ts-comment
+    // Recommended by the TypeScript Eslint team
     '@typescript-eslint/ban-ts-comment': 'off',
 
     // Disallow // tslint:<rule-flag> comments.
@@ -35,7 +43,7 @@ const typescriptEslintRules = {
 
     // Enforce that literals on classes are exposed in a consistent style.
     // https://typescript-eslint.io/rules/class-literal-property-style
-    '@typescript-eslint/class-literal-property-style': 'off',
+    '@typescript-eslint/class-literal-property-style': ['error', 'fields'],
 
     // Enforce that class methods utilize this.
     // https://typescript-eslint.io/rules/class-methods-use-this
@@ -43,6 +51,7 @@ const typescriptEslintRules = {
 
     // Enforce specifying generic type arguments on type annotation or constructor name of a constructor call.
     // https://typescript-eslint.io/rules/consistent-generic-constructors
+    // Recommended in stylistic by the TypeScript Eslint team
     '@typescript-eslint/consistent-generic-constructors': 'off',
 
     // Require or disallow the Record type.
@@ -56,6 +65,7 @@ const typescriptEslintRules = {
 
     // Enforce consistent usage of type assertions.
     // https://typescript-eslint.io/rules/consistent-type-assertions
+    // Recommended in stylistic by the TypeScript Eslint team
     '@typescript-eslint/consistent-type-assertions': 'off',
 
     // Enforce type definitions to consistently use either interface or type.
@@ -151,7 +161,7 @@ const typescriptEslintRules = {
 
     // Disallow non-null assertion in locations that may be confusing.
     // https://typescript-eslint.io/rules/no-confusing-non-null-assertion
-    '@typescript-eslint/no-confusing-non-null-assertion': 'off',
+    '@typescript-eslint/no-confusing-non-null-assertion': 'error',
 
     // Require expressions of type void to appear in statement position.
     // https://typescript-eslint.io/rules/no-confusing-void-expression
@@ -185,10 +195,17 @@ const typescriptEslintRules = {
 
     // Disallow accidentally using the "empty object" type.
     // https://typescript-eslint.io/rules/no-empty-object-type
-    '@typescript-eslint/no-empty-object-type': 'off',
+    '@typescript-eslint/no-empty-object-type': [
+      'error',
+      {
+        allowInterfaces: 'never',
+        allowObjectTypes: 'never',
+      },
+    ],
 
     // Disallow the any type.
     // https://typescript-eslint.io/rules/no-explicit-any
+    // Recommended by the TypeScript Eslint team
     '@typescript-eslint/no-explicit-any': 'off',
 
     // Disallow extra non-null assertions.
@@ -280,6 +297,7 @@ const typescriptEslintRules = {
 
     // Disallow non-null assertions after an optional chain expression.
     // https://typescript-eslint.io/rules/no-non-null-asserted-optional-chain
+    // Recommended by the TypeScript Eslint team
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
 
     // Disallow non-null assertions using the ! postfix operator.
@@ -463,6 +481,7 @@ const typescriptEslintRules = {
 
     // Enforce the use of for-of loop over the standard for loop where possible.
     // https://typescript-eslint.io/rules/prefer-for-of
+    // Recommended in stylistic by the TypeScript Eslint team
     '@typescript-eslint/prefer-for-of': 'off',
 
     // Enforce using function types instead of interfaces with call signatures.
