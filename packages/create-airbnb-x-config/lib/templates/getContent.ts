@@ -1,17 +1,14 @@
 import {
   defaultConfig,
-  jsConfig,
-  nodeConfig,
-  prettierConfig,
-  reactConfig,
-  typescriptConfig,
-} from '@/lib/templates/configs';
-import {
   gitignoreCode,
   imports,
-  languagePreferences,
-  startingNotes,
-} from '@/lib/templates/constants';
+  jsConfig,
+  nodeConfig,
+  reactConfig,
+  startingComments,
+  typescriptConfig,
+} from '@/lib/templates/configs';
+import { languagePreferences } from '@/lib/templates/constants';
 import contentFormatter from '@/lib/templates/contentFormatter';
 import { languages } from '@/constants';
 import { ValueOf } from '@/utils/types';
@@ -29,7 +26,7 @@ export interface GetContentParams {
 type GetContent = (params: GetContentParams) => string;
 
 const getContent: GetContent = (params) => {
-  const { language, languagePreference, configurations } = params;
+  const { language, languagePreference } = params;
 
   const reactArray = ([languages.REACT, languages.NEXT] as string[]).includes(language)
     ? [...reactConfig(params), '']
@@ -40,12 +37,10 @@ const getContent: GetContent = (params) => {
 
   const nodeArray = language === languages.NODE ? [...nodeConfig, ''] : [];
 
-  const prettierArray = configurations.prettier ? [...prettierConfig, ''] : [];
-
   const content = contentFormatter([
-    ...startingNotes,
+    ...startingComments,
     '',
-    ...imports,
+    ...imports(params),
     '',
     ...gitignoreCode,
     '',
@@ -54,7 +49,6 @@ const getContent: GetContent = (params) => {
     ...reactArray,
     ...nodeArray,
     ...typescriptArray,
-    ...prettierArray,
     ...defaultConfig(params),
     '',
   ]);

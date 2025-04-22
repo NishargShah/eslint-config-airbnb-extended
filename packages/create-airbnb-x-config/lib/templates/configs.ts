@@ -8,6 +8,37 @@ import type { GetContentParams } from '@/lib/templates/getContent';
 
 type Config = (params: GetContentParams) => Content;
 
+// STARTING COMMENTS
+
+export const startingComments = [
+  '/**',
+  ' * THIS FILE WAS AUTO-GENERATED.',
+  ' * PLEASE DO NOT EDIT IT MANUALLY.',
+  ' * ===============================',
+  " * IF YOU'RE COPYING THIS INTO AN ESLINT CONFIG, REMOVE THIS COMMENT BLOCK.",
+  ' */',
+];
+
+// IMPORTS
+
+export const imports: Config = ({ configurations }) => [
+  "import path from 'node:path';",
+  '',
+  "import { includeIgnoreFile } from '@eslint/compat';",
+  "import js from '@eslint/js';",
+  "import { configs, plugins } from 'eslint-config-airbnb-extended';",
+  ...(configurations.prettier
+    ? ["import prettierConfig from 'eslint-plugin-prettier/recommended';"]
+    : []),
+];
+
+// GITIGNORE CONFIG
+
+export const gitignoreCode = [
+  "export const projectRoot = path.resolve('.');",
+  "export const gitignorePath = path.resolve(projectRoot, '.gitignore');",
+];
+
 // JAVASCRIPT CONFIG
 
 export const jsConfig = [
@@ -88,14 +119,6 @@ export const typescriptConfig: Config = ({ language }) => {
   ];
 };
 
-// PRETTIER CONFIG
-
-export const prettierConfig = [
-  'const prettierConfig = [',
-  // ['plugins.typescriptEslint,', '// Airbnb Base TypeScript Config', '...configs.base.typescript,'],
-  '];',
-];
-
 // DEFAULT CONFIG
 
 export const defaultConfig: Config = ({ language, languagePreference, configurations }) => {
@@ -103,7 +126,7 @@ export const defaultConfig: Config = ({ language, languagePreference, configurat
   const nextArray = ['// Next Config', '...nextConfig,'];
   const typescriptArray = ['// TypeScript Config', '...typescriptConfig,'];
   const nodeArray = ['// Node Config', '...nodeConfig,'];
-  const prettierArray = ['// Prettier Config', '...prettierConfig,'];
+  const prettierArray = ['// Prettier Config', 'prettierConfig,'];
 
   return [
     'export default [',
