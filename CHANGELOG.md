@@ -1,3 +1,11 @@
+## 0.11.2 (2025-04-23)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Fixed `files` issue in `typescriptEslintStrictRules`
+- **eslint-config-airbnb-extended:** Fixed `tsExtensions` spreading issue
+- **eslint-config-airbnb-extended:** Added/Removed some of the rules from `typescriptEslintStrictRules`
+
 ## 0.11.1 (2025-04-23)
 
 ### 🚀 Features
