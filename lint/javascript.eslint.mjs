@@ -10,7 +10,7 @@ const customJSESLintConfig = [
     name: 'js/config',
     ...js.configs.recommended,
   },
-  // Stylistic PLUGIN
+  // STYLISTIC PLUGIN
   plugins.stylistic,
   // IMPORT X PLUGIN
   plugins.importX,

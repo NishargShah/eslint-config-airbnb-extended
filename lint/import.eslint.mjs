@@ -5,6 +5,7 @@ import { rules } from 'eslint-config-airbnb-extended';
 const customImportESLintConfig = [
   // STRICT IMPORT CONFIG
   rules.base.importsStrict,
+  // IMPORT CONFIG RULES
   {
     name: 'x/import-x/disable-extraneous-deps',
     files: ['packages/create-airbnb-x-config/templates/**/eslint.config.mjs'],
@@ -12,6 +13,7 @@ const customImportESLintConfig = [
       'import-x/no-extraneous-dependencies': 'off',
     },
   },
+  // UNUSED IMPORTS CONFIG
   {
     name: 'unused-imports/config',
     plugins: {
