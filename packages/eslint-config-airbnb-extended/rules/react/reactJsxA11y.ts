@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const reactJsxA11yRules = {
   name: 'airbnb/config/react-jsx-a11y',
+  files: allFiles,
   languageOptions: {
     parserOptions: {
       ecmaFeatures: {
@@ -279,6 +282,7 @@ const reactJsxA11yRules = {
 
 export const deprecatedReactJsxA11yRules = {
   name: 'airbnb/config/react-jsx-a11y/deprecated',
+  files: allFiles,
   rules: {
     // ensure emoji are accessible
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/accessible-emoji.md

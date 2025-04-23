@@ -1,9 +1,11 @@
 import stylisticRules, { deprecatedStylisticRules } from '@/rules/stylistic';
+import { tsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const typescriptStylisticRules = {
   name: 'airbnb/config/typescript/typescript-stylistic',
+  files: tsFiles,
   rules: {
     // enforce spacing inside single-line blocks
     // https://eslint.style/rules/ts/block-spacing
@@ -144,6 +146,7 @@ const typescriptStylisticRules = {
 
 export const deprecatedTypescriptStylisticRules = {
   name: 'airbnb/config/typescript/typescript-stylistic/deprecated',
+  files: tsFiles,
   rules: {
     // enforce spacing between functions and their invocations
     // https://eslint.style/rules/ts/function-call-spacing

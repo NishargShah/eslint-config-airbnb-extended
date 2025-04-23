@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const errorsRules = {
   name: 'airbnb/config/errors',
+  files: allFiles,
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
     // https://eslint.org/docs/rules/for-direction

@@ -22,4 +22,8 @@ export const tsExtensionsRule = Object.fromEntries(
 
 // ESLINT CONFIG FILES
 
-export const tsFiles = tsExtensionsWithReact.map((val) => `**/*${val}`);
+export const jsFiles = jsExtensionsWithReact.map((val) => `**/*${val}`);
+
+export const tsFiles = tsExtensionsWithReactDTS.map((val) => `**/*${val}`);
+
+export const allFiles = [...jsFiles, ...tsFiles];

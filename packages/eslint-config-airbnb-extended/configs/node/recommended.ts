@@ -2,6 +2,7 @@ import nodePlugin from 'eslint-plugin-n';
 
 import nodeConfig from '@/configs/node/config';
 import nodeNoUnsupportedFeaturesRules from '@/rules/node/nodeNoUnsupportedFeatures';
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -11,6 +12,7 @@ const nodeRecommendedConfig = [
   ...Object.values(nodeConfig),
   {
     name: 'airbnb/config/node-configurations',
+    files: allFiles,
     ...(flatNodeConfig
       ? {
           languageOptions: flatNodeConfig.languageOptions,

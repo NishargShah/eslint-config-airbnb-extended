@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const nodeBaseRules = {
   name: 'airbnb/config/node/base',
+  files: allFiles,
   rules: {
     // Require return statements after callbacks
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/callback-return.md
@@ -132,6 +135,7 @@ const nodeBaseRules = {
 
 export const deprecatedNodeBaseRules = {
   name: 'airbnb/config/node/base/deprecated',
+  files: allFiles,
   rules: {
     // Disallow third-party modules which are hiding core modules
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-hide-core-modules.md

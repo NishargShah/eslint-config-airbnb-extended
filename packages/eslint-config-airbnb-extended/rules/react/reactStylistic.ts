@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const reactStylisticRules = {
   name: 'airbnb/config/react/stylistic',
+  files: allFiles,
   rules: {
     // Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
     // https://eslint.style/rules/jsx/jsx-child-element-spacing
@@ -101,6 +104,7 @@ const reactStylisticRules = {
 
 export const deprecatedReactStylisticPlusRules = {
   name: 'airbnb/config/react/stylistic/deprecated',
+  files: allFiles,
   rules: {
     // Enforce JSX indentation.
     // https://eslint.style/rules/jsx/jsx-indent

@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const nextBaseRules = {
   name: 'airbnb/config/next/base',
+  files: allFiles,
   rules: {
     // Enforce font-display behavior with Google Fonts.
     // https://nextjs.org/docs/messages/google-font-display

@@ -1,7 +1,7 @@
 import reactConfig from '@/configs/react/config';
 import getStylisticLegacyConfig from '@/helpers/getStylisticLegacyConfig';
 import styleRules from '@/rules/style';
-import { jsExtensionsWithReact } from '@/utils';
+import { allFiles, jsExtensionsWithReact } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -11,6 +11,7 @@ const reactRecommendedConfig = [
   ...Object.values(reactConfig),
   {
     name: 'airbnb/config/react-import-x',
+    files: allFiles,
     settings: {
       'import-x/resolver': {
         node: {
@@ -21,6 +22,7 @@ const reactRecommendedConfig = [
   },
   {
     name: 'airbnb/config/react-configurations',
+    files: allFiles,
     rules: {
       // disallow dangling underscores in identifiers
       // https://eslint.org/docs/latest/rules/no-underscore-dangle
@@ -63,6 +65,7 @@ const reactRecommendedConfig = [
   },
   {
     name: 'airbnb/config/react-stylistic',
+    files: allFiles,
     rules: {
       // specify whether double or single quotes should be used in JSX attributes
       // https://eslint.style/rules/js/jsx-quotes
@@ -71,6 +74,7 @@ const reactRecommendedConfig = [
   },
   {
     name: 'airbnb/config/react-disable-legacy-stylistic-react-config',
+    files: allFiles,
     ...getStylisticLegacyConfig('react'),
   },
 ] satisfies Linter.Config[];

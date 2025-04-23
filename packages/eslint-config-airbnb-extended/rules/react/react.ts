@@ -1,9 +1,12 @@
 import globals from 'globals';
 
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const reactBaseRules = {
   name: 'airbnb/config/react',
+  files: allFiles,
   languageOptions: {
     parserOptions: {
       ecmaFeatures: {
@@ -670,6 +673,7 @@ const reactBaseRules = {
 
 export const deprecatedReactBaseRules = {
   name: 'airbnb/config/react/deprecated',
+  files: allFiles,
   rules: {
     // Enforce defaultProps declarations alphabetical sorting
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-default-props.md

@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const nodeNoUnsupportedFeaturesRules = {
   name: 'airbnb/config/node/unsupported-features',
+  files: allFiles,
   rules: {
     // Disallow unsupported ECMAScript built-ins on the specified version
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unsupported-features/es-builtins.md

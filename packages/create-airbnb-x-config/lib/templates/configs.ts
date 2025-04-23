@@ -44,7 +44,7 @@ export const gitignoreCode = [
 export const jsConfig = [
   'const jsConfig = [',
   [
-    '// ESLINT RECOMMENDED RULES',
+    '// ESLint Recommended Rules',
     '{',
     ["name: 'js/config',", '...js.configs.recommended,'],
     '},',

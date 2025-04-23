@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const reactStrictRules = {
   name: 'airbnb/config/react/strict',
+  files: allFiles,
   rules: {
     // This rule enforces onChange or readonly attribute for checked property of input elements.
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/checked-requires-onchange-or-readonly.md

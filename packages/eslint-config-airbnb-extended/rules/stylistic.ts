@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const stylisticRules = {
   name: 'airbnb/config/stylistic',
+  files: allFiles,
   rules: {
     // enforce line breaks after opening and before closing array brackets
     // https://eslint.style/rules/js/array-bracket-newline
@@ -580,6 +583,7 @@ const stylisticRules = {
 
 export const deprecatedStylisticRules = {
   name: 'airbnb/config/stylistic/deprecated',
+  files: allFiles,
   rules: {
     // enforce spacing between functions and their invocations
     // https://eslint.style/rules/js/function-call-spacing

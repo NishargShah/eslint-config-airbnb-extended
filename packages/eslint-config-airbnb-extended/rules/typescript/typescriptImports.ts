@@ -7,6 +7,7 @@ import {
   tsExtensionsResolver,
   tsExtensionsRule,
   tsExtensionsWithReactDTS,
+  tsFiles,
 } from '@/utils';
 
 import type { Linter } from 'eslint';
@@ -16,6 +17,7 @@ import type { Linter } from 'eslint';
  */
 const typescriptImportsRules = {
   name: 'airbnb/config/typescript/import-x',
+  files: tsFiles,
   settings: {
     // Apply special parsing for TypeScript files
     'import-x/parsers': {

@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const reactHooksRules = {
   name: 'airbnb/config/react-hooks',
+  files: allFiles,
   languageOptions: {
     parserOptions: {
       ecmaFeatures: {

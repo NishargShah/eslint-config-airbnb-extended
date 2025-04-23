@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const importsStrictRules = {
   name: 'airbnb/config/import-x/strict',
+  files: allFiles,
   rules: {
     // enforce a consistent style for type specifiers (inline or top-level)
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/consistent-type-specifier-style.md

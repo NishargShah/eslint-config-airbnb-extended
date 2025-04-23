@@ -1,9 +1,12 @@
 import confusingBrowserGlobals from 'confusing-browser-globals';
 
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const variablesRules = {
   name: 'airbnb/config/variables',
+  files: allFiles,
   rules: {
     // enforce or disallow variable initializations at definition
     'init-declarations': 'off',

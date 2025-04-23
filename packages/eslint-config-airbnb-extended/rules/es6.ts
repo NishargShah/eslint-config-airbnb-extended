@@ -1,9 +1,12 @@
 import globals from 'globals';
 
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const es6Rules = {
   name: 'airbnb/config/es6',
+  files: allFiles,
   languageOptions: {
     globals: {
       ...globals.es2015,

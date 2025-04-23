@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const styleRules = {
   name: 'airbnb/config/style',
+  files: allFiles,
   rules: {
     // require camel case names
     camelcase: [

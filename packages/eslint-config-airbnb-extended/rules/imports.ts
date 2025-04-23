@@ -2,6 +2,7 @@ import globals from 'globals';
 
 import getDevDepsList from '@/helpers/getDevDepsList';
 import {
+  allFiles,
   jsExtensions,
   jsExtensionsResolver,
   jsExtensionsRule,
@@ -12,6 +13,7 @@ import type { Linter } from 'eslint';
 
 const importsRules = {
   name: 'airbnb/config/import-x',
+  files: allFiles,
   languageOptions: {
     globals: {
       ...globals.es2015,
@@ -248,6 +250,7 @@ const importsRules = {
 
 export const deprecatedImportsRules = {
   name: 'airbnb/config/import-x/deprecated',
+  files: allFiles,
   rules: {
     // disallow non-import statements appearing before import statements
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/imports-first.md

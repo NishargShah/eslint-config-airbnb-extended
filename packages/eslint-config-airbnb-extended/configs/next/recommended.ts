@@ -1,5 +1,6 @@
 import nextConfig from '@/configs/next/config';
 import reactRecommendedConfig from '@/configs/react/recommended';
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -15,6 +16,7 @@ const nextRecommendedConfig = [
   },
   {
     name: 'airbnb/config/next-react-jsx-runtime',
+    files: allFiles,
     rules: {
       'react/jsx-uses-react': 'off',
       'react/react-in-jsx-scope': 'off',

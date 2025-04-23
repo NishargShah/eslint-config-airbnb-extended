@@ -2,11 +2,13 @@ import bestPracticesRules from '@/rules/best-practices';
 import es6Rules from '@/rules/es6';
 import styleRules from '@/rules/style';
 import variablesRules from '@/rules/variables';
+import { tsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const typescriptEslintRules = {
   name: 'airbnb/config/typescript/typescript-eslint',
+  files: tsFiles,
   languageOptions: {
     parserOptions: {
       projectService: true,
@@ -603,6 +605,7 @@ const typescriptEslintRules = {
 
 export const deprecatedTypescriptEslintRules = {
   name: 'airbnb/config/typescript/typescript-eslint/deprecated',
+  files: tsFiles,
   rules: {
     // Disallow the declaration of empty interfaces.
     // https://typescript-eslint.io/rules/no-empty-interface

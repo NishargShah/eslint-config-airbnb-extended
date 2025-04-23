@@ -1,7 +1,10 @@
+import { allFiles } from '@/utils';
+
 import type { Linter } from 'eslint';
 
 const nodeGlobalsRules = {
   name: 'airbnb/config/node/globals',
+  files: allFiles,
   rules: {
     // Enforce either Buffer or require("buffer").Buffer
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/prefer-global/buffer.md
