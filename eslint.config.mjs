@@ -1,3 +1,4 @@
+/* eslint-disable import-x/extensions */
 import prettierConfig from 'eslint-plugin-prettier/recommended';
 
 import customGeneralESLintConfig from './lint/general.eslint.mjs';
