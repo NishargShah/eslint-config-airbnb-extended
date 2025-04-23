@@ -1,3 +1,13 @@
+## 1.0.0 (2025-04-23)
+
+### 🚨 Breaking Change
+
+- **eslint-config-airbnb-extended:** Added `files` in all rules and configs
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Added `getImportSettings` function to get the settings of `import`
+
 ## 0.11.3 (2025-04-23)
 
 ### 🩹 Fixes

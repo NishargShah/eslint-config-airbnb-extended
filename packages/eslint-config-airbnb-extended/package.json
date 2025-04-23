@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "0.11.3",
+  "version": "1.0.0",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
@@ -49,7 +49,7 @@
     "tsc-alias": "^1.8.15",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.30.1"
+    "typescript-eslint": "^8.31.0"
   },
   "peerDependencies": {
     "@next/eslint-plugin-next": "15.x",
