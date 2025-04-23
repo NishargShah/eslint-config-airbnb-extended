@@ -1,4 +1,5 @@
-import { jsExtensionsResolver, tsExtensionsWithReactDTS, tsFiles } from '@/utils';
+import getImportSettings from '@/helpers/getImportSettings';
+import { tsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -18,15 +19,9 @@ const reactTypescriptConfig = [
     },
   },
   {
-    name: 'airbnb/config/react-typescript-import-x',
+    name: 'airbnb/config/react-typescript-settings-extensions-configurations',
     files: tsFiles,
-    settings: {
-      'import-x/resolver': {
-        node: {
-          extensions: [...jsExtensionsResolver, ...tsExtensionsWithReactDTS],
-        },
-      },
-    },
+    settings: getImportSettings({ javascript: false, typescript: true, jsx: true }),
   },
 ] satisfies Linter.Config[];
 

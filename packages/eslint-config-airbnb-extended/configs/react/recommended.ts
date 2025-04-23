@@ -1,7 +1,8 @@
 import reactConfig from '@/configs/react/config';
+import getImportSettings from '@/helpers/getImportSettings';
 import getStylisticLegacyConfig from '@/helpers/getStylisticLegacyConfig';
 import styleRules from '@/rules/style';
-import { allFiles, jsExtensionsWithReact } from '@/utils';
+import { allFiles, jsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -10,15 +11,9 @@ const dangleRules = styleRules.rules['no-underscore-dangle'];
 const reactRecommendedConfig = [
   ...Object.values(reactConfig),
   {
-    name: 'airbnb/config/react-import-x',
-    files: allFiles,
-    settings: {
-      'import-x/resolver': {
-        node: {
-          extensions: jsExtensionsWithReact,
-        },
-      },
-    },
+    name: 'airbnb/config/react-settings-extensions-configurations',
+    files: jsFiles,
+    settings: getImportSettings({ javascript: true, typescript: false, jsx: true }),
   },
   {
     name: 'airbnb/config/react-configurations',

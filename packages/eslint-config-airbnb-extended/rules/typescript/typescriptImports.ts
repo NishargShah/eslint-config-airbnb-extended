@@ -1,14 +1,5 @@
 import getDevDepsList from '@/helpers/getDevDepsList';
-import {
-  jsExtensions,
-  jsExtensionsResolver,
-  jsExtensionsWithReact,
-  tsExtensions,
-  tsExtensionsResolver,
-  tsExtensionsRule,
-  tsExtensionsWithReactDTS,
-  tsFiles,
-} from '@/utils';
+import { jsExtensions, tsExtensions, tsExtensionsRule, tsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -18,22 +9,6 @@ import type { Linter } from 'eslint';
 const typescriptImportsRules = {
   name: 'airbnb/config/typescript/import-x',
   files: tsFiles,
-  settings: {
-    // Apply special parsing for TypeScript files
-    'import-x/parsers': {
-      '@typescript-eslint/parser': tsExtensionsResolver,
-    },
-    // Append 'ts' extensions to Airbnb 'import-x/resolver' setting
-    'import-x/resolver': {
-      node: {
-        extensions: [...jsExtensionsResolver, ...tsExtensionsResolver],
-      },
-    },
-    // Append 'ts' extensions to Airbnb 'import-x/extensions' setting
-    'import-x/extensions': [...jsExtensionsWithReact, ...tsExtensionsWithReactDTS],
-    // Resolve type definition packages
-    'import-x/external-module-folders': ['node_modules', 'node_modules/@types'],
-  },
   rules: {
     // Append 'ts' and 'tsx' to Airbnb 'import-x/extensions' rule
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/extensions.md

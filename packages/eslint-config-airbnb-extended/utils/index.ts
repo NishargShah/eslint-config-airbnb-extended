@@ -24,6 +24,10 @@ export const tsExtensionsRule = Object.fromEntries(
 
 export const jsFiles = jsExtensionsWithReact.map((val) => `**/*${val}`);
 
+export const jsFileWithoutReact = jsExtensions.map((val) => `**/*${val}`);
+
 export const tsFiles = tsExtensionsWithReactDTS.map((val) => `**/*${val}`);
+
+export const tsFileWithoutReact = tsExtensionsResolver.map((val) => `**/*${val}`);
 
 export const allFiles = [...jsFiles, ...tsFiles];

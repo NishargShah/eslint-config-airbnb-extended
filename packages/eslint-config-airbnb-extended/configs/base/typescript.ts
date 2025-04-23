@@ -1,25 +1,18 @@
-import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import { configs } from 'typescript-eslint';
 
 import typescriptConfig from '@/configs/typescript/config';
+import getImportSettings from '@/helpers/getImportSettings';
 import getStylisticLegacyConfig from '@/helpers/getStylisticLegacyConfig';
-import { jsFiles, tsFiles } from '@/utils';
+import { jsFiles, tsFiles, tsFileWithoutReact } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const baseTypescriptConfig = [
   ...Object.values(typescriptConfig),
   {
-    name: 'airbnb/config/base-typescript-import-x',
-    files: tsFiles,
-    settings: {
-      // Import Resolver for import-x package
-      'import-x/resolver-next': [
-        createTypeScriptImportResolver({
-          alwaysTryTypes: true,
-        }),
-      ],
-    },
+    name: 'airbnb/config/base-typescript-settings-extensions-configurations',
+    files: tsFileWithoutReact,
+    settings: getImportSettings({ javascript: false, typescript: true, jsx: false }),
   },
   {
     name: 'airbnb/config/base-typescript-disable-legacy-stylistic-ts-config',

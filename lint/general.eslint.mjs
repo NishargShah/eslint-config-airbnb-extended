@@ -12,12 +12,6 @@ const customGeneralESLintConfig = [
           allow: ['_id'],
         },
       ],
-      'sort-imports': [
-        'error',
-        {
-          ignoreDeclarationSort: true,
-        },
-      ],
       'no-restricted-syntax': [
         'error',
         'ForStatement',

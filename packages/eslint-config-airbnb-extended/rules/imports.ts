@@ -1,13 +1,7 @@
 import globals from 'globals';
 
 import getDevDepsList from '@/helpers/getDevDepsList';
-import {
-  allFiles,
-  jsExtensions,
-  jsExtensionsResolver,
-  jsExtensionsRule,
-  jsExtensionsWithReact,
-} from '@/utils';
+import { allFiles, jsExtensions, jsExtensionsRule } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -22,16 +16,6 @@ const importsRules = {
       ecmaVersion: 2018,
       sourceType: 'module',
     },
-  },
-  settings: {
-    'import-x/resolver': {
-      node: {
-        extensions: jsExtensionsResolver,
-      },
-    },
-    'import-x/extensions': jsExtensionsWithReact,
-    'import-x/core-modules': [],
-    'import-x/ignore': ['node_modules', String.raw`\.(coffee|scss|css|less|hbs|svg|json)$`],
   },
   rules: {
     // enforce a consistent style for type specifiers (inline or top-level)
