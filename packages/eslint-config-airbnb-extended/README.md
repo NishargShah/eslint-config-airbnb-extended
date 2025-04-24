@@ -46,6 +46,49 @@ This configuration relies on the following essential packages:
 - **`typescript-eslint`**: Provides linting support for TypeScript codebases.
 - **`eslint-import-resolver-typescript`**: Ensures TypeScript compatibility for import statements.
 
+## Strict Rules
+
+The `eslint-config-airbnb-extended` package also offers a **strict mode**, which includes a set of stricter ESLint rules for **imports**, **React**, and **TypeScript**. These rules aren’t enabled by default, but if you want to improve the consistency and quality of your code even more, you can turn them on easily.
+
+To enable it, you'll need to import the strict rules from the config like this:
+
+```ts
+import { rules } from 'eslint-config-airbnb-extended';️
+```
+
+Then, in your ESLint configuration (`eslint.config.mjs`), add these rules:
+
+```js
+rules: {
+  ...rules.base.importsStrict,
+  ...rules.react.strict,
+  ...rules.typescript.typescriptEslintStrict,
+}
+```
+
+### What do these strict rules include?
+
+**1. Strict Imports**
+
+- Enforces a consistent and clean import order
+- Differentiates between type imports and value imports
+- and many more...
+
+**2. Strict React**
+
+- Requires `key` props in lists
+- Sorts JSX props
+- Disables `prop-types` (since TypeScript is the focus)
+- and many more...
+
+**3. Strict TypeScript ESLint**
+
+- Disallows `@ts-ignore`, prefers `@ts-expect-error`
+- Bans `any`
+- Disallows non-null assertions (`!`)
+- Encourages using Nullish coalescing operator (`??`) and optional chaining (`?.`)
+- and many more...
+
 ## FAQs
 
 ### How to Configure for a Monorepo?
