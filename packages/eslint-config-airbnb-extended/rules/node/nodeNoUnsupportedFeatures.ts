@@ -12,7 +12,7 @@ const nodeNoUnsupportedFeaturesRules = {
 
     // Disallow unsupported ECMAScript syntax on the specified version
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unsupported-features/es-syntax.md
-    'n/no-unsupported-features/es-syntax': 'error',
+    'n/no-unsupported-features/es-syntax': 'off',
 
     // Disallow unsupported Node.js built-in APIs on the specified version
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unsupported-features/node-builtins.md
