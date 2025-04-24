@@ -1,3 +1,10 @@
+## 1.0.2 (2025-04-25)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Fixed `node` import issue by adding `cjs` and `mjs` configurations
+- **eslint-config-airbnb-extended:** Changed `no-unsupported-features/es-syntax` rule `severity` to `off`
+
 ## 1.0.1 (2025-04-24)
 
 ### 🩹 Fixes
