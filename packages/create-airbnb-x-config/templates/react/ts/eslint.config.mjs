@@ -15,7 +15,7 @@ export const projectRoot = path.resolve('.');
 export const gitignorePath = path.resolve(projectRoot, '.gitignore');
 
 const jsConfig = [
-  // ESLINT RECOMMENDED RULES
+  // ESLint Recommended Rules
   {
     name: 'js/config',
     ...js.configs.recommended,
