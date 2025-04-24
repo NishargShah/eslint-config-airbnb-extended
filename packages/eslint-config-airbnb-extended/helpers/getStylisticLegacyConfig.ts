@@ -13,16 +13,31 @@ const getStylisticLegacyConfig: GetStylisticLegacyConfig = (language) => {
 
   const rules = Object.entries(legacyConfig.rules ?? {}).reduce<Linter.Config['rules'] | null>(
     (acc, [key, value]) => {
-      if (language === 'javascript' && !key.startsWith(REACT) && !key.startsWith(TYPESCRIPT)) {
-        return { ...acc, [key]: value };
+      if (language === 'javascript') {
+        const condition = !key.startsWith(REACT) && !key.startsWith(TYPESCRIPT);
+
+        return {
+          ...acc,
+          ...(condition ? { [key]: value } : null),
+        };
       }
 
-      if (language === 'typescript' && key.startsWith(TYPESCRIPT)) {
-        return { ...acc, [key]: value };
+      if (language === 'typescript') {
+        const condition = key.startsWith(TYPESCRIPT);
+
+        return {
+          ...acc,
+          ...(condition ? { [key]: value } : null),
+        };
       }
 
-      if (language === 'react' && key.startsWith(REACT)) {
-        return { ...acc, [key]: value };
+      if (language === 'react') {
+        const condition = key.startsWith(REACT);
+
+        return {
+          ...acc,
+          ...(condition ? { [key]: value } : null),
+        };
       }
 
       return null;
