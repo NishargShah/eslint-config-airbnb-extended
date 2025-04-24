@@ -3,9 +3,9 @@
 ### 🩹 Fixes
 
 - **eslint-config-airbnb-extended:** Fixed `getStylisticLegacyConfig` function, due to that many rules were not working
-- - **eslint-config-airbnb-extended:** Removed `no-unsafe-call` from `reactStrict`
-- - **eslint-config-airbnb-extended:** Changed value of `checksVoidReturn` for `no-misused-promises`
-- - **eslint-config-airbnb-extended:** Added README for `strictConfig`
+- **eslint-config-airbnb-extended:** Removed `no-unsafe-call` from `reactStrict`
+- **eslint-config-airbnb-extended:** Changed value of `checksVoidReturn` for `no-misused-promises`
+- **eslint-config-airbnb-extended:** Added README for `strictConfig`
 
 ## 1.0.0 (2025-04-23)
 
