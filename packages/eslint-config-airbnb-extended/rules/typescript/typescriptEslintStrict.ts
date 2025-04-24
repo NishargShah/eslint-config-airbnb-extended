@@ -136,7 +136,7 @@ const typescriptEslintStrictRules = {
       {
         checksConditionals: true,
         checksSpreads: true,
-        checksVoidReturn: true,
+        checksVoidReturn: false,
       },
     ],
 
@@ -168,10 +168,6 @@ const typescriptEslintStrictRules = {
     // Disallow unnecessary equality comparisons against boolean literals.
     // https://typescript-eslint.io/rules/no-unnecessary-boolean-literal-compare
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
-
-    // Disallow calling a value with type any.
-    // https://typescript-eslint.io/rules/no-unsafe-call
-    '@typescript-eslint/no-unsafe-call': 'error',
 
     // Disallow returning a value with type any from a function.
     // https://typescript-eslint.io/rules/no-unsafe-return
