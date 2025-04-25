@@ -1,3 +1,9 @@
+## 1.0.3 (2025-04-25)
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Prettier config changed due to `arrow-body-style` and `prefer-arrow-callback` issue, @see [issue](https://github.com/prettier/eslint-plugin-prettier?tab=readme-ov-file#arrow-body-style-and-prefer-arrow-callback-issue)
+
 ## 1.0.2 (2025-04-25)
 
 ### 🩹 Fixes
