@@ -17,7 +17,7 @@ import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
 import getConfigUrl from '@/helpers/getConfigUrl';
 import installPackages from '@/helpers/installPackages';
-import { exit, handleSigTerm, onCancel, success } from '@/utils';
+import { exit, handleSigTerm, onCancel, onPromptState, success } from '@/utils';
 
 import type { InstallPackagesArgs } from '@/helpers/installPackages';
 import type { ValueOf } from '@/utils/types';
@@ -37,6 +37,7 @@ const run = async () => {
         initial: defaults.typescript,
         active: 'Yes',
         inactive: 'No',
+        onState: onPromptState,
       },
       {
         onCancel,
@@ -55,6 +56,7 @@ const run = async () => {
         initial: defaults.prettier,
         active: 'Yes',
         inactive: 'No',
+        onState: onPromptState,
       },
       {
         onCancel,
@@ -95,6 +97,7 @@ const run = async () => {
             value: languages.OTHER,
           },
         ],
+        onState: onPromptState,
       },
       {
         onCancel,
@@ -145,6 +148,7 @@ const run = async () => {
             return getConfig(opts);
           },
           hint: configHelp,
+          onState: onPromptState,
         },
         {
           onCancel,
@@ -166,6 +170,7 @@ const run = async () => {
         initial: defaults.skipInstall,
         active: 'Yes',
         inactive: 'No',
+        onState: onPromptState,
       },
       {
         onCancel,
