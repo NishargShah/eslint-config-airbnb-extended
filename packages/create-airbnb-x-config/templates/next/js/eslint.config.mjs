@@ -33,7 +33,7 @@ const nextConfig = [
   plugins.react,
   // React Hooks Plugin
   plugins.reactHooks,
-  // React JSX-A11y Plugin
+  // React JSX A11y Plugin
   plugins.reactA11y,
   // Next Plugin
   plugins.next,

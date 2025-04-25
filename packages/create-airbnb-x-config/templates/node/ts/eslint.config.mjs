@@ -36,7 +36,7 @@ const nodeConfig = [
 ];
 
 const typescriptConfig = [
-  // Typescript ESLint Plugin
+  // TypeScript ESLint Plugin
   plugins.typescriptEslint,
   // Airbnb Base TypeScript Config
   ...configs.base.typescript,

@@ -10,13 +10,14 @@ import path from 'node:path';
 import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
 import { configs, plugins } from 'eslint-config-airbnb-extended';
-import prettierConfig from 'eslint-plugin-prettier/recommended';
+import { rules as prettierConfigRules } from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 export const projectRoot = path.resolve('.');
 export const gitignorePath = path.resolve(projectRoot, '.gitignore');
 
 const jsConfig = [
-  // ESLINT RECOMMENDED RULES
+  // ESLint Recommended Rules
   {
     name: 'js/config',
     ...js.configs.recommended,
@@ -36,6 +37,24 @@ const nodeConfig = [
   ...configs.node.recommended,
 ];
 
+const prettierConfig = [
+  // Prettier Plugin
+  {
+    name: 'prettier/plugin/config',
+    plugins: {
+      prettier: prettierPlugin,
+    },
+  },
+  // Prettier Config
+  {
+    name: 'prettier/config',
+    rules: {
+      ...prettierConfigRules,
+      'prettier/prettier': 'error',
+    },
+  },
+];
+
 export default [
   // Ignore .gitignore files/folder in eslint
   includeIgnoreFile(gitignorePath),
@@ -44,5 +63,5 @@ export default [
   // Node Config
   ...nodeConfig,
   // Prettier Config
-  prettierConfig,
+  ...prettierConfig,
 ];

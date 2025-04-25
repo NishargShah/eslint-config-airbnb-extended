@@ -5,6 +5,7 @@ import {
   imports,
   jsConfig,
   nodeConfig,
+  prettierConfig,
   reactConfig,
   startingComments,
   typescriptConfig,
@@ -27,7 +28,7 @@ export interface GetContentParams {
 type GetContent = (params: GetContentParams) => string;
 
 const getContent: GetContent = (params) => {
-  const { language, languagePreference } = params;
+  const { language, languagePreference, configurations } = params;
 
   const reactArray = ([languages.REACT, languages.NEXT] as string[]).includes(language)
     ? [...reactConfig(params), '']
@@ -37,6 +38,8 @@ const getContent: GetContent = (params) => {
     languagePreference === languagePreferences.TYPESCRIPT ? [...typescriptConfig(params), ''] : [];
 
   const nodeArray = language === languages.NODE ? [...nodeConfig, ''] : [];
+
+  const prettierArray = configurations.prettier ? [...prettierConfig, ''] : [];
 
   const content = contentFormatter([
     ...startingComments,
@@ -50,6 +53,7 @@ const getContent: GetContent = (params) => {
     ...reactArray,
     ...nodeArray,
     ...typescriptArray,
+    ...prettierArray,
     ...defaultConfig(params),
     '',
   ]);

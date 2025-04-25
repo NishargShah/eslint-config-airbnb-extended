@@ -28,7 +28,10 @@ export const imports: Config = ({ configurations }) => [
   "import js from '@eslint/js';",
   "import { configs, plugins } from 'eslint-config-airbnb-extended';",
   ...(configurations.prettier
-    ? ["import prettierConfig from 'eslint-plugin-prettier/recommended';"]
+    ? [
+        "import { rules as prettierConfigRules } from 'eslint-config-prettier';",
+        "import prettierPlugin from 'eslint-plugin-prettier';",
+      ]
     : []),
 ];
 
@@ -68,7 +71,7 @@ export const reactConfig: Config = ({ language }) => {
     'plugins.react,',
     '// React Hooks Plugin',
     'plugins.reactHooks,',
-    '// React JSX-A11y Plugin',
+    '// React JSX A11y Plugin',
     'plugins.reactA11y,',
   ];
 
@@ -108,7 +111,7 @@ export const typescriptConfig: Config = ({ language }) => {
   return [
     'const typescriptConfig = [',
     [
-      '// Typescript ESLint Plugin',
+      '// TypeScript ESLint Plugin',
       'plugins.typescriptEslint,',
       '// Airbnb Base TypeScript Config',
       '...configs.base.typescript,',
@@ -119,6 +122,30 @@ export const typescriptConfig: Config = ({ language }) => {
   ];
 };
 
+// Prettier Config
+
+export const prettierConfig = [
+  'const prettierConfig = [',
+  [
+    '// Prettier Plugin',
+    '{',
+    ["name: 'prettier/plugin/config',", 'plugins: {', ['prettier: prettierPlugin,'], '},'],
+    '},',
+  ],
+  [
+    '// Prettier Config',
+    '{',
+    [
+      "name: 'prettier/config',",
+      'rules: {',
+      ['...prettierConfigRules,', "'prettier/prettier': 'error',"],
+      '},',
+    ],
+    '},',
+  ],
+  '];',
+];
+
 // DEFAULT CONFIG
 
 export const defaultConfig: Config = ({ language, languagePreference, configurations }) => {
@@ -126,7 +153,7 @@ export const defaultConfig: Config = ({ language, languagePreference, configurat
   const nextArray = ['// Next Config', '...nextConfig,'];
   const typescriptArray = ['// TypeScript Config', '...typescriptConfig,'];
   const nodeArray = ['// Node Config', '...nodeConfig,'];
-  const prettierArray = ['// Prettier Config', 'prettierConfig,'];
+  const prettierArray = ['// Prettier Config', '...prettierConfig,'];
 
   return [
     'export default [',
