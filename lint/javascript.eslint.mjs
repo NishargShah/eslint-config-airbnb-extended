@@ -5,22 +5,22 @@ import unicornPlugin from 'eslint-plugin-unicorn';
 import { configs, plugins } from 'eslint-config-airbnb-extended';
 
 const customJSESLintConfig = [
-  // ESLINT RECOMMENDED RULES
+  // ESLint Recommended Rules
   {
     name: 'js/config',
     ...js.configs.recommended,
   },
-  // STYLISTIC PLUGIN
+  // Stylistic Plugin
   plugins.stylistic,
-  // IMPORT X PLUGIN
+  // Import X Plugin
   plugins.importX,
-  // AIRBNB BASE CONFIG
+  // Airbnb Base Recommended Config
   ...configs.base.recommended,
-  // PROMISE CONFIG
+  // Promise Config
   promisePlugin.configs['flat/recommended'],
-  // UNICORN CONFIG
+  // Unicorn Config
   unicornPlugin.configs.recommended,
-  // UNICORN CONFIG RULES
+  // Unicorn Config Rules
   {
     name: 'x/unicorn/rules',
     rules: {
@@ -41,8 +41,9 @@ const customJSESLintConfig = [
       'unicorn/consistent-function-scoping': 'off',
     },
   },
+  // Disable process.exit() rule for CLI
   {
-    name: 'x/unicorn/disable-rules',
+    name: 'x/unicorn/disable-process-exit-rule-for-cli',
     files: ['packages/create-airbnb-x-config/**/*.{ts,tsx}'],
     rules: {
       'unicorn/no-process-exit': 'off',

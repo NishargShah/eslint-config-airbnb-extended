@@ -1,17 +1,19 @@
-import prettierConfig from 'eslint-config-prettier';
+import { rules as prettierConfigRules } from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 
 const customPrettierESLintConfig = [
-  {
-    name: 'prettier/config',
-    ...prettierConfig,
-  },
+  // Prettier Plugin
   {
     name: 'prettier/plugin/config',
     plugins: {
       prettier: prettierPlugin,
     },
+  },
+  // Prettier Config
+  {
+    name: 'prettier/config',
     rules: {
+      ...prettierConfigRules,
       'prettier/prettier': 'error',
     },
   },
