@@ -1,12 +1,20 @@
-import reactRecommendedConfig from '@/configs/react/recommended';
-import reactTypescriptConfig from '@/configs/react/typescript';
+/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return, unicorn/prefer-module */
 
 import type { Linter } from 'eslint';
 
+/**
+ * as is given due to less size of index.d.ts
+ */
 const react = {
-  recommended: reactRecommendedConfig,
-  typescript: reactTypescriptConfig,
-  all: [...reactRecommendedConfig, ...reactTypescriptConfig],
-} satisfies Record<string, Linter.Config[]>;
+  get recommended(): Linter.Config[] {
+    return require('@/configs/react/recommended').default;
+  },
+  get typescript(): Linter.Config[] {
+    return require('@/configs/react/typescript').default;
+  },
+  get all(): Linter.Config[] {
+    return [...react.recommended, ...react.typescript];
+  },
+};
 
 export default react;
