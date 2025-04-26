@@ -1,3 +1,10 @@
+## 1.0.4 (2025-04-27)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Updated README.md for `strictRules`
+- **eslint-config-airbnb-extended:** Fixed: Javascript requires `typescript-eslint` for functioning ([#4](https://github.com/NishargShah/eslint-config-airbnb-extended/issues/4))
+
 ## 1.0.3 (2025-04-25)
 
 ### 🩹 Fixes
