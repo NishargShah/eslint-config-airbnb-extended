@@ -59,11 +59,12 @@ import { rules } from 'eslint-config-airbnb-extended';️
 Then, in your ESLint configuration (`eslint.config.mjs`), add these rules:
 
 ```js
-rules: {
-  ...rules.base.importsStrict,
-  ...rules.react.strict,
-  ...rules.typescript.typescriptEslintStrict,
-}
+export default [
+  // Your configurations
+  rules.base.importsStrict,
+  rules.react.strict,
+  rules.typescript.typescriptEslintStrict,
+];
 ```
 
 ### What do these strict rules include?
