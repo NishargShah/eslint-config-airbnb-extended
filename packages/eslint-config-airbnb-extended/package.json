@@ -31,7 +31,7 @@
   "main": "dist/index.js",
   "types": "dist/@types/index.d.ts",
   "scripts": {
-    "prebuild": "pnpm check:updates && rm -rf ./dist",
+    "prebuild": "pnpm check:updates && rimraf ./dist",
     "build": "tsc -b",
     "postbuild": "tsc-alias",
     "check:updates": "ts-node script/checkUpdates.ts",
@@ -49,6 +49,7 @@
     "tsc-alias": "^1.8.15",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.3",
+    "rimraf": "^6.0.1",
     "typescript-eslint": "^8.31.0"
   },
   "peerDependencies": {

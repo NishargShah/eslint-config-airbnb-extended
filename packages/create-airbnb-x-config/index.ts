@@ -17,7 +17,7 @@ process.on('SIGINT', handleSigTerm);
 process.on('SIGTERM', handleSigTerm);
 
 const run = async () => {
-  let args = getArgs();
+  let args = await getArgs();
 
   if (args.typescript === null) {
     const { typescript } = await prompts(

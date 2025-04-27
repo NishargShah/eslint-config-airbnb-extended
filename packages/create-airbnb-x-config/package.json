@@ -32,27 +32,26 @@
     "create-airbnb-x-config": "./dist/index.js"
   },
   "scripts": {
-    "prebuild": "rm -rf ./dist",
+    "prebuild": "rimraf ./dist",
     "build": "tsc -b",
     "postbuild": "tsc-alias",
-    "build:templates": "ts-node lib/templates/index.ts",
-    "dev": "nodemon index.ts",
-    "start": "ts-node index.ts",
+    "build:templates": "tsx lib/templates/index.ts",
+    "start": "tsx index.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "commander": "^13.1.0",
     "cross-spawn": "^7.0.6",
+    "package-manager-detector": "^0.2.11",
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/cross-spawn": "^6.0.6",
     "@types/prompts": "^2.4.9",
-    "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2",
+    "rimraf": "^6.0.1",
     "tsc-alias": "^1.8.15",
-    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.19.3",
     "typescript": "^5.8.3"
   }
 }
