@@ -17,6 +17,7 @@ export const defaults = {
   typescript: true,
   prettier: true,
   language: 0,
+  createESLintFile: true,
   skipInstall: false,
 } as const;
 

@@ -152,6 +152,29 @@ const run = async () => {
     }
   }
 
+  if (args.createESLintFile === null) {
+    if (args.language === languages.OTHER) {
+      args = { ...args, createESLintFile: false };
+    } else {
+      const { createESLintFile } = await prompts(
+        {
+          type: 'toggle',
+          name: 'createESLintFile',
+          message: `Should I create an ${pc.blue('eslint.config.mjs')} file for you?`,
+          initial: defaults.createESLintFile,
+          active: 'Yes',
+          inactive: 'No',
+          onState: onPromptState,
+        },
+        {
+          onCancel,
+        },
+      );
+
+      args = { ...args, createESLintFile };
+    }
+  }
+
   if (args.skipInstall === null) {
     const { skipInstall } = await prompts(
       {
@@ -197,7 +220,7 @@ const run = async () => {
   }
 
   console.log();
-  console.log(pc.cyan('Config:'));
+  console.log(pc.cyan(args.createESLintFile ? 'Created Config:' : 'Config:'));
 
   if (newArgs.language === languages.OTHER) {
     console.log(

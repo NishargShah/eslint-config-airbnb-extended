@@ -4,7 +4,7 @@ import { name, version } from '@/package.json';
 
 /**
  * Program Command
- * @example: pnpm cli:start --ts --js --prettier --react --remix --next --node --base-config --node-config --react-config --remix-config --next-config --use-npm --use-yarn --use-pnpm --use-bun --skip-install
+ * @example: pnpm cli:start --ts --js --prettier --react --remix --next --node --base-config --node-config --react-config --remix-config --next-config --use-npm --use-yarn --use-pnpm --use-bun --create-eslint-file --skip-install
  */
 const program = new Command()
   .name(name)
@@ -29,6 +29,7 @@ const program = new Command()
   .option('--use-yarn', 'Explicitly tell the CLI to use Yarn.')
   .option('--use-pnpm', 'Explicitly tell the CLI to use pnpm.')
   .option('--use-bun', 'Explicitly tell the CLI to use Bun.')
+  .option('--create-eslint-file', 'Explicitly tell the CLI to create eslint.config.mjs file.')
   .option('--skip-install', 'Explicitly tell the CLI to skip installing packages.')
   .parse(process.argv);
 

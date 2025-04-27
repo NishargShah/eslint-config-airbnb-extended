@@ -98,6 +98,10 @@ Options:
 
     Explicitly tell the CLI to use Bun.
 
+  --create-eslint-file
+
+    Explicitly tell the CLI to create eslint.config.mjs file.
+
   --skip-install
 
     Explicitly tell the CLI to skip installing packages.

@@ -83,6 +83,17 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
   return null;
 };
 
+// Get to Create ESLint File
+
+type GetCreateESLintFile = (opts: Partial<ProgramOpts>) => GetArgsOutput['createESLintFile'];
+
+const getCreateESLintFile: GetCreateESLintFile = (opts) => {
+  const { createEslintFile } = opts;
+
+  if (createEslintFile) return true;
+  return null;
+};
+
 // Get Skip Install
 
 type GetSkipInstall = (opts: Partial<ProgramOpts>) => GetArgsOutput['skipInstall'];
@@ -113,6 +124,7 @@ export interface ProgramOpts {
   useYarn: true;
   usePnpm: true;
   useBun: true;
+  createEslintFile: true;
   skipInstall: true;
 }
 
@@ -122,6 +134,7 @@ export interface GetArgsOutput {
   language: ValueOf<typeof languages> | null;
   config: ValueOf<typeof configs>[] | null;
   packageManager: ValueOf<typeof packageManagers> | null;
+  createESLintFile: boolean | null;
   skipInstall: true | null;
 }
 
@@ -137,6 +150,7 @@ const getArgs: GetArgs = async () => {
     language: config ? languages.OTHER : getLanguage(opts),
     config,
     packageManager: getPackageManagerFromOpts(opts) ?? (await getPackageManager()),
+    createESLintFile: config ? false : getCreateESLintFile(opts),
     skipInstall: getSkipInstall(opts),
   };
 };
