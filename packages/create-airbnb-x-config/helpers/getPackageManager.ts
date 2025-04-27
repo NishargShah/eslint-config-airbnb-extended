@@ -1,28 +1,21 @@
+import { detect } from 'package-manager-detector/detect';
+
 import { packageManagers } from '@/constants';
 
 import type { ValueOf } from '@/utils/types';
 
 export type PackageManager = ValueOf<typeof packageManagers>;
 
-type GetPackageManager = () => PackageManager;
+type GetPackageManager = () => Promise<PackageManager>;
 
-/**
- * @see https://github.com/vercel/next.js/blob/canary/packages/create-next-app/helpers/get-pkg-manager.ts
- */
-export const getPackageManager: GetPackageManager = () => {
-  const userAgent = process.env.npm_config_user_agent ?? '';
+export const getPackageManager: GetPackageManager = async () => {
+  const pm = await detect();
+  if (!pm) return packageManagers.NPM;
 
-  if (userAgent.startsWith(packageManagers.YARN)) {
-    return packageManagers.YARN;
-  }
+  const { name } = pm;
 
-  if (userAgent.startsWith(packageManagers.PNPM)) {
-    return packageManagers.PNPM;
-  }
-
-  if (userAgent.startsWith(packageManagers.BUN)) {
-    return packageManagers.BUN;
-  }
-
+  if (name === packageManagers.PNPM) return packageManagers.PNPM;
+  if (name === packageManagers.YARN) return packageManagers.YARN;
+  if (name === packageManagers.BUN) return packageManagers.BUN;
   return packageManagers.NPM;
 };

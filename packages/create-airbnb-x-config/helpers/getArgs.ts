@@ -83,7 +83,7 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
   return null;
 };
 
-// Get Install
+// Get Skip Install
 
 type GetSkipInstall = (opts: Partial<ProgramOpts>) => GetArgsOutput['skipInstall'];
 
@@ -125,9 +125,9 @@ export interface GetArgsOutput {
   skipInstall: true | null;
 }
 
-type GetArgs = () => GetArgsOutput;
+type GetArgs = () => Promise<GetArgsOutput>;
 
-const getArgs: GetArgs = () => {
+const getArgs: GetArgs = async () => {
   const opts: Partial<ProgramOpts> = program.opts();
   const config = getConfig(opts);
 
@@ -136,7 +136,7 @@ const getArgs: GetArgs = () => {
     prettier: opts.prettier ? true : null,
     language: config ? languages.OTHER : getLanguage(opts),
     config,
-    packageManager: getPackageManagerFromOpts(opts) ?? getPackageManager(),
+    packageManager: getPackageManagerFromOpts(opts) ?? (await getPackageManager()),
     skipInstall: getSkipInstall(opts),
   };
 };
