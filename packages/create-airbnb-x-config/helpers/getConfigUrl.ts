@@ -1,4 +1,4 @@
-import { blue } from 'picocolors';
+import pc from 'picocolors';
 
 import { languages } from '@/constants';
 
@@ -17,7 +17,7 @@ const getConfigUrl: GetConfigUrl = (args) => {
   const nestedFolderName = `${prettier ? 'prettier/' : ''}${typescript ? 'ts' : 'js'}`;
   const eslintConfigName = 'eslint.config.mjs';
 
-  return blue(`${baseGithubUrl}/${language}/${nestedFolderName}/${eslintConfigName}`);
+  return pc.blue(`${baseGithubUrl}/${language}/${nestedFolderName}/${eslintConfigName}`);
 };
 
 export default getConfigUrl;

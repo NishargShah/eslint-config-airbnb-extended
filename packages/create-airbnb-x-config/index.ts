@@ -1,15 +1,6 @@
 #!/usr/bin/env node
 
-import {
-  blackBright,
-  blue,
-  cyan,
-  cyanBright,
-  greenBright,
-  red,
-  redBright,
-  yellowBright,
-} from 'picocolors';
+import pc from 'picocolors';
 import prompts from 'prompts';
 
 import { configs, defaults, languages } from '@/constants';
@@ -33,7 +24,7 @@ const run = async () => {
       {
         type: 'toggle',
         name: 'typescript',
-        message: `Are you using ${blue('typescript')}?`,
+        message: `Are you using ${pc.blue('typescript')}?`,
         initial: defaults.typescript,
         active: 'Yes',
         inactive: 'No',
@@ -52,7 +43,7 @@ const run = async () => {
       {
         type: 'toggle',
         name: 'prettier',
-        message: `Are you using ${cyan('prettier')}?`,
+        message: `Are you using ${pc.cyan('prettier')}?`,
         initial: defaults.prettier,
         active: 'Yes',
         inactive: 'No',
@@ -76,24 +67,24 @@ const run = async () => {
         choices: [
           {
             title: 'React/React Router',
-            description: cyanBright(
+            description: pc.cyanBright(
               'You are using React.js library or Remix ( React Router 7 ) framework',
             ),
             value: languages.REACT,
           },
           {
             title: 'Next',
-            description: blackBright('You are using Next.js framework'),
+            description: pc.blackBright('You are using Next.js framework'),
             value: languages.NEXT,
           },
           {
             title: 'Node',
-            description: greenBright('You are using Node or any other frameworks of it'),
+            description: pc.greenBright('You are using Node or any other frameworks of it'),
             value: languages.NODE,
           },
           {
             title: 'Own Customization',
-            description: redBright('You would like to customize by your own'),
+            description: pc.redBright('You would like to customize by your own'),
             value: languages.OTHER,
           },
         ],
@@ -118,27 +109,27 @@ const run = async () => {
           choices: [
             {
               title: 'Base',
-              description: yellowBright('Base config without React/JSX configurations'),
+              description: pc.yellowBright('Base config without React/JSX configurations'),
               value: configs.BASE,
             },
             {
               title: 'Node',
-              description: greenBright('Node config with Base config'),
+              description: pc.greenBright('Node config with Base config'),
               value: configs.NODE,
             },
             {
               title: 'React',
-              description: cyanBright('React config with base config'),
+              description: pc.cyanBright('React config with base config'),
               value: configs.REACT,
             },
             {
               title: 'Next',
-              description: blackBright('Next.js config with base config'),
+              description: pc.blackBright('Next.js config with base config'),
               value: configs.NEXT,
             },
             {
               title: 'Remix (React Router)',
-              description: redBright('Remix (React Router) config with base config'),
+              description: pc.redBright('Remix (React Router) config with base config'),
               value: configs.REACT_ROUTER,
             },
           ],
@@ -187,35 +178,35 @@ const run = async () => {
 
   if (args.skipInstall) {
     console.log(
-      `${yellowBright('No Worries')}, you can install the packages yourself using your ${blue('favourite')} package manager (${newArgs.packageManager}, maybe? 🤔)`,
+      `${pc.yellowBright('No Worries')}, you can install the packages yourself using your ${pc.blue('favourite')} package manager (${newArgs.packageManager}, maybe? 🤔)`,
     );
     console.log();
-    console.log(cyan('Command:'));
-    console.log(blue(command));
+    console.log(pc.cyan('Command:'));
+    console.log(pc.blue(command));
   } else {
     console.log(
-      `${blue('Installing')} packages using ${cyanBright(newArgs.packageManager)}, please wait...`,
+      `${pc.blue('Installing')} packages using ${pc.cyanBright(newArgs.packageManager)}, please wait...`,
     );
 
     await installPackages(newArgs);
     console.log();
-    console.log(yellowBright('Installation Completed'));
+    console.log(pc.yellowBright('Installation Completed'));
     console.log();
-    console.log(cyan('Executed Command:'));
-    console.log(blue(command));
+    console.log(pc.cyan('Executed Command:'));
+    console.log(pc.blue(command));
   }
 
   console.log();
-  console.log(cyan('Config:'));
+  console.log(pc.cyan('Config:'));
 
   if (newArgs.language === languages.OTHER) {
     console.log(
-      red(
+      pc.red(
         'Customizing it to your needs requires considerable effort and is still a work in progress. In the meantime, please refer to the documentation and try setting up the configuration yourself using below link.',
       ),
     );
     console.log(
-      blue(
+      pc.blue(
         'https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended',
       ),
     );

@@ -1,4 +1,4 @@
-import { red } from 'picocolors';
+import pc from 'picocolors';
 
 import type { InitialReturnValue } from 'prompts';
 
@@ -54,9 +54,9 @@ type Exit = (error: Error) => void;
 export const exit: Exit = (error) => {
   console.log('Aborting installation.');
   if (error.cause === 'package-failed') {
-    console.log(`${red(error.message)} has failed.`);
+    console.log(`${pc.red(error.message)} has failed.`);
   } else {
-    console.log(`${red('Unexpected error. Please report it as a bug:')}\n`, error);
+    console.log(`${pc.red('Unexpected error. Please report it as a bug:')}\n`, error);
   }
   process.exit(1);
 };
