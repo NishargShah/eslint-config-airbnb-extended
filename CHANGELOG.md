@@ -1,3 +1,12 @@
+## 1.0.5 (2025-04-27)
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Detect Package Manager automatically, and based on that, it will install the package.
+- **create-airbnb-x-config:** Added option to create `eslint.config.mjs` file
+- **create-airbnb-x-config:** Removed `ts-node` and added `tsx`
+- **eslint-config-airbnb-extended:** Removed `ts-node` and added `tsx`
+
 ## 1.0.4 (2025-04-27)
 
 ### 🩹 Fixes

@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended-project",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Eslint Airbnb Config Extended Project",
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
@@ -42,7 +42,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-promise": "^7.2.1",
-    "eslint-plugin-unicorn": "^58.0.0",
+    "eslint-plugin-unicorn": "^59.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
