@@ -4,10 +4,16 @@ import { languages } from '@/constants';
 
 import type { InstallPackagesArgs } from '@/helpers/installPackages';
 
-const baseGithubUrl =
+export const eslintConfigName = 'eslint.config.mjs';
+export const baseGithubUrl =
   'https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/create-airbnb-x-config/templates';
 
-type GetConfigUrl = (args: InstallPackagesArgs) => string | null;
+interface GetConfigUrlOutput {
+  path: string;
+  url: string;
+}
+
+type GetConfigUrl = (args: InstallPackagesArgs) => GetConfigUrlOutput | null;
 
 const getConfigUrl: GetConfigUrl = (args) => {
   const { typescript, prettier, language } = args;
@@ -15,9 +21,12 @@ const getConfigUrl: GetConfigUrl = (args) => {
   if (language === languages.OTHER) return null;
 
   const nestedFolderName = `${prettier ? 'prettier/' : ''}${typescript ? 'ts' : 'js'}`;
-  const eslintConfigName = 'eslint.config.mjs';
+  const path = `${language}/${nestedFolderName}/${eslintConfigName}`;
 
-  return pc.blue(`${baseGithubUrl}/${language}/${nestedFolderName}/${eslintConfigName}`);
+  return {
+    path: `templates/${path}`,
+    url: pc.blue(`${baseGithubUrl}/${path}`),
+  };
 };
 
 export default getConfigUrl;

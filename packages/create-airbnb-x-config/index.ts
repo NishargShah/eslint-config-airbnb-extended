@@ -4,6 +4,7 @@ import pc from 'picocolors';
 import prompts from 'prompts';
 
 import { configs, defaults, languages } from '@/constants';
+import createESLintConfigFile from '@/helpers/createEslintConfigFile';
 import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
 import getConfigUrl from '@/helpers/getConfigUrl';
@@ -199,6 +200,10 @@ const run = async () => {
   const command = commands.join(' ');
   console.log();
 
+  if (args.createESLintFile) {
+    await createESLintConfigFile(newArgs);
+  }
+
   if (args.skipInstall) {
     console.log(
       `${pc.yellowBright('No Worries')}, you can install the packages yourself using your ${pc.blue('favourite')} package manager (${newArgs.packageManager}, maybe? 🤔)`,
@@ -234,7 +239,7 @@ const run = async () => {
       ),
     );
   } else {
-    console.log(getConfigUrl(newArgs));
+    console.log(getConfigUrl(newArgs)?.url);
   }
 
   console.log();
