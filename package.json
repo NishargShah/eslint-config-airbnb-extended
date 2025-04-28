@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended-project",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Eslint Airbnb Config Extended Project",
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
