@@ -5,8 +5,10 @@
 !dist
 
 # Ignored folders
-dist/tsconfig.tsbuildinfo
+dist/lib
 
 # Note Ignored files
 !package.json
 !README.md
+dist/package.json
+dist/tsconfig.tsbuildinfo

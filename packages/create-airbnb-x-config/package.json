@@ -34,7 +34,7 @@
   "scripts": {
     "prebuild": "rimraf ./dist",
     "build": "tsc -b",
-    "postbuild": "tsc-alias",
+    "postbuild": "tsc-alias && cp -r ./templates ./dist/templates",
     "build:templates": "tsx lib/templates/index.ts",
     "start": "tsx index.ts",
     "typecheck": "tsc --noEmit"
