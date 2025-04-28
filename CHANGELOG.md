@@ -1,3 +1,9 @@
+## 1.0.9 (2025-04-29)
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Removed `eslint.config.mjs` create functionality temporary due to some weird issues
+
 ## 1.0.8 (2025-04-29)
 
 ### 🩹 Fixes
