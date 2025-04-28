@@ -3,6 +3,7 @@
 
 # Not ignored folders
 !dist
+!templates
 
 # Ignored folders
 dist/lib
