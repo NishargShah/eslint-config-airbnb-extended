@@ -1,3 +1,9 @@
+## 1.0.7 (2025-04-29)
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Resolved: `package.json` issue
+
 ## 1.0.6 (2025-04-29)
 
 ### 🩹 Fixes
