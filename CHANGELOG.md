@@ -1,3 +1,9 @@
+## 1.0.11 (2025-05-03)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Added `tailwind.config` file in `devDependencies` excluded list
+
 ## 1.0.10 (2025-05-03)
 
 ### 🩹 Fixes
