@@ -1,5 +1,3 @@
-/* eslint-disable import-x/extensions */
-
 import customGeneralESLintConfig from './lint/general.eslint.mjs';
 import customImportESLintConfig from './lint/import.eslint.mjs';
 import customJSESLintConfig from './lint/javascript.eslint.mjs';
