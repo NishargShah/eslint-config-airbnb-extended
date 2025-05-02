@@ -1,3 +1,10 @@
+## 1.0.10 (2025-05-03)
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Readded option to create `eslint.config.mjs` file
+- **create-airbnb-x-config:** Resolved `packageRootPath` issue
+
 ## 1.0.9 (2025-04-29)
 
 ### 🩹 Fixes
