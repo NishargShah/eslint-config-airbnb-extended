@@ -150,7 +150,7 @@ const getArgs: GetArgs = async () => {
     language: config ? languages.OTHER : getLanguage(opts),
     config,
     packageManager: getPackageManagerFromOpts(opts) ?? (await getPackageManager()),
-    createESLintFile: false,
+    createESLintFile: config ? false : getCreateESLintFile(opts),
     skipInstall: getSkipInstall(opts),
   };
 };
