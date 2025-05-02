@@ -200,9 +200,7 @@ const run = async () => {
   const command = commands.join(' ');
   console.log();
 
-  if (args.createESLintFile) {
-    await createESLintConfigFile(newArgs);
-  }
+  if (args.createESLintFile) await createESLintConfigFile(newArgs);
 
   if (args.skipInstall) {
     console.log(

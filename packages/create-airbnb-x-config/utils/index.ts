@@ -1,6 +1,24 @@
+import path from 'node:path';
+
 import pc from 'picocolors';
 
 import type { InitialReturnValue } from 'prompts';
+
+// Root Path
+
+export const rootPath = path.resolve('.');
+
+// Package Root Path
+
+export const packageRootPath = (() => {
+  // eslint-disable-next-line unicorn/prefer-module
+  const pkgRootPath = path.resolve(__dirname, '..');
+  const buildFolderName = 'dist';
+
+  return pkgRootPath.endsWith('dist')
+    ? pkgRootPath.slice(0, (buildFolderName.length + 1) * -1)
+    : pkgRootPath;
+})();
 
 // Handle Sigterm
 

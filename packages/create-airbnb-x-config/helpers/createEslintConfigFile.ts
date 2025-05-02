@@ -2,6 +2,7 @@ import fsPromise from 'node:fs/promises';
 import path from 'node:path';
 
 import getConfigUrl, { eslintConfigName } from '@/helpers/getConfigUrl';
+import { packageRootPath, rootPath } from '@/utils';
 
 import type { InstallPackagesArgs } from '@/helpers/installPackages';
 
@@ -12,8 +13,8 @@ const createESLintConfigFile: CreateESLintConfigFile = async (args) => {
     const config = getConfigUrl(args);
     if (!config) return;
 
-    const data = await fsPromise.readFile(config.path, { encoding: 'utf8' });
-    const rootPath = path.resolve('.');
+    const configPath = path.join(packageRootPath, config.path);
+    const data = await fsPromise.readFile(configPath, { encoding: 'utf8' });
 
     await fsPromise.writeFile(`${rootPath}/${eslintConfigName}`, data, {
       encoding: 'utf8',
