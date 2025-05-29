@@ -8,6 +8,7 @@ const legacyBestPracticesRules = {
   files: allFiles,
   rules: {
     ...bestPracticesRules.rules,
+
     // enforces consistent newlines before or after dots
     // https://eslint.org/docs/rules/dot-location
     'dot-location': ['error', 'property'],
