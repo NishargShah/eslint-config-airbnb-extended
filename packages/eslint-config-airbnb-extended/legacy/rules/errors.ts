@@ -1,11 +1,10 @@
 import errorsRules from '@/rules/errors';
-import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyErrorsRules = {
-  name: 'airbnb/config/errors/legacy',
-  files: allFiles,
+  ...errorsRules,
+  name: `${errorsRules.name}/legacy`,
   rules: {
     ...errorsRules.rules,
 

@@ -1,11 +1,10 @@
 import bestPracticesRules from '@/rules/best-practices';
-import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyBestPracticesRules = {
-  name: 'airbnb/config/best-practices/legacy',
-  files: allFiles,
+  ...bestPracticesRules,
+  name: `${bestPracticesRules.name}/legacy`,
   rules: {
     ...bestPracticesRules.rules,
 
