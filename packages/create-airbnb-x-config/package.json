@@ -40,7 +40,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "commander": "^13.1.0",
+    "commander": "^14.0.0",
     "cross-spawn": "^7.0.6",
     "package-manager-detector": "^0.2.11",
     "picocolors": "^1.1.1",
@@ -50,8 +50,8 @@
     "@types/cross-spawn": "^6.0.6",
     "@types/prompts": "^2.4.9",
     "rimraf": "^6.0.1",
-    "tsc-alias": "^1.8.15",
-    "tsx": "^4.19.3",
+    "tsc-alias": "^1.8.16",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }

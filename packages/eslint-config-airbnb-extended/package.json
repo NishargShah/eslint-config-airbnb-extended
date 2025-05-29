@@ -39,17 +39,17 @@
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.11",
-    "globals": "^16.0.0"
+    "globals": "^16.2.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^3.1.0",
     "@types/confusing-browser-globals": "^1.0.3",
-    "@types/node": "^22.15.2",
+    "@types/node": "^22.15.24",
     "rimraf": "^6.0.1",
-    "tsc-alias": "^1.8.15",
-    "tsx": "^4.19.3",
+    "tsc-alias": "^1.8.16",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.31.0"
+    "typescript-eslint": "^8.33.0"
   },
   "peerDependencies": {
     "@next/eslint-plugin-next": "15.x",
