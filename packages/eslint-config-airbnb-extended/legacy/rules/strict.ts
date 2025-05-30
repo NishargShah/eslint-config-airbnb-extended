@@ -1,14 +1,10 @@
-import { allFiles } from '@/utils';
+import strictRules from '@/rules/strict';
 
 import type { Linter } from 'eslint';
 
-const strictRules = {
-  name: 'airbnb/config/strict',
-  files: allFiles,
-  rules: {
-    // babel inserts `'use strict';` for us
-    strict: ['error', 'never'],
-  },
+const legacyStrictRules = {
+  ...strictRules,
+  name: `${strictRules.name}/legacy`,
 } satisfies Linter.Config;
 
-export default strictRules;
+export default legacyStrictRules;
