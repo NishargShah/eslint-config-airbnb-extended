@@ -2,31 +2,21 @@
 
 import type { Linter } from 'eslint';
 
-import type baseConfigExtended from '@/configs/base/configExtended';
-import type nextConfig from '@/configs/next/config';
-import type nodeConfig from '@/configs/node/config';
-import type reactConfigExtended from '@/configs/react/configExtended';
-import type typescriptConfigExtended from '@/configs/typescript/configExtended';
+import type legacyBaseConfig from '@/legacy/configs/base/config';
 
 /**
  * as is given due to less size of index.d.ts
  */
 const rules = {
-  get base(): Record<keyof typeof baseConfigExtended, Linter.Config> {
-    return require('@/configs/base/configExtended').default;
+  get base(): Record<keyof typeof legacyBaseConfig, Linter.Config> {
+    return require('@/legacy/configs/base/config').default;
   },
-  get node(): Record<keyof typeof nodeConfig, Linter.Config> {
-    return require('@/configs/node/config').default;
-  },
-  get react(): Record<keyof typeof reactConfigExtended, Linter.Config> {
-    return require('@/configs/react/configExtended').default;
-  },
-  get next(): Record<keyof typeof nextConfig, Linter.Config> {
-    return require('@/configs/next/config').default;
-  },
-  get typescript(): Record<keyof typeof typescriptConfigExtended, Linter.Config> {
-    return require('@/configs/typescript/configExtended').default;
-  },
+  // get recommended(): Record<keyof typeof nodeConfig, Linter.Config> {
+  //   return require('@/configs/node/config').default;
+  // },
+  // get typescript(): Record<keyof typeof typescriptConfigExtended, Linter.Config> {
+  //   return require('@/configs/typescript/config').default;
+  // },
 };
 
 export default rules;
