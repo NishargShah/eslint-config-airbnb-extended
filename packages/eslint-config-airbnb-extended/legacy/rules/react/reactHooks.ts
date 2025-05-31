@@ -1,10 +1,22 @@
-import reactHooksRules from '@/rules/react/reactHooks';
+import plugin from 'eslint-plugin-react-hooks';
+
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyReactHooksRules = {
-  ...reactHooksRules,
-  name: `${reactHooksRules.name}/legacy`,
+  name: 'airbnb/config/react-hooks/legacy',
+  files: allFiles,
+  plugins: {
+    'react-hooks': plugin,
+  },
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+  },
   rules: {
     // Enforce Rules of Hooks
     // https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
