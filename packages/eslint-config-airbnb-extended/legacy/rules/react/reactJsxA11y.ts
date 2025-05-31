@@ -1,10 +1,22 @@
-import reactJsxA11yRules from '@/rules/react/reactJsxA11y';
+import plugin from 'eslint-plugin-jsx-a11y';
+
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyReactJsxA11yRules = {
-  ...reactJsxA11yRules,
-  name: `${reactJsxA11yRules.name}/legacy`,
+  name: 'airbnb/config/react-jsx-a11y/legacy',
+  files: allFiles,
+  plugins: {
+    'jsx-a11y': plugin,
+  },
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+  },
   rules: {
     // ensure emoji are accessible
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
@@ -298,6 +310,6 @@ const legacyReactJsxA11yRules = {
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/93f78856655696a55309440593e0948c6fb96134/docs/rules/prefer-tag-over-role.md
     'jsx-a11y/prefer-tag-over-role': 'off',
   },
-} satisfies Linter.Config;
+} as Linter.Config;
 
 export default legacyReactJsxA11yRules;
