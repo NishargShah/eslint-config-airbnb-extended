@@ -1,13 +1,45 @@
+import plugin from 'eslint-plugin-react';
+import globals from 'globals';
+
 import legacyStyleRules from '@/legacy/rules/style';
-import reactBaseRules from '@/rules/react/react';
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const dangleRules = legacyStyleRules.rules['no-underscore-dangle'];
 
 const legacyReactBaseRules = {
-  ...reactBaseRules,
-  name: `${reactBaseRules.name}/legacy`,
+  name: 'airbnb/config/react/legacy',
+  files: allFiles,
+  plugins: {
+    react: plugin,
+  },
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+    globals: {
+      ...globals.browser,
+    },
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.json'],
+      },
+    },
+    react: {
+      pragma: 'React',
+      version: 'detect',
+    },
+    propWrapperFunctions: [
+      'forbidExtraProps', // https://www.npmjs.com/package/airbnb-prop-types
+      'exact', // https://www.npmjs.com/package/prop-types-exact
+      'Object.freeze', // https://tc39.github.io/ecma262/#sec-object.freeze
+    ],
+  },
   rules: {
     'no-underscore-dangle': [
       dangleRules[0],
