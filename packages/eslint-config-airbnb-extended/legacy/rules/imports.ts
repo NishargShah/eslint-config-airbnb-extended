@@ -1,10 +1,39 @@
+// @ts-expect-error Types Error
+// eslint-disable-next-line import-x/no-extraneous-dependencies
+import plugin from 'eslint-plugin-import';
+import globals from 'globals';
+
 import importsRules from '@/rules/imports';
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyImportsRules = {
   ...importsRules,
   name: 'airbnb/config/import/legacy',
+  files: allFiles,
+  plugins: {
+    import: plugin,
+  },
+  languageOptions: {
+    globals: {
+      ...globals.es2015,
+    },
+    parserOptions: {
+      ecmaVersion: 2018,
+      sourceType: 'module',
+    },
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.mjs', '.js', '.json'],
+      },
+    },
+    'import/extensions': ['.js', '.mjs', '.jsx'],
+    'import/core-modules': [],
+    'import/ignore': ['node_modules', String.raw`\.(coffee|scss|css|less|hbs|svg|json)$`],
+  },
   rules: {
     // Static analysis:
 

@@ -1,10 +1,10 @@
-import bestPracticesRules from '@/rules/best-practices';
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyBestPracticesRules = {
-  ...bestPracticesRules,
-  name: `${bestPracticesRules.name}/legacy`,
+  name: 'airbnb/config/best-practices/legacy',
+  files: allFiles,
   rules: {
     // enforces getter/setter pairs in objects
     // https://eslint.org/docs/rules/accessor-pairs

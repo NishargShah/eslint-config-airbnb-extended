@@ -1,10 +1,25 @@
-import es6Rules from '@/rules/es6';
+import globals from 'globals';
+
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyEs6Rules = {
-  ...es6Rules,
-  name: `${es6Rules.name}/legacy`,
+  name: 'airbnb/config/es6/legacy',
+  files: allFiles,
+  languageOptions: {
+    globals: {
+      ...globals.es2015,
+    },
+    parserOptions: {
+      ecmaVersion: 6,
+      sourceType: 'module',
+      ecmaFeatures: {
+        generators: false,
+        objectLiteralDuplicateProperties: false,
+      },
+    },
+  },
   rules: {
     // enforces no braces where they can be omitted
     // https://eslint.org/docs/rules/arrow-body-style

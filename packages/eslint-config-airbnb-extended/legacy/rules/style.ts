@@ -1,10 +1,10 @@
-import styleRules from '@/rules/style';
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyStyleRules = {
-  ...styleRules,
-  name: `${styleRules.name}/legacy`,
+  name: 'airbnb/config/style/legacy',
+  files: allFiles,
   rules: {
     // enforce line breaks after opening and before closing array brackets
     // https://eslint.org/docs/rules/array-bracket-newline

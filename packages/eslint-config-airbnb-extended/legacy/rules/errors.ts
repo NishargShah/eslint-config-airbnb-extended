@@ -1,10 +1,10 @@
-import errorsRules from '@/rules/errors';
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyErrorsRules = {
-  ...errorsRules,
-  name: `${errorsRules.name}/legacy`,
+  name: 'airbnb/config/errors/legacy',
+  files: allFiles,
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
     // https://eslint.org/docs/rules/for-direction
