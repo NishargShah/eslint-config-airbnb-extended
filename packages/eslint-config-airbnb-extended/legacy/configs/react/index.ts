@@ -1,10 +1,20 @@
-import legacyReactRecommendedConfig from '@/legacy/configs/react/recommended';
+/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return, unicorn/prefer-module */
 
 import type { Linter } from 'eslint';
 
 /**
  * as is given due to less size of index.d.ts
  */
-const react = legacyReactRecommendedConfig as Linter.Config[];
+const react = {
+  get recommended(): Linter.Config[] {
+    return require('@/legacy/configs/react/recommended').default;
+  },
+  get typescript(): Linter.Config[] {
+    return require('@/legacy/configs/react/typescript').default;
+  },
+  get all(): Linter.Config[] {
+    return [...react.recommended, ...react.typescript];
+  },
+};
 
 export default react;
