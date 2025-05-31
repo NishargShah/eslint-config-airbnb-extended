@@ -3,13 +3,11 @@
 import plugin from 'eslint-plugin-import';
 import globals from 'globals';
 
-import importsRules from '@/rules/imports';
 import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyImportsRules = {
-  ...importsRules,
   name: 'airbnb/config/import/legacy',
   files: allFiles,
   plugins: {
