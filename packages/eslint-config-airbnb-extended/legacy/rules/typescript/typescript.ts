@@ -1,3 +1,5 @@
+import { parser, plugin } from 'typescript-eslint';
+
 import legacyBestPracticesRules from '@/legacy/rules/best-practices';
 import legacyErrorsRules from '@/legacy/rules/errors';
 import legacyEs6Rules from '@/legacy/rules/es6';
@@ -18,7 +20,11 @@ const { rules: baseVariablesRules } = legacyVariablesRules;
 const legacyTypescriptBaseRules = {
   name: 'airbnb/config/typescript/legacy',
   files: tsFiles,
+  plugins: {
+    '@typescript-eslint': plugin,
+  },
   languageOptions: {
+    parser,
     parserOptions: {
       projectService: true,
     },
@@ -271,6 +277,6 @@ const legacyTypescriptBaseRules = {
       },
     ],
   },
-} satisfies Linter.Config;
+} as Linter.Config;
 
 export default legacyTypescriptBaseRules;
