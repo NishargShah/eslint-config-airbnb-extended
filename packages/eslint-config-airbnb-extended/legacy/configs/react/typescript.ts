@@ -1,13 +1,27 @@
-import legacyTypescriptConfig from '@/legacy/configs/typescript/config';
-import { tsExtensionsWithReactDTS, tsFiles } from '@/utils';
+import legacyBaseTypescriptConfig from '@/legacy/configs/base/typescript';
+import { allFiles, tsExtensionsWithReactDTS, tsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const legacyReactTypescriptConfig = [
-  ...Object.values(legacyTypescriptConfig),
+  ...legacyBaseTypescriptConfig,
   {
     name: 'airbnb/config/react-configurations/typescript/legacy',
     files: tsFiles,
+    rules: {
+      // Append 'tsx' to Airbnb 'react/jsx-filename-extension' rule
+      // Original: ['.jsx']
+      'react/jsx-filename-extension': [
+        'error',
+        {
+          extensions: ['.jsx', '.tsx'],
+        },
+      ],
+    },
+  },
+  {
+    name: 'airbnb/config/react-configurations/typescript-settings/legacy',
+    files: allFiles,
     settings: {
       // Apply special parsing for TypeScript files
       'import/parsers': {
@@ -25,16 +39,6 @@ const legacyReactTypescriptConfig = [
       // Append 'ts' extensions to Airbnb 'import/extensions' setting
       // Original: ['.js', '.mjs', '.jsx']
       'import/extensions': tsExtensionsWithReactDTS,
-    },
-    rules: {
-      // Append 'tsx' to Airbnb 'react/jsx-filename-extension' rule
-      // Original: ['.jsx']
-      'react/jsx-filename-extension': [
-        'error',
-        {
-          extensions: ['.jsx', '.tsx'],
-        },
-      ],
     },
   },
 ] satisfies Linter.Config[];
