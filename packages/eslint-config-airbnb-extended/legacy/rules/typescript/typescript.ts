@@ -1,12 +1,13 @@
 import { parser, plugin } from 'typescript-eslint';
 
+import getDevDepsList from '@/helpers/getDevDepsList';
 import legacyBestPracticesRules from '@/legacy/rules/best-practices';
 import legacyErrorsRules from '@/legacy/rules/errors';
 import legacyEs6Rules from '@/legacy/rules/es6';
 import legacyImportsRules from '@/legacy/rules/imports';
 import legacyStyleRules from '@/legacy/rules/style';
 import legacyVariablesRules from '@/legacy/rules/variables';
-import { tsExtensionsResolver, tsFiles } from '@/utils';
+import { jsExtensions, tsExtensions, tsExtensionsResolver, tsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -277,19 +278,12 @@ const legacyTypescriptBaseRules = {
     // Append 'ts' and 'tsx' extensions to Airbnb 'import/no-extraneous-dependencies' rule
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     'import/no-extraneous-dependencies': [
-      baseImportsRules['import/no-extraneous-dependencies'][0],
+      'error',
       {
-        ...baseImportsRules['import/no-extraneous-dependencies'][1],
-        devDependencies: baseImportsRules[
-          'import/no-extraneous-dependencies'
-        ][1].devDependencies.reduce<string[]>((result, devDep) => {
-          const toAppend = [devDep];
-          const devDepWithTs = devDep.replaceAll(/\bjs(x?)\b/g, 'ts$1');
-          if (devDepWithTs !== devDep) {
-            toAppend.push(devDepWithTs);
-          }
-          return [...result, ...toAppend];
-        }, []),
+        devDependencies: getDevDepsList(
+          [...jsExtensions, ...tsExtensions].map((ext) => ext.slice(1)).join(','),
+        ),
+        optionalDependencies: false,
       },
     ],
   },
