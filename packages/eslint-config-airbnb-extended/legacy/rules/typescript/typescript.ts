@@ -37,8 +37,10 @@ const legacyTypescriptBaseRules = {
     // Append 'ts' extensions to Airbnb 'import/resolver' setting
     // Original: ['.mjs', '.js', '.json']
     'import/resolver': {
+      node: {
+        extensions: ['.mjs', '.js', '.json', '.ts', '.d.ts'],
+      },
       typescript: true,
-      node: true,
     },
     // Append 'ts' extensions to Airbnb 'import/extensions' setting
     // Original: ['.js', '.mjs', '.jsx']
