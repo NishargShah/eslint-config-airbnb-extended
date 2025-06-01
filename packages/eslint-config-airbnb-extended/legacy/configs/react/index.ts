@@ -6,6 +6,12 @@ import type { Linter } from 'eslint';
  * as is given due to less size of index.d.ts
  */
 const react = {
+  get legacy(): Linter.Config[] {
+    return require('@/legacy/configs/react/legacy').default;
+  },
+  get base(): Linter.Config[] {
+    return require('@/legacy/configs/react/base').default;
+  },
   get recommended(): Linter.Config[] {
     return require('@/legacy/configs/react/recommended').default;
   },
