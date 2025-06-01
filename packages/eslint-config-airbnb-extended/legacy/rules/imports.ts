@@ -1,6 +1,6 @@
 import globals from 'globals';
 
-import { allFiles } from '@/utils';
+import { allFiles, jsExtensions, jsExtensionsWithReact } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -25,10 +25,10 @@ const legacyImportsRules = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.json'],
+        extensions: [...jsExtensions, '.json'],
       },
     },
-    'import/extensions': ['.js', '.mjs', '.jsx'],
+    'import/extensions': jsExtensionsWithReact,
     'import/core-modules': [],
     'import/ignore': ['node_modules', String.raw`\.(coffee|scss|css|less|hbs|svg|json)$`],
   },

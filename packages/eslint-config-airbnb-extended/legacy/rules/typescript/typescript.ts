@@ -6,7 +6,7 @@ import legacyEs6Rules from '@/legacy/rules/es6';
 import legacyImportsRules from '@/legacy/rules/imports';
 import legacyStyleRules from '@/legacy/rules/style';
 import legacyVariablesRules from '@/legacy/rules/variables';
-import { tsFiles } from '@/utils';
+import { tsExtensionsResolver, tsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -32,19 +32,19 @@ const legacyTypescriptBaseRules = {
   settings: {
     // Apply special parsing for TypeScript files
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+      '@typescript-eslint/parser': tsExtensionsResolver,
     },
     // Append 'ts' extensions to Airbnb 'import/resolver' setting
     // Original: ['.mjs', '.js', '.json']
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.json', '.ts', '.d.ts'],
+        extensions: [...tsExtensionsResolver, '.json'],
       },
       typescript: true,
     },
     // Append 'ts' extensions to Airbnb 'import/extensions' setting
     // Original: ['.js', '.mjs', '.jsx']
-    'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.d.ts'],
+    'import/extensions': tsExtensionsResolver,
     // Resolve type definition packages
     'import/external-module-folders': ['node_modules', 'node_modules/@types'],
   },

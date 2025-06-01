@@ -2,7 +2,7 @@ import plugin from 'eslint-plugin-react';
 import globals from 'globals';
 
 import legacyStyleRules from '@/legacy/rules/style';
-import { allFiles } from '@/utils';
+import { allFiles, jsExtensionsWithReact } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -27,7 +27,7 @@ const legacyReactBaseRules = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: [...jsExtensionsWithReact, '.json'],
       },
     },
     react: {
