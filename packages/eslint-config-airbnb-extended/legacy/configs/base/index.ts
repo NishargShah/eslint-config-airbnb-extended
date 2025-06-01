@@ -12,9 +12,6 @@ const base = {
   get typescript(): Linter.Config[] {
     return require('@/legacy/configs/base/typescript').default;
   },
-  get all(): Linter.Config[] {
-    return [...base.recommended, ...base.typescript];
-  },
 };
 
 export default base;

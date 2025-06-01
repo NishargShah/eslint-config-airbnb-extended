@@ -12,9 +12,6 @@ const react = {
   get typescript(): Linter.Config[] {
     return require('@/legacy/configs/react/typescript').default;
   },
-  get all(): Linter.Config[] {
-    return [...react.recommended, ...react.typescript];
-  },
 };
 
 export default react;
