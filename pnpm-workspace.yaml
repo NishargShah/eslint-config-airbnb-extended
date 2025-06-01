@@ -1,5 +1,5 @@
 packages:
   - packages/*
-
-ignoredBuiltDependencies:
+onlyBuiltDependencies:
+  - esbuild
   - unrs-resolver
