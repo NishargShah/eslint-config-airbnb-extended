@@ -15,9 +15,6 @@ const configs = {
   get react(): Record<keyof typeof react, Linter.Config[]> {
     return require('@/legacy/configs/react').default;
   },
-  // get typescript(): Record<keyof typeof typescript, Linter.Config[]> {
-  //   return require('@/legacy/configs/typescript').default;
-  // },
 };
 
 export default configs;
