@@ -4,6 +4,7 @@ import type { Linter } from 'eslint';
 
 import type legacyBaseConfig from '@/legacy/configs/base/config';
 import type legacyReactConfig from '@/legacy/configs/react/config';
+import type legacyTypescriptConfig from '@/legacy/configs/typescript/config';
 
 /**
  * as is given due to less size of index.d.ts
@@ -15,9 +16,9 @@ const rules = {
   get react(): Record<keyof typeof legacyReactConfig, Linter.Config> {
     return require('@/legacy/configs/react/config').default;
   },
-  // get typescript(): Record<keyof typeof typescriptConfigExtended, Linter.Config> {
-  //   return require('@/configs/typescript/config').default;
-  // },
+  get typescript(): Record<keyof typeof legacyTypescriptConfig, Linter.Config> {
+    return require('@/legacy/configs/typescript/config').default;
+  },
 };
 
 export default rules;
