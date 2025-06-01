@@ -20,6 +20,7 @@ const legacyReactTypescriptConfig = [
         node: {
           extensions: [...tsExtensionsWithReactDTS, '.json'],
         },
+        typescript: true,
       },
       // Append 'ts' extensions to Airbnb 'import/extensions' setting
       // Original: ['.js', '.mjs', '.jsx']
