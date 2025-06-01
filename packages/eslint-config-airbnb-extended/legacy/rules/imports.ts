@@ -1,11 +1,11 @@
-// @ts-expect-error Types Error
-// eslint-disable-next-line import-x/no-extraneous-dependencies
-import plugin from 'eslint-plugin-import';
 import globals from 'globals';
 
 import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
+
+// eslint-disable-next-line @typescript-eslint/no-require-imports, import-x/no-extraneous-dependencies, unicorn/prefer-module
+const plugin = require('eslint-plugin-import');
 
 const legacyImportsRules = {
   name: 'airbnb/config/import/legacy',
