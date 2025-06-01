@@ -28,8 +28,16 @@
   "license": "MIT",
   "author": "Nisharg Shah <nishargshah3101@gmail.com>",
   "type": "commonjs",
-  "main": "dist/index.js",
-  "types": "dist/@types/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/@types/index.d.ts"
+    },
+    "./legacy": {
+      "default": "./dist/legacy.js",
+      "types": "./dist/@types/legacy.d.ts"
+    }
+  },
   "scripts": {
     "prebuild": "pnpm check:updates && rimraf ./dist",
     "build": "tsc -b",
