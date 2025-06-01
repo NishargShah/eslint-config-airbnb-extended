@@ -9,6 +9,9 @@ const react = {
   get recommended(): Linter.Config[] {
     return require('@/legacy/configs/react/recommended').default;
   },
+  get hooks(): Linter.Config[] {
+    return require('@/legacy/configs/react/hooks').default;
+  },
   get typescript(): Linter.Config[] {
     return require('@/legacy/configs/react/typescript').default;
   },
