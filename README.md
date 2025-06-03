@@ -17,6 +17,7 @@ A powerful ESLint configuration extending the popular Airbnb style guide, with a
 ## Features
 
 - **Airbnb Base Configuration**: Built on top of Airbnb's highly opinionated ESLint config.
+- **One-to-one Replacement Config**: Provides a one-to-one replacement for Old Airbnb ESLint configs.
 - **TypeScript Support**: Out-of-the-box TypeScript support for all your code.
 - **Customizable**: Easily extend or modify settings to match your project's coding style.
 - **Pre-configured Rules**: Ready-to-go rules that enforce consistent coding practices.
