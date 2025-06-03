@@ -53,7 +53,7 @@ Here’s the way to use the **Airbnb legacy configurations** with the flat confi
 #### For `eslint-config-airbnb-base`
 
 ```ts
-import { configs } from "eslint-config-airbnb-extended/legacy";
+import { configs } from 'eslint-config-airbnb-extended/legacy';
 
 // Equivalent to airbnb-base/legacy
 export default [...configs.base.legacy];
@@ -67,7 +67,7 @@ export default [...configs.base.recommended];
 #### For `eslint-config-airbnb`
 
 ```ts
-import { configs } from "eslint-config-airbnb-extended/legacy";
+import { configs } from 'eslint-config-airbnb-extended/legacy';
 
 // Equivalent to airbnb/legacy
 export default [...configs.react.legacy];
@@ -87,7 +87,7 @@ export default [...configs.react.hooks];
 #### For `eslint-config-airbnb-typescript`
 
 ```ts
-import { configs } from "eslint-config-airbnb-extended/legacy";
+import { configs } from 'eslint-config-airbnb-extended/legacy';
 
 // Equivalent to airbnb-typescript/base
 export default [...configs.base.typescript];
