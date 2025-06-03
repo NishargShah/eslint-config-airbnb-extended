@@ -1,8 +1,20 @@
-import { configs, languages, packageManagers } from '@/constants';
+import { configs, configTypes, languages, packageManagers } from '@/constants';
 import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
 
 import type { ValueOf } from '@/utils/types';
+
+// Get Config Type
+
+type GetConfigType = (opts: Partial<ProgramOpts>) => GetArgsOutput['configType'];
+
+const getConfigType: GetConfigType = (opts) => {
+  const { extended, legacy } = opts;
+
+  if (extended) return configTypes.EXTENDED;
+  if (legacy) return configTypes.LEGACY;
+  return null;
+};
 
 // Get Typescript Value
 
@@ -108,6 +120,8 @@ const getSkipInstall: GetSkipInstall = (opts) => {
 // Get Args
 
 export interface ProgramOpts {
+  extended: true;
+  legacy: true;
   typescript: true;
   javascript: true;
   prettier: true;
@@ -129,6 +143,7 @@ export interface ProgramOpts {
 }
 
 export interface GetArgsOutput {
+  configType: ValueOf<typeof configTypes> | null;
   typescript: boolean | null;
   prettier: boolean | null;
   language: ValueOf<typeof languages> | null;
@@ -145,6 +160,7 @@ const getArgs: GetArgs = async () => {
   const config = getConfig(opts);
 
   return {
+    configType: getConfigType(opts),
     typescript: getTypescript(opts),
     prettier: opts.prettier ? true : null,
     language: config ? languages.OTHER : getLanguage(opts),

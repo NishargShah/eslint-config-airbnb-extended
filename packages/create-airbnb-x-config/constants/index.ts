@@ -27,3 +27,8 @@ export const packageManagers = {
   PNPM: 'pnpm',
   BUN: 'bun',
 } as const;
+
+export const configTypes = {
+  EXTENDED: 'extended',
+  LEGACY: 'legacy',
+} as const;

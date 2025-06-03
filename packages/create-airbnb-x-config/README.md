@@ -34,6 +34,14 @@ Options:
 
     Output the current version of create-airbnb-x-config.
 
+  --extended
+
+    Explicitly tell the CLI to use extended configurations.
+
+  --legacy
+
+    Explicitly tell the CLI to use legacy configurations.
+
   --ts, --typescript
 
     Generate configuration for a TypeScript project.
