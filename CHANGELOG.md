@@ -1,3 +1,10 @@
+## 2.0.0 (2025-06-07)
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `one-to-one` replacement for Airbnb ESLint configs 
+- **create-airbnb-x-config:** Added `one-to-one` replacement CLI options for Airbnb ESLint configs
+
 ## 1.0.11 (2025-05-03)
 
 ### 🩹 Fixes
