@@ -88,20 +88,16 @@ const getLanguage: GetLanguage = (opts) => {
 
 // Get Legacy Config
 
-type GetLegacyConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['legacyConfig'];
+type GetLegacyConfig = (opts: Partial<ProgramOpts>) => NonNullable<GetArgsOutput['legacyConfig']>;
 
 const getLegacyConfig: GetLegacyConfig = (opts) => {
   const { legacyBaseConfig, legacyReactConfig, legacyReactHooksConfig } = opts;
 
-  if (legacyBaseConfig || legacyReactConfig || legacyReactHooksConfig) {
-    return {
-      base: legacyBaseConfig ?? (legacyReactConfig ? false : null),
-      react: legacyReactConfig ?? (legacyBaseConfig ? false : null),
-      reactHooks: legacyReactHooksConfig ?? null,
-    } satisfies GetArgsLegacyConfig;
-  }
-
-  return null;
+  return {
+    base: legacyBaseConfig ?? (legacyReactConfig ? false : null),
+    react: legacyReactConfig ?? (legacyBaseConfig ? false : null),
+    reactHooks: legacyReactHooksConfig ?? null,
+  } satisfies GetArgsLegacyConfig;
 };
 
 // Get Package Manger from Opts

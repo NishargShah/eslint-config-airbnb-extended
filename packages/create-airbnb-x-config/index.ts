@@ -18,14 +18,13 @@ process.on('SIGTERM', handleSigTerm);
 
 const run = async () => {
   let args = await getArgs();
-  console.log(args);
 
   if (args.configType === null) {
     const { configTypeBoolean } = await prompts(
       {
         type: 'toggle',
         name: 'configTypeBoolean',
-        message: `Config type?`,
+        message: 'Config type?',
         initial: defaults.configType === configTypes.EXTENDED,
         active: 'Extended',
         inactive: 'Legacy',
