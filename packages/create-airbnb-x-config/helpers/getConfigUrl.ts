@@ -1,6 +1,6 @@
 import pc from 'picocolors';
 
-import { languages } from '@/constants';
+import { configTypes, languages } from '@/constants';
 
 import type { NonNullableArgsOutput } from '@/utils/types';
 
@@ -14,16 +14,25 @@ interface GetConfigUrlOutput {
 }
 
 export type GetConfigUrl = (
-  args: Pick<NonNullableArgsOutput, 'typescript' | 'prettier' | 'language'>,
+  args: Pick<NonNullableArgsOutput, 'configType' | 'typescript' | 'prettier' | 'language'>,
 ) => GetConfigUrlOutput | null;
 
 const getConfigUrl: GetConfigUrl = (args) => {
-  const { typescript, prettier, language } = args;
+  const { configType, typescript, prettier, language } = args;
+  const isLegacy = configType === configTypes.LEGACY;
 
-  if (language === languages.OTHER) return null;
+  if (!isLegacy && language === languages.OTHER) return null;
 
-  const nestedFolderName = `${prettier ? 'prettier/' : ''}${typescript ? 'ts' : 'js'}`;
-  const path = `${language}/${nestedFolderName}/${eslintConfigName}`;
+  const prettierText = prettier ? 'prettier' : null;
+  const tsOrJsText = typescript ? 'ts' : 'js';
+  const path = [
+    isLegacy ? configTypes.LEGACY : language,
+    prettierText,
+    tsOrJsText,
+    eslintConfigName,
+  ]
+    .filter(Boolean)
+    .join('/');
 
   return {
     path: `templates/${path}`,
