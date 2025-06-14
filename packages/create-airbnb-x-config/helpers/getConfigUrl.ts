@@ -2,7 +2,7 @@ import pc from 'picocolors';
 
 import { languages } from '@/constants';
 
-import type { InstallPackagesArgs } from '@/helpers/installPackages';
+import type { NonNullableArgsOutput } from '@/utils/types';
 
 export const eslintConfigName = 'eslint.config.mjs';
 export const baseGithubUrl =
@@ -13,7 +13,9 @@ interface GetConfigUrlOutput {
   url: string;
 }
 
-type GetConfigUrl = (args: InstallPackagesArgs) => GetConfigUrlOutput | null;
+export type GetConfigUrl = (
+  args: Pick<NonNullableArgsOutput, 'typescript' | 'prettier' | 'language'>,
+) => GetConfigUrlOutput | null;
 
 const getConfigUrl: GetConfigUrl = (args) => {
   const { typescript, prettier, language } = args;

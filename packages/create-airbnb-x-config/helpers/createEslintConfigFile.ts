@@ -4,9 +4,9 @@ import path from 'node:path';
 import getConfigUrl, { eslintConfigName } from '@/helpers/getConfigUrl';
 import { packageRootPath, rootPath } from '@/utils';
 
-import type { InstallPackagesArgs } from '@/helpers/installPackages';
+import type { GetConfigUrl } from '@/helpers/getConfigUrl';
 
-type CreateESLintConfigFile = (args: InstallPackagesArgs) => Promise<void>;
+type CreateESLintConfigFile = (args: Parameters<GetConfigUrl>[0]) => Promise<void>;
 
 const createESLintConfigFile: CreateESLintConfigFile = async (args) => {
   try {

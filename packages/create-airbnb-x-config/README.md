@@ -90,6 +90,18 @@ Options:
 
     Include the Remix/React Router specific ESLint configuration.
 
+  --legacy-base-config
+
+    Include the legacy Base ESLint configuration.
+
+  --legacy-react-config
+
+    Include the legacy React ESLint configuration.
+
+  --legacy-react-hooks-config
+
+    Include the legacy React Hooks ESLint configuration.
+
   --use-npm
 
     Explicitly tell the CLI to use npm.
