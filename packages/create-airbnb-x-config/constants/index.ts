@@ -13,7 +13,13 @@ export const configs = {
   REACT_ROUTER: 'reactRouter',
 } as const;
 
+export const configTypes = {
+  EXTENDED: 'extended',
+  LEGACY: 'legacy',
+} as const;
+
 export const defaults = {
+  configType: configTypes.EXTENDED,
   typescript: true,
   prettier: true,
   language: 0,
@@ -28,7 +34,13 @@ export const packageManagers = {
   BUN: 'bun',
 } as const;
 
-export const configTypes = {
-  EXTENDED: 'extended',
-  LEGACY: 'legacy',
+export const legacyConfigs = {
+  BASE_LEGACY: 'base_legacy',
+  BASE_RECOMMENDED: 'base_recommended',
+  BASE_TYPESCRIPT: 'base_typescript',
+  REACT_LEGACY: 'react_legacy',
+  REACT_BASE: 'react_base',
+  REACT_RECOMMENDED: 'react_recommended',
+  REACT_HOOKS: 'react_hooks',
+  REACT_TYPESCRIPT: 'react_typescript',
 } as const;
