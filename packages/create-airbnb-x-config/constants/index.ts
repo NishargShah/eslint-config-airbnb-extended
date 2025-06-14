@@ -22,7 +22,7 @@ export const defaults = {
   configType: configTypes.EXTENDED,
   typescript: true,
   prettier: true,
-  language: 0,
+  legacyReactHooks: true,
   createESLintFile: true,
   skipInstall: false,
 } as const;
@@ -35,12 +35,6 @@ export const packageManagers = {
 } as const;
 
 export const legacyConfigs = {
-  BASE_LEGACY: 'base_legacy',
-  BASE_RECOMMENDED: 'base_recommended',
-  BASE_TYPESCRIPT: 'base_typescript',
-  REACT_LEGACY: 'react_legacy',
-  REACT_BASE: 'react_base',
-  REACT_RECOMMENDED: 'react_recommended',
-  REACT_HOOKS: 'react_hooks',
-  REACT_TYPESCRIPT: 'react_typescript',
+  BASE: 'base',
+  REACT: 'react',
 } as const;
