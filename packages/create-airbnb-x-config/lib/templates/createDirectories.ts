@@ -14,7 +14,7 @@ const createDirectories: CreateDirectories = async () => {
 
   await Promise.all(
     allFolders.map(async (folder) =>
-      fsPromise.mkdir(folder, {
+      fsPromise.mkdir(folder.path, {
         recursive: true,
       }),
     ),

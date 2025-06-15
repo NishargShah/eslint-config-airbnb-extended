@@ -5,7 +5,7 @@ import type { Folders } from '@/lib/templates/getAllFolders';
 
 export const templateConstants = {
   FOLDER_NAME: 'templates',
-};
+} as const;
 
 export const languagePreferences = {
   JAVASCRIPT: 'js',
@@ -21,18 +21,16 @@ const subFolders = {
 
 const defaultLanguagePreferencesSubFolders = {
   [subFolders.JAVASCRIPT]: {
-    data: null,
     meta: {
       languagePreference: languagePreferences.JAVASCRIPT,
     },
   },
   [subFolders.TYPESCRIPT]: {
-    data: null,
     meta: {
       languagePreference: languagePreferences.TYPESCRIPT,
     },
   },
-} as const;
+} satisfies Folders;
 
 const defaultSubFolders = {
   ...defaultLanguagePreferencesSubFolders,
@@ -42,12 +40,9 @@ const defaultSubFolders = {
       hasPrettier: true,
     },
   },
-} as const;
+} satisfies Folders;
 
 export const folders = {
-  lol: {
-    data: null,
-  },
   [configTypes.LEGACY]: {
     data: {
       [subFolders.BASE]: {
@@ -79,7 +74,5 @@ export const folders = {
     },
   },
 } satisfies Folders;
-
-console.log();
 
 export const allFolders = getFolders(folders, [templateConstants.FOLDER_NAME]);

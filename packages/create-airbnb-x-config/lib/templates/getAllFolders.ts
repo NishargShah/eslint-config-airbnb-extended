@@ -2,12 +2,17 @@ type FolderMeta = Record<string, number | string | boolean>;
 
 interface Folder {
   meta?: FolderMeta;
-  data: Folders | null;
+  data?: Folders;
 }
 
 export type Folders = Record<string, Folder>;
 
-type GetFoldersOutput = string[][];
+export interface GetFolder {
+  path: string;
+  meta: FolderMeta;
+}
+
+type GetFoldersOutput = GetFolder[];
 
 type GetFolders = (folders: Folders, prefix: string[], meta?: FolderMeta) => GetFoldersOutput;
 
@@ -21,13 +26,21 @@ const getFolders: GetFolders = (folders, prefix, meta = {}) =>
         return Object.entries(value.data).reduce<GetFoldersOutput>((subAcc, subVal) => {
           const [subKey, subValue] = subVal;
 
-          subAcc.push(...getFolders({ [subKey]: subValue }, prefixes, meta));
+          const subFolders = { [subKey]: subValue };
+          const subMeta = { ...meta, ...subValue.meta };
+
+          subAcc.push(...getFolders(subFolders, prefixes, subMeta));
 
           return subAcc;
         }, []);
       }
 
-      return [prefixes];
+      return [
+        {
+          path: prefixes.join('/'),
+          meta,
+        },
+      ];
     })();
 
     acc.push(...values);
