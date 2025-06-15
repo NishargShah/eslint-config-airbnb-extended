@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended-project",
-  "version": "1.0.11",
+  "version": "2.0.0",
   "description": "Eslint Airbnb Config Extended Project",
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
@@ -21,9 +21,9 @@
     "config:build": "pnpm --filter eslint-config-airbnb-extended build",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
-    "inspector": "pnpm dlx @eslint/config-inspector --config eslint-inspector.config.mjs",
     "lint": "eslint .",
     "lint:fix": "pnpm --silent lint --fix",
+    "lint:inspector": "pnpm dlx @eslint/config-inspector --config eslint-inspector.config.mjs",
     "pkg:prepare": "pnpm changeset && pnpm changeset version",
     "pkg:publish": "pnpm -r build && pnpm changeset publish",
     "prepare": "husky",
@@ -31,28 +31,34 @@
     "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.2",
-    "@eslint/compat": "^1.2.8",
-    "@eslint/js": "^9.25.1",
-    "eslint": "^9.25.1",
+    "@changesets/cli": "^2.29.4",
+    "@eslint/compat": "^1.3.0",
+    "@eslint/js": "^9.29.0",
+    "@stylistic/eslint-plugin": "^3.1.0",
+    "@types/node": "^22.15.31",
+    "eslint": "^9.29.0",
     "eslint-config-airbnb-extended": "workspace:*",
-    "eslint-config-prettier": "^10.1.2",
-    "eslint-import-resolver-typescript": "^4.3.4",
-    "eslint-plugin-import-x": "^4.11.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-import-resolver-typescript": "^4.4.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import-x": "^4.15.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-prettier": "^5.4.1",
     "eslint-plugin-promise": "^7.2.1",
-    "eslint-plugin-unicorn": "^59.0.0",
+    "eslint-plugin-unicorn": "^59.0.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.1",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.5.3",
-    "prettier-plugin-packagejson": "^2.5.10",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.31.0"
+    "prettier-plugin-packagejson": "^2.5.15",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.34.0"
   },
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.12.1",
   "engines": {
-    "node": ">=16"
+    "node": ">=22.0.0",
+    "npm": "please-use-pnpm",
+    "pnpm": ">=10.12.0",
+    "yarn": "please-use-pnpm"
   }
 }

@@ -3,22 +3,52 @@
 import pc from 'picocolors';
 import prompts from 'prompts';
 
-import { configs, defaults, languages } from '@/constants';
+import { configs, configTypes, defaults, languages, legacyConfigs } from '@/constants';
 import createESLintConfigFile from '@/helpers/createEslintConfigFile';
 import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
-import getConfigUrl from '@/helpers/getConfigUrl';
+import getConfigUrl, { eslintConfigName } from '@/helpers/getConfigUrl';
 import installPackages from '@/helpers/installPackages';
 import { exit, handleSigTerm, onCancel, onPromptState, success } from '@/utils';
 
-import type { InstallPackagesArgs } from '@/helpers/installPackages';
-import type { ValueOf } from '@/utils/types';
+import type { NonNullableArgsOutput, ValueOf } from '@/utils/types';
 
 process.on('SIGINT', handleSigTerm);
 process.on('SIGTERM', handleSigTerm);
 
 const run = async () => {
   let args = await getArgs();
+
+  if (args.configType === null) {
+    const { configTypeBoolean } = await prompts(
+      {
+        type: 'toggle',
+        name: 'configTypeBoolean',
+        message: 'Config type?',
+        initial: defaults.configType === configTypes.EXTENDED,
+        active: 'Extended',
+        inactive: 'Legacy',
+        onState: onPromptState,
+      },
+      {
+        onCancel,
+      },
+    );
+
+    const configType = configTypeBoolean ? configTypes.EXTENDED : configTypes.LEGACY;
+    args = {
+      ...args,
+      configType,
+      ...(configType === configTypes.EXTENDED
+        ? {
+            legacyConfig: null,
+          }
+        : {
+            language: null,
+            config: [],
+          }),
+    };
+  }
 
   if (args.typescript === null) {
     const { typescript } = await prompts(
@@ -58,88 +88,37 @@ const run = async () => {
     args = { ...args, prettier };
   }
 
-  if (!args.language) {
-    const { language } = await prompts(
-      {
-        type: 'select',
-        name: 'language',
-        message: 'Are you using?',
-        initial: defaults.language,
-        choices: [
-          {
-            title: 'React/React Router',
-            description: pc.cyanBright(
-              'You are using React.js library or Remix ( React Router 7 ) framework',
-            ),
-            value: languages.REACT,
-          },
-          {
-            title: 'Next',
-            description: pc.blackBright('You are using Next.js framework'),
-            value: languages.NEXT,
-          },
-          {
-            title: 'Node',
-            description: pc.greenBright('You are using Node or any other frameworks of it'),
-            value: languages.NODE,
-          },
-          {
-            title: 'Own Customization',
-            description: pc.redBright('You would like to customize by your own'),
-            value: languages.OTHER,
-          },
-        ],
-        onState: onPromptState,
-      },
-      {
-        onCancel,
-      },
-    );
-
-    args = { ...args, language };
-  }
-
-  if (!args.config) {
-    if (args.language === languages.OTHER) {
-      const { config } = await prompts(
+  if (args.configType === configTypes.EXTENDED) {
+    if (!args.language) {
+      const { language } = await prompts(
         {
-          type: 'multiselect',
-          name: 'config',
-          message: 'Select Config:',
-          min: 1,
+          type: 'select',
+          name: 'language',
+          message: 'Are you using?',
           choices: [
             {
-              title: 'Base',
-              description: pc.yellowBright('Base config without React/JSX configurations'),
-              value: configs.BASE,
-            },
-            {
-              title: 'Node',
-              description: pc.greenBright('Node config with Base config'),
-              value: configs.NODE,
-            },
-            {
-              title: 'React',
-              description: pc.cyanBright('React config with base config'),
-              value: configs.REACT,
+              title: 'React/React Router',
+              description: pc.cyanBright(
+                'You are using React.js library or Remix ( React Router 7 ) framework',
+              ),
+              value: languages.REACT,
             },
             {
               title: 'Next',
-              description: pc.blackBright('Next.js config with base config'),
-              value: configs.NEXT,
+              description: pc.blackBright('You are using Next.js framework'),
+              value: languages.NEXT,
             },
             {
-              title: 'Remix (React Router)',
-              description: pc.redBright('Remix (React Router) config with base config'),
-              value: configs.REACT_ROUTER,
+              title: 'Node',
+              description: pc.greenBright('You are using Node or any other frameworks of it'),
+              value: languages.NODE,
+            },
+            {
+              title: 'Own Customization',
+              description: pc.redBright('You would like to customize by your own'),
+              value: languages.OTHER,
             },
           ],
-          format: (prev) => {
-            const values = prev as ValueOf<typeof configs>[];
-            const opts = Object.fromEntries(values.map((value) => [`${value}Config`, true]));
-            return getConfig(opts);
-          },
-          hint: configHelp,
           onState: onPromptState,
         },
         {
@@ -147,9 +126,123 @@ const run = async () => {
         },
       );
 
-      args = { ...args, config };
-    } else {
-      args = { ...args, config: [] };
+      args = { ...args, language };
+    }
+
+    if (!args.config) {
+      if (args.language === languages.OTHER) {
+        const { config } = await prompts(
+          {
+            type: 'multiselect',
+            name: 'config',
+            message: 'Select Config:',
+            min: 1,
+            choices: [
+              {
+                title: 'Base',
+                description: pc.yellowBright('Base config without React/JSX configurations'),
+                value: configs.BASE,
+              },
+              {
+                title: 'Node',
+                description: pc.greenBright('Node config with Base config'),
+                value: configs.NODE,
+              },
+              {
+                title: 'React',
+                description: pc.cyanBright('React config with base config'),
+                value: configs.REACT,
+              },
+              {
+                title: 'Next',
+                description: pc.blackBright('Next.js config with base config'),
+                value: configs.NEXT,
+              },
+              {
+                title: 'Remix (React Router)',
+                description: pc.redBright('Remix (React Router) config with base config'),
+                value: configs.REACT_ROUTER,
+              },
+            ],
+            format: (prev) => {
+              const values = prev as ValueOf<typeof configs>[];
+              const opts = Object.fromEntries(values.map((value) => [`${value}Config`, true]));
+              return getConfig(opts);
+            },
+            hint: configHelp,
+            onState: onPromptState,
+          },
+          {
+            onCancel,
+          },
+        );
+
+        args = { ...args, config };
+      } else {
+        args = { ...args, config: [] };
+      }
+    }
+  }
+
+  if (args.configType === configTypes.LEGACY) {
+    if (!args.legacyConfig || args.legacyConfig.base === null || args.legacyConfig.react === null) {
+      const { legacyConfigType } = await prompts(
+        {
+          type: 'select',
+          name: 'legacyConfigType',
+          message: 'Are you using?',
+          choices: [
+            {
+              title: 'Base Config',
+              description: pc.greenBright('eslint-config-airbnb-base'),
+              value: legacyConfigs.BASE,
+            },
+            {
+              title: 'React Config',
+              description: pc.cyanBright('eslint-config-airbnb'),
+              value: legacyConfigs.REACT,
+            },
+          ],
+          onState: onPromptState,
+        },
+        {
+          onCancel,
+        },
+      );
+
+      args = {
+        ...args,
+        legacyConfig: {
+          ...args.legacyConfig,
+          base: legacyConfigType === legacyConfigs.BASE,
+          react: legacyConfigType === legacyConfigs.REACT,
+        },
+      };
+    }
+
+    if (args.legacyConfig?.react && args.legacyConfig.reactHooks === null) {
+      const { reactHooks } = await prompts(
+        {
+          type: 'toggle',
+          name: 'reactHooks',
+          message: 'Are you using hooks?',
+          initial: defaults.legacyReactHooks,
+          active: 'Yes',
+          inactive: 'No',
+          onState: onPromptState,
+        },
+        {
+          onCancel,
+        },
+      );
+
+      args = {
+        ...args,
+        legacyConfig: {
+          ...args.legacyConfig,
+          reactHooks,
+        },
+      };
     }
   }
 
@@ -161,7 +254,7 @@ const run = async () => {
         {
           type: 'toggle',
           name: 'createESLintFile',
-          message: `Should I create an ${pc.blue('eslint.config.mjs')} file for you?`,
+          message: `Should I create an ${pc.blue(eslintConfigName)} file for you?`,
           initial: defaults.createESLintFile,
           active: 'Yes',
           inactive: 'No',
@@ -195,7 +288,7 @@ const run = async () => {
     args = { ...args, skipInstall };
   }
 
-  const newArgs = args as InstallPackagesArgs;
+  const newArgs = args as NonNullableArgsOutput;
   const commands = getCommands(newArgs);
   const command = commands.join(' ');
   console.log();

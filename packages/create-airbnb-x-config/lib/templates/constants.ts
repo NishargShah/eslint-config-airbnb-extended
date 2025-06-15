@@ -1,29 +1,95 @@
-import { languages } from '@/constants';
+import { configTypes, languages, legacyLanguages } from '@/constants';
+import getFolders from '@/lib/templates/getAllFolders';
+
+import type { Folders } from '@/lib/templates/getAllFolders';
+
+export const templateConstants = {
+  FOLDER_NAME: 'templates',
+} as const;
 
 export const languagePreferences = {
   JAVASCRIPT: 'js',
   TYPESCRIPT: 'ts',
 } as const;
 
-export const subFolders = {
+const subFolders = {
   ...languagePreferences,
   PRETTIER: 'prettier',
-};
-
-export const templateConstants = {
-  FOLDER_NAME: 'templates',
-  FOLDER_NAMES: Object.values(languages).filter((language) => language !== languages.OTHER),
-  SUB_FOLDER_NAMES: [
-    subFolders.JAVASCRIPT,
-    subFolders.TYPESCRIPT,
-    ...Object.values(languagePreferences).map(
-      (languagePreference) => `${subFolders.PRETTIER}/${languagePreference}`,
-    ),
-  ],
+  BASE: 'base',
+  REACT: 'react',
+  REACT_HOOKS: 'react-hooks',
 } as const;
 
-export const allFolders = templateConstants.FOLDER_NAMES.flatMap((folder) =>
-  templateConstants.SUB_FOLDER_NAMES.map(
-    (subFolder) => `${templateConstants.FOLDER_NAME}/${folder}/${subFolder}`,
-  ),
-);
+const defaultLanguagePreferencesSubFolders = {
+  [subFolders.JAVASCRIPT]: {
+    meta: {
+      languagePreference: languagePreferences.JAVASCRIPT,
+    },
+  },
+  [subFolders.TYPESCRIPT]: {
+    meta: {
+      languagePreference: languagePreferences.TYPESCRIPT,
+    },
+  },
+} satisfies Folders;
+
+const defaultSubFolders = {
+  ...defaultLanguagePreferencesSubFolders,
+  [subFolders.PRETTIER]: {
+    data: defaultLanguagePreferencesSubFolders,
+    meta: {
+      hasPrettier: true,
+    },
+  },
+} satisfies Folders;
+
+export const folders = {
+  [configTypes.LEGACY]: {
+    data: {
+      [subFolders.BASE]: {
+        data: defaultSubFolders,
+        meta: {
+          language: legacyLanguages.BASE,
+        },
+      },
+      [subFolders.REACT]: {
+        data: defaultSubFolders,
+        meta: {
+          language: legacyLanguages.REACT,
+        },
+      },
+      [subFolders.REACT_HOOKS]: {
+        data: defaultSubFolders,
+        meta: {
+          language: legacyLanguages.REACT_HOOKS,
+        },
+      },
+    },
+    meta: {
+      configType: configTypes.LEGACY,
+    },
+  },
+  [languages.REACT]: {
+    data: defaultSubFolders,
+    meta: {
+      configType: configTypes.EXTENDED,
+      language: languages.REACT,
+    },
+  },
+  [languages.NEXT]: {
+    data: defaultSubFolders,
+    meta: {
+      configType: configTypes.EXTENDED,
+      language: languages.NEXT,
+    },
+  },
+  [languages.NODE]: {
+    data: defaultSubFolders,
+    meta: {
+      configType: configTypes.EXTENDED,
+      language: languages.NODE,
+    },
+  },
+} satisfies Folders;
+
+export const allFolders = getFolders(folders, [templateConstants.FOLDER_NAME]);

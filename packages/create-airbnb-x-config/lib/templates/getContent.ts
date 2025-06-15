@@ -1,4 +1,4 @@
-import { languages } from '@/constants';
+import { configTypes, languages, legacyLanguages } from '@/constants';
 import {
   defaultConfig,
   gitignoreCode,
@@ -20,7 +20,10 @@ interface GetContentConfigurations {
 }
 
 export interface GetContentParams {
-  language: Exclude<ValueOf<typeof languages>, typeof languages.OTHER>;
+  type: ValueOf<typeof configTypes>;
+  language:
+    | Exclude<ValueOf<typeof languages>, typeof languages.OTHER>
+    | ValueOf<typeof legacyLanguages>;
   languagePreference: ValueOf<typeof languagePreferences>;
   configurations: GetContentConfigurations;
 }
@@ -28,18 +31,24 @@ export interface GetContentParams {
 type GetContent = (params: GetContentParams) => string;
 
 const getContent: GetContent = (params) => {
-  const { language, languagePreference, configurations } = params;
+  const { type, language, languagePreference, configurations } = params;
+  const isLegacy = type === configTypes.LEGACY;
 
-  const reactArray = ([languages.REACT, languages.NEXT] as string[]).includes(language)
-    ? [...reactConfig(params), '']
-    : [];
+  const reactArray =
+    (isLegacy &&
+      ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
+    (!isLegacy && ([languages.REACT, languages.NEXT] as string[]).includes(language))
+      ? [...reactConfig(params), '']
+      : [];
 
   const typescriptArray =
     languagePreference === languagePreferences.TYPESCRIPT ? [...typescriptConfig(params), ''] : [];
 
-  const nodeArray = language === languages.NODE ? [...nodeConfig, ''] : [];
+  const nodeArray = !isLegacy && language === languages.NODE ? [...nodeConfig, ''] : [];
 
   const prettierArray = configurations.prettier ? [...prettierConfig, ''] : [];
+
+  const defaultConfigArray = [...defaultConfig(params), ''];
 
   const content = contentFormatter([
     ...startingComments,
@@ -48,14 +57,13 @@ const getContent: GetContent = (params) => {
     '',
     ...gitignoreCode,
     '',
-    ...jsConfig,
+    ...jsConfig(params),
     '',
     ...reactArray,
     ...nodeArray,
     ...typescriptArray,
     ...prettierArray,
-    ...defaultConfig(params),
-    '',
+    ...defaultConfigArray,
   ]);
 
   return content.join('\n');

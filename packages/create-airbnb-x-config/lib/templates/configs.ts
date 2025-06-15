@@ -1,4 +1,4 @@
-import { languages } from '@/constants';
+import { configTypes, languages, legacyLanguages } from '@/constants';
 import { languagePreferences } from '@/lib/templates/constants';
 
 import type { Content } from '@/lib/templates/contentFormatter';
@@ -21,12 +21,14 @@ export const startingComments = [
 
 // IMPORTS
 
-export const imports: Config = ({ configurations }) => [
+export const imports: Config = ({ type, configurations }) => [
   "import path from 'node:path';",
   '',
   "import { includeIgnoreFile } from '@eslint/compat';",
   "import js from '@eslint/js';",
-  "import { configs, plugins } from 'eslint-config-airbnb-extended';",
+  type === configTypes.LEGACY
+    ? "import { configs } from 'eslint-config-airbnb-extended/legacy';"
+    : "import { configs, plugins } from 'eslint-config-airbnb-extended';",
   ...(configurations.prettier
     ? [
         "import { rules as prettierConfigRules } from 'eslint-config-prettier';",
@@ -37,33 +39,46 @@ export const imports: Config = ({ configurations }) => [
 
 // GITIGNORE CONFIG
 
-export const gitignoreCode = [
-  "export const projectRoot = path.resolve('.');",
-  "export const gitignorePath = path.resolve(projectRoot, '.gitignore');",
-];
+export const gitignoreCode = ["const gitignorePath = path.resolve('.', '.gitignore');"];
 
 // JAVASCRIPT CONFIG
 
-export const jsConfig = [
-  'const jsConfig = [',
-  [
-    '// ESLint Recommended Rules',
-    '{',
-    ["name: 'js/config',", '...js.configs.recommended,'],
-    '},',
-    '// Stylistic Plugin',
-    'plugins.stylistic,',
-    '// Import X Plugin',
-    'plugins.importX,',
-    '// Airbnb Base Recommended Config',
-    '...configs.base.recommended,',
-  ],
-  '];',
-];
+export const jsConfig: Config = ({ type, language }) => {
+  const isLegacy = type === configTypes.LEGACY;
+  const jsArray = (() => {
+    if (isLegacy) {
+      return language === legacyLanguages.BASE
+        ? ['// Airbnb Base Recommended Config', '...configs.base.recommended,']
+        : [];
+    }
+
+    return [
+      '// Stylistic Plugin',
+      'plugins.stylistic,',
+      '// Import X Plugin',
+      'plugins.importX,',
+      '// Airbnb Base Recommended Config',
+      '...configs.base.recommended,',
+    ];
+  })();
+
+  return [
+    'const jsConfig = [',
+    [
+      '// ESLint Recommended Rules',
+      '{',
+      ["name: 'js/config',", '...js.configs.recommended,'],
+      '},',
+      ...jsArray,
+    ],
+    '];',
+  ];
+};
 
 // REACT & NEXT CONFIG
 
-export const reactConfig: Config = ({ language }) => {
+export const reactConfig: Config = ({ type, language }) => {
+  const isLegacy = type === configTypes.LEGACY;
   const isNextJs = language === languages.NEXT;
 
   const reactArray = [
@@ -77,7 +92,16 @@ export const reactConfig: Config = ({ language }) => {
 
   const nextArray = ['// Next Plugin', 'plugins.next,'];
 
-  return [
+  const legacyArray = [
+    'const reactConfig = [',
+    ['// Airbnb React Recommended Config', '...configs.react.recommended,'],
+    language === legacyLanguages.REACT_HOOKS
+      ? ['// Airbnb React Hooks Config', '...configs.react.hooks,']
+      : [],
+    '];',
+  ];
+
+  const extendedArray = [
     `const ${language}Config = [`,
     [
       ...reactArray,
@@ -87,6 +111,8 @@ export const reactConfig: Config = ({ language }) => {
     ],
     '];',
   ];
+
+  return isLegacy ? legacyArray : extendedArray;
 };
 
 // NODE CONFIG
@@ -104,11 +130,20 @@ export const nodeConfig = [
 
 // TYPESCRIPT CONFIG
 
-export const typescriptConfig: Config = ({ language }) => {
+export const typescriptConfig: Config = ({ type, language }) => {
+  const isLegacy = type === configTypes.LEGACY;
   const reactArray = ['// Airbnb React TypeScript Config', '...configs.react.typescript,'];
   const nextArray = ['// Airbnb Next TypeScript Config', '...configs.next.typescript,'];
 
-  return [
+  const legacyArray = [
+    'const typescriptConfig = [',
+    language === legacyLanguages.BASE
+      ? ['// Airbnb Base TypeScript Config', '...configs.base.typescript,']
+      : ['// Airbnb React TypeScript Config', '...configs.react.typescript,'],
+    '];',
+  ];
+
+  const extendedArray = [
     'const typescriptConfig = [',
     [
       '// TypeScript ESLint Plugin',
@@ -120,6 +155,8 @@ export const typescriptConfig: Config = ({ language }) => {
     ],
     '];',
   ];
+
+  return isLegacy ? legacyArray : extendedArray;
 };
 
 // Prettier Config
@@ -148,7 +185,9 @@ export const prettierConfig = [
 
 // DEFAULT CONFIG
 
-export const defaultConfig: Config = ({ language, languagePreference, configurations }) => {
+export const defaultConfig: Config = ({ type, language, languagePreference, configurations }) => {
+  const isLegacy = type === configTypes.LEGACY;
+
   const reactArray = ['// React Config', '...reactConfig,'];
   const nextArray = ['// Next Config', '...nextConfig,'];
   const typescriptArray = ['// TypeScript Config', '...typescriptConfig,'];
@@ -162,9 +201,13 @@ export const defaultConfig: Config = ({ language, languagePreference, configurat
       'includeIgnoreFile(gitignorePath),',
       '// Javascript Config',
       '...jsConfig,',
-      ...(language === languages.REACT ? reactArray : []),
-      ...(language === languages.NEXT ? nextArray : []),
-      ...(language === languages.NODE ? nodeArray : []),
+      ...((isLegacy &&
+        ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
+      (!isLegacy && language === languages.REACT)
+        ? reactArray
+        : []),
+      ...(!isLegacy && language === languages.NEXT ? nextArray : []),
+      ...(!isLegacy && language === languages.NODE ? nodeArray : []),
       ...(languagePreference === languagePreferences.TYPESCRIPT ? typescriptArray : []),
       ...(configurations.prettier ? prettierArray : []),
     ],

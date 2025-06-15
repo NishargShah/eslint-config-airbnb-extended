@@ -1,31 +1,30 @@
 import fsPromise from 'node:fs/promises';
 
-import { allFolders, subFolders } from '@/lib/templates/constants';
+import { eslintConfigName } from '@/helpers/getConfigUrl';
+import { allFolders } from '@/lib/templates/constants';
 import getContent from '@/lib/templates/getContent';
-
-import type { GetContentParams } from '@/lib/templates/getContent';
 
 type WriteFiles = () => Promise<void>;
 
 const writeFiles: WriteFiles = async () => {
   await Promise.all(
     allFolders.map(async (folder) => {
-      const [, language, subFolder, prettierLanguagePreference] = folder.split('/');
-      const hasPrettier = subFolder === subFolders.PRETTIER;
+      const { path, meta } = folder;
+      const { configType, language, languagePreference, hasPrettier } = meta;
 
-      const languagePreference = (
-        hasPrettier ? prettierLanguagePreference : subFolder
-      ) as GetContentParams['languagePreference'];
+      if (!configType) return;
 
+      const writePath = [path, eslintConfigName].join('/');
       const data = getContent({
-        language: language as GetContentParams['language'],
-        languagePreference,
+        type: configType,
+        language: language as NonNullable<typeof language>,
+        languagePreference: languagePreference as NonNullable<typeof languagePreference>,
         configurations: {
-          prettier: hasPrettier,
+          prettier: !!hasPrettier,
         },
       });
 
-      return fsPromise.writeFile(`${folder}/eslint.config.mjs`, data, {
+      return fsPromise.writeFile(writePath, data, {
         encoding: 'utf8',
       });
     }),

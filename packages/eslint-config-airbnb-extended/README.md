@@ -20,6 +20,8 @@ To learn more about the configuration options available for `create-airbnb-x-con
 
 ### Steps
 
+First, you need to decide whether you want to use the `legacy` config or the `extended` config. If you're not sure about the difference between the two, you can refer to the [Extended vs Legacy Config](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#difference-between-extended-vs-legacy-config) for a brief explanation. For more information specifically about the Legacy config, check out the [Legacy Config](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#legacy-config). If you decide to use the Extended config, you can proceed with the steps below. Otherwise, feel free to switch to the Legacy config if that better fits your requirements.
+
 You can choose whether to **install** or **not install** based on your needs.
 
 - If you choose **installation**, the package will automatically detect your project's package manager and install all the required dependencies.
@@ -32,6 +34,67 @@ After completing the steps, you’ll get a **GitHub URL** for the configuration 
 While **manual installation** is possible, we strongly recommend using `create-airbnb-x-config` for automatic updates and ease of use.
 
 The configuration may change over time, and `create-airbnb-x-config` will always stay up-to-date with the latest versions. If you're confident in handling manual installations, refer to the [Packages Used](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#packages-used) section for more information on the individual packages.
+
+## Legacy Config
+
+Many people are currently using Airbnb's ESLint configs, like `eslint-config-airbnb`, and they want a way to switch or upgrade without making any changes to their existing config setup.
+
+Right now, the new process for setting up configs is more complex, and not everyone wants to go through it. What developers really need is a simple and direct replacement for the existing Airbnb configs, a solution that keeps everything working the same way as before, with no rule or behavior changes. It should also make sure all packages used are updated to the latest versions.
+
+In short, the goal is:
+
+- No need to learn or adopt new config styles
+- No changes in rule behavior or structure
+- Easy to migrate by just changing the import path
+- All packages should be latest
+
+Here’s the way to use the **Airbnb legacy configurations** with the flat config format under `eslint-config-airbnb-extended/legacy`.
+
+#### For `eslint-config-airbnb-base`
+
+```ts
+import { configs } from 'eslint-config-airbnb-extended/legacy';
+
+// Equivalent to airbnb-base/legacy
+export default [...configs.base.legacy];
+
+// Equivalent to airbnb-base
+export default [...configs.base.recommended];
+```
+
+---
+
+#### For `eslint-config-airbnb`
+
+```ts
+import { configs } from 'eslint-config-airbnb-extended/legacy';
+
+// Equivalent to airbnb/legacy
+export default [...configs.react.legacy];
+
+// Equivalent to airbnb/base
+export default [...configs.react.base];
+
+// Equivalent to airbnb
+export default [...configs.react.recommended];
+
+// Equivalent to airbnb/hooks
+export default [...configs.react.hooks];
+```
+
+---
+
+#### For `eslint-config-airbnb-typescript`
+
+```ts
+import { configs } from 'eslint-config-airbnb-extended/legacy';
+
+// Equivalent to airbnb-typescript/base
+export default [...configs.base.typescript];
+
+// Equivalent to airbnb-typescript
+export default [...configs.react.typescript];
+```
 
 ## Packages Used
 
@@ -91,6 +154,12 @@ export default [
 - and many more...
 
 ## FAQs
+
+### Difference between Extended vs Legacy Config
+
+**Legacy Config** – Designed to be a one-to-one replacement of the original Airbnb ESLint configurations using the new flat config format. Its main purpose is to maintain backward compatibility by continuing to use the same packages as the original setup. For more details, see the [Legacy Config](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#legacy-config).
+
+**Extended Config** – A modern ESLint configuration based on `eslint-config-airbnb`, built from scratch with updated rules, replacement of deprecated ones using community recommended alternatives, and the adoption of the latest best-practice packages. For more details on the packages used, refer to the [Packages Used](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#packages-used) section.
 
 ### How to Configure for a Monorepo?
 

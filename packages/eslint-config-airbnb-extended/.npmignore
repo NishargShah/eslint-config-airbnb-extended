@@ -13,3 +13,4 @@ dist/script/*
 !package.json
 !README.md
 !dist/@types/index.d.ts
+!dist/@types/legacy.d.ts

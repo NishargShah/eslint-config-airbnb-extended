@@ -2,20 +2,15 @@ import spawn from 'cross-spawn';
 
 import getCommands from '@/helpers/getCommands';
 
-import type { GetArgsOutput } from '@/helpers/getArgs';
+import type { GetCommands } from '@/helpers/getCommands';
 
-export type InstallPackagesArgs = {
-  [K in keyof GetArgsOutput]: NonNullable<GetArgsOutput[K]>;
-};
-
-type InstallPackages = (args: InstallPackagesArgs) => Promise<void>;
+type InstallPackages = (args: Parameters<GetCommands>[0]) => Promise<void>;
 
 /**
  * @see https://github.com/vercel/next.js/blob/canary/packages/create-next-app/helpers/install.ts
  */
 const installPackages: InstallPackages = async (args) => {
-  const { packageManager } = args;
-  const commands = getCommands(args).slice(1);
+  const [packageManager, ...commands] = getCommands(args);
 
   return new Promise((resolve, reject) => {
     const child = spawn(packageManager, commands, {

@@ -34,6 +34,14 @@ Options:
 
     Output the current version of create-airbnb-x-config.
 
+  --extended
+
+    Explicitly tell the CLI to use extended configurations.
+
+  --legacy
+
+    Explicitly tell the CLI to use legacy configurations.
+
   --ts, --typescript
 
     Generate configuration for a TypeScript project.
@@ -81,6 +89,18 @@ Options:
   --remix-config, --react-router-config
 
     Include the Remix/React Router specific ESLint configuration.
+
+  --legacy-base-config
+
+    Include the legacy Base ESLint configuration.
+
+  --legacy-react-config
+
+    Include the legacy React ESLint configuration.
+
+  --legacy-react-hooks-config
+
+    Include the legacy React Hooks ESLint configuration.
 
   --use-npm
 

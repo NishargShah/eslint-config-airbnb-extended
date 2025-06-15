@@ -1,11 +1,13 @@
-import { configs, languages, packageManagers } from '@/constants';
+import { configs, configTypes, languages, packageManagers } from '@/constants';
 
-import type { InstallPackagesArgs } from '@/helpers/installPackages';
+import type { NonNullableArgsOutput } from '@/utils/types';
 
-type GetCommands = (args: InstallPackagesArgs) => string[];
+export type GetCommands = (
+  args: Omit<NonNullableArgsOutput, 'createESLintFile' | 'skipInstall'>,
+) => string[];
 
 const getCommands: GetCommands = (args) => {
-  const { typescript, prettier, language, config, packageManager } = args;
+  const { configType, typescript, prettier, language, config, packageManager, legacyConfig } = args;
 
   const pmInstallationCommand = {
     [packageManagers.NPM]: 'install',
@@ -22,8 +24,6 @@ const getCommands: GetCommands = (args) => {
     '@eslint/compat',
     '@eslint/js',
     'eslint-config-airbnb-extended',
-    '@stylistic/eslint-plugin@^3.1.0',
-    'eslint-plugin-import-x',
   ];
 
   if (typescript) {
@@ -34,29 +34,49 @@ const getCommands: GetCommands = (args) => {
     commands.push('prettier', 'eslint-plugin-prettier', 'eslint-config-prettier');
   }
 
-  if (language === languages.OTHER) {
-    if (config.includes(configs.NODE)) {
-      commands.push('eslint-plugin-n');
-    }
+  if (configType === configTypes.EXTENDED) {
+    commands.push('@stylistic/eslint-plugin@^3.1.0', 'eslint-plugin-import-x');
 
-    if (config.includes(configs.REACT) || config.includes(configs.REACT_ROUTER)) {
-      commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
-    }
+    if (language === languages.OTHER) {
+      if (config.includes(configs.NODE)) {
+        commands.push('eslint-plugin-n');
+      }
 
-    if (config.includes(configs.NEXT)) {
-      commands.push('@next/eslint-plugin-next');
-    }
-  } else {
-    if (language === languages.REACT || language === languages.NEXT) {
-      commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
-    }
+      if (config.includes(configs.REACT) || config.includes(configs.REACT_ROUTER)) {
+        commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
+      }
 
-    if (language === languages.NEXT) {
-      commands.push('@next/eslint-plugin-next');
-    }
+      if (config.includes(configs.NEXT)) {
+        commands.push('@next/eslint-plugin-next');
+      }
+    } else {
+      if (language === languages.REACT || language === languages.NEXT) {
+        commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
+      }
 
-    if (language === languages.NODE) {
-      commands.push('eslint-plugin-n');
+      if (language === languages.NEXT) {
+        commands.push('@next/eslint-plugin-next');
+      }
+
+      if (language === languages.NODE) {
+        commands.push('eslint-plugin-n');
+      }
+    }
+  }
+
+  if (configType === configTypes.LEGACY) {
+    commands.push('eslint-plugin-import');
+
+    if (legacyConfig) {
+      const { react, reactHooks } = legacyConfig;
+
+      if (react) {
+        commands.push('eslint-plugin-react', 'eslint-plugin-jsx-a11y');
+      }
+
+      if (reactHooks) {
+        commands.push('eslint-plugin-react-hooks');
+      }
     }
   }
 

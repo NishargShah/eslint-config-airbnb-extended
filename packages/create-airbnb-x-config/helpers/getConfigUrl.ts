@@ -1,8 +1,8 @@
 import pc from 'picocolors';
 
-import { languages } from '@/constants';
+import { configTypes, languages, legacyLanguages } from '@/constants';
 
-import type { InstallPackagesArgs } from '@/helpers/installPackages';
+import type { NonNullableArgsOutput } from '@/utils/types';
 
 export const eslintConfigName = 'eslint.config.mjs';
 export const baseGithubUrl =
@@ -13,15 +13,38 @@ interface GetConfigUrlOutput {
   url: string;
 }
 
-type GetConfigUrl = (args: InstallPackagesArgs) => GetConfigUrlOutput | null;
+export type GetConfigUrl = (
+  args: Pick<
+    NonNullableArgsOutput,
+    'configType' | 'typescript' | 'prettier' | 'language' | 'legacyConfig'
+  >,
+) => GetConfigUrlOutput | null;
 
 const getConfigUrl: GetConfigUrl = (args) => {
-  const { typescript, prettier, language } = args;
+  const { configType, typescript, prettier, language, legacyConfig } = args;
+  const isLegacy = configType === configTypes.LEGACY;
 
-  if (language === languages.OTHER) return null;
+  if (!isLegacy && language === languages.OTHER) return null;
 
-  const nestedFolderName = `${prettier ? 'prettier/' : ''}${typescript ? 'ts' : 'js'}`;
-  const path = `${language}/${nestedFolderName}/${eslintConfigName}`;
+  const prettierText = prettier ? 'prettier' : null;
+  const tsOrJsText = typescript ? 'ts' : 'js';
+  const legacyLanguage = (() => {
+    if (configType === configTypes.EXTENDED) return null;
+
+    if (legacyConfig.base) return legacyLanguages.BASE;
+    if (legacyConfig.react) return legacyLanguages.REACT;
+    if (legacyConfig.reactHooks) return legacyLanguages.REACT_HOOKS;
+    return null;
+  })();
+
+  const path = [
+    ...(isLegacy ? [configTypes.LEGACY, legacyLanguage] : [language]),
+    prettierText,
+    tsOrJsText,
+    eslintConfigName,
+  ]
+    .filter(Boolean)
+    .join('/');
 
   return {
     path: `templates/${path}`,

@@ -31,14 +31,14 @@ Follow the [official installation steps](https://github.com/NishargShah/eslint-c
 
 ### 4. Add ESLint Config File
 
-Copy the config file generated at the end of the `installation steps` from the GitHub repo.
+If you choose to not generate `eslint.config.mjs` file for you then copy the config file generated at the end of the `installation steps` from the GitHub repo.
 
 - If you **don’t have** an `eslint.config.mjs` file yet, simply add it to your project root and **paste** the config you received from the installation steps.
 - If you **already have** an `eslint.config.mjs` file, insert the new configs **at the beginning** of your config array. This ensures you can still override any rules later if needed.
 
 ---
 
-### 5. Update `import` Rules (if needed)
+### 5. Update `import` Rules (if extended config)
 
 If you’ve added any custom rules that start with `import/*`, you’ll need to rename them to `import-x/*`.  
 Why this change? The explanation is [here](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#why-did-we-switch-from-import-to-import-x).
