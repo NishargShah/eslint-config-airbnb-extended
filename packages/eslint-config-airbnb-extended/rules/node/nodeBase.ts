@@ -109,6 +109,10 @@ const nodeBaseRules = {
       },
     ],
 
+    // Disallow top-level await in published modules
+    // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-top-level-await.md
+    'n/no-top-level-await': 'off',
+
     // Disallow bin files that npm ignores
     // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-unpublished-bin.md
     'n/no-unpublished-bin': 'error',
