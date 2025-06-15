@@ -1,6 +1,6 @@
 {
   "name": "create-airbnb-x-config",
-  "version": "2.0.0-beta-4",
+  "version": "2.0.0-beta-5",
   "description": "Airbnb Extended Config CLI",
   "keywords": [
     "eslint",
@@ -49,9 +49,9 @@
   "devDependencies": {
     "@types/cross-spawn": "^6.0.6",
     "@types/prompts": "^2.4.9",
-    "rimraf": "^6.0.1",
-    "tsc-alias": "^1.8.16",
-    "tsx": "^4.20.3",
-    "typescript": "^5.8.3"
+    "rimraf": "catalog:",
+    "tsc-alias": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
   }
 }

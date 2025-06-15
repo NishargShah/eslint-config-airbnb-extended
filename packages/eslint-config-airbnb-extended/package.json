@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "2.0.0-beta-4",
+  "version": "2.0.0-beta-5",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
@@ -50,14 +50,11 @@
     "globals": "^16.2.0"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^3.1.0",
     "@types/confusing-browser-globals": "^1.0.3",
-    "@types/node": "^24.0.1",
-    "rimraf": "^6.0.1",
-    "tsc-alias": "^1.8.16",
-    "tsx": "^4.20.3",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.34.0"
+    "rimraf": "catalog:",
+    "tsc-alias": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
   },
   "peerDependencies": {
     "@next/eslint-plugin-next": "15.x",
