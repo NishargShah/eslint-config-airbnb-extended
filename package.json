@@ -46,7 +46,7 @@
     "eslint-plugin-unicorn": "^59.0.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.1",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.5.3",
     "prettier-plugin-packagejson": "^2.5.15",
     "typescript": "^5.8.3",
@@ -54,6 +54,9 @@
   },
   "packageManager": "pnpm@10.12.1",
   "engines": {
-    "node": ">=16"
+    "node": ">=24.0.0",
+    "npm": "please-use-pnpm",
+    "pnpm": ">=10.12.0",
+    "yarn": "please-use-pnpm"
   }
 }
