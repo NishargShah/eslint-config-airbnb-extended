@@ -1,4 +1,4 @@
-import { configTypes, languages } from '@/constants';
+import { configTypes, languages, legacyConfigs } from '@/constants';
 import getFolders from '@/lib/templates/getAllFolders';
 
 import type { Folders } from '@/lib/templates/getAllFolders';
@@ -47,11 +47,15 @@ export const folders = {
     data: {
       [subFolders.BASE]: {
         data: defaultSubFolders,
-        meta: {},
+        meta: {
+          language: legacyConfigs.BASE,
+        },
       },
       [subFolders.REACT]: {
         data: defaultSubFolders,
-        meta: {},
+        meta: {
+          language: legacyConfigs.REACT,
+        },
       },
     },
     meta: {
