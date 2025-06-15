@@ -1,42 +1,85 @@
 import { configTypes, languages } from '@/constants';
 import getFolders from '@/lib/templates/getAllFolders';
 
+import type { Folders } from '@/lib/templates/getAllFolders';
+
+export const templateConstants = {
+  FOLDER_NAME: 'templates',
+};
+
 export const languagePreferences = {
   JAVASCRIPT: 'js',
   TYPESCRIPT: 'ts',
 } as const;
 
-export const subFolders = {
+const subFolders = {
   ...languagePreferences,
   PRETTIER: 'prettier',
   BASE: 'base',
   REACT: 'react',
 } as const;
 
-const defaultSubFolders = [
-  subFolders.JAVASCRIPT,
-  subFolders.TYPESCRIPT,
-  {
-    [subFolders.PRETTIER]: [subFolders.JAVASCRIPT, subFolders.TYPESCRIPT],
+const defaultLanguagePreferencesSubFolders = {
+  [subFolders.JAVASCRIPT]: {
+    data: null,
+    meta: {
+      languagePreference: languagePreferences.JAVASCRIPT,
+    },
   },
-];
+  [subFolders.TYPESCRIPT]: {
+    data: null,
+    meta: {
+      languagePreference: languagePreferences.TYPESCRIPT,
+    },
+  },
+} as const;
 
-export const templateConstants = {
-  FOLDER_NAME: 'templates',
-  SUB_FOLDERS: {
-    lol: [],
-    [configTypes.LEGACY]: [
-      {
-        [subFolders.BASE]: defaultSubFolders,
-        [subFolders.REACT]: defaultSubFolders,
+const defaultSubFolders = {
+  ...defaultLanguagePreferencesSubFolders,
+  [subFolders.PRETTIER]: {
+    data: defaultLanguagePreferencesSubFolders,
+    meta: {
+      hasPrettier: true,
+    },
+  },
+} as const;
+
+export const folders = {
+  lol: {
+    data: null,
+  },
+  [configTypes.LEGACY]: {
+    data: {
+      [subFolders.BASE]: {
+        data: defaultSubFolders,
+        meta: {},
       },
-    ],
-    [languages.REACT]: defaultSubFolders,
-    [languages.NEXT]: defaultSubFolders,
-    [languages.NODE]: defaultSubFolders,
+      [subFolders.REACT]: {
+        data: defaultSubFolders,
+        meta: {},
+      },
+    },
   },
-};
+  [languages.REACT]: {
+    data: defaultSubFolders,
+    meta: {
+      language: languages.REACT,
+    },
+  },
+  [languages.NEXT]: {
+    data: defaultSubFolders,
+    meta: {
+      language: languages.NEXT,
+    },
+  },
+  [languages.NODE]: {
+    data: defaultSubFolders,
+    meta: {
+      language: languages.NODE,
+    },
+  },
+} satisfies Folders;
 
-export const allFolders = getFolders(templateConstants.SUB_FOLDERS, [
-  templateConstants.FOLDER_NAME,
-]);
+console.log();
+
+export const allFolders = getFolders(folders, [templateConstants.FOLDER_NAME]);
