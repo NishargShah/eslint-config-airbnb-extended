@@ -98,6 +98,9 @@ export const reactConfig: Config = ({ type, language }) => {
   const legacyArray = [
     'const reactConfig = [',
     ['// Airbnb React Recommended Config', '...configs.react.recommended,'],
+    language === legacyLanguages.REACT_HOOKS
+      ? ['// Airbnb React Hooks Config', '...configs.react.hooks,']
+      : [],
     '];',
   ];
 
@@ -201,7 +204,8 @@ export const defaultConfig: Config = ({ type, language, languagePreference, conf
       'includeIgnoreFile(gitignorePath),',
       '// Javascript Config',
       '...jsConfig,',
-      ...((isLegacy && language === legacyLanguages.REACT) ||
+      ...((isLegacy &&
+        ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
       (!isLegacy && language === languages.REACT)
         ? reactArray
         : []),

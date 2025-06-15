@@ -35,7 +35,8 @@ const getContent: GetContent = (params) => {
   const isLegacy = type === configTypes.LEGACY;
 
   const reactArray =
-    (isLegacy && language === legacyLanguages.REACT) ||
+    (isLegacy &&
+      ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
     (!isLegacy && ([languages.REACT, languages.NEXT] as string[]).includes(language))
       ? [...reactConfig(params), '']
       : [];
