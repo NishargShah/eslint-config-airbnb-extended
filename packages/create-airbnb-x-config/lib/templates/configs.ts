@@ -40,8 +40,8 @@ export const imports: Config = ({ type, configurations }) => [
 // GITIGNORE CONFIG
 
 export const gitignoreCode = [
-  "export const projectRoot = path.resolve('.');",
-  "export const gitignorePath = path.resolve(projectRoot, '.gitignore');",
+  "const projectRoot = path.resolve('.');",
+  "const gitignorePath = path.resolve(projectRoot, '.gitignore');",
 ];
 
 // JAVASCRIPT CONFIG
