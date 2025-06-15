@@ -41,6 +41,8 @@ const getContent: GetContent = (params) => {
 
   const prettierArray = configurations.prettier ? [...prettierConfig, ''] : [];
 
+  const defaultConfigArray = [...defaultConfig(params), ''];
+
   const content = contentFormatter([
     ...startingComments,
     '',
@@ -54,8 +56,7 @@ const getContent: GetContent = (params) => {
     ...nodeArray,
     ...typescriptArray,
     ...prettierArray,
-    ...defaultConfig(params),
-    '',
+    ...defaultConfigArray,
   ]);
 
   return content.join('\n');
