@@ -5,6 +5,10 @@
 - **eslint-config-airbnb-extended:** Added `one-to-one` replacement for Airbnb ESLint configs
 - **create-airbnb-x-config:** Added `one-to-one` replacement CLI options for Airbnb ESLint configs
 
+### ❤️ Thank You
+
+- Nicholas C. Zakas @nzakas for the idea
+
 ## 1.0.11 (2025-05-03)
 
 ### 🩹 Fixes
