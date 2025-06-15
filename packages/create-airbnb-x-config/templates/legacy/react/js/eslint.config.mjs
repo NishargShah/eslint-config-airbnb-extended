@@ -11,8 +11,7 @@ import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
 import { configs } from 'eslint-config-airbnb-extended/legacy';
 
-export const projectRoot = path.resolve('.');
-export const gitignorePath = path.resolve(projectRoot, '.gitignore');
+const gitignorePath = path.resolve('.', '.gitignore');
 
 const jsConfig = [
   // ESLint Recommended Rules

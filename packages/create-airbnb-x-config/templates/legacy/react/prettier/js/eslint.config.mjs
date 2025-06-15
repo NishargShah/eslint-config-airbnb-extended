@@ -13,8 +13,7 @@ import { configs } from 'eslint-config-airbnb-extended/legacy';
 import { rules as prettierConfigRules } from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 
-export const projectRoot = path.resolve('.');
-export const gitignorePath = path.resolve(projectRoot, '.gitignore');
+const gitignorePath = path.resolve('.', '.gitignore');
 
 const jsConfig = [
   // ESLint Recommended Rules
