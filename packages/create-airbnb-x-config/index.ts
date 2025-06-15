@@ -7,7 +7,7 @@ import { configs, configTypes, defaults, languages, legacyConfigs } from '@/cons
 import createESLintConfigFile from '@/helpers/createEslintConfigFile';
 import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
-import getConfigUrl from '@/helpers/getConfigUrl';
+import getConfigUrl, { eslintConfigName } from '@/helpers/getConfigUrl';
 import installPackages from '@/helpers/installPackages';
 import { exit, handleSigTerm, onCancel, onPromptState, success } from '@/utils';
 
@@ -254,7 +254,7 @@ const run = async () => {
         {
           type: 'toggle',
           name: 'createESLintFile',
-          message: `Should I create an ${pc.blue('eslint.config.mjs')} file for you?`,
+          message: `Should I create an ${pc.blue(eslintConfigName)} file for you?`,
           initial: defaults.createESLintFile,
           active: 'Yes',
           inactive: 'No',

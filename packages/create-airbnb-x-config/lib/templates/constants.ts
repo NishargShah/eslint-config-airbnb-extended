@@ -1,4 +1,5 @@
-import { languages } from '@/constants';
+import { configTypes, languages } from '@/constants';
+import getFolders from '@/lib/templates/getAllFolders';
 
 export const languagePreferences = {
   JAVASCRIPT: 'js',
@@ -8,22 +9,34 @@ export const languagePreferences = {
 export const subFolders = {
   ...languagePreferences,
   PRETTIER: 'prettier',
-};
+  BASE: 'base',
+  REACT: 'react',
+} as const;
+
+const defaultSubFolders = [
+  subFolders.JAVASCRIPT,
+  subFolders.TYPESCRIPT,
+  {
+    [subFolders.PRETTIER]: [subFolders.JAVASCRIPT, subFolders.TYPESCRIPT],
+  },
+];
 
 export const templateConstants = {
   FOLDER_NAME: 'templates',
-  FOLDER_NAMES: Object.values(languages).filter((language) => language !== languages.OTHER),
-  SUB_FOLDER_NAMES: [
-    subFolders.JAVASCRIPT,
-    subFolders.TYPESCRIPT,
-    ...Object.values(languagePreferences).map(
-      (languagePreference) => `${subFolders.PRETTIER}/${languagePreference}`,
-    ),
-  ],
-} as const;
+  SUB_FOLDERS: {
+    lol: [],
+    [configTypes.LEGACY]: [
+      {
+        [subFolders.BASE]: defaultSubFolders,
+        [subFolders.REACT]: defaultSubFolders,
+      },
+    ],
+    [languages.REACT]: defaultSubFolders,
+    [languages.NEXT]: defaultSubFolders,
+    [languages.NODE]: defaultSubFolders,
+  },
+};
 
-export const allFolders = templateConstants.FOLDER_NAMES.flatMap((folder) =>
-  templateConstants.SUB_FOLDER_NAMES.map(
-    (subFolder) => `${templateConstants.FOLDER_NAME}/${folder}/${subFolder}`,
-  ),
-);
+export const allFolders = getFolders(templateConstants.SUB_FOLDERS, [
+  templateConstants.FOLDER_NAME,
+]);

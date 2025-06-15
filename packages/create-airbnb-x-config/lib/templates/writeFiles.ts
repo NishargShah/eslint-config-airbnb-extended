@@ -1,5 +1,6 @@
 import fsPromise from 'node:fs/promises';
 
+import { eslintConfigName } from '@/helpers/getConfigUrl';
 import { allFolders, subFolders } from '@/lib/templates/constants';
 import getContent from '@/lib/templates/getContent';
 
@@ -25,7 +26,7 @@ const writeFiles: WriteFiles = async () => {
         },
       });
 
-      return fsPromise.writeFile(`${folder}/eslint.config.mjs`, data, {
+      return fsPromise.writeFile(`${folder}/${eslintConfigName}`, data, {
         encoding: 'utf8',
       });
     }),

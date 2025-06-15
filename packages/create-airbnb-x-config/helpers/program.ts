@@ -1,5 +1,6 @@
 import { Command } from 'commander';
 
+import { eslintConfigName } from '@/helpers/getConfigUrl';
 import { name, version } from '@/package.json';
 
 /**
@@ -34,7 +35,7 @@ const program = new Command()
   .option('--use-yarn', 'Explicitly tell the CLI to use Yarn.')
   .option('--use-pnpm', 'Explicitly tell the CLI to use pnpm.')
   .option('--use-bun', 'Explicitly tell the CLI to use Bun.')
-  .option('--create-eslint-file', 'Explicitly tell the CLI to create eslint.config.mjs file.')
+  .option('--create-eslint-file', `Explicitly tell the CLI to create ${eslintConfigName} file.`)
   .option('--skip-install', 'Explicitly tell the CLI to skip installing packages.')
   .parse(process.argv);
 
