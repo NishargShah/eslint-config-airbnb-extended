@@ -38,3 +38,9 @@ export const legacyConfigs = {
   BASE: 'base',
   REACT: 'react',
 } as const;
+
+export const legacyLanguages = {
+  BASE: 'base',
+  REACT: 'react',
+  REACT_HOOKS: 'react-hooks',
+} as const;

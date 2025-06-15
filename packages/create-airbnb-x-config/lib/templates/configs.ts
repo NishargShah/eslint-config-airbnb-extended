@@ -1,4 +1,4 @@
-import { configTypes, languages, legacyConfigs } from '@/constants';
+import { configTypes, languages, legacyLanguages } from '@/constants';
 import { languagePreferences } from '@/lib/templates/constants';
 
 import type { Content } from '@/lib/templates/contentFormatter';
@@ -50,7 +50,7 @@ export const jsConfig: Config = ({ type, language }) => {
   const isLegacy = type === configTypes.LEGACY;
   const jsArray = (() => {
     if (isLegacy) {
-      return language === legacyConfigs.BASE
+      return language === legacyLanguages.BASE
         ? ['// Airbnb Base Recommended Config', '...configs.base.recommended,']
         : [];
     }
@@ -137,7 +137,7 @@ export const typescriptConfig: Config = ({ type, language }) => {
 
   const legacyArray = [
     'const typescriptConfig = [',
-    language === legacyConfigs.BASE
+    language === legacyLanguages.BASE
       ? ['// Airbnb Base TypeScript Config', '...configs.base.typescript,']
       : ['// Airbnb React TypeScript Config', '...configs.react.typescript,'],
     '];',
@@ -201,7 +201,7 @@ export const defaultConfig: Config = ({ type, language, languagePreference, conf
       'includeIgnoreFile(gitignorePath),',
       '// Javascript Config',
       '...jsConfig,',
-      ...((isLegacy && language === legacyConfigs.REACT) ||
+      ...((isLegacy && language === legacyLanguages.REACT) ||
       (!isLegacy && language === languages.REACT)
         ? reactArray
         : []),

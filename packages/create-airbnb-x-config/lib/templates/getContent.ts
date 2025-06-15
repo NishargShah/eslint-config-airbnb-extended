@@ -1,4 +1,4 @@
-import { configTypes, languages, legacyConfigs } from '@/constants';
+import { configTypes, languages, legacyLanguages } from '@/constants';
 import {
   defaultConfig,
   gitignoreCode,
@@ -23,7 +23,7 @@ export interface GetContentParams {
   type: ValueOf<typeof configTypes>;
   language:
     | Exclude<ValueOf<typeof languages>, typeof languages.OTHER>
-    | ValueOf<typeof legacyConfigs>;
+    | ValueOf<typeof legacyLanguages>;
   languagePreference: ValueOf<typeof languagePreferences>;
   configurations: GetContentConfigurations;
 }
@@ -35,7 +35,7 @@ const getContent: GetContent = (params) => {
   const isLegacy = type === configTypes.LEGACY;
 
   const reactArray =
-    (isLegacy && language === legacyConfigs.REACT) ||
+    (isLegacy && language === legacyLanguages.REACT) ||
     (!isLegacy && ([languages.REACT, languages.NEXT] as string[]).includes(language))
       ? [...reactConfig(params), '']
       : [];

@@ -1,4 +1,4 @@
-import { configTypes, languages, legacyConfigs } from '@/constants';
+import { configTypes, languages, legacyLanguages } from '@/constants';
 import getFolders from '@/lib/templates/getAllFolders';
 
 import type { Folders } from '@/lib/templates/getAllFolders';
@@ -17,6 +17,7 @@ const subFolders = {
   PRETTIER: 'prettier',
   BASE: 'base',
   REACT: 'react',
+  REACT_HOOKS: 'react-hooks',
 } as const;
 
 const defaultLanguagePreferencesSubFolders = {
@@ -48,13 +49,19 @@ export const folders = {
       [subFolders.BASE]: {
         data: defaultSubFolders,
         meta: {
-          language: legacyConfigs.BASE,
+          language: legacyLanguages.BASE,
         },
       },
       [subFolders.REACT]: {
         data: defaultSubFolders,
         meta: {
-          language: legacyConfigs.REACT,
+          language: legacyLanguages.REACT,
+        },
+      },
+      [subFolders.REACT_HOOKS]: {
+        data: defaultSubFolders,
+        meta: {
+          language: legacyLanguages.REACT_HOOKS,
         },
       },
     },
