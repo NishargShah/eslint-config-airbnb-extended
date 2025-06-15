@@ -54,22 +54,28 @@ export const folders = {
         meta: {},
       },
     },
+    meta: {
+      configType: configTypes.LEGACY,
+    },
   },
   [languages.REACT]: {
     data: defaultSubFolders,
     meta: {
+      configType: configTypes.EXTENDED,
       language: languages.REACT,
     },
   },
   [languages.NEXT]: {
     data: defaultSubFolders,
     meta: {
+      configType: configTypes.EXTENDED,
       language: languages.NEXT,
     },
   },
   [languages.NODE]: {
     data: defaultSubFolders,
     meta: {
+      configType: configTypes.EXTENDED,
       language: languages.NODE,
     },
   },

@@ -1,6 +1,9 @@
+import type { configTypes } from '@/constants';
 import type { GetContentParams } from '@/lib/templates/getContent';
+import type { ValueOf } from '@/utils/types';
 
 interface FolderMeta {
+  configType?: ValueOf<typeof configTypes>;
   language?: GetContentParams['language'];
   languagePreference?: GetContentParams['languagePreference'];
   hasPrettier?: NonNullable<GetContentParams['configurations']>['prettier'];
