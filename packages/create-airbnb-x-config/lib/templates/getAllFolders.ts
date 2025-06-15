@@ -1,4 +1,10 @@
-type FolderMeta = Record<string, number | string | boolean>;
+import type { GetContentParams } from '@/lib/templates/getContent';
+
+interface FolderMeta {
+  language?: GetContentParams['language'];
+  languagePreference?: GetContentParams['languagePreference'];
+  hasPrettier?: NonNullable<GetContentParams['configurations']>['prettier'];
+}
 
 interface Folder {
   meta?: FolderMeta;
@@ -27,7 +33,7 @@ const getFolders: GetFolders = (folders, prefix, meta = {}) =>
           const [subKey, subValue] = subVal;
 
           const subFolders = { [subKey]: subValue };
-          const subMeta = { ...meta, ...subValue.meta };
+          const subMeta = { ...meta, ...value.meta, ...subValue.meta };
 
           subAcc.push(...getFolders(subFolders, prefixes, subMeta));
 
