@@ -17,7 +17,7 @@ A powerful ESLint configuration extending the popular Airbnb style guide, with a
 ## Features
 
 - **Airbnb Base Configuration**: Built on top of Airbnb's highly opinionated ESLint config.
-- **Supports Legacy Config**: Provides a one-to-one replacement for Old Airbnb ESLint configs.
+- **1:1 Replacement for Airbnb Configs**: Provides a one-to-one replacement for Old Airbnb ESLint configs.
 - **TypeScript Support**: Out-of-the-box TypeScript support for all your code.
 - **Customizable**: Easily extend or modify settings to match your project's coding style.
 - **Pre-configured Rules**: Ready-to-go rules that enforce consistent coding practices.
@@ -52,9 +52,9 @@ For further details on how to use the tool, please check the [README.md](https:/
 
 This package was created by taking reference from the following ESLint configuration packages:
 
-- `eslint-config-airbnb-base`
-- `eslint-config-airbnb`
-- `eslint-config-airbnb-typescript`
+- [`eslint-config-airbnb-base`](https://www.npmjs.com/package/eslint-config-airbnb-base)
+- [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb)
+- [`eslint-config-airbnb-typescript`](https://www.npmjs.com/package/eslint-config-airbnb-typescript)
 
 These packages are no longer maintained. To ensure continued compatibility and keep up-to-date with the latest versions of dependencies, I have updated the dependencies and extended their functionality, resulting in the creation of the `eslint-config-airbnb-extended` package, which is actively maintained and fully supports TypeScript.
 

@@ -22,12 +22,17 @@ To learn more about the configuration options available for `create-airbnb-x-con
 
 First, you need to decide whether you want to use the `legacy` config or the `extended` config. If you're not sure about the difference between the two, you can refer to the [Extended vs Legacy Config](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#difference-between-extended-vs-legacy-config) for a brief explanation. For more information specifically about the Legacy config, check out the [Legacy Config](https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended#legacy-config). If you decide to use the Extended config, you can proceed with the steps below. Otherwise, feel free to switch to the Legacy config if that better fits your requirements.
 
-You can choose whether to **install** or **not install** based on your needs.
+Once you've completed the selection steps in `create-airbnb-x-config`, you'll be prompted to choose whether or not to **install dependencies** based on your preferences:
 
-- If you choose **installation**, the package will automatically detect your project's package manager and install all the required dependencies.
-- If you choose **no installation**, you’ll get the necessary commands to install the dependencies manually.
+- If you choose **to install**, the tool will automatically detect your project's package manager and install all required dependencies for you.
+- If you choose **not to install**, you'll receive the appropriate commands to install the dependencies manually.
 
-After completing the steps, you’ll get a **GitHub URL** for the configuration template. Go to the URL, copy the content, and paste it into your `eslint.config.mjs` file. The template provided will depend on your earlier choices.
+After that, you'll be asked whether you want the tool to **generate an `eslint.config.mjs` file** for you:
+
+- If you agree, the file will be created automatically.
+- If not, you’ll need to create the file yourself.
+
+At the end of the process, you’ll be given a **GitHub URL** containing your ESLint configuration template. If you chose **not** to auto-generate the config file, simply visit the URL, copy the template, and paste it into your `eslint.config.mjs` file. The content of the template will reflect the options you selected earlier.
 
 ### Manual Installation (Not Recommended)
 
@@ -50,7 +55,7 @@ In short, the goal is:
 
 Here’s the way to use the **Airbnb legacy configurations** with the flat config format under `eslint-config-airbnb-extended/legacy`.
 
-#### For `eslint-config-airbnb-base`
+#### For [`eslint-config-airbnb-base`](https://www.npmjs.com/package/eslint-config-airbnb-base)
 
 ```ts
 import { configs } from 'eslint-config-airbnb-extended/legacy';
@@ -64,7 +69,7 @@ export default [...configs.base.recommended];
 
 ---
 
-#### For `eslint-config-airbnb`
+#### For [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb)
 
 ```ts
 import { configs } from 'eslint-config-airbnb-extended/legacy';
@@ -84,7 +89,7 @@ export default [...configs.react.hooks];
 
 ---
 
-#### For `eslint-config-airbnb-typescript`
+#### For [`eslint-config-airbnb-typescript`](https://www.npmjs.com/package/eslint-config-airbnb-typescript)
 
 ```ts
 import { configs } from 'eslint-config-airbnb-extended/legacy';
@@ -100,14 +105,14 @@ export default [...configs.react.typescript];
 
 This configuration relies on the following essential packages:
 
-- **`@stylistic/eslint-plugin`**: Ensures fine-tuned styling rules for code formatting.
-- **`eslint-import-x`**: A powerful tool for managing and validating imports.
-- **`eslint-plugin-n`**: Enforces best practices for Node.js.
-- **`eslint-plugin-react`**: Enforces React-specific linting rules and best practices.
-- **`eslint-plugin-react-hooks`**: Ensures proper use of React hooks.
-- **`eslint-plugin-jsx-a11y`**: Improves accessibility in JSX code.
-- **`typescript-eslint`**: Provides linting support for TypeScript codebases.
-- **`eslint-import-resolver-typescript`**: Ensures TypeScript compatibility for import statements.
+- **[`@stylistic/eslint-plugin`](https://www.npmjs.com/package/@stylistic/eslint-plugin)**: Ensures fine-tuned styling rules for code formatting.
+- **[`eslint-plugin-import-x`](https://www.npmjs.com/package/eslint-plugin-import-x)**: A powerful tool for managing and validating imports.
+- **[`eslint-plugin-n`](https://www.npmjs.com/package/eslint-plugin-n)**: Enforces best practices for Node.js.
+- **[`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react)**: Enforces React-specific linting rules and best practices.
+- **[`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks)**: Ensures proper use of React hooks.
+- **[`eslint-plugin-jsx-a11y`](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)**: Improves accessibility in JSX code.
+- **[`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)**: Provides linting support for TypeScript codebases.
+- **[`eslint-import-resolver-typescript`](https://www.npmjs.com/package/eslint-import-resolver-typescript)**: Ensures TypeScript compatibility for import statements.
 
 ## Strict Rules
 
@@ -167,7 +172,7 @@ If you're working in a monorepo setup, it's recommended to run the installation 
 
 ### Why did we switch from `import` to `import-x`?
 
-The switch from the `import` ESLint plugin to `import-x` is due to several improvements. `import-x` provides **better TypeScript support**, ensuring more accurate linting for TypeScript projects. It is **actively maintained**, with regular updates and bug fixes, unlike the original plugin. It also has **fewer issues reported on GitHub**, indicating better stability. Additionally, `import-x` offers a **more performant and lightweight version**, reducing linting overhead and improving build performance. These factors make `import-x` a more reliable and efficient choice.
+The switch from the [`import`](https://www.npmjs.com/package/eslint-plugin-import) ESLint plugin to [`import-x`](https://www.npmjs.com/package/eslint-plugin-import-x) is due to several improvements. `import-x` provides **better TypeScript support**, ensuring more accurate linting for TypeScript projects. It is **actively maintained**, with regular updates and bug fixes, unlike the original plugin. It also has **fewer issues reported on GitHub**, indicating better stability. Additionally, `import-x` offers a **more performant and lightweight version**, reducing linting overhead and improving build performance. These factors make `import-x` a more reliable and efficient choice.
 
 ### Why are `plugins` separated from the `config` in this package?
 
