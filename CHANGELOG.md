@@ -1,3 +1,9 @@
+## 2.1.0 (2025-06-17)
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Added `extensions` feature for creating own config by yourself.
+
 ## 2.0.0 (2025-06-16)
 
 ### 🚀 Features
