@@ -3,7 +3,14 @@
 import pc from 'picocolors';
 import prompts from 'prompts';
 
-import { configs, configTypes, defaults, languages, legacyConfigs } from '@/constants';
+import {
+  configs,
+  configTypes,
+  defaults,
+  languages,
+  legacyConfigs,
+  strictConfigs,
+} from '@/constants';
 import createESLintConfigFile from '@/helpers/createEslintConfigFile';
 import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
@@ -89,6 +96,59 @@ const run = async () => {
   }
 
   if (args.configType === configTypes.EXTENDED) {
+    if (!args.strictConfig) {
+      const { hasStrictConfig } = await prompts(
+        {
+          type: 'toggle',
+          name: 'hasStrictConfig',
+          message: `Do you want to add ${pc.cyan('strict')} configs?`,
+          initial: defaults.strictConfig,
+          active: 'Yes',
+          inactive: 'No',
+          onState: onPromptState,
+        },
+        {
+          onCancel,
+        },
+      );
+
+      if (hasStrictConfig) {
+        const { strictConfig } = await prompts(
+          {
+            type: 'multiselect',
+            name: 'strictConfig',
+            message: 'Select Strict Configs:',
+            min: 1,
+            choices: [
+              {
+                title: 'Import',
+                description: pc.yellowBright('Strict Import config'),
+                value: strictConfigs.IMPORT,
+              },
+              {
+                title: 'React',
+                description: pc.cyanBright('Strict React config'),
+                value: strictConfigs.REACT,
+              },
+              {
+                title: 'TypeScript',
+                description: pc.blueBright('Strict TypeScript config'),
+                value: strictConfigs.TYPESCRIPT,
+              },
+            ],
+            onState: onPromptState,
+          },
+          {
+            onCancel,
+          },
+        );
+
+        args = { ...args, strictConfig };
+      } else {
+        args = { ...args, strictConfig: [] };
+      }
+    }
+
     if (!args.language) {
       const { language } = await prompts(
         {

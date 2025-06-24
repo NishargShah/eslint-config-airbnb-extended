@@ -1,4 +1,4 @@
-import { configs, configTypes, languages, packageManagers } from '@/constants';
+import { configs, configTypes, languages, packageManagers, strictConfigs } from '@/constants';
 import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
 
@@ -26,6 +26,22 @@ const getTypescript: GetTypescript = (opts) => {
   if (typescript) return true;
   if (javascript) return false;
   return null;
+};
+
+// Get Strict Config
+
+type GetStrictConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['strictConfig'];
+
+const getStrictConfig: GetStrictConfig = (opts) => {
+  const { strictImportConfig, strictReactConfig, strictTypescriptConfig } = opts;
+
+  const strictConfig = [] as NonNullable<ReturnType<GetStrictConfig>>;
+
+  if (strictImportConfig) strictConfig.push(strictConfigs.IMPORT);
+  if (strictReactConfig) strictConfig.push(strictConfigs.REACT);
+  if (strictTypescriptConfig) strictConfig.push(strictConfigs.TYPESCRIPT);
+
+  return strictConfig.length > 0 ? strictConfig : null;
 };
 
 // Config Help
@@ -156,6 +172,9 @@ export interface ProgramOpts {
   reactConfig: true;
   nextConfig: true;
   reactRouterConfig: true;
+  strictImportConfig: true;
+  strictReactConfig: true;
+  strictTypescriptConfig: true;
   legacyBaseConfig: true;
   legacyReactConfig: true;
   legacyReactHooksConfig: true;
@@ -177,6 +196,7 @@ export interface GetArgsOutput {
   configType: ValueOf<typeof configTypes> | null;
   typescript: boolean | null;
   prettier: boolean | null;
+  strictConfig: ValueOf<typeof strictConfigs>[] | null;
   language: ValueOf<typeof languages> | null;
   config: ValueOf<typeof configs>[] | null;
   legacyConfig: GetArgsLegacyConfig | null;
@@ -194,6 +214,7 @@ const getArgs: GetArgs = async () => {
     configType: getConfigType(opts),
     typescript: getTypescript(opts),
     prettier: opts.prettier ? true : null,
+    strictConfig: getStrictConfig(opts),
     language: getLanguage(opts),
     config: getConfig(opts),
     legacyConfig: getLegacyConfig(opts),
