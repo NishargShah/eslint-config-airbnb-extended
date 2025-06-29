@@ -13,6 +13,7 @@ import {
 import { languagePreferences } from '@/lib/templates/constants';
 import contentFormatter from '@/lib/templates/contentFormatter';
 
+import type { strictConfigs } from '@/constants';
 import type { ValueOf } from '@/utils/types';
 
 interface GetContentConfigurations {
@@ -26,6 +27,7 @@ export interface GetContentParams {
     | ValueOf<typeof legacyLanguages>;
   languagePreference: ValueOf<typeof languagePreferences>;
   configurations: GetContentConfigurations;
+  strictConfig: ValueOf<typeof strictConfigs>[];
 }
 
 type GetContent = (params: GetContentParams) => string;

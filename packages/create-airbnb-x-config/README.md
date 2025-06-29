@@ -90,6 +90,18 @@ Options:
 
     Include the Remix/React Router specific ESLint configuration.
 
+  --strict-import-config
+
+    Include the strict Import ESLint configuration.
+
+  --strict-react-config
+
+    Include the strict React ESLint configuration.
+
+  --strict-typescript-config
+
+    Include the strict TypeScript ESLint configuration.
+
   --legacy-base-config
 
     Include the legacy Base ESLint configuration.

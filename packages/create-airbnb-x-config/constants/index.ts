@@ -5,6 +5,12 @@ export const languages = {
   OTHER: 'other',
 } as const;
 
+export const strictConfigs = {
+  IMPORT: 'import',
+  REACT: 'react',
+  TYPESCRIPT: 'typescript',
+} as const;
+
 export const configs = {
   BASE: 'base',
   NODE: 'node',
@@ -22,6 +28,7 @@ export const defaults = {
   configType: configTypes.EXTENDED,
   typescript: true,
   prettier: true,
+  strictConfig: false,
   legacyReactHooks: true,
   createESLintFile: true,
   skipInstall: false,

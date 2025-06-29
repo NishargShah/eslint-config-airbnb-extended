@@ -1,17 +1,15 @@
-import type { configTypes } from '@/constants';
 import type { GetContentParams } from '@/lib/templates/getContent';
-import type { ValueOf } from '@/utils/types';
 
-interface FolderMeta {
-  configType?: ValueOf<typeof configTypes>;
-  language?: GetContentParams['language'];
-  languagePreference?: GetContentParams['languagePreference'];
+interface FolderMeta
+  extends Partial<Pick<GetContentParams, 'language' | 'languagePreference' | 'strictConfig'>> {
+  configType?: GetContentParams['type'];
   hasPrettier?: NonNullable<GetContentParams['configurations']>['prettier'];
 }
 
 interface Folder {
   meta?: FolderMeta;
   data?: Folders;
+  cond?: (folder: Required<Pick<Folder, 'meta'>>) => boolean;
 }
 
 export type Folders = Record<string, Folder>;
@@ -21,24 +19,27 @@ export interface GetFolder {
   meta: FolderMeta;
 }
 
-type GetFoldersOutput = GetFolder[];
+type GetAllFoldersOutput = GetFolder[];
 
-type GetFolders = (folders: Folders, prefix: string[], meta?: FolderMeta) => GetFoldersOutput;
+type GetAllFolders = (folders: Folders, prefix: string[], meta?: FolderMeta) => GetAllFoldersOutput;
 
-const getFolders: GetFolders = (folders, prefix, meta = {}) =>
-  Object.entries(folders).reduce<GetFoldersOutput>((acc, val) => {
+const getAllFolders: GetAllFolders = (folders, prefix, meta = {}) =>
+  Object.entries(folders).reduce<GetAllFoldersOutput>((acc, val) => {
     const [key, value] = val;
 
     const prefixes = [...prefix, key];
+    const condition = value.cond ? value.cond({ meta }) : true;
+
     const values = (() => {
-      if (value.data) {
-        return Object.entries(value.data).reduce<GetFoldersOutput>((subAcc, subVal) => {
+      if (value.data && condition) {
+        return Object.entries(value.data).reduce<GetAllFoldersOutput>((subAcc, subVal) => {
           const [subKey, subValue] = subVal;
 
           const subFolders = { [subKey]: subValue };
           const subMeta = { ...meta, ...value.meta, ...subValue.meta };
+          const subCondition = subValue.cond ? subValue.cond({ meta: subMeta }) : true;
 
-          subAcc.push(...getFolders(subFolders, prefixes, subMeta));
+          if (subCondition) subAcc.push(...getAllFolders(subFolders, prefixes, subMeta));
 
           return subAcc;
         }, []);
@@ -56,4 +57,4 @@ const getFolders: GetFolders = (folders, prefix, meta = {}) =>
     return acc;
   }, []);
 
-export default getFolders;
+export default getAllFolders;

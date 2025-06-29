@@ -1,6 +1,7 @@
 import pc from 'picocolors';
 
 import { configTypes, languages, legacyLanguages } from '@/constants';
+import { subFolders } from '@/lib/templates/constants';
 
 import type { NonNullableArgsOutput } from '@/utils/types';
 
@@ -16,12 +17,12 @@ interface GetConfigUrlOutput {
 export type GetConfigUrl = (
   args: Pick<
     NonNullableArgsOutput,
-    'configType' | 'typescript' | 'prettier' | 'language' | 'legacyConfig'
+    'configType' | 'typescript' | 'prettier' | 'strictConfig' | 'language' | 'legacyConfig'
   >,
 ) => GetConfigUrlOutput | null;
 
 const getConfigUrl: GetConfigUrl = (args) => {
-  const { configType, typescript, prettier, language, legacyConfig } = args;
+  const { configType, typescript, prettier, strictConfig, language, legacyConfig } = args;
   const isLegacy = configType === configTypes.LEGACY;
 
   if (!isLegacy && language === languages.OTHER) return null;
@@ -37,10 +38,18 @@ const getConfigUrl: GetConfigUrl = (args) => {
     return null;
   })();
 
+  const strictOrDefaultText = (() => {
+    if (!strictConfig || strictConfig.length === 0) return [subFolders.DEFAULT];
+
+    const strictFolder = strictConfig.sort((a, b) => a.localeCompare(b)).join('-');
+    return [subFolders.STRICT, strictFolder];
+  })();
+
   const path = [
     ...(isLegacy ? [configTypes.LEGACY, legacyLanguage] : [language]),
     prettierText,
     tsOrJsText,
+    ...strictOrDefaultText,
     eslintConfigName,
   ]
     .filter(Boolean)

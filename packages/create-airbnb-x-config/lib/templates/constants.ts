@@ -1,8 +1,3 @@
-import { configTypes, languages, legacyLanguages } from '@/constants';
-import getFolders from '@/lib/templates/getAllFolders';
-
-import type { Folders } from '@/lib/templates/getAllFolders';
-
 export const templateConstants = {
   FOLDER_NAME: 'templates',
 } as const;
@@ -12,84 +7,19 @@ export const languagePreferences = {
   TYPESCRIPT: 'ts',
 } as const;
 
-const subFolders = {
+export const subFolders = {
   ...languagePreferences,
+  DEFAULT: 'default',
   PRETTIER: 'prettier',
   BASE: 'base',
   REACT: 'react',
   REACT_HOOKS: 'react-hooks',
+  STRICT: 'strict',
+  STRICT_IMPORT: 'import',
+  STRICT_IMPORT_REACT: 'import-react',
+  STRICT_IMPORT_TYPESCRIPT: 'import-typescript',
+  STRICT_IMPORT_REACT_TYPESCRIPT: 'import-react-typescript',
+  STRICT_REACT: 'react',
+  STRICT_REACT_TYPESCRIPT: 'react-typescript',
+  STRICT_TYPESCRIPT: 'typescript',
 } as const;
-
-const defaultLanguagePreferencesSubFolders = {
-  [subFolders.JAVASCRIPT]: {
-    meta: {
-      languagePreference: languagePreferences.JAVASCRIPT,
-    },
-  },
-  [subFolders.TYPESCRIPT]: {
-    meta: {
-      languagePreference: languagePreferences.TYPESCRIPT,
-    },
-  },
-} satisfies Folders;
-
-const defaultSubFolders = {
-  ...defaultLanguagePreferencesSubFolders,
-  [subFolders.PRETTIER]: {
-    data: defaultLanguagePreferencesSubFolders,
-    meta: {
-      hasPrettier: true,
-    },
-  },
-} satisfies Folders;
-
-export const folders = {
-  [configTypes.LEGACY]: {
-    data: {
-      [subFolders.BASE]: {
-        data: defaultSubFolders,
-        meta: {
-          language: legacyLanguages.BASE,
-        },
-      },
-      [subFolders.REACT]: {
-        data: defaultSubFolders,
-        meta: {
-          language: legacyLanguages.REACT,
-        },
-      },
-      [subFolders.REACT_HOOKS]: {
-        data: defaultSubFolders,
-        meta: {
-          language: legacyLanguages.REACT_HOOKS,
-        },
-      },
-    },
-    meta: {
-      configType: configTypes.LEGACY,
-    },
-  },
-  [languages.REACT]: {
-    data: defaultSubFolders,
-    meta: {
-      configType: configTypes.EXTENDED,
-      language: languages.REACT,
-    },
-  },
-  [languages.NEXT]: {
-    data: defaultSubFolders,
-    meta: {
-      configType: configTypes.EXTENDED,
-      language: languages.NEXT,
-    },
-  },
-  [languages.NODE]: {
-    data: defaultSubFolders,
-    meta: {
-      configType: configTypes.EXTENDED,
-      language: languages.NODE,
-    },
-  },
-} satisfies Folders;
-
-export const allFolders = getFolders(folders, [templateConstants.FOLDER_NAME]);
