@@ -9,7 +9,7 @@ import path from 'node:path';
 
 import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
-import { configs, plugins } from 'eslint-config-airbnb-extended';
+import { rules, configs, plugins } from 'eslint-config-airbnb-extended';
 
 const gitignorePath = path.resolve('.', '.gitignore');
 
@@ -36,6 +36,8 @@ const reactConfig = [
   plugins.reactA11y,
   // Airbnb React Recommended Config
   ...configs.react.recommended,
+  // Strict React Config
+  rules.react.strict,
 ];
 
 const typescriptConfig = [
@@ -43,6 +45,8 @@ const typescriptConfig = [
   plugins.typescriptEslint,
   // Airbnb Base TypeScript Config
   ...configs.base.typescript,
+  // Strict TypeScript Config
+  rules.typescript.typescriptEslintStrict,
   // Airbnb React TypeScript Config
   ...configs.react.typescript,
 ];

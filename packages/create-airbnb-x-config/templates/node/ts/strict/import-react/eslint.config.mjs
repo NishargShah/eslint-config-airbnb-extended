@@ -9,7 +9,7 @@ import path from 'node:path';
 
 import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
-import { configs, plugins } from 'eslint-config-airbnb-extended';
+import { rules, configs, plugins } from 'eslint-config-airbnb-extended';
 
 const gitignorePath = path.resolve('.', '.gitignore');
 
@@ -25,6 +25,8 @@ const jsConfig = [
   plugins.importX,
   // Airbnb Base Recommended Config
   ...configs.base.recommended,
+  // Strict Import Config
+  rules.base.importsStrict,
 ];
 
 const nodeConfig = [
