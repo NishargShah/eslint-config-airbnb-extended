@@ -1,12 +1,14 @@
 import fsPromise from 'node:fs/promises';
 
 import { eslintConfigName } from '@/helpers/getConfigUrl';
-import { allFolders } from '@/lib/templates/constants';
 import getContent from '@/lib/templates/getContent';
+import getFolders from '@/lib/templates/getFolders';
 
 type WriteFiles = () => Promise<void>;
 
 const writeFiles: WriteFiles = async () => {
+  const allFolders = getFolders();
+
   await Promise.all(
     allFolders.map(async (folder) => {
       const { path, meta } = folder;

@@ -1,11 +1,8 @@
-import type { configTypes } from '@/constants';
 import type { GetContentParams } from '@/lib/templates/getContent';
-import type { ValueOf } from '@/utils/types';
 
-interface FolderMeta {
-  configType?: ValueOf<typeof configTypes>;
-  language?: GetContentParams['language'];
-  languagePreference?: GetContentParams['languagePreference'];
+interface FolderMeta
+  extends Partial<Pick<GetContentParams, 'language' | 'languagePreference' | 'strictConfig'>> {
+  configType?: GetContentParams['type'];
   hasPrettier?: NonNullable<GetContentParams['configurations']>['prettier'];
 }
 
@@ -21,24 +18,24 @@ export interface GetFolder {
   meta: FolderMeta;
 }
 
-type GetFoldersOutput = GetFolder[];
+type GetAllFoldersOutput = GetFolder[];
 
-type GetFolders = (folders: Folders, prefix: string[], meta?: FolderMeta) => GetFoldersOutput;
+type GetAllFolders = (folders: Folders, prefix: string[], meta?: FolderMeta) => GetAllFoldersOutput;
 
-const getFolders: GetFolders = (folders, prefix, meta = {}) =>
-  Object.entries(folders).reduce<GetFoldersOutput>((acc, val) => {
+const getAllFolders: GetAllFolders = (folders, prefix, meta = {}) =>
+  Object.entries(folders).reduce<GetAllFoldersOutput>((acc, val) => {
     const [key, value] = val;
 
     const prefixes = [...prefix, key];
     const values = (() => {
       if (value.data) {
-        return Object.entries(value.data).reduce<GetFoldersOutput>((subAcc, subVal) => {
+        return Object.entries(value.data).reduce<GetAllFoldersOutput>((subAcc, subVal) => {
           const [subKey, subValue] = subVal;
 
           const subFolders = { [subKey]: subValue };
           const subMeta = { ...meta, ...value.meta, ...subValue.meta };
 
-          subAcc.push(...getFolders(subFolders, prefixes, subMeta));
+          subAcc.push(...getAllFolders(subFolders, prefixes, subMeta));
 
           return subAcc;
         }, []);
@@ -56,4 +53,4 @@ const getFolders: GetFolders = (folders, prefix, meta = {}) =>
     return acc;
   }, []);
 
-export default getFolders;
+export default getAllFolders;
