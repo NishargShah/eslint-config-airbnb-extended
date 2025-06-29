@@ -12,7 +12,7 @@ const writeFiles: WriteFiles = async () => {
   await Promise.all(
     allFolders.map(async (folder) => {
       const { path, meta } = folder;
-      const { configType, language, languagePreference, hasPrettier } = meta;
+      const { configType, language, languagePreference, hasPrettier, strictConfig } = meta;
 
       if (!configType) return;
 
@@ -24,6 +24,7 @@ const writeFiles: WriteFiles = async () => {
         configurations: {
           prettier: !!hasPrettier,
         },
+        strictConfig: strictConfig ?? [],
       });
 
       return fsPromise.writeFile(writePath, data, {
