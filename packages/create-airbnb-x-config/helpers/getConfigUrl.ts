@@ -39,7 +39,7 @@ const getConfigUrl: GetConfigUrl = (args) => {
   })();
 
   const strictOrDefaultText = (() => {
-    if (strictConfig.length === 0) return [subFolders.DEFAULT];
+    if (!strictConfig || strictConfig.length === 0) return [subFolders.DEFAULT];
 
     const strictFolder = strictConfig.sort((a, b) => a.localeCompare(b)).join('-');
     return [subFolders.STRICT, strictFolder];
