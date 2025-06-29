@@ -1,4 +1,4 @@
-import { strictConfigs } from '@/constants';
+import { languages, strictConfigs } from '@/constants';
 import { languagePreferences, subFolders } from '@/lib/templates/constants';
 
 import type { Folders } from '@/lib/templates/getAllFolders';
@@ -15,26 +15,65 @@ const strictDefaultSubFolders = {
         meta: {
           strictConfig: [strictConfigs.IMPORT, strictConfigs.REACT],
         },
+        cond: ({ meta }) => {
+          if (meta.language) {
+            return ([languages.REACT, languages.NEXT] as string[]).includes(meta.language);
+          }
+
+          return false;
+        },
       },
       [subFolders.STRICT_IMPORT_REACT_TYPESCRIPT]: {
         meta: {
           strictConfig: [strictConfigs.IMPORT, strictConfigs.REACT, strictConfigs.TYPESCRIPT],
+        },
+        cond: ({ meta }) => {
+          if (meta.language) {
+            const tsCond = meta.languagePreference === languagePreferences.TYPESCRIPT;
+            const reactCond = ([languages.REACT, languages.NEXT] as string[]).includes(
+              meta.language,
+            );
+
+            return tsCond && reactCond;
+          }
+
+          return false;
         },
       },
       [subFolders.STRICT_REACT]: {
         meta: {
           strictConfig: [strictConfigs.REACT],
         },
+        cond: ({ meta }) => {
+          if (meta.language) {
+            return ([languages.REACT, languages.NEXT] as string[]).includes(meta.language);
+          }
+
+          return false;
+        },
       },
       [subFolders.STRICT_REACT_TYPESCRIPT]: {
         meta: {
           strictConfig: [strictConfigs.REACT, strictConfigs.TYPESCRIPT],
+        },
+        cond: ({ meta }) => {
+          if (meta.language) {
+            const tsCond = meta.languagePreference === languagePreferences.TYPESCRIPT;
+            const reactCond = ([languages.REACT, languages.NEXT] as string[]).includes(
+              meta.language,
+            );
+
+            return tsCond && reactCond;
+          }
+
+          return false;
         },
       },
       [subFolders.STRICT_TYPESCRIPT]: {
         meta: {
           strictConfig: [strictConfigs.TYPESCRIPT],
         },
+        cond: ({ meta }) => meta.languagePreference === languagePreferences.TYPESCRIPT,
       },
     },
     meta: {},

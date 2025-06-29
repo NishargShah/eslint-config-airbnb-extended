@@ -9,6 +9,7 @@ interface FolderMeta
 interface Folder {
   meta?: FolderMeta;
   data?: Folders;
+  cond?: (folder: Required<Pick<Folder, 'meta'>>) => boolean;
 }
 
 export type Folders = Record<string, Folder>;
@@ -27,15 +28,18 @@ const getAllFolders: GetAllFolders = (folders, prefix, meta = {}) =>
     const [key, value] = val;
 
     const prefixes = [...prefix, key];
+    const condition = value.cond ? value.cond({ meta }) : true;
+
     const values = (() => {
-      if (value.data) {
+      if (value.data && condition) {
         return Object.entries(value.data).reduce<GetAllFoldersOutput>((subAcc, subVal) => {
           const [subKey, subValue] = subVal;
 
           const subFolders = { [subKey]: subValue };
           const subMeta = { ...meta, ...value.meta, ...subValue.meta };
+          const subCondition = subValue.cond ? subValue.cond({ meta: subMeta }) : true;
 
-          subAcc.push(...getAllFolders(subFolders, prefixes, subMeta));
+          if (subCondition) subAcc.push(...getAllFolders(subFolders, prefixes, subMeta));
 
           return subAcc;
         }, []);
