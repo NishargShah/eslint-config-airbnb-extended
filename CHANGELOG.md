@@ -1,3 +1,9 @@
+## 2.1.1 (2025-06-29)
+
+### 🚀 Features
+
+- **create-airbnb-x-config:** Added `strict` config option in CLI
+
 ## 2.1.0 (2025-06-17)
 
 ### 🚀 Features
