@@ -23,6 +23,12 @@ const strictDefaultSubFolders = {
           return false;
         },
       },
+      [subFolders.STRICT_IMPORT_TYPESCRIPT]: {
+        meta: {
+          strictConfig: [strictConfigs.IMPORT, strictConfigs.TYPESCRIPT],
+        },
+        cond: ({ meta }) => meta.languagePreference === languagePreferences.TYPESCRIPT,
+      },
       [subFolders.STRICT_IMPORT_REACT_TYPESCRIPT]: {
         meta: {
           strictConfig: [strictConfigs.IMPORT, strictConfigs.REACT, strictConfigs.TYPESCRIPT],

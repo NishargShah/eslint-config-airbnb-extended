@@ -17,6 +17,7 @@ export const subFolders = {
   STRICT: 'strict',
   STRICT_IMPORT: 'import',
   STRICT_IMPORT_REACT: 'import-react',
+  STRICT_IMPORT_TYPESCRIPT: 'import-typescript',
   STRICT_IMPORT_REACT_TYPESCRIPT: 'import-react-typescript',
   STRICT_REACT: 'react',
   STRICT_REACT_TYPESCRIPT: 'react-typescript',
