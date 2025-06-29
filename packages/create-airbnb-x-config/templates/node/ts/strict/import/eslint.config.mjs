@@ -9,7 +9,7 @@ import path from 'node:path';
 
 import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
-import { rules, configs, plugins } from 'eslint-config-airbnb-extended';
+import { configs, plugins, rules } from 'eslint-config-airbnb-extended';
 
 const gitignorePath = path.resolve('.', '.gitignore');
 

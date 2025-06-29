@@ -28,7 +28,7 @@ export const imports: Config = ({ type, configurations, strictConfig }) => {
   const importStatement = (() => {
     if (isLegacy) return "import { configs } from 'eslint-config-airbnb-extended/legacy';";
     if (hasStrictConfig) {
-      return "import { rules, configs, plugins } from 'eslint-config-airbnb-extended';";
+      return "import { configs, plugins, rules } from 'eslint-config-airbnb-extended';";
     }
     return "import { configs, plugins } from 'eslint-config-airbnb-extended';";
   })();
