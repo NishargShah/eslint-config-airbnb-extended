@@ -1,3 +1,13 @@
+## 2.1.2 (2025-07-03)
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Fixed #18 issue
+
+### ❤️ Thank You
+
+- Charlie Laabs @claabs for raising the bug
+
 ## 2.1.1 (2025-06-29)
 
 ### 🚀 Features
