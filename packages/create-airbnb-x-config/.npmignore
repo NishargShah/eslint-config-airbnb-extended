@@ -5,9 +5,6 @@
 !dist
 !templates
 
-# Ignored folders
-dist/lib
-
 # Note Ignored files
 !package.json
 !README.md
