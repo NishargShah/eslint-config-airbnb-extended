@@ -305,7 +305,12 @@ const reactBaseRules = {
 
     // One JSX Element Per Line
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
-    'react/jsx-one-expression-per-line': ['error', { allow: 'single-child' }],
+    'react/jsx-one-expression-per-line': [
+      'error',
+      {
+        allow: 'single-child',
+      },
+    ],
 
     // Enforce PascalCase for user-defined JSX components
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
