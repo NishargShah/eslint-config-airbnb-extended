@@ -1,5 +1,4 @@
 import getImportSettings from '@/helpers/getImportSettings';
-import getStylisticLegacyConfig from '@/helpers/getStylisticLegacyConfig';
 import styleRules from '@/rules/style';
 import { allFiles, jsFiles } from '@/utils';
 
@@ -65,11 +64,13 @@ const reactRecommendedExtensionsConfig = [
       '@stylistic/jsx-quotes': ['error', 'prefer-double'],
     },
   },
-  {
-    name: 'airbnb/config/react-disable-legacy-stylistic-react-config',
-    files: allFiles,
-    ...getStylisticLegacyConfig('react'),
-  },
+  // @see https://github.com/jsx-eslint/eslint-plugin-react/issues/3671
+  // FIXME: ONCE ALL REACT FORMATTING RULES ARE DEPRECATED, ENABLE THIS RULE
+  // {
+  //   name: 'airbnb/config/react-disable-legacy-stylistic-react-config',
+  //   files: allFiles,
+  //   ...getStylisticLegacyConfig('react'),
+  // },
 ] satisfies Linter.Config[];
 
 export default reactRecommendedExtensionsConfig;

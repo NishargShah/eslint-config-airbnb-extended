@@ -5,7 +5,7 @@ import { allFiles, jsExtensions, jsExtensionsWithReact } from '@/utils';
 
 import type { Linter } from 'eslint';
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports, unicorn/prefer-module
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const plugin = require('eslint-plugin-import');
 
 const legacyImportsRules = {

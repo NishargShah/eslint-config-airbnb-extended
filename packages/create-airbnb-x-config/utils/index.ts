@@ -12,7 +12,6 @@ export const rootPath = path.resolve('.');
 // This function should return the top-level root directory, not the dist folder, because the root directory is where node_modules is located in order to access the templates.
 
 export const packageRootPath = (() => {
-  // eslint-disable-next-line unicorn/prefer-module
   const pkgRootPath = path.resolve(__dirname, '..');
   const buildFolderName = 'dist';
 

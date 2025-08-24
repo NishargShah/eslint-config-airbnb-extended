@@ -1,3 +1,32 @@
+## 2.2.0 (2025-08-25)
+
+### 🚨 Breaking Change
+
+- **eslint-config-airbnb-extended:** Re-enabled the following formatting rules that were accidentally turned off during the `eslint-stylistic` integration:
+
+  ```
+  react/jsx-closing-bracket-location
+  react/jsx-closing-tag-location
+  react/jsx-curly-brace-presence
+  react/jsx-curly-newline
+  react/jsx-curly-spacing
+  react/jsx-equals-spacing
+  react/jsx-first-prop-new-line
+  react/jsx-indent
+  react/jsx-indent-props
+  react/jsx-max-props-per-line
+  react/jsx-one-expression-per-line
+  react/jsx-pascal-case
+  react/jsx-props-no-multi-spaces
+  react/self-closing-comp
+  react/jsx-tag-spacing
+  react/jsx-wrap-multilines
+  ```
+
+### ❤️ Thank You
+
+- Kilian Finger @KiwiKilian for raising the bug
+
 ## 2.1.2 (2025-07-03)
 
 ### 🩹 Fixes

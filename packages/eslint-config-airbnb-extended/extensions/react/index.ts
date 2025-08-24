@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return, unicorn/prefer-module */
+/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return */
 
 import type { Linter } from 'eslint';
 

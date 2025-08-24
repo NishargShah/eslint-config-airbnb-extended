@@ -223,6 +223,10 @@ const importsRules = {
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/prefer-default-export.md
     'import-x/prefer-default-export': 'error',
 
+    // Enforce using namespace imports for specific modules, like react/react-dom, etc.
+    // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/prefer-namespace-import.md
+    'import-x/prefer-namespace-import': 'off',
+
     // Warn if a module could be mistakenly parsed as a script by a consumer
     // leveraging Unambiguous JavaScript Grammar
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/unambiguous.md
