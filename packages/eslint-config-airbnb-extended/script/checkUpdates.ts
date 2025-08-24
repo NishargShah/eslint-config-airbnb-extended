@@ -29,7 +29,7 @@ import typescriptStylisticRules, {
 } from '@/rules/typescript/typescriptStylistic';
 import typescriptStylisticPlusRules from '@/rules/typescript/typescriptStylisticPlus';
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const nextPlugin = require('@next/eslint-plugin-next');
 
 const getRulesArray = (prefix: string, arr: string[]) =>

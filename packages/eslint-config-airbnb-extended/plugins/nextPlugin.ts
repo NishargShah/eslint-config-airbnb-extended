@@ -2,7 +2,7 @@ import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports,unicorn/prefer-module
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const plugin = require('@next/eslint-plugin-next');
 
 const nextPlugin = {
