@@ -77,6 +77,16 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Customization',
+        collapsed: false,
+        items: [
+          {
+            text: 'Strict Rules',
+            link: '/customization/strict-rules',
+          },
+        ],
+      },
+      {
         text: 'Contribute',
         items: [
           {
