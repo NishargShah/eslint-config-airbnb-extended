@@ -53,8 +53,8 @@ export default defineConfig({
             link: '/config/installation',
           },
           {
-            text: 'Package Used',
-            link: '/config/package-used',
+            text: 'Packages Used',
+            link: '/config/packages-used',
           },
           {
             text: 'Extended vs Legacy',
@@ -104,6 +104,14 @@ export default defineConfig({
       pattern:
         'https://github.com/NishargShah/eslint-config-airbnb-extended/edit/master/docs/:path',
       text: 'Edit this page on GitHub',
+    },
+    lastUpdated: {
+      text: 'Last Updated on',
+      formatOptions: {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+        hour12: true,
+      },
     },
   },
 });

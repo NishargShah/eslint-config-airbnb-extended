@@ -65,4 +65,4 @@ This design has several **benefits**:
 * Works seamlessly with other ESLint configs (official or community).
 * Gives developers flexibility: import only the plugins you need.
 
-For more details on the plugins used, refer to [Package Used](./package-used).
+For more details on the plugins used, refer to [Packages Used](./packages-used).
