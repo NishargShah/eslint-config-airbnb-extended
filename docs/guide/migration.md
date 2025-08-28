@@ -16,16 +16,16 @@ You no longer need them, as `eslint-config-airbnb-extended` consolidates all of 
 
 ::: code-group
 
-```bash [npm]
-npm uninstall eslint-config-airbnb-base eslint-config-airbnb eslint-config-airbnb-typescript
+```sh [npm]
+$ npm uninstall eslint-config-airbnb-base eslint-config-airbnb eslint-config-airbnb-typescript
 ```
 
-```bash [yarn]
-yarn remove eslint-config-airbnb-base eslint-config-airbnb eslint-config-airbnb-typescript
+```sh [yarn]
+$ yarn remove eslint-config-airbnb-base eslint-config-airbnb eslint-config-airbnb-typescript
 ```
 
-```bash [pnpm]
-pnpm remove eslint-config-airbnb-base eslint-config-airbnb eslint-config-airbnb-typescript
+```sh [pnpm]
+$ pnpm remove eslint-config-airbnb-base eslint-config-airbnb eslint-config-airbnb-typescript
 ```
 
 :::

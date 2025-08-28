@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,7 +7,16 @@ export default defineConfig({
   description:
     'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
   cleanUrls: true,
+  lastUpdated: true,
   rewrites: {},
+  markdown: {
+    config(md) {
+      md.use(groupIconMdPlugin);
+    },
+  },
+  vite: {
+    plugins: [groupIconVitePlugin()],
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -41,6 +51,10 @@ export default defineConfig({
           {
             text: 'Installation',
             link: '/config/installation',
+          },
+          {
+            text: 'Package Used',
+            link: '/config/package-used',
           },
           {
             text: 'Extended vs Legacy',
@@ -85,6 +99,11 @@ export default defineConfig({
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2025-PRESENT <br/> Made with ❤️ by Nisharg Shah',
+    },
+    editLink: {
+      pattern:
+        'https://github.com/NishargShah/eslint-config-airbnb-extended/edit/master/docs/:path',
+      text: 'Edit this page on GitHub',
     },
   },
 });
