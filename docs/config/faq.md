@@ -49,7 +49,9 @@ In short, `import-x` is the **community-recommended successor** to `import` and 
 If you’ve ever used multiple ESLint configs together, you may have run into this frustrating error:
 
 ::: info Problem
+
 Config "package": Key "plugins": Cannot redefine plugin "key".
+
 :::
 
 This happens because ESLint doesn’t allow multiple configs to define the same plugin name. If shared configs **bundle plugins inside them**, conflicts are unavoidable.

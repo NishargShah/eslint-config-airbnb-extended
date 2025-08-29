@@ -28,7 +28,6 @@ export default defineConfig({
     sidebar: [
       {
         text: 'Introduction',
-        collapsed: false,
         items: [
           {
             text: 'Getting Started',
@@ -53,12 +52,16 @@ export default defineConfig({
             link: '/config/installation',
           },
           {
-            text: 'Packages Used',
-            link: '/config/packages-used',
-          },
-          {
             text: 'Extended vs Legacy',
             link: '/config/extended-vs-legacy',
+          },
+          {
+            text: 'Legacy Config',
+            link: '/config/legacy-config',
+          },
+          {
+            text: 'Packages Used',
+            link: '/config/packages-used',
           },
           {
             text: 'FAQ',
