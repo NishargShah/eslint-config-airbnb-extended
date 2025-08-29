@@ -8,13 +8,19 @@ By default, these rules are **not enabled**, so you can choose whether your proj
 
 To enable strict rules, import them directly from the package:
 
-```ts
+::: code-group
+
+```ts [eslint.config.mjs]
 import { rules } from 'eslint-config-airbnb-extended';
 ```
 
+:::
+
 Then extend them in your ESLint configuration file (`eslint.config.mjs`):
 
-```js
+::: code-group
+
+```ts [eslint.config.mjs]
 export default [
   // Your existing configs
   rules.base.importsStrict,
@@ -22,6 +28,8 @@ export default [
   rules.typescript.typescriptEslintStrict,
 ];
 ```
+
+:::
 
 This setup ensures that the strict rules are applied on top of your current configuration, without losing flexibility to override them later.
 

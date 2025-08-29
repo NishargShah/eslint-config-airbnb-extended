@@ -12,7 +12,7 @@ This package doesn’t support `.eslintrc*`. If you’re still on legacy config 
 
 | Aspect     | **Extended**                                                                                       | **Legacy**                                                                                                   |
 | ---------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Purpose    | Modern, TypeScript-first, opinionated defaults for new and existing codebases                      | Provide `one-to-one replacement` of the original Airbnb ESLint configurations using the new flat config format.                                          |
+| Purpose    | Modern, TypeScript-first, opinionated defaults for new and existing codebases                      | Provide **drop-in replacement** of the original Airbnb ESLint configurations using the new flat config format.                                          |
 | Strictness | Tighter defaults out of the box, pairs nicely with the optional **Strict Rules** add-on            | Conservative defaults, easier drop-in when migrating from old Airbnb configs                                 |
 | TypeScript | Fully supported, encourages TS-aware patterns                                                      | Fully supported, fewer extra opinions                                                                        |
 | Imports    | Uses `eslint-plugin-import-x` (faster fork of `eslint-plugin-import`) for modern import checks | Uses `eslint-plugin-import` to keep migration noise low                      |

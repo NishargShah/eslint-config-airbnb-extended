@@ -45,10 +45,14 @@ Once your project is ready for Flat Config, Follow the [installation steps](../c
 
 One important change in this package is the switch from the `import/*` rules to `import-x/*`.
 
-```js
+::: code-group
+
+```js [eslint.config.mjs]
 "import/no-unresolved": "off" // [!code --]
 "import-x/no-unresolved": "off" // [!code ++]
 ```
+
+:::
 
 Why the change?
 See the explanation [here](../config/faq#faq).
