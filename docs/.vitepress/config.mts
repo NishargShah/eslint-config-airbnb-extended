@@ -1,5 +1,11 @@
+import path from 'node:path';
+import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
+
+const projectRoot = fileURLToPath(new URL('../..', import.meta.url));
+const { version } = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf-8'));
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -23,6 +29,23 @@ export default defineConfig({
       {
         text: 'Guide',
         link: '/',
+      },
+      {
+        text: `v${version}`,
+        items: [
+          {
+            text: `Release Notes`,
+            link: 'https://github.com/NishargShah/eslint-config-airbnb-extended/releases',
+          },
+          {
+            text: 'Changelog',
+            link: 'https://github.com/NishargShah/eslint-config-airbnb-extended/blob/master/CHANGELOG.md',
+          },
+          {
+            text: `Contributing`,
+            link: '/contribute/guide',
+          },
+        ],
       },
     ],
     sidebar: [
