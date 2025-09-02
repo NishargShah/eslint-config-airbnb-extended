@@ -26,7 +26,7 @@ $ pnpx create-airbnb-x-config
 
 This tool will guide you step by step, helping you configure ESLint quickly with the **Airbnb Extended setup**.
 
-For a full list of options and advanced usage, check out the [installation](../cli/installation).
+For a full list of options and advanced usage, check out the [guide](../cli/guide).
 
 ## Manual Installation (Not Recommended) {#manual-installation}
 

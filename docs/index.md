@@ -15,7 +15,7 @@ hero:
       link: /config/installation
     - theme: alt
       text: CLI
-      link: /cli/installation
+      link: /cli/guide
 
 features:
   - icon: 🏛️

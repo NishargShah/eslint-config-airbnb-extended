@@ -9,13 +9,13 @@ Thank you for considering contributing to `eslint-config-airbnb-extended`. We we
 ::: code-group
 
 ```sh [SSH]
-git clone git@github.com:NishargShah/eslint-config-airbnb-extended.git
-cd eslint-config-airbnb-extended
+$ git clone git@github.com:NishargShah/eslint-config-airbnb-extended.git
+$ cd eslint-config-airbnb-extended
 ```
 
 ```sh [HTTPS]
-git clone https://github.com/NishargShah/eslint-config-airbnb-extended.git
-cd eslint-config-airbnb-extended
+$ git clone https://github.com/NishargShah/eslint-config-airbnb-extended.git
+$ cd eslint-config-airbnb-extended
 ```
 
 :::
@@ -26,8 +26,8 @@ Check the `.nvmrc` file for the required Node.js version. For `pnpm` version, se
 
 This project is a **monorepo** managed with **pnpm**. Install dependencies with:
 
-```bash
-pnpm install
+```sh
+$ pnpm install
 ```
 
 ### 3. Project Structure {#project-structure}
@@ -42,8 +42,8 @@ The repo is organized as a monorepo with two main packages:
 
 * Always create a new branch:
 
-  ```bash
-  git checkout -b fix/your-change
+  ```sh
+  $ git checkout -b fix/your-change
   ```
 * For rule changes → update the config.
 * For docs → check formatting and verify links.
@@ -54,14 +54,14 @@ Run checks and fixes before committing:
 
 ::: code-group
 
-```bash [Check]
-pnpm lint
-pnpm format:check
+```sh [Check]
+$ pnpm lint
+$ pnpm format:check
 ```
 
-```bash [Fix]
-pnpm lint:fix
-pnpm format:fix
+```sh [Fix]
+$ pnpm lint:fix
+$ pnpm format:fix
 ```
 
 :::
@@ -78,8 +78,8 @@ We follow **Conventional Commits** for a clean commit history. Examples:
 
 Before pushing, ensure all scripts pass:
 
-```bash
-pnpm script:lint
+```sh
+$ pnpm script:lint
 ```
 
 ### 8. Submitting a PR {#submitting-pr}

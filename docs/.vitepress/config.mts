@@ -97,8 +97,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           {
-            text: 'Installation',
-            link: '/cli/installation',
+            text: 'Guide',
+            link: '/cli/guide',
           },
         ],
       },
