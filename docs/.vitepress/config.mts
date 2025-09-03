@@ -3,6 +3,9 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
+import { inject } from '@vercel/analytics';
+
+inject();
 
 const projectRoot = fileURLToPath(new URL('../..', import.meta.url));
 const { version } = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf-8'));
