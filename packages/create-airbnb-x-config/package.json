@@ -14,6 +14,7 @@
     "airbnb config cli x",
     "airbnb config cli extended"
   ],
+  "homepage": "https://eslint-airbnb-extended.nishargshah.dev",
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
   },

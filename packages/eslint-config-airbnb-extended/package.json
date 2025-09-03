@@ -17,6 +17,7 @@
     "eslint airbnb typescript",
     "eslint airbnb extended"
   ],
+  "homepage": "https://eslint-airbnb-extended.nishargshah.dev",
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
   },

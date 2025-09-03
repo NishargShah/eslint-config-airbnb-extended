@@ -158,8 +158,14 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
     ['meta', { name: 'author', content: 'ESLint Airbnb Extended Team' }],
-    ['meta', { property: 'og:title', content: 'ESLint Config Airbnb Extended' }],
-    ['meta', { property: 'og:image', content: 'https://example.com/og-logo.png' }],
+    ['meta', { property: 'og:title', content: 'ESLint Airbnb Extended' }],
+    [
+      'meta',
+      {
+        property: 'og:image',
+        content: 'https://eslint-airbnb-extended.nishargshah.dev/og-logo.png',
+      },
+    ],
     [
       'meta',
       {
@@ -169,7 +175,13 @@ export default defineConfig({
       },
     ],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:image', content: 'https://example.com/og-logo.png' }],
+    [
+      'meta',
+      {
+        name: 'twitter:image',
+        content: 'https://eslint-airbnb-extended.nishargshah.dev/og-logo.png',
+      },
+    ],
     [
       'meta',
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' },
