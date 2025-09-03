@@ -1,14 +1,15 @@
-import path from 'node:path';
 import fs from 'node:fs';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import { inject } from '@vercel/analytics';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
-import { inject } from '@vercel/analytics';
 
 inject();
 
 const projectRoot = fileURLToPath(new URL('../..', import.meta.url));
-const { version } = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf-8'));
+const { version } = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf8'));
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
