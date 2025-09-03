@@ -131,7 +131,7 @@ pnpm install -D eslint @eslint/compat @eslint/js eslint-config-airbnb-extended e
 
 Example config file:
 
-```url
+```txt
 https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/create-airbnb-x-config/templates/legacy/base/prettier/ts/default/eslint.config.mjs
 ```
 
