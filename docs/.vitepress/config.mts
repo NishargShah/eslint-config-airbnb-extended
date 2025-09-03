@@ -24,7 +24,7 @@ export default defineConfig({
     plugins: [groupIconVitePlugin()],
   },
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
+    logo: 'logo.png',
     nav: [
       {
         text: 'Guide',
@@ -150,4 +150,25 @@ export default defineConfig({
       },
     },
   },
+  head: [
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
+    ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
+    ['meta', { name: 'author', content: 'ESLint Airbnb Extended Team' }],
+    ['meta', { property: 'og:title', content: 'ESLint Config Airbnb Extended' }],
+    ['meta', { property: 'og:image', content: 'https://example.com/og-logo.png' }],
+    [
+      'meta',
+      {
+        property: 'og:description',
+        content:
+          'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
+      },
+    ],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: 'https://example.com/og-logo.png' }],
+    [
+      'meta',
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' },
+    ],
+  ],
 });

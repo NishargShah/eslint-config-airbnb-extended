@@ -6,6 +6,9 @@ hero:
   name: "ESLint"
   text: "Airbnb Extended"
   tagline: A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.
+  image:
+    src: /logo.png
+    alt: Image
   actions:
     - theme: brand
       text: Get Started
