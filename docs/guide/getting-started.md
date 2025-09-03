@@ -5,10 +5,9 @@ A powerful ESLint configuration extending the popular Airbnb style guide, with a
 - [`eslint-config-airbnb-extended`](../config/installation): Extends Airbnb's ESLint config to support TypeScript and custom rules.
 - [`create-airbnb-x-config`](../cli/guide): A CLI tool to quickly set up and customize your ESLint configuration with the Airbnb Extended setup.
 
-
 ## Goodbye Legacy, Hello to Flat Config {#hello-to-flat-config}
 
-This package is designed **exclusively for ESLint’s new Flat Config system**. Legacy `.eslintrc*` files are **not supported**.  
+This package is designed **exclusively for ESLint’s new Flat Config system**. Legacy `.eslintrc*` files are **not supported**.
 
 If your project still relies on `.eslintrc`, you should continue using the older Airbnb packages. By focusing only on Flat Config, this package stays **modern, lightweight, and future-proof**.
 

@@ -34,19 +34,20 @@ $ pnpm install
 
 The repo is organized as a monorepo with two main packages:
 
-* `packages/eslint-config-airbnb-extended` → The ESLint configuration package
-* `packages/create-airbnb-x-config` → The CLI tool for quick setup
-* `docs/` → Documentation site (built with VitePress)
+- `packages/eslint-config-airbnb-extended` → The ESLint configuration package
+- `packages/create-airbnb-x-config` → The CLI tool for quick setup
+- `docs/` → Documentation site (built with VitePress)
 
 ### 4. Making Changes {#making-changes}
 
-* Always create a new branch:
+- Always create a new branch:
 
   ```sh
   $ git checkout -b fix/your-change
   ```
-* For rule changes → update the config.
-* For docs → check formatting and verify links.
+
+- For rule changes → update the config.
+- For docs → check formatting and verify links.
 
 ### 5. Linting & Formatting {#linting-formatting}
 
@@ -70,9 +71,9 @@ $ pnpm format:fix
 
 We follow **Conventional Commits** for a clean commit history. Examples:
 
-* `feat: add strict rules for TypeScript`
-* `fix: resolve path alias issue in eslint-import-resolver-typescript`
-* `docs: update installation steps`
+- `feat: add strict rules for TypeScript`
+- `fix: resolve path alias issue in eslint-import-resolver-typescript`
+- `docs: update installation steps`
 
 ### 7. Running Scripts {#running-scripts}
 
@@ -84,9 +85,9 @@ $ pnpm script:lint
 
 ### 8. Submitting a PR {#submitting-pr}
 
-* Push your branch and open a Pull Request against `main`.
-* Clearly describe the problem, your solution, and reference any related issues/discussions.
-* Maintainers will review, suggest improvements if needed, and merge once approved.
+- Push your branch and open a Pull Request against `main`.
+- Clearly describe the problem, your solution, and reference any related issues/discussions.
+- Maintainers will review, suggest improvements if needed, and merge once approved.
 
 ## Code of Conduct {#code-of-conduct}
 
@@ -94,5 +95,5 @@ This project follows a [**Code of Conduct**](https://github.com/NishargShah/esli
 
 ## Suggestions & Issues {#suggestions-issues}
 
-* Found a bug? → [Open an Issue](https://github.com/NishargShah/eslint-config-airbnb-extended/issues/new/choose)
-* Want a new feature or rule? → Use the same link to create an issue, or start a discussion before opening a PR.
+- Found a bug? → [Open an Issue](https://github.com/NishargShah/eslint-config-airbnb-extended/issues/new/choose)
+- Want a new feature or rule? → Use the same link to create an issue, or start a discussion before opening a PR.

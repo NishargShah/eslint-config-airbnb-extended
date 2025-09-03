@@ -34,23 +34,23 @@ Here’s what each step means:
 
 Choose the style of configuration you want:
 
-* **Legacy →** A drop-in replacement for the original Airbnb ESLint configs, but in the new flat config format.
-* **Extended →** A modern, TypeScript-friendly setup with opinionated defaults for both new and existing projects.
+- **Legacy →** A drop-in replacement for the original Airbnb ESLint configs, but in the new flat config format.
+- **Extended →** A modern, TypeScript-friendly setup with opinionated defaults for both new and existing projects.
 
 ---
 
 ### 2. Are you using TypeScript? {#are-you-using-typescript}
 
-* **Yes →** Adds TypeScript-related configs and plugins like `typescript-eslint` and `eslint-import-resolver-typescript`.
-* **No →** Keeps the setup for plain JavaScript only.
+- **Yes →** Adds TypeScript-related configs and plugins like `typescript-eslint` and `eslint-import-resolver-typescript`.
+- **No →** Keeps the setup for plain JavaScript only.
 
 ---
 
 ### 3. Are you using Prettier? {#are-you-using-prettier}
 
-* **Yes →** Integrates Prettier with `eslint-plugin-prettier` and `eslint-config-prettier` so formatting works directly in ESLint.
+- **Yes →** Integrates Prettier with `eslint-plugin-prettier` and `eslint-config-prettier` so formatting works directly in ESLint.
 
-* **No →** Skips Prettier integration.
+- **No →** Skips Prettier integration.
 
 ---
 
@@ -60,16 +60,16 @@ If you selected **Extended**, The CLI will **automatically include** `@stylistic
 
 #### 4. Are you using? {#are-you-using-extended}
 
-* **React/React Router →** Enables React-specific linting with support for hooks and accessibility rules, ensuring your React code follows best practices. It installs `eslint-plugin-react`, `eslint-plugin-react-hooks`, and `eslint-plugin-jsx-a11y`.
+- **React/React Router →** Enables React-specific linting with support for hooks and accessibility rules, ensuring your React code follows best practices. It installs `eslint-plugin-react`, `eslint-plugin-react-hooks`, and `eslint-plugin-jsx-a11y`.
 
-* **Next.js →** Extends the React setup with additional Next.js rules to catch framework-specific issues. It installs everything from React plus `@next/eslint-plugin-next`.
+- **Next.js →** Extends the React setup with additional Next.js rules to catch framework-specific issues. It installs everything from React plus `@next/eslint-plugin-next`.
 
-* **Node →** Adds Node.js-focused rules that enforce best practices and catch common issues in server-side code. It installs `eslint-plugin-n`.
+- **Node →** Adds Node.js-focused rules that enforce best practices and catch common issues in server-side code. It installs `eslint-plugin-n`.
 
 #### 5. Do you want to add strict configs? {#add-strict-configs}
 
-* **Yes →** You’ll be prompted to select which strict rule sets to apply: **Import**, **React**, or **TypeScript**.
-* **No →** Keeps the default balanced configuration without strict rules.
+- **Yes →** You’ll be prompted to select which strict rule sets to apply: **Import**, **React**, or **TypeScript**.
+- **No →** Keeps the default balanced configuration without strict rules.
 
 ---
 
@@ -79,14 +79,14 @@ If you selected **Legacy**, The CLI will **automatically include** `eslint-plugi
 
 #### 4. Are you using? {#are-you-using-legacy}
 
-* **Base Config →** Installs `eslint-plugin-import` to handle module import/export rules and best practices. Use this if you only need a minimal setup without React-specific rules.
+- **Base Config →** Installs `eslint-plugin-import` to handle module import/export rules and best practices. Use this if you only need a minimal setup without React-specific rules.
 
-* **React Config →** Installs `eslint-plugin-react` and `eslint-plugin-jsx-a11y` to enforce React best practices and accessibility checks. Recommended if your project uses React for UI development.
+- **React Config →** Installs `eslint-plugin-react` and `eslint-plugin-jsx-a11y` to enforce React best practices and accessibility checks. Recommended if your project uses React for UI development.
 
 #### 5. Are you using hooks? {#are-you-using-hooks}
 
-* **Yes →** Installs `eslint-plugin-react-hooks` to enforce the rules of React hooks.
-* **No →** Skips installing hook rules. Choose this if your React project doesn’t use hooks.
+- **Yes →** Installs `eslint-plugin-react-hooks` to enforce the rules of React hooks.
+- **No →** Skips installing hook rules. Choose this if your React project doesn’t use hooks.
 
 ---
 
@@ -96,14 +96,14 @@ No matter which config type you choose, the CLI will end with these questions:
 
 #### 6. Should I create an `eslint.config.mjs` file for you? {#create-eslint-config-mjs}
 
-* **Yes →** Generates a ready-to-use config file based on your answers. At the end, you’ll also get a link labeled **Created Config** showing the template used.
+- **Yes →** Generates a ready-to-use config file based on your answers. At the end, you’ll also get a link labeled **Created Config** showing the template used.
 
-* **No →** You’ll need to create it manually. A link labeled **Config** will be shown at the end with the template you can copy.
+- **No →** You’ll need to create it manually. A link labeled **Config** will be shown at the end with the template you can copy.
 
 #### 7. Do you want to skip the package installation? {#skip-package-installation}
 
-* **Yes →** Skips auto-installation. At the end, you’ll see a list of **Commands** you can run manually.
-* **No →** Automatically installs everything for you. At the end, you’ll also see the **Executed Commands** for reference.
+- **Yes →** Skips auto-installation. At the end, you’ll see a list of **Commands** you can run manually.
+- **No →** Automatically installs everything for you. At the end, you’ll also see the **Executed Commands** for reference.
 
 Here’s a polished rephrase in simpler, user-friendly language:
 

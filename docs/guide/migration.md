@@ -35,7 +35,7 @@ $ pnpm remove eslint-config-airbnb-base eslint-config-airbnb eslint-config-airbn
 The extended config works **only with ESLint’s Flat Config system**.
 This means you cannot use legacy `.eslintrc.*` files anymore. Instead, your project root will use `eslint.config.mjs`.
 
-If you're still using `.eslintrc`, follow ESLint’s official [migration guide](https://eslint.org/docs/latest/use/configure/migration-guide) and ESLint’s blog posts on the new config system [Part 1](https://eslint.org/blog/2022/08/new-config-system-part-1/) and [Part 2](https://eslint.org/blog/2022/08/new-config-system-part-2/). 
+If you're still using `.eslintrc`, follow ESLint’s official [migration guide](https://eslint.org/docs/latest/use/configure/migration-guide) and ESLint’s blog posts on the new config system [Part 1](https://eslint.org/blog/2022/08/new-config-system-part-1/) and [Part 2](https://eslint.org/blog/2022/08/new-config-system-part-2/).
 
 ## 3. Follow Installation Steps {#follow-installation-steps}
 
@@ -61,9 +61,9 @@ See the explanation [here](../config/faq#faq).
 
 Once migration is complete:
 
-* Run `eslint .` and check that the linter works without errors.
-* Remove any unused ESLint-related dependencies that may still be lingering.
-* Commit your changes so the whole team benefits from the new setup.
+- Run `eslint .` and check that the linter works without errors.
+- Remove any unused ESLint-related dependencies that may still be lingering.
+- Commit your changes so the whole team benefits from the new setup.
 
 ## All Done! {#all-done}
 

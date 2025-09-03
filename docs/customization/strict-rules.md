@@ -40,11 +40,11 @@ This setup ensures that the strict rules are applied on top of your current conf
 These rules are designed to keep your imports **organized, efficient, and predictable**.
 Key features include:
 
-* Enforcing a consistent and logical import order (e.g., external → internal → local modules).
-* Differentiating clearly between **type imports** (`import type`) and **value imports**.
-* Preventing duplicate imports or unnecessary re-exports.
-* Detecting unresolved imports earlier.
-* and many more...
+- Enforcing a consistent and logical import order (e.g., external → internal → local modules).
+- Differentiating clearly between **type imports** (`import type`) and **value imports**.
+- Preventing duplicate imports or unnecessary re-exports.
+- Detecting unresolved imports earlier.
+- and many more...
 
 This ensures your codebase remains **clean and easy to navigate**, even as it scales.
 
@@ -55,10 +55,10 @@ This ensures your codebase remains **clean and easy to navigate**, even as it sc
 These rules ensure React code stays **readable, predictable, and TypeScript-friendly**.
 Key features include:
 
-* Enforcing `key` props on list-rendered elements to prevent rendering bugs.
-* Sorting JSX props for consistent readability across components.
-* Disabling `prop-types` since TypeScript provides stronger typing guarantees.
-* and many more...
+- Enforcing `key` props on list-rendered elements to prevent rendering bugs.
+- Sorting JSX props for consistent readability across components.
+- Disabling `prop-types` since TypeScript provides stronger typing guarantees.
+- and many more...
 
 This results in **more consistent React components** and fewer runtime issues.
 
@@ -69,11 +69,11 @@ This results in **more consistent React components** and fewer runtime issues.
 These rules encourage **best practices in TypeScript** and protect against unsafe patterns.
 Key features include:
 
-* Disallowing `@ts-ignore` in favor of `@ts-expect-error`, making ignored errors intentional and visible.
-* Banning the use of `any` to maintain strict typing guarantees.
-* Disallowing non-null assertions (`!`) that can hide potential runtime errors.
-* Encouraging modern TypeScript features like the **Nullish Coalescing Operator (`??`)** and **Optional Chaining (`?.`)**.
-* and many more...
+- Disallowing `@ts-ignore` in favor of `@ts-expect-error`, making ignored errors intentional and visible.
+- Banning the use of `any` to maintain strict typing guarantees.
+- Disallowing non-null assertions (`!`) that can hide potential runtime errors.
+- Encouraging modern TypeScript features like the **Nullish Coalescing Operator (`??`)** and **Optional Chaining (`?.`)**.
+- and many more...
 
 This keeps your TypeScript code **robust, maintainable, and future-proof**.
 
@@ -81,8 +81,8 @@ This keeps your TypeScript code **robust, maintainable, and future-proof**.
 
 Strict Rules is **ideal for teams or projects** that:
 
-* Want maximum consistency across the codebase.
-* Need stricter guarantees around type safety and React usage.
-* Prefer a **"lint-first, catch bugs early"** development philosophy.
+- Want maximum consistency across the codebase.
+- Need stricter guarantees around type safety and React usage.
+- Prefer a **"lint-first, catch bugs early"** development philosophy.
 
 If your team values flexibility and faster prototyping, the default configuration may be sufficient. But if your goal is **production-grade reliability and long-term maintainability**, enabling Strict Rules is highly recommended.
