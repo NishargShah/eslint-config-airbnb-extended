@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "ESLint"
-  text: "Airbnb Extended"
+  name: 'ESLint'
+  text: 'Airbnb Extended'
   tagline: A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.
   image:
     src: /logo.png

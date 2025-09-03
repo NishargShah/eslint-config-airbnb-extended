@@ -1,11 +1,15 @@
-import path from 'node:path';
 import fs from 'node:fs';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import { inject } from '@vercel/analytics';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 
+inject();
+
 const projectRoot = fileURLToPath(new URL('../..', import.meta.url));
-const { version } = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf-8'));
+const { version } = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf8'));
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -154,8 +158,14 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
     ['meta', { name: 'author', content: 'ESLint Airbnb Extended Team' }],
-    ['meta', { property: 'og:title', content: 'ESLint Config Airbnb Extended' }],
-    ['meta', { property: 'og:image', content: 'https://example.com/og-logo.png' }],
+    ['meta', { property: 'og:title', content: 'ESLint Airbnb Extended' }],
+    [
+      'meta',
+      {
+        property: 'og:image',
+        content: 'https://eslint-airbnb-extended.nishargshah.dev/og-logo.png',
+      },
+    ],
     [
       'meta',
       {
@@ -165,7 +175,13 @@ export default defineConfig({
       },
     ],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:image', content: 'https://example.com/og-logo.png' }],
+    [
+      'meta',
+      {
+        name: 'twitter:image',
+        content: 'https://eslint-airbnb-extended.nishargshah.dev/og-logo.png',
+      },
+    ],
     [
       'meta',
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' },

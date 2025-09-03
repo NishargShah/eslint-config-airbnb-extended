@@ -32,9 +32,9 @@ For a full list of options and advanced usage, check out the [guide](../cli/guid
 
 While you can install everything by hand, we **do not recommend it**. Manual installation requires you to:
 
-* Identify all required packages
-* Install them individually
-* Keep them updated manually
+- Identify all required packages
+- Install them individually
+- Keep them updated manually
 
 This approach can lead to inconsistencies if new changes are introduced in the configuration.
 

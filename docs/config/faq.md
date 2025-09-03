@@ -2,7 +2,6 @@
 
 Here are some of the most common questions and clarifications about using `eslint-config-airbnb-extended`. This section will help you understand differences, setup tips, and design decisions behind the package.
 
-
 ## 1. Does this package support `.eslintrc` configs? {#legacy-support}
 
 No. This package is designed exclusively for the **Flat Config system** introduced in ESLint 9.
@@ -37,10 +36,10 @@ We moved from [`eslint-plugin-import`](https://www.npmjs.com/package/eslint-plug
 
 Key reasons:
 
-* **Better TypeScript support** – Provides more accurate and reliable linting for TS files.
-* **Actively maintained** – Frequent updates and bug fixes, unlike the original `import` plugin which is less active.
-* **Fewer open issues** – More stable and trustworthy in production projects.
-* **Performance improvements** – Lightweight and optimized for faster linting.
+- **Better TypeScript support** – Provides more accurate and reliable linting for TS files.
+- **Actively maintained** – Frequent updates and bug fixes, unlike the original `import` plugin which is less active.
+- **Fewer open issues** – More stable and trustworthy in production projects.
+- **Performance improvements** – Lightweight and optimized for faster linting.
 
 In short, `import-x` is the **community-recommended successor** to `import` and ensures your project stays future-proof.
 
@@ -58,13 +57,13 @@ This happens because ESLint doesn’t allow multiple configs to define the same 
 
 To solve this, **our package separates the plugin definitions**:
 
-* The config focuses only on **rules and settings**.
-* The plugins are exported separately via the `plugins` export.
+- The config focuses only on **rules and settings**.
+- The plugins are exported separately via the `plugins` export.
 
 This design has several **benefits**:
 
-* No plugin redefinition errors when combining configs.
-* Works seamlessly with other ESLint configs (official or community).
-* Gives developers flexibility: import only the plugins you need.
+- No plugin redefinition errors when combining configs.
+- Works seamlessly with other ESLint configs (official or community).
+- Gives developers flexibility: import only the plugins you need.
 
 For more details on the plugins used, refer to [Packages Used](./packages-used).

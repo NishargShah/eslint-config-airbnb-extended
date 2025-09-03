@@ -10,7 +10,7 @@ This configuration relies on a set of essential ESLint plugins that extend Airbn
 | **[eslint-plugin-import-x](https://github.com/un-ts/eslint-plugin-import-x)**                           | Import/export validation   | Detects invalid imports, enforces ordering, supports TypeScript better than legacy `eslint-plugin-import` |
 | **[eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n)**                              | Node.js best practices     | Prevents use of deprecated APIs, enforces modern Node.js coding standards                                 |
 | **[eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)**                            | React-specific linting     | Catches JSX errors, enforces prop validation, encourages React best practices                             |
-| **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)**                             | Rules of Hooks             | Ensures hooks are used correctly and dependencies are properly declared                                   |
+| **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)**                | Rules of Hooks             | Ensures hooks are used correctly and dependencies are properly declared                                   |
 | **[eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)**                      | Accessibility for JSX      | Detects missing `alt` text, incorrect ARIA attributes, improves WCAG compliance                           |
 | **[@typescript-eslint](https://typescript-eslint.io/)**                                                 | TypeScript linting support | Adds type-aware rules, catches unsafe patterns, integrates TS with Airbnb config                          |
 | **[eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript)** | TS import resolution       | Supports `tsconfig.json` path aliases, prevents false-positive import errors                              |
@@ -53,9 +53,9 @@ Extends `eslint-plugin-import-x` to resolve TypeScript path aliases defined in `
 
 By combining these packages, `eslint-config-airbnb-extended` achieves:
 
-* Consistent **code style** across JavaScript & TypeScript (`@stylistic/eslint-plugin`).
-* Safe and reliable **imports** (`eslint-plugin-import-x`, `eslint-import-resolver-typescript`).
-* Strong **Node.js rules** (`eslint-plugin-n`).
-* Best practices for **React & Hooks** (`eslint-plugin-react`, `eslint-plugin-react-hooks`).
-* Improved **accessibility** (`eslint-plugin-jsx-a11y`).
-* Full **TypeScript integration** (`typescript-eslint`).
+- Consistent **code style** across JavaScript & TypeScript (`@stylistic/eslint-plugin`).
+- Safe and reliable **imports** (`eslint-plugin-import-x`, `eslint-import-resolver-typescript`).
+- Strong **Node.js rules** (`eslint-plugin-n`).
+- Best practices for **React & Hooks** (`eslint-plugin-react`, `eslint-plugin-react-hooks`).
+- Improved **accessibility** (`eslint-plugin-jsx-a11y`).
+- Full **TypeScript integration** (`typescript-eslint`).

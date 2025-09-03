@@ -1,5 +1,7 @@
-import Theme from 'vitepress/theme';
+// eslint-disable-next-line import-x/no-unresolved
 import 'virtual:group-icons.css';
+
 import './style.css';
 
-export default Theme;
+// eslint-disable-next-line no-restricted-exports
+export { default } from 'vitepress/theme';
