@@ -107,6 +107,10 @@ export default defineConfig({
             text: 'Guide',
             link: '/cli/guide',
           },
+          {
+            text: 'Options',
+            link: '/cli/options',
+          },
         ],
       },
       {
