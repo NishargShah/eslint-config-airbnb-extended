@@ -3,11 +3,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { inject } from '@vercel/analytics';
-import { defineConfig } from 'vitepress';
+import { defineConfig, loadEnv } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 
 inject();
 
+const env = loadEnv('', process.cwd());
 const projectRoot = fileURLToPath(new URL('../..', import.meta.url));
 const { version } = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf8'));
 
@@ -28,7 +29,7 @@ export default defineConfig({
     plugins: [groupIconVitePlugin()],
   },
   themeConfig: {
-    logo: 'logo.png',
+    logo: '/logo.png',
     nav: [
       {
         text: 'Guide',
@@ -151,6 +152,14 @@ export default defineConfig({
         dateStyle: 'medium',
         timeStyle: 'short',
         hour12: true,
+      },
+    },
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: env.VITE_ALGOLIA_APP_ID,
+        apiKey: env.VITE_ALGOLIA_API_KEY,
+        indexName: env.VITE_ALGOLIA_CRAWLER,
       },
     },
   },
