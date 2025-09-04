@@ -2,17 +2,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { inject } from '@vercel/analytics';
 import { defineConfig, loadEnv } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
-
-inject();
 
 const env = loadEnv('', process.cwd());
 const projectRoot = fileURLToPath(new URL('../..', import.meta.url));
 const { version } = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf8'));
 
-// https://vitepress.dev/reference/site-config
+const githubUrl = 'https://github.com/NishargShah/eslint-config-airbnb-extended';
+const npmUrl = 'https://www.npmjs.com/package/eslint-config-airbnb-extended';
+const siteUrl = 'https://eslint-airbnb-extended.nishargshah.dev';
+
 export default defineConfig({
   title: 'ESLint Airbnb Extended',
   description:
@@ -28,6 +28,9 @@ export default defineConfig({
   vite: {
     plugins: [groupIconVitePlugin()],
   },
+  sitemap: {
+    hostname: siteUrl,
+  },
   themeConfig: {
     logo: '/logo.png',
     nav: [
@@ -40,11 +43,11 @@ export default defineConfig({
         items: [
           {
             text: `Release Notes`,
-            link: 'https://github.com/NishargShah/eslint-config-airbnb-extended/releases',
+            link: `${githubUrl}/releases`,
           },
           {
             text: 'Changelog',
-            link: 'https://github.com/NishargShah/eslint-config-airbnb-extended/blob/master/CHANGELOG.md',
+            link: `${githubUrl}/blob/master/CHANGELOG.md`,
           },
           {
             text: `Contributing`,
@@ -130,11 +133,11 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/NishargShah/eslint-config-airbnb-extended',
+        link: githubUrl,
       },
       {
         icon: 'npm',
-        link: 'https://www.npmjs.com/package/eslint-config-airbnb-extended',
+        link: npmUrl,
       },
     ],
     footer: {
@@ -142,8 +145,7 @@ export default defineConfig({
       copyright: 'Copyright © 2025-PRESENT <br/> Made with ❤️ by Nisharg Shah',
     },
     editLink: {
-      pattern:
-        'https://github.com/NishargShah/eslint-config-airbnb-extended/edit/master/docs/:path',
+      pattern: `${githubUrl}/edit/master/docs/:path`,
       text: 'Edit this page on GitHub',
     },
     lastUpdated: {
@@ -172,7 +174,7 @@ export default defineConfig({
       'meta',
       {
         property: 'og:image',
-        content: 'https://eslint-airbnb-extended.nishargshah.dev/og-logo.png',
+        content: `${siteUrl}/og-logo.png`,
       },
     ],
     [
@@ -188,7 +190,7 @@ export default defineConfig({
       'meta',
       {
         name: 'twitter:image',
-        content: 'https://eslint-airbnb-extended.nishargshah.dev/og-logo.png',
+        content: `${siteUrl}/og-logo.png`,
       },
     ],
     [
