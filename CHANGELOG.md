@@ -1,8 +1,8 @@
-## Docs Release
+## Documentation Release
 
 ### 🚨 Breaking Change
 
-- **<package_name>:**: Released docs
+- **docs:**: Released docs
 
 ## 2.2.0 (2025-08-25)
 
