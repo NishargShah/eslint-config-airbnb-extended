@@ -1,8 +1,8 @@
 ## Documentation Release
 
-### 🚨 Breaking Change
+### ❤️ Released Documentation
 
-- **docs:**: Released docs
+URL: https://eslint-airbnb-extended.nishargshah.dev
 
 ## 2.2.0 (2025-08-25)
 
