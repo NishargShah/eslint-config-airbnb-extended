@@ -1,8 +1,12 @@
-## 2.2.1 (2025-09-07)
+## 2.3.0 (2025-09-07)
 
 ### ❤️ Released Documentation
 
 - URL: https://eslint-airbnb-extended.nishargshah.dev
+
+### 🚨 Breaking Change
+
+- Requires `Node.js 16` or higher
 
 ### 🩹 Fixes
 
