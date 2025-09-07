@@ -1,8 +1,13 @@
-## Documentation Release
+## 2.2.1 (2025-09-07)
 
 ### ❤️ Released Documentation
 
-URL: https://eslint-airbnb-extended.nishargshah.dev
+- URL: https://eslint-airbnb-extended.nishargshah.dev
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Fixed hook config issue
+- **create-airbnb-x-config:** The `Own Customization` option has been removed, since we now provide complete documentation to reference.
 
 ## 2.2.0 (2025-08-25)
 
