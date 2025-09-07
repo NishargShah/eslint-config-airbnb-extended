@@ -1,6 +1,6 @@
 # Legacy Config {#legacy-config}
 
-The **Legacy Config** in `eslint-config-airbnb-extended` is designed for teams who want a **One-To-One/Drop-In Replacement** for the original Airbnb ESLint configs, but with support for **Flat Config** (ESLint 9+).
+The **Legacy Config** is designed for teams who want a **One-To-One/Drop-In Replacement** for the original Airbnb ESLint configs, but with support for **Flat Config** (ESLint 9+).
 
 Instead of rewriting rules, this mode focuses on **parity and smooth migration**. If your team already uses:
 
