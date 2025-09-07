@@ -55,5 +55,8 @@
     "tsc-alias": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
