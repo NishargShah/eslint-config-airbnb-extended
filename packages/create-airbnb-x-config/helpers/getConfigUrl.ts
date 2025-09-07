@@ -1,6 +1,6 @@
 import pc from 'picocolors';
 
-import { configTypes, languages, legacyLanguages } from '@/constants';
+import { configTypes, legacyLanguages } from '@/constants';
 import { subFolders } from '@/lib/templates/constants';
 
 import type { NonNullableArgsOutput } from '@/utils/types';
@@ -24,8 +24,6 @@ export type GetConfigUrl = (
 const getConfigUrl: GetConfigUrl = (args) => {
   const { configType, typescript, prettier, strictConfig, language, legacyConfig } = args;
   const isLegacy = configType === configTypes.LEGACY;
-
-  if (!isLegacy && language === languages.OTHER) return null;
 
   const prettierText = prettier ? 'prettier' : null;
   const tsOrJsText = typescript ? 'ts' : 'js';

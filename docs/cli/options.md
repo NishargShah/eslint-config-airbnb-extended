@@ -57,14 +57,6 @@ Here’s the full list of options you can use:
 - `--next` → Add Next.js rules (`@next/eslint-plugin-next`).
 - `--node` → Add Node.js rules (`eslint-plugin-n`).
 
-### Airbnb Config Variants {#configs}
-
-- `--base-config` → Base Airbnb config only.
-- `--node-config` → Node.js Airbnb config.
-- `--react-config` → React Airbnb config.
-- `--next-config` → Next.js Airbnb config.
-- `--remix-config, --react-router-config` → React Airbnb config.
-
 ### Strict Rules {#strict-rules}
 
 - `--strict-import-config` → Enable **strict Import** rules.
