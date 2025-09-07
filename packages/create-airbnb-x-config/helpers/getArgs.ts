@@ -85,28 +85,6 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
   return null;
 };
 
-// Get to Create ESLint File
-
-type GetCreateESLintFile = (opts: Partial<ProgramOpts>) => GetArgsOutput['createESLintFile'];
-
-const getCreateESLintFile: GetCreateESLintFile = (opts) => {
-  const { createEslintFile } = opts;
-
-  if (createEslintFile) return true;
-  return null;
-};
-
-// Get Skip Install
-
-type GetSkipInstall = (opts: Partial<ProgramOpts>) => GetArgsOutput['skipInstall'];
-
-const getSkipInstall: GetSkipInstall = (opts) => {
-  const { skipInstall } = opts;
-
-  if (skipInstall) return true;
-  return null;
-};
-
 // Get Args
 
 export interface ProgramOpts {
@@ -142,7 +120,7 @@ interface GetArgsLegacyConfig {
 export interface GetArgsOutput {
   configType: ValueOf<typeof configTypes> | null;
   typescript: boolean | null;
-  prettier: boolean | null;
+  prettier: true | null;
   strictConfig: ValueOf<typeof strictConfigs>[] | null;
   language: ValueOf<typeof languages> | null;
   legacyConfig: GetArgsLegacyConfig | null;
@@ -164,8 +142,8 @@ const getArgs: GetArgs = async () => {
     language: getLanguage(opts),
     legacyConfig: getLegacyConfig(opts),
     packageManager: getPackageManagerFromOpts(opts) ?? (await getPackageManager()),
-    createESLintFile: getCreateESLintFile(opts),
-    skipInstall: getSkipInstall(opts),
+    createESLintFile: opts.createEslintFile ? true : null,
+    skipInstall: opts.skipInstall ? true : null,
   };
 };
 

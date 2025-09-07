@@ -31,8 +31,9 @@ const getConfigUrl: GetConfigUrl = (args) => {
     if (configType === configTypes.EXTENDED) return null;
 
     if (legacyConfig.base) return legacyLanguages.BASE;
-    if (legacyConfig.react) return legacyLanguages.REACT;
+    // NOTE: React Hooks should come first in the condition, because if someone selects "Yes", it must appear in the config otherwise, it won’t be reached.
     if (legacyConfig.reactHooks) return legacyLanguages.REACT_HOOKS;
+    if (legacyConfig.react) return legacyLanguages.REACT;
     return null;
   })();
 
