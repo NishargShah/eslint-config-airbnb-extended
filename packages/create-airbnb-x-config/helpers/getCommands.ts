@@ -1,4 +1,4 @@
-import { configs, configTypes, languages, packageManagers } from '@/constants';
+import { configTypes, languages, packageManagers } from '@/constants';
 
 import type { NonNullableArgsOutput } from '@/utils/types';
 
@@ -7,7 +7,7 @@ export type GetCommands = (
 ) => string[];
 
 const getCommands: GetCommands = (args) => {
-  const { configType, typescript, prettier, language, config, packageManager, legacyConfig } = args;
+  const { configType, typescript, prettier, language, packageManager, legacyConfig } = args;
 
   const pmInstallationCommand = {
     [packageManagers.NPM]: 'install',
@@ -37,30 +37,16 @@ const getCommands: GetCommands = (args) => {
   if (configType === configTypes.EXTENDED) {
     commands.push('@stylistic/eslint-plugin@^3.1.0', 'eslint-plugin-import-x');
 
-    if (language === languages.OTHER) {
-      if (config.includes(configs.NODE)) {
-        commands.push('eslint-plugin-n');
-      }
+    if (language === languages.REACT || language === languages.NEXT) {
+      commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
+    }
 
-      if (config.includes(configs.REACT) || config.includes(configs.REACT_ROUTER)) {
-        commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
-      }
+    if (language === languages.NEXT) {
+      commands.push('@next/eslint-plugin-next');
+    }
 
-      if (config.includes(configs.NEXT)) {
-        commands.push('@next/eslint-plugin-next');
-      }
-    } else {
-      if (language === languages.REACT || language === languages.NEXT) {
-        commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
-      }
-
-      if (language === languages.NEXT) {
-        commands.push('@next/eslint-plugin-next');
-      }
-
-      if (language === languages.NODE) {
-        commands.push('eslint-plugin-n');
-      }
+    if (language === languages.NODE) {
+      commands.push('eslint-plugin-n');
     }
   }
 

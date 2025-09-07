@@ -39,6 +39,8 @@ const customJSESLintConfig = [
       'unicorn/no-null': 'off',
       'unicorn/no-array-reduce': 'off',
       'unicorn/consistent-function-scoping': 'off',
+      // NOTE: REMOVE WHEN WE SHIFT TO NODE 20
+      'unicorn/no-array-sort': 'off',
     },
   },
   // Disable process.exit() rule for CLI

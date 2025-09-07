@@ -5,7 +5,7 @@ import { name, version } from '@/package.json';
 
 /**
  * Program Command
- * @example: pnpm cli:start --extended --legacy --ts --js --prettier --react --remix --next --node --base-config --node-config --react-config --next-config --remix-config --strict-import-config --strict-react-config --strict-typescript-config --legacy-base-config --legacy-react-config --legacy-react-hooks-config --use-npm --use-yarn --use-pnpm --use-bun --create-eslint-file --skip-install
+ * @example: pnpm cli:start --extended --legacy --ts --js --prettier --react --remix --next --node --strict-import-config --strict-react-config --strict-typescript-config --legacy-base-config --legacy-react-config --legacy-react-hooks-config --use-npm --use-yarn --use-pnpm --use-bun --create-eslint-file --skip-install
  */
 const program = new Command()
   .name(name)
@@ -20,14 +20,6 @@ const program = new Command()
   .option('--remix, --react-router', 'Include Remix/React Router specific linting rules.')
   .option('--next', 'Include Next.js specific linting rules.')
   .option('--node', 'Include Node.js specific linting rules.')
-  .option('--base-config', 'Include only the base Airbnb ESLint configuration.')
-  .option('--node-config', 'Include the Node specific ESLint configuration.')
-  .option('--react-config', 'Include the React specific ESLint configuration.')
-  .option('--next-config', 'Include the Next.js specific ESLint configuration.')
-  .option(
-    '--remix-config, --react-router-config',
-    'Include the Remix/React Router specific ESLint configuration.',
-  )
   .option('--strict-import-config', 'Include the strict Import ESLint configuration.')
   .option('--strict-react-config', 'Include the strict React ESLint configuration.')
   .option('--strict-typescript-config', 'Include the strict TypeScript ESLint configuration.')

@@ -1,6 +1,6 @@
 import pc from 'picocolors';
 
-import { configTypes, languages, legacyLanguages } from '@/constants';
+import { configTypes, legacyLanguages } from '@/constants';
 import { subFolders } from '@/lib/templates/constants';
 
 import type { NonNullableArgsOutput } from '@/utils/types';
@@ -25,23 +25,22 @@ const getConfigUrl: GetConfigUrl = (args) => {
   const { configType, typescript, prettier, strictConfig, language, legacyConfig } = args;
   const isLegacy = configType === configTypes.LEGACY;
 
-  if (!isLegacy && language === languages.OTHER) return null;
-
   const prettierText = prettier ? 'prettier' : null;
   const tsOrJsText = typescript ? 'ts' : 'js';
   const legacyLanguage = (() => {
     if (configType === configTypes.EXTENDED) return null;
 
     if (legacyConfig.base) return legacyLanguages.BASE;
-    if (legacyConfig.react) return legacyLanguages.REACT;
+    // NOTE: React Hooks should come first in the condition, because if someone selects "Yes", it must appear in the config otherwise, it won’t be reached.
     if (legacyConfig.reactHooks) return legacyLanguages.REACT_HOOKS;
+    if (legacyConfig.react) return legacyLanguages.REACT;
     return null;
   })();
 
   const strictOrDefaultText = (() => {
     if (!strictConfig || strictConfig.length === 0) return [subFolders.DEFAULT];
 
-    const strictFolder = strictConfig.sort((a, b) => a.localeCompare(b)).join('-');
+    const strictFolder = [...strictConfig].sort((a, b) => a.localeCompare(b)).join('-');
     return [subFolders.STRICT, strictFolder];
   })();
 

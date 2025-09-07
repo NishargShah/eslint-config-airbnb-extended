@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
@@ -110,5 +110,8 @@
     "typescript-eslint": {
       "optional": true
     }
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

@@ -1,4 +1,4 @@
-import { configs, configTypes, languages, packageManagers, strictConfigs } from '@/constants';
+import { configTypes, languages, packageManagers, strictConfigs } from '@/constants';
 import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
 
@@ -44,57 +44,12 @@ const getStrictConfig: GetStrictConfig = (opts) => {
   return strictConfig.length > 0 ? strictConfig : null;
 };
 
-// Config Help
-
-export const configHelp = `
-/**
- * Configuration Rules:
- * 1. Either Base or Node config should be included (choose one).
- * 2. React config can be used with either Next or Remix/React Router (choose one).
- * 3. Including all configs together is not recommended and may lead to conflicts.
- *
- * Summary:
- * - One from: Base | Node
- * - One from: React + (Next | Remix/React Router)
- * - Avoid selecting all configs at once.
- */`;
-
-// Get Config
-
-type GetConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['config'];
-
-export const getConfig: GetConfig = (opts) => {
-  const { baseConfig, nodeConfig, reactConfig, nextConfig, reactRouterConfig } = opts;
-
-  const config = [] as NonNullable<GetArgsOutput['config']>;
-
-  if (baseConfig || nodeConfig) {
-    if (baseConfig) config.push(configs.BASE);
-    if (nodeConfig) config.push(configs.NODE);
-    return config;
-  }
-
-  if (reactConfig || nextConfig || reactRouterConfig) {
-    if (reactConfig) config.push(configs.REACT);
-
-    if (nextConfig) config.push(configs.NEXT);
-    else if (reactRouterConfig) config.push(configs.REACT_ROUTER);
-
-    return config;
-  }
-
-  return null;
-};
-
 // Get Language
 
 type GetLanguage = (opts: Partial<ProgramOpts>) => GetArgsOutput['language'];
 
 const getLanguage: GetLanguage = (opts) => {
   const { react, reactRouter, next, node } = opts;
-
-  const config = getConfig(opts);
-  if (config) return languages.OTHER;
 
   if (react || reactRouter) return languages.REACT;
   if (next) return languages.NEXT;
@@ -130,31 +85,6 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
   return null;
 };
 
-// Get to Create ESLint File
-
-type GetCreateESLintFile = (opts: Partial<ProgramOpts>) => GetArgsOutput['createESLintFile'];
-
-const getCreateESLintFile: GetCreateESLintFile = (opts) => {
-  const { createEslintFile } = opts;
-
-  const config = getConfig(opts);
-  if (config) return false;
-
-  if (createEslintFile) return true;
-  return null;
-};
-
-// Get Skip Install
-
-type GetSkipInstall = (opts: Partial<ProgramOpts>) => GetArgsOutput['skipInstall'];
-
-const getSkipInstall: GetSkipInstall = (opts) => {
-  const { skipInstall } = opts;
-
-  if (skipInstall) return true;
-  return null;
-};
-
 // Get Args
 
 export interface ProgramOpts {
@@ -167,11 +97,6 @@ export interface ProgramOpts {
   reactRouter: true;
   next: true;
   node: true;
-  baseConfig: true;
-  nodeConfig: true;
-  reactConfig: true;
-  nextConfig: true;
-  reactRouterConfig: true;
   strictImportConfig: true;
   strictReactConfig: true;
   strictTypescriptConfig: true;
@@ -195,13 +120,12 @@ interface GetArgsLegacyConfig {
 export interface GetArgsOutput {
   configType: ValueOf<typeof configTypes> | null;
   typescript: boolean | null;
-  prettier: boolean | null;
+  prettier: true | null;
   strictConfig: ValueOf<typeof strictConfigs>[] | null;
   language: ValueOf<typeof languages> | null;
-  config: ValueOf<typeof configs>[] | null;
   legacyConfig: GetArgsLegacyConfig | null;
   packageManager: ValueOf<typeof packageManagers> | null;
-  createESLintFile: boolean | null;
+  createESLintFile: true | null;
   skipInstall: true | null;
 }
 
@@ -216,11 +140,10 @@ const getArgs: GetArgs = async () => {
     prettier: opts.prettier ? true : null,
     strictConfig: getStrictConfig(opts),
     language: getLanguage(opts),
-    config: getConfig(opts),
     legacyConfig: getLegacyConfig(opts),
     packageManager: getPackageManagerFromOpts(opts) ?? (await getPackageManager()),
-    createESLintFile: getCreateESLintFile(opts),
-    skipInstall: getSkipInstall(opts),
+    createESLintFile: opts.createEslintFile ? true : null,
+    skipInstall: opts.skipInstall ? true : null,
   };
 };
 
