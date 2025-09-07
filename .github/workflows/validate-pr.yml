@@ -25,7 +25,10 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Project
+        run: pnpm build
 
       - name: Checking Linting
         run: pnpm --silent script:lint --for-check
