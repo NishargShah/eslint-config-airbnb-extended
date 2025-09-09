@@ -14,8 +14,8 @@ You can switch to `eslint-config-airbnb-extended/legacy` with **minimal diffs** 
 
 The `legacy` entrypoint provides:
 
-- **Configs** → grouped sets of rules that map directly to the Airbnb family.
-- **Rules** → individual rule groups that power the configs.
+- **Configs** → Predefined sets of rules that map directly to the Airbnb family.
+- **Rules** → Core rule groups that enforce good coding practices and are used in configs.
 
 This ensures your project setup is familiar, stable, and ESLint 9-ready.
 
@@ -92,13 +92,13 @@ The `rules` are the building blocks of `configs`. Each config combines these rul
 | Rule Group         | Description                                                                 |
 | ------------------ | --------------------------------------------------------------------------- |
 | **Best Practices** | Enforces common best practices to improve code quality and maintainability. |
-| **Errors**         | Helps catch potential runtime errors and unsafe patterns.                   |
+| **Errors**         | Helps catch runtime errors and unsafe patterns early.                       |
 | **ES6**            | Provides rules specific to ES6+ syntax and features.                        |
 | **Imports**        | Ensures proper import/export usage with `eslint-plugin-import`.             |
 | **Node**           | Includes Node.js-specific rules for server-side development.                |
-| **Strict**         | Enforces strict mode.                                                       |
+| **Strict**         | Enables strict mode rules.                                                  |
 | **Style**          | Covers general code style rules such as spacing, quotes, and semicolons.    |
-| **Variables**      | Handles variable declarations, usage, and scoping rules.                    |
+| **Variables**      | Validates variable declarations, usage, and scoping rules.                  |
 
 ### React Rules {#react-rules}
 
