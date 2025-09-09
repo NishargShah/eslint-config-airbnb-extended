@@ -82,12 +82,16 @@ export default defineConfig({
             link: '/config/installation',
           },
           {
-            text: 'Extended vs Legacy',
-            link: '/config/extended-vs-legacy',
+            text: 'Extended Config',
+            link: '/config/extended-config',
           },
           {
             text: 'Legacy Config',
             link: '/config/legacy-config',
+          },
+          {
+            text: 'Extended vs Legacy',
+            link: '/config/extended-vs-legacy',
           },
           {
             text: 'Packages Used',

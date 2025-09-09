@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.11",
-    "globals": "^16.3.0"
+    "globals": "^16.4.0"
   },
   "devDependencies": {
     "@types/confusing-browser-globals": "^1.0.3",

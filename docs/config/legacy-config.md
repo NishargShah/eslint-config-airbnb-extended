@@ -1,14 +1,31 @@
 # Legacy Config {#legacy-config}
 
-**Legacy configuration** in `eslint-config-airbnb-extended` is designed for teams who want a **One-To-One/Drop-In Replacement** for the original Airbnb ESLint configs without having to stick with old `.eslintrc` files.
+The **Legacy Config** is designed for teams who want a **One-To-One/Drop-In Replacement** for the original Airbnb ESLint configs, but with support for **Flat Config** (ESLint 9+).
 
-Instead of reinventing the rules, this mode focuses on **parity and smooth migration**. That means if your team was already using `eslint-config-airbnb`, `eslint-config-airbnb-base`, or `eslint-config-airbnb-typescript`, you can switch to `eslint-config-airbnb-extended/legacy` with **minimal diffs** while still being ready for ESLint 9 and Flat Config.
+Instead of rewriting rules, this mode focuses on **parity and smooth migration**. If your team already uses:
 
-## Usage Examples {#examples}
+- `eslint-config-airbnb`
+- `eslint-config-airbnb-base`
+- `eslint-config-airbnb-typescript`
 
-The `legacy` entrypoint exports configs that map directly to the Airbnb family. Here’s how to use them:
+You can switch to `eslint-config-airbnb-extended/legacy` with **minimal diffs** while being future-ready.
+
+## Overview {#overview}
+
+The `legacy` entrypoint provides:
+
+- **Configs** → Predefined sets of rules that map directly to the Airbnb family.
+- **Rules** → Core rule groups that enforce good coding practices and are used in configs.
+
+This ensures your project setup is familiar, stable, and ESLint 9-ready.
+
+## Configs {#configs}
+
+The configs mirror the original Airbnb packages, making migration straightforward.
 
 ### 1. For [`eslint-config-airbnb-base`](https://www.npmjs.com/package/eslint-config-airbnb-base) {#for-eslint-config-airbnb-base}
+
+Use this if you want **only JavaScript base rules** without React or TypeScript.
 
 ::: code-group
 
@@ -24,9 +41,9 @@ export default [...configs.base.recommended];
 
 :::
 
-Use this if you want **only JavaScript base rules** without React or TypeScript.
-
 ### 2. For [`eslint-config-airbnb`](https://www.npmjs.com/package/eslint-config-airbnb) {#for-eslint-config-airbnb}
+
+Use this when working with **React**. It provides a one-to-one mapping with all the standard Airbnb React presets, including `hooks`.
 
 ::: code-group
 
@@ -48,9 +65,9 @@ export default [...configs.react.hooks];
 
 :::
 
-Use this when working with **React**. It provides a one-to-one mapping with all the standard Airbnb React presets, including `hooks`.
-
 ### 3. For [`eslint-config-airbnb-typescript`](https://www.npmjs.com/package/eslint-config-airbnb-typescript) {#for-eslint-config-airbnb-typescript}
+
+Use this if you’re on **TypeScript** and want the Airbnb TypeScript rules, but in **Flat Config format** without breaking compatibility.
 
 ::: code-group
 
@@ -66,7 +83,38 @@ export default [...configs.react.typescript];
 
 :::
 
-Use this if you’re on **TypeScript** and want the Airbnb TypeScript rules, but in **Flat Config format** without breaking compatibility.
+## Rules {#rules}
+
+The `rules` are the building blocks of `configs`. Each config combines these rule groups.
+
+### Base Rules {#base-rules}
+
+| Rule Group         | Description                                                                 |
+| ------------------ | --------------------------------------------------------------------------- |
+| **Best Practices** | Enforces common best practices to improve code quality and maintainability. |
+| **Errors**         | Helps catch runtime errors and unsafe patterns early.                       |
+| **ES6**            | Provides rules specific to ES6+ syntax and features.                        |
+| **Imports**        | Ensures proper import/export usage with `eslint-plugin-import`.             |
+| **Node**           | Includes Node.js-specific rules for server-side development.                |
+| **Strict**         | Enables strict mode rules.                                                  |
+| **Style**          | Covers general code style rules such as spacing, quotes, and semicolons.    |
+| **Variables**      | Validates variable declarations, usage, and scoping rules.                  |
+
+### React Rules {#react-rules}
+
+| Rule Group            | Description                                                         |
+| --------------------- | ------------------------------------------------------------------- |
+| **Base**              | Core React rules for JSX and component structure.                   |
+| **JSX Accessibility** | Accessibility rules via `eslint-plugin-jsx-a11y` for inclusive UIs. |
+| **Hooks**             | Rules from `eslint-plugin-react-hooks` ensuring proper hook usage.  |
+
+### TypeScript Rules {#typescript-rules}
+
+| Rule Group    | Description                                                                                                |
+| ------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Base**      | Core TypeScript linting rules for types, syntax, and consistency.                                          |
+| **Overrides** | Adjusts ESLint by disabling rules covered by TypeScript and enabling ones that benefit from type-checking. |
+| **Settings**  | Additional config values for TypeScript resolver and parser options.                                       |
 
 ## Why Legacy Config Exists {#why-legacy-config-exists}
 
