@@ -1,3 +1,15 @@
+## 2.3.1 (2025-09-10)
+
+### 🚀 Features
+
+- **docs:** Added detailed documentation for `Extended Config` and `Legacy Config`
+- **eslint-config-airbnb-extended:** Updated Dependencies and Dev Dependencies
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Fixed React TypeScript Extension issue
+- **docs:** Added `@next/eslint-plugin-next` in `Package Used` section
+
 ## 2.3.0 (2025-09-07)
 
 ### ❤️ Released Documentation
