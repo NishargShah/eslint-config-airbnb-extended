@@ -9,6 +9,9 @@ const reactExtensions = {
   get recommended(): Linter.Config[] {
     return require('@/extensions/react/recommended').default;
   },
+  get typescript(): Linter.Config[] {
+    return require('@/extensions/react/typescript').default;
+  },
 };
 
 export default reactExtensions;
