@@ -183,7 +183,7 @@ export default defineConfig({
       {
         name: 'description',
         content:
-          'ESLint Airbnb Extended - A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
+          'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
       },
     ],
     [
