@@ -171,17 +171,31 @@ export default defineConfig({
     },
   },
   head: [
-    ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['meta', { name: 'author', content: 'ESLint Airbnb Extended Team' }],
-    ['meta', { property: 'og:title', content: 'ESLint Airbnb Extended' }],
+    [
+      'meta',
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' },
+    ],
     [
       'meta',
       {
-        property: 'og:image',
-        content: `${siteUrl}/og-logo.png`,
+        name: 'description',
+        content:
+          'ESLint Airbnb Extended - A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
       },
     ],
+    [
+      'meta',
+      {
+        name: 'keywords',
+        content:
+          'eslint, airbnb, airbnb config, eslint config airbnb, eslint config airbnb base, eslint config airbnb typescript, eslint config airbnb extended, eslint airbnb, eslint airbnb base, eslint airbnb typescript, eslint airbnb extended',
+      },
+    ],
+    // OG
+    ['meta', { property: 'og:title', content: 'ESLint Airbnb Extended' }],
     [
       'meta',
       {
@@ -190,7 +204,26 @@ export default defineConfig({
           'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
       },
     ],
-    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    [
+      'meta',
+      {
+        property: 'og:image',
+        content: `${siteUrl}/og-logo.png`,
+      },
+    ],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:url', content: siteUrl }],
+    ['meta', { property: 'og:site_name', content: 'ESLint Airbnb Extended' }],
+    // TWITTER
+    ['meta', { name: 'twitter:title', content: 'ESLint Airbnb Extended' }],
+    [
+      'meta',
+      {
+        name: 'twitter:description',
+        content:
+          'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
+      },
+    ],
     [
       'meta',
       {
@@ -198,9 +231,7 @@ export default defineConfig({
         content: `${siteUrl}/og-logo.png`,
       },
     ],
-    [
-      'meta',
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' },
-    ],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:creator', content: '@iamnisharg' }],
   ],
 });
