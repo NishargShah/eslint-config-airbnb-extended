@@ -1,4 +1,38 @@
-## 3.0.0 (pre-release)
+## 2.3.1 (2025-09-10)
+
+### 🚀 Features
+
+- **docs:** Added detailed documentation for `Extended Config` and `Legacy Config`
+- **eslint-config-airbnb-extended:** Updated Dependencies and Dev Dependencies
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Fixed React TypeScript Extension issue
+- **docs:** Added `@next/eslint-plugin-next` in `Package Used` section
+
+## 2.3.0 (2025-09-07)
+
+### ❤️ Released Documentation
+
+- URL: https://eslint-airbnb-extended.nishargshah.dev
+
+### 🚨 Breaking Change
+
+- Requires `Node.js 16` or higher
+
+### 🩹 Fixes
+
+- **create-airbnb-x-config:** Fixed hook config issue
+- **create-airbnb-x-config:** The `Own Customization` option has been removed, since we now provide complete documentation to reference.
+- **eslint-config-airbnb-extended:** Fixed files issue ([#32](https://github.com/NishargShah/eslint-config-airbnb-extended/issues/32)).
+- **docs:** Added changes of `CLI` in documentation.
+
+### ❤️ Thank You
+
+- synapxe-siang13 @synapxe-siang13
+- David Tanner @DavidTanner
+
+## 2.2.0 (2025-08-25)
 
 ### 🚨 Breaking Change
 

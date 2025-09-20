@@ -1,6 +1,6 @@
 {
   "name": "create-airbnb-x-config",
-  "version": "2.2.0",
+  "version": "2.3.1",
   "description": "Airbnb Extended Config CLI",
   "keywords": [
     "eslint",
@@ -14,6 +14,7 @@
     "airbnb config cli x",
     "airbnb config cli extended"
   ],
+  "homepage": "https://eslint-airbnb-extended.nishargshah.dev",
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
   },
@@ -54,5 +55,8 @@
     "tsc-alias": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

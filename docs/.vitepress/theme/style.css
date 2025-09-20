@@ -1,0 +1,43 @@
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(90deg, #7a5cff, #6c47ff, #4b20e5);
+  --vp-home-hero-image-background-image: linear-gradient(160deg, #ffffff, #f3edff, #e0d4ff);
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+.dark {
+  --vp-home-hero-name-background: -webkit-linear-gradient(90deg, #6c47ff, #a67cff);
+  --vp-home-hero-image-background-image: linear-gradient(160deg, #1f1b2e, #3b2760, #6a3fa0);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-bg: #6c47ff;
+  --vp-button-brand-hover-bg: #5b34e0;
+  --vp-button-brand-active-bg: #4826b8;
+}
+
+.dark {
+  --vp-button-brand-bg: #6c47ff;
+  --vp-button-brand-hover-bg: #7a59ff;
+  --vp-button-brand-active-bg: #5a36e6;
+}

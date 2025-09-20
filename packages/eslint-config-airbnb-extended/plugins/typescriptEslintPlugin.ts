@@ -1,12 +1,12 @@
 import { parser, plugin } from 'typescript-eslint';
 
-import { tsFiles } from '@/utils';
+import { allFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
 const typescriptEslintPlugin = {
   name: 'airbnb/config/plugin/typescript-eslint',
-  files: tsFiles,
+  files: allFiles,
   plugins: {
     '@typescript-eslint': plugin,
   },

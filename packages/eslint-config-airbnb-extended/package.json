@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "2.2.0",
+  "version": "2.3.1",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
@@ -17,6 +17,7 @@
     "eslint airbnb typescript",
     "eslint airbnb extended"
   ],
+  "homepage": "https://eslint-airbnb-extended.nishargshah.dev",
   "bugs": {
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
   },
@@ -49,7 +50,7 @@
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.11",
-    "globals": "^16.3.0"
+    "globals": "^16.4.0"
   },
   "devDependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
@@ -109,5 +110,8 @@
     "typescript-eslint": {
       "optional": true
     }
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

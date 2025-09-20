@@ -22,9 +22,7 @@ interface GetContentConfigurations {
 
 export interface GetContentParams {
   type: ValueOf<typeof configTypes>;
-  language:
-    | Exclude<ValueOf<typeof languages>, typeof languages.OTHER>
-    | ValueOf<typeof legacyLanguages>;
+  language: ValueOf<typeof languages> | ValueOf<typeof legacyLanguages>;
   languagePreference: ValueOf<typeof languagePreferences>;
   configurations: GetContentConfigurations;
   strictConfig: ValueOf<typeof strictConfigs>[];

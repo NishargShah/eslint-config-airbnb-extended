@@ -3,22 +3,15 @@
 import pc from 'picocolors';
 import prompts from 'prompts';
 
-import {
-  configs,
-  configTypes,
-  defaults,
-  languages,
-  legacyConfigs,
-  strictConfigs,
-} from '@/constants';
+import { configTypes, defaults, languages, legacyConfigs, strictConfigs } from '@/constants';
 import createESLintConfigFile from '@/helpers/createEslintConfigFile';
-import getArgs, { configHelp, getConfig } from '@/helpers/getArgs';
+import getArgs from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
 import getConfigUrl, { eslintConfigName } from '@/helpers/getConfigUrl';
 import installPackages from '@/helpers/installPackages';
 import { exit, handleSigTerm, onCancel, onPromptState, success } from '@/utils';
 
-import type { NonNullableArgsOutput, ValueOf } from '@/utils/types';
+import type { NonNullableArgsOutput } from '@/utils/types';
 
 process.on('SIGINT', handleSigTerm);
 process.on('SIGTERM', handleSigTerm);
@@ -52,7 +45,6 @@ const run = async () => {
           }
         : {
             language: null,
-            config: [],
           }),
     };
   }
@@ -120,11 +112,6 @@ const run = async () => {
               description: pc.greenBright('You are using Node or any other frameworks of it'),
               value: languages.NODE,
             },
-            {
-              title: 'Own Customization',
-              description: pc.redBright('You would like to customize by your own'),
-              value: languages.OTHER,
-            },
           ],
           onState: onPromptState,
         },
@@ -134,60 +121,6 @@ const run = async () => {
       );
 
       args = { ...args, language };
-    }
-
-    if (!args.config) {
-      if (args.language === languages.OTHER) {
-        const { config } = await prompts(
-          {
-            type: 'multiselect',
-            name: 'config',
-            message: 'Select Config:',
-            min: 1,
-            choices: [
-              {
-                title: 'Base',
-                description: pc.yellowBright('Base config without React/JSX configurations'),
-                value: configs.BASE,
-              },
-              {
-                title: 'Node',
-                description: pc.greenBright('Node config with Base config'),
-                value: configs.NODE,
-              },
-              {
-                title: 'React',
-                description: pc.cyanBright('React config with base config'),
-                value: configs.REACT,
-              },
-              {
-                title: 'Next',
-                description: pc.blackBright('Next.js config with base config'),
-                value: configs.NEXT,
-              },
-              {
-                title: 'Remix (React Router)',
-                description: pc.redBright('Remix (React Router) config with base config'),
-                value: configs.REACT_ROUTER,
-              },
-            ],
-            format: (prev) => {
-              const values = prev as ValueOf<typeof configs>[];
-              const opts = Object.fromEntries(values.map((value) => [`${value}Config`, true]));
-              return getConfig(opts);
-            },
-            hint: configHelp,
-            onState: onPromptState,
-          },
-          {
-            onCancel,
-          },
-        );
-
-        args = { ...args, config };
-      } else {
-        args = { ...args, config: [] };
-      }
     }
 
     if (!args.strictConfig) {
@@ -316,26 +249,22 @@ const run = async () => {
   }
 
   if (args.createESLintFile === null) {
-    if (args.language === languages.OTHER) {
-      args = { ...args, createESLintFile: false };
-    } else {
-      const { createESLintFile } = await prompts(
-        {
-          type: 'toggle',
-          name: 'createESLintFile',
-          message: `Should I create an ${pc.blue(eslintConfigName)} file for you?`,
-          initial: defaults.createESLintFile,
-          active: 'Yes',
-          inactive: 'No',
-          onState: onPromptState,
-        },
-        {
-          onCancel,
-        },
-      );
+    const { createESLintFile } = await prompts(
+      {
+        type: 'toggle',
+        name: 'createESLintFile',
+        message: `Should I create an ${pc.blue(eslintConfigName)} file for you?`,
+        initial: defaults.createESLintFile,
+        active: 'Yes',
+        inactive: 'No',
+        onState: onPromptState,
+      },
+      {
+        onCancel,
+      },
+    );
 
-      args = { ...args, createESLintFile };
-    }
+    args = { ...args, createESLintFile };
   }
 
   if (args.skipInstall === null) {
@@ -386,21 +315,7 @@ const run = async () => {
 
   console.log();
   console.log(pc.cyan(args.createESLintFile ? 'Created Config:' : 'Config:'));
-
-  if (newArgs.language === languages.OTHER) {
-    console.log(
-      pc.red(
-        'Customizing it to your needs requires considerable effort and is still a work in progress. In the meantime, please refer to the documentation and try setting up the configuration yourself using below link.',
-      ),
-    );
-    console.log(
-      pc.blue(
-        'https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/eslint-config-airbnb-extended',
-      ),
-    );
-  } else {
-    console.log(getConfigUrl(newArgs)?.url);
-  }
+  console.log(getConfigUrl(newArgs)?.url);
 
   console.log();
 };
