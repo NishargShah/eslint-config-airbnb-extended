@@ -36,12 +36,6 @@
 
 ### 🚨 Breaking Change
 
-- **eslint-config-airbnb-extended:** Converted from `commonjs` to `esm`
-
-## 2.2.0 (2025-08-25)
-
-### 🚨 Breaking Change ( Extended Config )
-
 - **eslint-config-airbnb-extended:** Re-enabled the following formatting rules that were accidentally turned off during the `eslint-stylistic` integration:
 
   ```
