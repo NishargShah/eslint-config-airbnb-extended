@@ -30,7 +30,7 @@
     "lint:inspector": "pnpm dlx @eslint/config-inspector --config eslint-inspector.config.mjs",
     "pkg:prepare": "pnpm changeset && pnpm changeset version",
     "pkg:publish": "pnpm -r build && pnpm changeset publish",
-    "prepare": "husky",
+    "prepare": "husky || true",
     "script:lint": "bash -e ./scripts/lint.sh",
     "typecheck": "pnpm -r typecheck"
   },
