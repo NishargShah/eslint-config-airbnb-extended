@@ -48,7 +48,7 @@ const checkImportsUpdates = async () => {
     (item) => ![...localRules, ...deprecatedLocalRules].includes(`${prefix}${item}`),
   );
 
-  throw new Error(`Import X Plugin Updated with ${updatedRules.join(',')}`);
+  throw new Error(`Import X Plugin Updated with ${updatedRules.join(', ')}`);
 };
 
 const checkNodeUpdates = async () => {
@@ -70,7 +70,7 @@ const checkNodeUpdates = async () => {
     (item) => ![...localRules, ...deprecatedLocalRules].includes(`${prefix}${item}`),
   );
 
-  throw new Error(`Node Plugin Updated with ${updatedRules.join(',')}`);
+  throw new Error(`Node Plugin Updated with ${updatedRules.join(', ')}`);
 };
 
 const checkReactUpdates = async () => {
@@ -86,7 +86,7 @@ const checkReactUpdates = async () => {
     (item) => ![...localRules, ...deprecatedLocalRules].includes(`${prefix}${item}`),
   );
 
-  throw new Error(`React Plugin Updated with ${updatedRules.join(',')}`);
+  throw new Error(`React Plugin Updated with ${updatedRules.join(', ')}`);
 };
 
 const checkReactJsxA11yUpdates = async () => {
@@ -106,7 +106,7 @@ const checkReactJsxA11yUpdates = async () => {
     (item) => ![...localRules, ...deprecatedLocalRules].includes(`${prefix}${item}`),
   );
 
-  throw new Error(`React JSX A11y Plugin Updated with ${updatedRules.join(',')}`);
+  throw new Error(`React JSX A11y Plugin Updated with ${updatedRules.join(', ')}`);
 };
 
 const checkReactHooksUpdates = async () => {
@@ -119,7 +119,7 @@ const checkReactHooksUpdates = async () => {
 
   const updatedRules = remoteRules.filter((item) => !localRules.includes(`${prefix}${item}`));
 
-  throw new Error(`React Hooks Plugin Updated with ${updatedRules.join(',')}`);
+  throw new Error(`React Hooks Plugin Updated with ${updatedRules.join(', ')}`);
 };
 
 const checkNextUpdates = async () => {
@@ -139,7 +139,7 @@ const checkNextUpdates = async () => {
 
   const updatedRules = remoteRules.filter((item) => !localRules.includes(item));
 
-  throw new Error(`Next Plugin Updated with ${updatedRules.join(',')}`);
+  throw new Error(`Next Plugin Updated with ${updatedRules.join(', ')}`);
 };
 
 const checkStylisticUpdates = async () => {
@@ -164,7 +164,7 @@ const checkStylisticUpdates = async () => {
 
   const updatedRules = remoteRules.filter((item) => !localRules.includes(`${prefix}${item}`));
 
-  throw new Error(`Stylistic Plugin Updated with ${updatedRules.join(',')}`);
+  throw new Error(`Stylistic Plugin Updated with ${updatedRules.join(', ')}`);
 };
 
 const checkTypescriptEslintUpdates = async () => {
@@ -184,7 +184,7 @@ const checkTypescriptEslintUpdates = async () => {
 
   const updatedRules = remoteRules.filter((item) => !localRules.includes(`${prefix}${item}`));
 
-  throw new Error(`Typescript Eslint Plugin Updated with ${updatedRules.join(',')}`);
+  throw new Error(`Typescript Eslint Plugin Updated with ${updatedRules.join(', ')}`);
 };
 
 const checkUpdates = async () => {
