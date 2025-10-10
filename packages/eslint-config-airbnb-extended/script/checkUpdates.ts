@@ -115,7 +115,8 @@ const checkReactHooksUpdates = async () => {
   const localRules = getRulesArray(prefix, Object.keys(reactHooksRules.rules));
   const remoteRules = Object.keys(reactHooksPlugin.rules);
 
-  if (localRules.length === remoteRules.length) return true;
+  // FIXME: ISSUE
+  if (localRules.length !== remoteRules.length) return true;
 
   const updatedRules = remoteRules.filter((item) => !localRules.includes(`${prefix}${item}`));
 
@@ -125,19 +126,20 @@ const checkReactHooksUpdates = async () => {
 const checkNextUpdates = async () => {
   const prefix = '@next/next/';
 
-  const localRules = getRulesArray(prefix, [
-    ...Object.keys(nextBaseRules.rules),
-    ...Object.keys(nextCoreWebVitalsRules.rules),
-  ]);
-
-  const remoteRules = [
-    ...Object.keys(nextPlugin.configs.recommended.rules),
-    ...Object.keys(nextPlugin.configs['core-web-vitals'].rules),
+  const localRules = [
+    ...new Set(
+      getRulesArray(prefix, [
+        ...Object.keys(nextBaseRules.rules),
+        ...Object.keys(nextCoreWebVitalsRules.rules),
+      ]),
+    ),
   ];
+
+  const remoteRules = Object.keys(nextPlugin.rules);
 
   if (localRules.length === remoteRules.length) return true;
 
-  const updatedRules = remoteRules.filter((item) => !localRules.includes(item));
+  const updatedRules = remoteRules.filter((item) => !localRules.includes(`${prefix}${item}`));
 
   throw new Error(`Next Plugin Updated with ${updatedRules.join(', ')}`);
 };
