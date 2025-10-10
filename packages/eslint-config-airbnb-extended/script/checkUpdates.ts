@@ -113,7 +113,8 @@ const checkReactHooksUpdates = async () => {
   const localRules = getRulesArray(prefix, Object.keys(reactHooksRules.rules));
   const remoteRules = Object.keys(reactHooksPlugin.rules);
 
-  if (localRules.length === remoteRules.length) return true;
+  // FIXME: ISSUE
+  if (localRules.length !== remoteRules.length) return true;
 
   const updatedRules = remoteRules.filter((item) => !localRules.includes(`${prefix}${item}`));
 
