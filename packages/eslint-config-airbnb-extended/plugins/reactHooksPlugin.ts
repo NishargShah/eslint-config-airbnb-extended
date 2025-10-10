@@ -10,6 +10,6 @@ const reactHooksPlugin = {
   plugins: {
     'react-hooks': plugin,
   },
-} satisfies Linter.Config;
+} as Linter.Config;
 
 export default reactHooksPlugin;
