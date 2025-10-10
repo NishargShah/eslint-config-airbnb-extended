@@ -26,6 +26,6 @@ const legacyReactHooksRules = {
     // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
     'react-hooks/exhaustive-deps': 'error',
   },
-} satisfies Linter.Config;
+} as Linter.Config;
 
 export default legacyReactHooksRules;
