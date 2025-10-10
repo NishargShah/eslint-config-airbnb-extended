@@ -1,3 +1,11 @@
+## 2.3.2 (2025-10-11)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Upgraded deps
+- **eslint-config-airbnb-extended:** Added support for `eslint-plugin-react-hooks` versions 6 and 7
+- **eslint-config-airbnb-extended:** Updated `security.md`
+
 ## 2.3.1 (2025-09-10)
 
 ### 🚀 Features
