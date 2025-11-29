@@ -1,3 +1,15 @@
+## 2.3.3 (2025-11-29)
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Upgraded deps
+- **eslint-config-airbnb-extended:** Fixed #42 and #45
+
+### ❤️ Thank You
+
+- Anton Khitrenovich @khitrenovich
+- Heath C @heath-freenome
+
 ## 2.3.2 (2025-10-11)
 
 ### 🩹 Fixes
