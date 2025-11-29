@@ -1,7 +1,8 @@
 import type { GetContentParams } from '@/lib/templates/getContent';
 
-interface FolderMeta
-  extends Partial<Pick<GetContentParams, 'language' | 'languagePreference' | 'strictConfig'>> {
+interface FolderMeta extends Partial<
+  Pick<GetContentParams, 'language' | 'languagePreference' | 'strictConfig'>
+> {
   configType?: GetContentParams['type'];
   hasPrettier?: NonNullable<GetContentParams['configurations']>['prettier'];
 }

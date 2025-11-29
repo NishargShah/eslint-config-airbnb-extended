@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Eslint Airbnb Config Extended",
   "keywords": [
     "eslint",
@@ -31,12 +31,12 @@
   "type": "commonjs",
   "exports": {
     ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/@types/index.d.ts"
+      "types": "./dist/@types/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./legacy": {
-      "default": "./dist/legacy.js",
-      "types": "./dist/@types/legacy.d.ts"
+      "types": "./dist/@types/legacy.d.ts",
+      "default": "./dist/legacy.js"
     }
   },
   "main": "./dist/index.js",
@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.11",
-    "globals": "^16.4.0"
+    "globals": "^16.5.0"
   },
   "devDependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
@@ -60,7 +60,7 @@
     "typescript": "catalog:"
   },
   "peerDependencies": {
-    "@next/eslint-plugin-next": "^15.0.0",
+    "@next/eslint-plugin-next": "^15.0.0 || ^16.0.0",
     "@stylistic/eslint-plugin": "^3.0.0",
     "@types/eslint-plugin-jsx-a11y": "^6.0.0",
     "eslint": "^9.0.0",

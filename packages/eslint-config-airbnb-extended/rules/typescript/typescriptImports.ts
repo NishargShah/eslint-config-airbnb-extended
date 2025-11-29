@@ -1,5 +1,5 @@
 import getDevDepsList from '@/helpers/getDevDepsList';
-import { jsExtensions, tsExtensions, tsExtensionsRule, tsFiles } from '@/utils';
+import { jsExtensions, jsExtensionsRule, tsExtensions, tsExtensionsRule, tsFiles } from '@/utils';
 
 import type { Linter } from 'eslint';
 
@@ -12,7 +12,11 @@ const typescriptImportsRules = {
   rules: {
     // Append 'ts' and 'tsx' to Airbnb 'import-x/extensions' rule
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/extensions.md
-    'import-x/extensions': ['error', 'ignorePackages', tsExtensionsRule],
+    'import-x/extensions': [
+      'error',
+      'ignorePackages',
+      { ...jsExtensionsRule, ...tsExtensionsRule },
+    ],
 
     // Append 'ts' and 'tsx' extensions to Airbnb 'import-x/no-extraneous-dependencies' rule
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-extraneous-dependencies.md
