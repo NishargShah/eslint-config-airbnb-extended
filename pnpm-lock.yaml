@@ -146,7 +146,7 @@ importers:
   packages/eslint-config-airbnb-extended:
     dependencies:
       '@next/eslint-plugin-next':
-        specifier: ^15.0.0
+        specifier: ^15.0.0 || ^16.0.0
         version: 15.5.4
       '@stylistic/eslint-plugin':
         specifier: ^3.0.0
