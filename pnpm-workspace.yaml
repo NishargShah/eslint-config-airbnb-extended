@@ -3,7 +3,7 @@ packages:
   - packages/*
 
 catalog:
-  rimraf: ^6.0.1
+  rimraf: ^6.1.2
   tsc-alias: ^1.8.16
   tsx: ^4.20.6
   typescript: ^5.9.3

@@ -53,7 +53,6 @@
     "globals": "^16.5.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "15.6.0-canary.19",
     "@types/confusing-browser-globals": "^1.0.3",
     "rimraf": "catalog:",
     "tsc-alias": "catalog:",

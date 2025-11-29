@@ -45,7 +45,7 @@
     "@eslint/compat": "^2.0.0",
     "@eslint/js": "^9.39.1",
     "@stylistic/eslint-plugin": "^3.1.0",
-    "@types/node": "^22.19.1",
+    "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "eslint-config-airbnb-extended": "workspace:*",
     "eslint-config-prettier": "^10.1.8",
@@ -59,7 +59,7 @@
     "eslint-plugin-unused-imports": "^4.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.7.2",
+    "prettier": "^3.7.3",
     "prettier-plugin-packagejson": "^2.5.20",
     "typescript": "catalog:",
     "typescript-eslint": "^8.48.0"
@@ -68,7 +68,7 @@
   "engines": {
     "node": ">=16.0.0",
     "npm": "please-use-pnpm",
-    "pnpm": ">=10.12.0",
+    "pnpm": ">=10.24.0",
     "yarn": "please-use-pnpm"
   }
 }
