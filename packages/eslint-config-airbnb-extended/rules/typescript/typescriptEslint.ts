@@ -1,4 +1,5 @@
 import bestPracticesRules from '@/rules/best-practices';
+import errorsRules from '@/rules/errors';
 import es6Rules from '@/rules/es6';
 import styleRules from '@/rules/style';
 import variablesRules from '@/rules/variables';
@@ -431,6 +432,10 @@ const typescriptEslintRules = {
     // https://typescript-eslint.io/rules/no-unused-expressions
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': bestPracticesRules.rules['no-unused-expressions'],
+
+    'no-unused-private-class-members': 'off',
+    '@typescript-eslint/no-unused-private-class-members':
+      errorsRules.rules['no-unused-private-class-members'],
 
     // Disallow unused variables.
     // https://typescript-eslint.io/rules/no-unused-vars
