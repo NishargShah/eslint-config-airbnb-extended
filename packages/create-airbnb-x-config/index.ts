@@ -107,7 +107,7 @@ const run = async () => {
           message: 'Are you using?',
           choices: [
             {
-              title: 'React/React Router',
+              title: 'React/React Router/Remix',
               description: pc.cyanBright(
                 'You are using React.js library or Remix ( React Router 7 ) framework',
               ),

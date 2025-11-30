@@ -8,11 +8,12 @@ import {
   languages,
   packageManagers,
   runtimes,
+  strictConfigs,
 } from '@/constants';
 
 /**
  * Program Command
- * @example: pnpm cli:start --config extended --lang typescript --formatter prettier --react --remix --next --node --strict-import-config --strict-react-config --strict-typescript-config --legacy-base-config --legacy-react-config --legacy-react-hooks-config --pm pnpm --create-eslint-file --skip-install
+ * @example: pnpm cli:start --config extended --lang javascript --formatter prettier --runtime react --strict import react --legacy-base-config --legacy-react-config --legacy-react-hooks-config --pm pnpm --create-eslint-file --skip-install
  */
 const program = new Command()
   .name(name)
@@ -44,15 +45,24 @@ const program = new Command()
 
   // Runtimes
   .addOption(
-    new Option(
-      '--runtime <runtime>',
-      'Include selected runtime for specific linting rules.',
-    ).choices(Object.values(runtimes)),
+    new Option('--runtime <runtime>', 'Include selected runtime for specific linting rules.')
+      .choices(Object.values(runtimes))
+      .conflicts(['legacy-config']),
   )
 
-  .option('--strict-import-config', 'Include the strict Import ESLint configuration.')
-  .option('--strict-react-config', 'Include the strict React ESLint configuration.')
-  .option('--strict-typescript-config', 'Include the strict TypeScript ESLint configuration.')
+  // Strict Config
+  .addOption(
+    new Option(
+      '--strict, --strict-config <config...>',
+      'Include the selected strict ESLint config.',
+    )
+      .choices(Object.values(strictConfigs))
+      .argParser<string[]>((value, previous) => [
+        ...new Set([...(previous ? previous : []), value]),
+      ])
+      .conflicts(['legacy-config']),
+  )
+
   .option('--legacy-base-config', 'Include the legacy Base ESLint configuration.')
   .option('--legacy-react-config', 'Include the legacy React ESLint configuration.')
   .option('--legacy-react-hooks-config', 'Include the legacy React Hooks ESLint configuration.')

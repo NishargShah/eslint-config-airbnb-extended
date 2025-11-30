@@ -70,15 +70,9 @@ const getRuntime: GetRuntime = (opts) => {
 type GetStrictConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['strictConfig'];
 
 const getStrictConfig: GetStrictConfig = (opts) => {
-  const { strictImportConfig, strictReactConfig, strictTypescriptConfig } = opts;
+  const { strictConfig } = opts;
 
-  const strictConfig = [] as NonNullable<ReturnType<GetStrictConfig>>;
-
-  if (strictImportConfig) strictConfig.push(strictConfigs.IMPORT);
-  if (strictReactConfig) strictConfig.push(strictConfigs.REACT);
-  if (strictTypescriptConfig) strictConfig.push(strictConfigs.TYPESCRIPT);
-
-  return strictConfig.length > 0 ? strictConfig : null;
+  return strictConfig?.length ? strictConfig : null;
 };
 
 // Get Legacy Config
@@ -116,9 +110,7 @@ export interface ProgramOpts {
   language: ValueOf<typeof languages>;
   formatter: ValueOf<typeof formatters>;
   runtime: Exclude<ValueOf<typeof runtimes>, typeof runtimes.REACT_ROUTER | typeof runtimes.REMIX>;
-  strictImportConfig: true;
-  strictReactConfig: true;
-  strictTypescriptConfig: true;
+  strictConfig: ValueOf<typeof strictConfigs>[];
   legacyBaseConfig: true;
   legacyReactConfig: true;
   legacyReactHooksConfig: true;
@@ -138,7 +130,7 @@ export interface GetArgsOutput {
   language: ProgramOpts['language'] | null;
   formatter: ProgramOpts['formatter'] | null;
   runtime: ProgramOpts['runtime'] | null;
-  strictConfig: ValueOf<typeof strictConfigs>[] | null;
+  strictConfig: ProgramOpts['strictConfig'] | null;
   legacyConfig: GetArgsLegacyConfig | null;
   packageManager: ProgramOpts['packageManager'] | null;
   createESLintFile: true | null;
