@@ -9,19 +9,7 @@ import {
   subFolders,
 } from '@/constants';
 
-import type { NonNullableArgsOutput } from '@/types';
-
-interface GetConfigUrlOutput {
-  path: string;
-  url: string;
-}
-
-export type GetConfigUrl = (
-  args: Pick<
-    NonNullableArgsOutput,
-    'config' | 'language' | 'formatter' | 'strictConfig' | 'runtime' | 'legacyConfig'
-  >,
-) => GetConfigUrlOutput | null;
+import { GetConfigUrl } from '@/helpers/@types/getConfigUrl.types';
 
 const getConfigUrl: GetConfigUrl = (args) => {
   const { config, language, formatter, strictConfig, runtime, legacyConfig } = args;

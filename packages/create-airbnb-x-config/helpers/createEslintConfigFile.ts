@@ -3,10 +3,8 @@ import fsPromise from 'node:fs/promises';
 import getConfigUrl from '@/helpers/getConfigUrl';
 import { rootPath } from '@/utils';
 
-import type { GetConfigUrl } from '@/helpers/getConfigUrl';
 import { baseGithubRawUrl, eslintConfigName } from '@/constants';
-
-type CreateESLintConfigFile = (args: Parameters<GetConfigUrl>[0]) => Promise<void>;
+import { CreateESLintConfigFile } from '@/helpers/@types/createEslintConfigFile.types';
 
 const createESLintConfigFile: CreateESLintConfigFile = async (args) => {
   try {

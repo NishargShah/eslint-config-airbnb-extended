@@ -6,12 +6,7 @@ import {
   formatters,
   legacyConfigs,
 } from '@/constants';
-
-import type { NonNullableArgsOutput } from '@/types';
-
-export type GetCommands = (
-  args: Omit<NonNullableArgsOutput, 'createESLintFile' | 'skipInstall'>,
-) => string[];
+import { GetCommands } from '@/helpers/@types/getCommands.types';
 
 const getCommands: GetCommands = (args) => {
   const { config, language, formatter, runtime, packageManager, legacyConfig } = args;

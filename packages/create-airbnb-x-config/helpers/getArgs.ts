@@ -6,21 +6,21 @@ import {
   formatters,
   legacyConfigs,
 } from '@/constants';
-import type {
-  ConfigType,
-  FormatterType,
-  LanguageType,
-  LegacyConfigType,
-  PackageManagerType,
-  RuntimeType,
-  StrictConfigType,
-} from '@/constants/@types/index.type';
+import {
+  GetArgs,
+  GetConfig,
+  GetFormatter,
+  GetLanguage,
+  GetLegacyConfig,
+  GetPackageManagerFromOpts,
+  GetRuntime,
+  GetStrictConfig,
+} from '@/helpers/@types/getArgs.types';
+import { ProgramOpts } from '@/helpers/@types/program.types';
 import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
 
 // Get Config
-
-type GetConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['config'];
 
 const getConfig: GetConfig = (opts) => {
   const { config } = opts;
@@ -32,8 +32,6 @@ const getConfig: GetConfig = (opts) => {
 
 // Get Language
 
-type GetLanguage = (opts: Partial<ProgramOpts>) => GetArgsOutput['language'];
-
 const getLanguage: GetLanguage = (opts) => {
   const { language } = opts;
 
@@ -44,8 +42,6 @@ const getLanguage: GetLanguage = (opts) => {
 
 // Get Formatter
 
-type GetFormatter = (opts: Partial<ProgramOpts>) => GetArgsOutput['formatter'];
-
 const getFormatter: GetFormatter = (opts) => {
   const { formatter } = opts;
 
@@ -54,8 +50,6 @@ const getFormatter: GetFormatter = (opts) => {
 };
 
 // Get Runtime
-
-type GetRuntime = (opts: Partial<ProgramOpts>) => GetArgsOutput['runtime'];
 
 const getRuntime: GetRuntime = (opts) => {
   const { runtime } = opts;
@@ -74,8 +68,6 @@ const getRuntime: GetRuntime = (opts) => {
 
 // Get Strict Config
 
-type GetStrictConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['strictConfig'];
-
 const getStrictConfig: GetStrictConfig = (opts) => {
   const { strictConfig } = opts;
 
@@ -83,8 +75,6 @@ const getStrictConfig: GetStrictConfig = (opts) => {
 };
 
 // Get Legacy Config
-
-type GetLegacyConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['legacyConfig'];
 
 const getLegacyConfig: GetLegacyConfig = (opts) => {
   const { legacyConfig } = opts;
@@ -96,10 +86,6 @@ const getLegacyConfig: GetLegacyConfig = (opts) => {
 };
 
 // Get Package Manger from Opts
-
-type GetPackageManagerFromOpts = (
-  opts: Partial<ProgramOpts>,
-) => Promise<GetArgsOutput['packageManager']>;
 
 const getPackageManagerFromOpts: GetPackageManagerFromOpts = async (opts) => {
   const { packageManager } = opts;
@@ -113,26 +99,9 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = async (opts) => {
 
 // Get Args
 
-export interface ProgramOpts {
-  config: ConfigType;
-  language: LanguageType;
-  formatter: FormatterType;
-  runtime: Exclude<RuntimeType, typeof runtimes.REACT_ROUTER | typeof runtimes.REMIX>;
-  strictConfig: StrictConfigType;
-  legacyConfig: LegacyConfigType;
-  packageManager: PackageManagerType;
-  createEslintFile: true;
-  skipInstall: true;
-}
-
-export type GetArgsOutput = {
-  [K in keyof ProgramOpts]: K extends 'packageManager' ? ProgramOpts[K] : ProgramOpts[K] | null;
-};
-
-type GetArgs = () => Promise<GetArgsOutput>;
-
 const getArgs: GetArgs = async () => {
   const opts: Partial<ProgramOpts> = program.opts();
+  // FIXME
   console.log(opts);
 
   return {
