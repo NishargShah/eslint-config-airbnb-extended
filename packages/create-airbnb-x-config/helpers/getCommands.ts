@@ -35,7 +35,7 @@ const getCommands: GetCommands = (args) => {
   }
 
   if (configType === configTypes.EXTENDED) {
-    commands.push('@stylistic/eslint-plugin', 'eslint-plugin-import-x');
+    commands.push('@stylistic/eslint-plugin@^3.1.0', 'eslint-plugin-import-x');
 
     if (language === languages.REACT || language === languages.NEXT) {
       commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');

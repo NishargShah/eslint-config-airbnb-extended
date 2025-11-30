@@ -41,7 +41,7 @@
     "build": "tsdown",
     "build:dev": "tsdown --watch",
     "dev": "tsx index.ts",
-    "start": "node ./dist/index.js",
+    "start": "node ./dist/index.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -60,6 +60,6 @@
     "typescript": "catalog:"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   }
 }

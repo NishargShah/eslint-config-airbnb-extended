@@ -56,7 +56,7 @@ const getConfigUrl: GetConfigUrl = (args) => {
     .join('/');
 
   return {
-    path: `templates/${path}`,
+    path,
     url: pc.blue(`${baseGithubUrl}/${path}`),
   };
 };

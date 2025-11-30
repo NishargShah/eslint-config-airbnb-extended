@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/NishargShah/eslint-config-airbnb-extended.git",
-    "directory": "packages/templates"
+    "directory": "packages/build-templates"
   },
   "license": "MIT",
   "author": "Nisharg Shah <nishargshah3101@gmail.com>",
