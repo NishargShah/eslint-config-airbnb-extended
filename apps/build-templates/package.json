@@ -1,0 +1,29 @@
+{
+  "name": "build-templates",
+  "version": "3.0.0",
+  "private": true,
+  "homepage": "https://eslint-airbnb-extended.nishargshah.dev",
+  "bugs": {
+    "url": "https://github.com/NishargShah/eslint-config-airbnb-extended/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NishargShah/eslint-config-airbnb-extended.git",
+    "directory": "packages/templates"
+  },
+  "license": "MIT",
+  "author": "Nisharg Shah <nishargshah3101@gmail.com>",
+  "type": "module",
+  "scripts": {
+    "build": "tsx lib/index.ts",
+    "dev": "tsx lib/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import fsPromise from 'node:fs/promises';
 
-import { templateConstants } from '@/lib/templates/constants';
-import getFolders from '@/lib/templates/getFolders';
+import { templateConstants } from '@/lib/constants';
+import getFolders from '@/lib/getFolders';
 
 const { FOLDER_NAME } = templateConstants;
 

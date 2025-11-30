@@ -1,9 +1,9 @@
-import { configTypes, languages, legacyLanguages } from '@/constants';
-import { subFolders, templateConstants } from '@/lib/templates/constants';
-import getAllFolders from '@/lib/templates/getAllFolders';
-import getDefaultSubFolders from '@/lib/templates/getDefaultSubFolders';
+import { configTypes, languages, legacyLanguages } from '@cli/constants';
+import { subFolders, templateConstants } from '@/lib/constants';
+import getAllFolders from '@/lib/getAllFolders';
+import getDefaultSubFolders from '@/lib/getDefaultSubFolders';
 
-import type { Folders } from '@/lib/templates/getAllFolders';
+import type { Folders } from '@/lib/getAllFolders';
 
 type GetFolders = () => ReturnType<typeof getAllFolders>;
 

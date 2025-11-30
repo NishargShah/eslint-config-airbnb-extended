@@ -1,4 +1,4 @@
-import { configTypes, languages, legacyLanguages } from '@/constants';
+import { configTypes, languages, legacyLanguages } from '@cli/constants';
 import {
   defaultConfig,
   gitignoreCode,
@@ -9,12 +9,12 @@ import {
   reactConfig,
   startingComments,
   typescriptConfig,
-} from '@/lib/templates/configs';
-import { languagePreferences } from '@/lib/templates/constants';
-import contentFormatter from '@/lib/templates/contentFormatter';
+} from '@/lib/configs';
+import { languagePreferences } from '@/lib/constants';
+import contentFormatter from '@/lib/contentFormatter';
 
-import type { strictConfigs } from '@/constants';
-import type { ValueOf } from '@/utils/types';
+import type { strictConfigs } from '@cli/constants';
+import type { ValueOf } from '@cli/types';
 
 interface GetContentConfigurations {
   prettier: boolean;
