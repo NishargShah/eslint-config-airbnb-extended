@@ -94,12 +94,12 @@ const getLegacyConfig: GetLegacyConfig = (opts) => {
 type GetPackageManagerFromOpts = (opts: Partial<ProgramOpts>) => GetArgsOutput['packageManager'];
 
 const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
-  const { useNpm, useYarn, usePnpm, useBun } = opts;
+  const { packageManager } = opts;
 
-  if (useNpm) return packageManagers.NPM;
-  if (useYarn) return packageManagers.YARN;
-  if (usePnpm) return packageManagers.PNPM;
-  if (useBun) return packageManagers.BUN;
+  if (packageManager === packageManagers.NPM) return packageManagers.NPM;
+  if (packageManager === packageManagers.YARN) return packageManagers.YARN;
+  if (packageManager === packageManagers.PNPM) return packageManagers.PNPM;
+  if (packageManager === packageManagers.BUN) return packageManagers.BUN;
   return null;
 };
 
@@ -109,7 +109,6 @@ export interface ProgramOpts {
   config: ValueOf<typeof configs>;
   language: ValueOf<typeof languages>;
   formatter: ValueOf<typeof formatters>;
-  prettier: true;
   react: true;
   reactRouter: true;
   next: true;
@@ -120,10 +119,7 @@ export interface ProgramOpts {
   legacyBaseConfig: true;
   legacyReactConfig: true;
   legacyReactHooksConfig: true;
-  useNpm: true;
-  useYarn: true;
-  usePnpm: true;
-  useBun: true;
+  packageManager: ValueOf<typeof packageManagers>;
   createEslintFile: true;
   skipInstall: true;
 }
@@ -141,7 +137,7 @@ export interface GetArgsOutput {
   strictConfig: ValueOf<typeof strictConfigs>[] | null;
   runtime: ValueOf<typeof runtimes> | null;
   legacyConfig: GetArgsLegacyConfig | null;
-  packageManager: ValueOf<typeof packageManagers> | null;
+  packageManager: ProgramOpts['packageManager'] | null;
   createESLintFile: true | null;
   skipInstall: true | null;
 }
