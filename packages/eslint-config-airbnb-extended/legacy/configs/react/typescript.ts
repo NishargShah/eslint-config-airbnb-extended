@@ -41,6 +41,6 @@ const legacyReactTypescriptConfig = [
       'import/extensions': tsExtensionsWithReactDTS,
     },
   },
-] satisfies Linter.Config[];
+] as Linter.Config[];
 
 export default legacyReactTypescriptConfig;
