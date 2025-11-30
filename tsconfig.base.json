@@ -1,20 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
     "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "useUnknownInCatchVariables": true,
+    "noEmitOnError": true,
     "isolatedModules": true,
     "declaration": true
   },
   "files": [],
   "references": [
+    {
+      "path": "docs"
+    },
     {
       "path": "packages/create-airbnb-x-config"
     },
