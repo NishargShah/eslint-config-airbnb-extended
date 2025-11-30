@@ -1,13 +1,14 @@
 import pc from 'picocolors';
 
-import { configTypes, legacyLanguages } from '@/constants';
-import { subFolders } from '@/lib/templates/constants';
+import {
+  baseGithubUrl,
+  configTypes,
+  eslintConfigName,
+  legacyLanguages,
+  subFolders,
+} from '@/constants';
 
-import type { NonNullableArgsOutput } from '@/utils/types';
-
-export const eslintConfigName = 'eslint.config.mjs';
-export const baseGithubUrl =
-  'https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/packages/create-airbnb-x-config/templates';
+import type { NonNullableArgsOutput } from '@/types';
 
 interface GetConfigUrlOutput {
   path: string;

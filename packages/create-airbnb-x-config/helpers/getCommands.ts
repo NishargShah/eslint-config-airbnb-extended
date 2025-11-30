@@ -1,6 +1,6 @@
 import { configTypes, languages, packageManagers } from '@/constants';
 
-import type { NonNullableArgsOutput } from '@/utils/types';
+import type { NonNullableArgsOutput } from '@/types';
 
 export type GetCommands = (
   args: Omit<NonNullableArgsOutput, 'createESLintFile' | 'skipInstall'>,

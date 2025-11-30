@@ -2,7 +2,7 @@ import { configTypes, languages, packageManagers, strictConfigs } from '@/consta
 import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
 
-import type { ValueOf } from '@/utils/types';
+import type { ValueOf } from '@/types';
 
 // Get Config Type
 

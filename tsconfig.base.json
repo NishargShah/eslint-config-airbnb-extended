@@ -17,6 +17,9 @@
   "files": [],
   "references": [
     {
+      "path": "apps/build-templates"
+    },
+    {
       "path": "docs"
     },
     {

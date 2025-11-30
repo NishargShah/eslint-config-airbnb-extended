@@ -1,10 +1,11 @@
 import fsPromise from 'node:fs/promises';
 import path from 'node:path';
 
-import getConfigUrl, { eslintConfigName } from '@/helpers/getConfigUrl';
+import getConfigUrl from '@/helpers/getConfigUrl';
 import { packageRootPath, rootPath } from '@/utils';
 
 import type { GetConfigUrl } from '@/helpers/getConfigUrl';
+import { eslintConfigName } from '@/constants';
 
 type CreateESLintConfigFile = (args: Parameters<GetConfigUrl>[0]) => Promise<void>;
 

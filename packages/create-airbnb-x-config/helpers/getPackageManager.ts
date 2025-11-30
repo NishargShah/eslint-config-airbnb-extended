@@ -2,7 +2,7 @@ import { detect } from 'package-manager-detector/detect';
 
 import { packageManagers } from '@/constants';
 
-import type { ValueOf } from '@/utils/types';
+import type { ValueOf } from '@/types';
 
 export type PackageManager = ValueOf<typeof packageManagers>;
 

@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 
-import { eslintConfigName } from '@/helpers/getConfigUrl';
 import { name, version } from '@/package.json';
+import { eslintConfigName } from '@/constants';
 
 /**
  * Program Command
