@@ -1,5 +1,5 @@
-import { ProgramOpts } from '@/helpers/@types/program.types';
+import { ArgsOutput } from '@/helpers/@types/getArgs.types';
 
-export type GetCommandsParams = Omit<ProgramOpts, 'createEslintFile' | 'skipInstall'>;
+export type GetCommandsParams = Omit<ArgsOutput, 'createEslintFile' | 'skipInstall'>;
 
 export type GetCommands = (args: GetCommandsParams) => string[];

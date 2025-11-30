@@ -1,7 +1,7 @@
-import { ProgramOpts } from '@/helpers/@types/program.types';
+import { ArgsOutput } from '@/helpers/@types/getArgs.types';
 
 export type GetConfigUrlParams = Pick<
-  ProgramOpts,
+  ArgsOutput,
   'config' | 'language' | 'formatter' | 'strictConfig' | 'runtime' | 'legacyConfig'
 >;
 

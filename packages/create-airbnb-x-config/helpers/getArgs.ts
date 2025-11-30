@@ -5,20 +5,22 @@ import {
   languages,
   formatters,
   legacyConfigs,
+  stringBooleans,
 } from '@/constants';
 import {
   GetArgs,
   GetConfig,
+  GetCreateEslintFile,
   GetFormatter,
   GetLanguage,
   GetLegacyConfig,
   GetPackageManagerFromOpts,
   GetRuntime,
+  GetSkipInstall,
   GetStrictConfig,
 } from '@/helpers/@types/getArgs.types';
-import { ProgramOpts } from '@/helpers/@types/program.types';
 import { getPackageManager } from '@/helpers/getPackageManager';
-import program from '@/helpers/program';
+import getProgramOptions from '@/helpers/getProgramOptions';
 
 // Get Config
 
@@ -97,10 +99,26 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = async (opts) => {
   return await getPackageManager();
 };
 
+// Get Eslint File
+
+const getCreateEslintFile: GetCreateEslintFile = (opts) => {
+  const { createEslintFile } = opts;
+
+  return createEslintFile ? createEslintFile === stringBooleans.TRUE : null;
+};
+
+// Get Skip Install
+
+const getSkipInstall: GetSkipInstall = (opts) => {
+  const { skipInstall } = opts;
+
+  return skipInstall ? skipInstall === stringBooleans.TRUE : null;
+};
+
 // Get Args
 
 const getArgs: GetArgs = async () => {
-  const opts: Partial<ProgramOpts> = program.opts();
+  const opts = getProgramOptions();
   // FIXME
   console.log(opts);
 
@@ -112,8 +130,8 @@ const getArgs: GetArgs = async () => {
     strictConfig: getStrictConfig(opts),
     legacyConfig: getLegacyConfig(opts),
     packageManager: await getPackageManagerFromOpts(opts),
-    createEslintFile: opts.createEslintFile ? true : null,
-    skipInstall: opts.skipInstall ? true : null,
+    createEslintFile: getCreateEslintFile(opts),
+    skipInstall: getSkipInstall(opts),
   };
 };
 

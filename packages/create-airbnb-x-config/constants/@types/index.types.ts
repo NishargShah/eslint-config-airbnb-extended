@@ -6,6 +6,7 @@ import type {
   packageManagers,
   runtimes,
   strictConfigs,
+  stringBooleans,
 } from '@/constants';
 import type { ValueOf } from 'type-fest';
 
@@ -22,3 +23,5 @@ export type StrictConfigType = ValueOf<typeof strictConfigs>;
 export type LegacyConfigType = ValueOf<typeof legacyConfigs>;
 
 export type PackageManagerType = ValueOf<typeof packageManagers>;
+
+export type StringBooleanType = ValueOf<typeof stringBooleans>;

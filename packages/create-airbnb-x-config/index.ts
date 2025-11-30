@@ -20,7 +20,7 @@ import getConfigUrl from '@/helpers/getConfigUrl';
 import installPackages from '@/helpers/installPackages';
 import { exit, handleSigTerm, onCancel, onPromptState } from '@/utils';
 
-import { ProgramOpts } from '@/helpers/@types/program.types';
+import { ArgsOutput } from '@/helpers/@types/getArgs.types';
 
 process.on('SIGINT', handleSigTerm);
 process.on('SIGTERM', handleSigTerm);
@@ -285,7 +285,7 @@ const run = async () => {
     args = { ...args, skipInstall };
   }
 
-  const newArgs = args as ProgramOpts;
+  const newArgs = args as ArgsOutput;
   const commands = getCommands(newArgs);
   const command = commands.join(' ');
   console.log();

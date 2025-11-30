@@ -39,6 +39,11 @@ export const packageManagers = {
   BUN: 'bun',
 } as const;
 
+export const stringBooleans = {
+  TRUE: 'true',
+  FALSE: 'false',
+} as const;
+
 export const defaults = {
   config: configs.EXTENDED,
   language: languages.TYPESCRIPT,
