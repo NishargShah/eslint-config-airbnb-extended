@@ -6,7 +6,6 @@ import {
   eslintConfigName,
   formatters,
   languages,
-  legacyLanguages,
   subFolders,
 } from '@/constants';
 
@@ -30,15 +29,7 @@ const getConfigUrl: GetConfigUrl = (args) => {
 
   const prettierText = formatter === formatters.PRETTIER ? 'prettier' : null;
   const tsOrJsText = language === languages.TYPESCRIPT ? 'ts' : 'js';
-  const legacyLanguage = (() => {
-    if (config === configs.EXTENDED) return null;
-
-    if (legacyConfig.base) return legacyLanguages.BASE;
-    // NOTE: React Hooks should come first in the condition, because if someone selects "Yes", it must appear in the config otherwise, it won’t be reached.
-    if (legacyConfig.reactHooks) return legacyLanguages.REACT_HOOKS;
-    if (legacyConfig.react) return legacyLanguages.REACT;
-    return null;
-  })();
+  const legacyLanguage = config === configs.EXTENDED ? null : legacyConfig;
 
   const strictOrDefaultText = (() => {
     if (!strictConfig || strictConfig.length === 0) return [subFolders.DEFAULT];

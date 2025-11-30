@@ -57,6 +57,7 @@
     "rimraf": "catalog:",
     "tsdown": "catalog:",
     "tsx": "catalog:",
+    "type-fest": "catalog:",
     "typescript": "catalog:"
   },
   "engines": {

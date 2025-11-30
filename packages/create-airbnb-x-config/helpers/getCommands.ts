@@ -1,4 +1,11 @@
-import { configs, runtimes, packageManagers, languages, formatters } from '@/constants';
+import {
+  configs,
+  runtimes,
+  packageManagers,
+  languages,
+  formatters,
+  legacyConfigs,
+} from '@/constants';
 
 import type { NonNullableArgsOutput } from '@/types';
 
@@ -53,16 +60,12 @@ const getCommands: GetCommands = (args) => {
   if (config === configs.LEGACY) {
     commands.push('eslint-plugin-import');
 
-    if (legacyConfig) {
-      const { react, reactHooks } = legacyConfig;
+    if (legacyConfig === legacyConfigs.REACT || legacyConfig === legacyConfigs.REACT_HOOKS) {
+      commands.push('eslint-plugin-react', 'eslint-plugin-jsx-a11y');
+    }
 
-      if (react) {
-        commands.push('eslint-plugin-react', 'eslint-plugin-jsx-a11y');
-      }
-
-      if (reactHooks) {
-        commands.push('eslint-plugin-react-hooks');
-      }
+    if (legacyConfig === legacyConfigs.REACT_HOOKS) {
+      commands.push('eslint-plugin-react-hooks');
     }
   }
 

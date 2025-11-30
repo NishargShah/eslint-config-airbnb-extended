@@ -192,17 +192,17 @@ const run = async () => {
 
         args = { ...args, strictConfig };
       } else {
-        args = { ...args, strictConfig: [] };
+        args = { ...args, strictConfig: null };
       }
     }
   }
 
   if (args.config === configs.LEGACY) {
-    if (!args.legacyConfig || args.legacyConfig.base === null || args.legacyConfig.react === null) {
-      const { legacyConfigType } = await prompts(
+    if (!args.legacyConfig) {
+      const { legacyConfig } = await prompts(
         {
           type: 'select',
-          name: 'legacyConfigType',
+          name: 'legacyConfig',
           message: 'Are you using?',
           choices: [
             {
@@ -223,17 +223,10 @@ const run = async () => {
         },
       );
 
-      args = {
-        ...args,
-        legacyConfig: {
-          ...args.legacyConfig,
-          base: legacyConfigType === legacyConfigs.BASE,
-          react: legacyConfigType === legacyConfigs.REACT,
-        },
-      };
+      args = { ...args, legacyConfig };
     }
 
-    if (args.legacyConfig?.react && args.legacyConfig.reactHooks === null) {
+    if (args.legacyConfig === legacyConfigs.REACT) {
       const { reactHooks } = await prompts(
         {
           type: 'toggle',
@@ -249,23 +242,18 @@ const run = async () => {
         },
       );
 
-      args = {
-        ...args,
-        legacyConfig: {
-          ...args.legacyConfig,
-          reactHooks,
-        },
-      };
+      const legacyConfig = reactHooks ? legacyConfigs.REACT_HOOKS : args.legacyConfig;
+      args = { ...args, legacyConfig };
     }
   }
 
-  if (args.createESLintFile === null) {
-    const { createESLintFile } = await prompts(
+  if (args.createEslintFile === null) {
+    const { createEslintFile } = await prompts(
       {
         type: 'toggle',
-        name: 'createESLintFile',
+        name: 'createEslintFile',
         message: `Should I create an ${pc.blue(eslintConfigName)} file for you?`,
-        initial: defaults.createESLintFile,
+        initial: defaults.createEslintFile,
         active: 'Yes',
         inactive: 'No',
         onState: onPromptState,
@@ -275,7 +263,7 @@ const run = async () => {
       },
     );
 
-    args = { ...args, createESLintFile };
+    args = { ...args, createEslintFile };
   }
 
   if (args.skipInstall === null) {
@@ -302,7 +290,7 @@ const run = async () => {
   const command = commands.join(' ');
   console.log();
 
-  if (args.createESLintFile) await createESLintConfigFile(newArgs);
+  if (args.createEslintFile) await createESLintConfigFile(newArgs);
 
   if (args.skipInstall) {
     console.log(
@@ -325,7 +313,7 @@ const run = async () => {
   }
 
   console.log();
-  console.log(pc.cyan(args.createESLintFile ? 'Created Config:' : 'Config:'));
+  console.log(pc.cyan(args.createEslintFile ? 'Created Config:' : 'Config:'));
   console.log(getConfigUrl(newArgs)?.url);
 
   console.log();

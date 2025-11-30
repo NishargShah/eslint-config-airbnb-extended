@@ -6,6 +6,7 @@ import {
   eslintConfigName,
   formatters,
   languages,
+  legacyConfigs,
   packageManagers,
   runtimes,
   strictConfigs,
@@ -13,7 +14,7 @@ import {
 
 /**
  * Program Command
- * @example: pnpm cli:start --config extended --lang javascript --formatter prettier --runtime react --strict import react --legacy-base-config --legacy-react-config --legacy-react-hooks-config --pm pnpm --create-eslint-file --skip-install
+ * @example: pnpm cli:start --config extended --lang javascript --formatter prettier --runtime react --strict import react --pm pnpm --create-eslint-file --skip-install
  */
 const program = new Command()
   .name(name)
@@ -63,9 +64,12 @@ const program = new Command()
       .conflicts(['legacy-config']),
   )
 
-  .option('--legacy-base-config', 'Include the legacy Base ESLint configuration.')
-  .option('--legacy-react-config', 'Include the legacy React ESLint configuration.')
-  .option('--legacy-react-hooks-config', 'Include the legacy React Hooks ESLint configuration.')
+  // Legacy Config
+  .addOption(
+    new Option('--legacy, --legacy-config <config>', 'Include the selected legacy ESLint config.')
+      .choices(Object.values(legacyConfigs))
+      .conflicts(['runtime', 'strict-configs']),
+  )
 
   // Package Manager
   .addOption(

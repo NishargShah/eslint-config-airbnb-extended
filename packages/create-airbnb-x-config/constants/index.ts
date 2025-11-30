@@ -1,3 +1,8 @@
+export const configs = {
+  EXTENDED: 'extended',
+  LEGACY: 'legacy',
+} as const;
+
 export const languages = {
   JAVASCRIPT: 'javascript',
   TYPESCRIPT: 'typescript',
@@ -21,19 +26,10 @@ export const strictConfigs = {
   TYPESCRIPT: 'typescript',
 } as const;
 
-export const configs = {
-  EXTENDED: 'extended',
-  LEGACY: 'legacy',
-} as const;
-
-export const defaults = {
-  config: configs.EXTENDED,
-  language: languages.TYPESCRIPT,
-  formatter: formatters.PRETTIER,
-  strictConfig: false,
-  legacyReactHooks: true,
-  createESLintFile: true,
-  skipInstall: false,
+export const legacyConfigs = {
+  BASE: 'base',
+  REACT: 'react',
+  REACT_HOOKS: 'react-hooks',
 } as const;
 
 export const packageManagers = {
@@ -43,22 +39,21 @@ export const packageManagers = {
   BUN: 'bun',
 } as const;
 
-export const legacyConfigs = {
-  BASE: 'base',
-  REACT: 'react',
-} as const;
-
-export const legacyLanguages = {
-  BASE: 'base',
-  REACT: 'react',
-  REACT_HOOKS: 'react-hooks',
+export const defaults = {
+  config: configs.EXTENDED,
+  language: languages.TYPESCRIPT,
+  formatter: formatters.PRETTIER,
+  strictConfig: false,
+  legacyReactHooks: true,
+  createEslintFile: true,
+  skipInstall: false,
 } as const;
 
 // This constant is based on /apps/templates/lib/constants.ts
 export const subFolders = {
   DEFAULT: 'default',
   STRICT: 'strict',
-};
+} as const;
 
 export const eslintConfigName = 'eslint.config.mjs';
 

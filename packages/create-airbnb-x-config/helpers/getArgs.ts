@@ -2,14 +2,21 @@ import {
   configs,
   runtimes,
   packageManagers,
-  strictConfigs,
   languages,
   formatters,
+  legacyConfigs,
 } from '@/constants';
+import type {
+  ConfigType,
+  FormatterType,
+  LanguageType,
+  LegacyConfigType,
+  PackageManagerType,
+  RuntimeType,
+  StrictConfigType,
+} from '@/constants/@types/index.type';
 import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
-
-import type { ValueOf } from '@/types';
 
 // Get Config
 
@@ -77,65 +84,50 @@ const getStrictConfig: GetStrictConfig = (opts) => {
 
 // Get Legacy Config
 
-type GetLegacyConfig = (opts: Partial<ProgramOpts>) => NonNullable<GetArgsOutput['legacyConfig']>;
+type GetLegacyConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['legacyConfig'];
 
 const getLegacyConfig: GetLegacyConfig = (opts) => {
-  const { legacyBaseConfig, legacyReactConfig, legacyReactHooksConfig } = opts;
+  const { legacyConfig } = opts;
 
-  return {
-    base: legacyBaseConfig ?? (legacyReactConfig ? false : null),
-    react: legacyReactConfig ?? (legacyBaseConfig ? false : null),
-    reactHooks: legacyReactHooksConfig ?? null,
-  } satisfies GetArgsLegacyConfig;
+  if (legacyConfig === legacyConfigs.BASE) return legacyConfigs.BASE;
+  if (legacyConfig === legacyConfigs.REACT) return legacyConfigs.REACT;
+  if (legacyConfig === legacyConfigs.REACT_HOOKS) return legacyConfigs.REACT_HOOKS;
+  return null;
 };
 
 // Get Package Manger from Opts
 
-type GetPackageManagerFromOpts = (opts: Partial<ProgramOpts>) => GetArgsOutput['packageManager'];
+type GetPackageManagerFromOpts = (
+  opts: Partial<ProgramOpts>,
+) => Promise<GetArgsOutput['packageManager']>;
 
-const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
+const getPackageManagerFromOpts: GetPackageManagerFromOpts = async (opts) => {
   const { packageManager } = opts;
 
   if (packageManager === packageManagers.NPM) return packageManagers.NPM;
   if (packageManager === packageManagers.YARN) return packageManagers.YARN;
   if (packageManager === packageManagers.PNPM) return packageManagers.PNPM;
   if (packageManager === packageManagers.BUN) return packageManagers.BUN;
-  return null;
+  return await getPackageManager();
 };
 
 // Get Args
 
 export interface ProgramOpts {
-  config: ValueOf<typeof configs>;
-  language: ValueOf<typeof languages>;
-  formatter: ValueOf<typeof formatters>;
-  runtime: Exclude<ValueOf<typeof runtimes>, typeof runtimes.REACT_ROUTER | typeof runtimes.REMIX>;
-  strictConfig: ValueOf<typeof strictConfigs>[];
-  legacyBaseConfig: true;
-  legacyReactConfig: true;
-  legacyReactHooksConfig: true;
-  packageManager: ValueOf<typeof packageManagers>;
+  config: ConfigType;
+  language: LanguageType;
+  formatter: FormatterType;
+  runtime: Exclude<RuntimeType, typeof runtimes.REACT_ROUTER | typeof runtimes.REMIX>;
+  strictConfig: StrictConfigType;
+  legacyConfig: LegacyConfigType;
+  packageManager: PackageManagerType;
   createEslintFile: true;
   skipInstall: true;
 }
 
-interface GetArgsLegacyConfig {
-  base?: boolean | null;
-  react?: boolean | null;
-  reactHooks?: boolean | null;
-}
-
-export interface GetArgsOutput {
-  config: ProgramOpts['config'] | null;
-  language: ProgramOpts['language'] | null;
-  formatter: ProgramOpts['formatter'] | null;
-  runtime: ProgramOpts['runtime'] | null;
-  strictConfig: ProgramOpts['strictConfig'] | null;
-  legacyConfig: GetArgsLegacyConfig | null;
-  packageManager: ProgramOpts['packageManager'] | null;
-  createESLintFile: true | null;
-  skipInstall: true | null;
-}
+export type GetArgsOutput = {
+  [K in keyof ProgramOpts]: K extends 'packageManager' ? ProgramOpts[K] : ProgramOpts[K] | null;
+};
 
 type GetArgs = () => Promise<GetArgsOutput>;
 
@@ -150,8 +142,8 @@ const getArgs: GetArgs = async () => {
     runtime: getRuntime(opts),
     strictConfig: getStrictConfig(opts),
     legacyConfig: getLegacyConfig(opts),
-    packageManager: getPackageManagerFromOpts(opts) ?? (await getPackageManager()),
-    createESLintFile: opts.createEslintFile ? true : null,
+    packageManager: await getPackageManagerFromOpts(opts),
+    createEslintFile: opts.createEslintFile ? true : null,
     skipInstall: opts.skipInstall ? true : null,
   };
 };
