@@ -1,30 +1,48 @@
-import { configs, languages, packageManagers, strictConfigs } from '@/constants';
+import {
+  configs,
+  runtimes,
+  packageManagers,
+  strictConfigs,
+  languages,
+  formatters,
+} from '@/constants';
 import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
 
 import type { ValueOf } from '@/types';
 
-// Get Config Type
+// Get Config
 
 type GetConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['config'];
 
 const getConfig: GetConfig = (opts) => {
-  const { extended, legacy } = opts;
+  const { config } = opts;
 
-  if (extended) return configs.EXTENDED;
-  if (legacy) return configs.LEGACY;
+  if (config === configs.EXTENDED) return configs.EXTENDED;
+  if (config === configs.LEGACY) return configs.LEGACY;
   return null;
 };
 
-// Get Typescript Value
+// Get Language
 
-type GetTypescript = (opts: Partial<ProgramOpts>) => GetArgsOutput['typescript'];
+type GetLanguage = (opts: Partial<ProgramOpts>) => GetArgsOutput['language'];
 
-const getTypescript: GetTypescript = (opts) => {
-  const { typescript, javascript } = opts;
+const getLanguage: GetLanguage = (opts) => {
+  const { language } = opts;
 
-  if (typescript) return true;
-  if (javascript) return false;
+  if (language === languages.JAVASCRIPT) return languages.JAVASCRIPT;
+  if (language === languages.TYPESCRIPT) return languages.TYPESCRIPT;
+  return null;
+};
+
+// Get Formatter
+
+type GetFormatter = (opts: Partial<ProgramOpts>) => GetArgsOutput['formatter'];
+
+const getFormatter: GetFormatter = (opts) => {
+  const { formatter } = opts;
+
+  if (formatter === formatters.PRETTIER) return formatters.PRETTIER;
   return null;
 };
 
@@ -44,16 +62,16 @@ const getStrictConfig: GetStrictConfig = (opts) => {
   return strictConfig.length > 0 ? strictConfig : null;
 };
 
-// Get Language
+// Get Runtime
 
-type GetLanguage = (opts: Partial<ProgramOpts>) => GetArgsOutput['language'];
+type GetRuntime = (opts: Partial<ProgramOpts>) => GetArgsOutput['runtime'];
 
-const getLanguage: GetLanguage = (opts) => {
+const getRuntime: GetRuntime = (opts) => {
   const { react, reactRouter, next, node } = opts;
 
-  if (react || reactRouter) return languages.REACT;
-  if (next) return languages.NEXT;
-  if (node) return languages.NODE;
+  if (react || reactRouter) return runtimes.REACT;
+  if (next) return runtimes.NEXT;
+  if (node) return runtimes.NODE;
   return null;
 };
 
@@ -88,10 +106,9 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = (opts) => {
 // Get Args
 
 export interface ProgramOpts {
-  extended: true;
-  legacy: true;
-  typescript: true;
-  javascript: true;
+  config: ValueOf<typeof configs>;
+  language: ValueOf<typeof languages>;
+  formatter: ValueOf<typeof formatters>;
   prettier: true;
   react: true;
   reactRouter: true;
@@ -118,11 +135,11 @@ interface GetArgsLegacyConfig {
 }
 
 export interface GetArgsOutput {
-  config: ValueOf<typeof configs> | null;
-  typescript: boolean | null;
-  prettier: true | null;
+  config: ProgramOpts['config'] | null;
+  language: ProgramOpts['language'] | null;
+  formatter: ProgramOpts['formatter'] | null;
   strictConfig: ValueOf<typeof strictConfigs>[] | null;
-  language: ValueOf<typeof languages> | null;
+  runtime: ValueOf<typeof runtimes> | null;
   legacyConfig: GetArgsLegacyConfig | null;
   packageManager: ValueOf<typeof packageManagers> | null;
   createESLintFile: true | null;
@@ -137,10 +154,10 @@ const getArgs: GetArgs = async () => {
 
   return {
     config: getConfig(opts),
-    typescript: getTypescript(opts),
-    prettier: opts.prettier ? true : null,
-    strictConfig: getStrictConfig(opts),
     language: getLanguage(opts),
+    formatter: getFormatter(opts),
+    strictConfig: getStrictConfig(opts),
+    runtime: getRuntime(opts),
     legacyConfig: getLegacyConfig(opts),
     packageManager: getPackageManagerFromOpts(opts) ?? (await getPackageManager()),
     createESLintFile: opts.createEslintFile ? true : null,

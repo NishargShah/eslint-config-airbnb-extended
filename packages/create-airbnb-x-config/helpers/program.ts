@@ -1,11 +1,11 @@
 import { Command, Option } from 'commander';
 
 import { name, version } from '@/package.json';
-import { configs, eslintConfigName } from '@/constants';
+import { configs, eslintConfigName, formatters, languages } from '@/constants';
 
 /**
  * Program Command
- * @example: pnpm cli:start --extended --legacy --ts --js --prettier --react --remix --next --node --strict-import-config --strict-react-config --strict-typescript-config --legacy-base-config --legacy-react-config --legacy-react-hooks-config --use-npm --use-yarn --use-pnpm --use-bun --create-eslint-file --skip-install
+ * @example: pnpm cli:start --config extended --language typescript --formatter prettier --react --remix --next --node --strict-import-config --strict-react-config --strict-typescript-config --legacy-base-config --legacy-react-config --legacy-react-hooks-config --use-npm --use-yarn --use-pnpm --use-bun --create-eslint-file --skip-install
  */
 const program = new Command()
   .name(name)
@@ -14,14 +14,27 @@ const program = new Command()
 
   // Config
   .addOption(
-    new Option('--config <type>', 'Explicitly tell the CLI to use this config').choices(
+    new Option('--config <config>', 'Explicitly tell the CLI to use selected config').choices(
       Object.values(configs),
     ),
   )
 
-  .option('--ts, --typescript', 'Generate configuration for a TypeScript project.')
-  .option('--js, --javascript', 'Generate configuration for a JavaScript project.')
-  .option('--prettier', 'Include Prettier specific linting rules.')
+  // Language
+  .addOption(
+    new Option(
+      '--language <lang>',
+      'Generate configuration for a selected language project',
+    ).choices(Object.values(languages)),
+  )
+
+  // Formatters
+  .addOption(
+    new Option(
+      '--formatter <formatter>',
+      'Include selected formatter for specific linting rules',
+    ).choices(Object.values(formatters)),
+  )
+
   .option('--react', 'Include React specific linting rules.')
   .option('--remix, --react-router', 'Include Remix/React Router specific linting rules.')
   .option('--next', 'Include Next.js specific linting rules.')

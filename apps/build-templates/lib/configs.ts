@@ -1,4 +1,4 @@
-import { configs, languages, legacyLanguages, strictConfigs } from '@cli/constants';
+import { configs, runtimes, legacyLanguages, strictConfigs } from '@cli/constants';
 import { languagePreferences } from '@/lib/constants';
 
 import type { Content } from '@/lib/contentFormatter';
@@ -93,7 +93,7 @@ export const jsConfig: Config = ({ type, language, strictConfig }) => {
 
 export const reactConfig: Config = ({ type, language, strictConfig }) => {
   const isLegacy = type === configs.LEGACY;
-  const isNextJs = language === languages.NEXT;
+  const isNextJs = language === runtimes.NEXT;
   const hasStrictReactConfig = strictConfig.includes(strictConfigs.REACT);
 
   const reactArray = [
@@ -170,8 +170,8 @@ export const typescriptConfig: Config = ({ type, language, strictConfig }) => {
       ...(hasStrictTypescriptConfig
         ? ['// Strict TypeScript Config', 'rules.typescript.typescriptEslintStrict,']
         : []),
-      ...(language === languages.REACT ? reactArray : []),
-      ...(language === languages.NEXT ? nextArray : []),
+      ...(language === runtimes.REACT ? reactArray : []),
+      ...(language === runtimes.NEXT ? nextArray : []),
     ],
     '];',
   ];
@@ -223,11 +223,11 @@ export const defaultConfig: Config = ({ type, language, languagePreference, conf
       '...jsConfig,',
       ...((isLegacy &&
         ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
-      (!isLegacy && language === languages.REACT)
+      (!isLegacy && language === runtimes.REACT)
         ? reactArray
         : []),
-      ...(!isLegacy && language === languages.NEXT ? nextArray : []),
-      ...(!isLegacy && language === languages.NODE ? nodeArray : []),
+      ...(!isLegacy && language === runtimes.NEXT ? nextArray : []),
+      ...(!isLegacy && language === runtimes.NODE ? nodeArray : []),
       ...(languagePreference === languagePreferences.TYPESCRIPT ? typescriptArray : []),
       ...(configurations.prettier ? prettierArray : []),
     ],

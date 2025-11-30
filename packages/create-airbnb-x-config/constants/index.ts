@@ -1,4 +1,13 @@
 export const languages = {
+  JAVASCRIPT: 'javascript',
+  TYPESCRIPT: 'typescript',
+} as const;
+
+export const formatters = {
+  PRETTIER: 'prettier',
+} as const;
+
+export const runtimes = {
   REACT: 'react',
   NEXT: 'next',
   NODE: 'node',
@@ -17,8 +26,8 @@ export const configs = {
 
 export const defaults = {
   config: configs.EXTENDED,
-  typescript: true,
-  prettier: true,
+  language: languages.TYPESCRIPT,
+  formatter: formatters.PRETTIER,
   strictConfig: false,
   legacyReactHooks: true,
   createESLintFile: true,

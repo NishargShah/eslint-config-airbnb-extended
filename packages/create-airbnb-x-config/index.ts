@@ -7,9 +7,11 @@ import {
   configs,
   defaults,
   eslintConfigName,
-  languages,
+  runtimes,
   legacyConfigs,
   strictConfigs,
+  languages,
+  formatters,
 } from '@/constants';
 import createESLintConfigFile from '@/helpers/createEslintConfigFile';
 import getArgs from '@/helpers/getArgs';
@@ -27,11 +29,11 @@ const run = async () => {
   let args = await getArgs();
 
   if (args.config === null) {
-    const { configTypeBoolean } = await prompts(
+    const { configBoolean } = await prompts(
       {
         type: 'toggle',
-        name: 'configTypeBoolean',
-        message: 'Config type?',
+        name: 'configBoolean',
+        message: 'Config?',
         initial: defaults.config === configs.EXTENDED,
         active: 'Extended',
         inactive: 'Legacy',
@@ -42,7 +44,7 @@ const run = async () => {
       },
     );
 
-    const config = configTypeBoolean ? configs.EXTENDED : configs.LEGACY;
+    const config = configBoolean ? configs.EXTENDED : configs.LEGACY;
     args = {
       ...args,
       config,
@@ -51,18 +53,18 @@ const run = async () => {
             legacyConfig: null,
           }
         : {
-            language: null,
+            runtime: null,
           }),
     };
   }
 
-  if (args.typescript === null) {
-    const { typescript } = await prompts(
+  if (args.language === null) {
+    const { languageBoolean } = await prompts(
       {
         type: 'toggle',
-        name: 'typescript',
+        name: 'languageBoolean',
         message: `Are you using ${pc.blue('typescript')}?`,
-        initial: defaults.typescript,
+        initial: defaults.language === languages.TYPESCRIPT,
         active: 'Yes',
         inactive: 'No',
         onState: onPromptState,
@@ -72,16 +74,17 @@ const run = async () => {
       },
     );
 
-    args = { ...args, typescript };
+    const language = languageBoolean ? languages.TYPESCRIPT : languages.JAVASCRIPT;
+    args = { ...args, language };
   }
 
-  if (args.prettier === null) {
-    const { prettier } = await prompts(
+  if (args.formatter === null) {
+    const { formatterBoolean } = await prompts(
       {
         type: 'toggle',
-        name: 'prettier',
+        name: 'formatterBoolean',
         message: `Are you using ${pc.cyan('prettier')}?`,
-        initial: defaults.prettier,
+        initial: defaults.formatter === formatters.PRETTIER,
         active: 'Yes',
         inactive: 'No',
         onState: onPromptState,
@@ -91,15 +94,16 @@ const run = async () => {
       },
     );
 
-    args = { ...args, prettier };
+    const formatter = formatterBoolean ? formatters.PRETTIER : null;
+    args = { ...args, formatter };
   }
 
   if (args.config === configs.EXTENDED) {
-    if (!args.language) {
-      const { language } = await prompts(
+    if (!args.runtime) {
+      const { runtime } = await prompts(
         {
           type: 'select',
-          name: 'language',
+          name: 'runtime',
           message: 'Are you using?',
           choices: [
             {
@@ -107,17 +111,17 @@ const run = async () => {
               description: pc.cyanBright(
                 'You are using React.js library or Remix ( React Router 7 ) framework',
               ),
-              value: languages.REACT,
+              value: runtimes.REACT,
             },
             {
               title: 'Next',
               description: pc.blackBright('You are using Next.js framework'),
-              value: languages.NEXT,
+              value: runtimes.NEXT,
             },
             {
               title: 'Node',
               description: pc.greenBright('You are using Node or any other frameworks of it'),
-              value: languages.NODE,
+              value: runtimes.NODE,
             },
           ],
           onState: onPromptState,
@@ -127,7 +131,7 @@ const run = async () => {
         },
       );
 
-      args = { ...args, language };
+      args = { ...args, runtime };
     }
 
     if (!args.strictConfig) {
@@ -159,8 +163,8 @@ const run = async () => {
                 description: pc.yellowBright('Strict Import config'),
                 value: strictConfigs.IMPORT,
               },
-              ...(args.language &&
-              ([languages.REACT, languages.NEXT] as string[]).includes(args.language)
+              ...(args.runtime &&
+              ([runtimes.REACT, runtimes.NEXT] as string[]).includes(args.runtime)
                 ? [
                     {
                       title: 'React',
@@ -169,7 +173,7 @@ const run = async () => {
                     },
                   ]
                 : []),
-              ...(args.typescript
+              ...(args.language === languages.TYPESCRIPT
                 ? [
                     {
                       title: 'TypeScript',

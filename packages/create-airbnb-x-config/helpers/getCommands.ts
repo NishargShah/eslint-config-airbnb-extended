@@ -1,4 +1,4 @@
-import { configs, languages, packageManagers } from '@/constants';
+import { configs, runtimes, packageManagers, languages, formatters } from '@/constants';
 
 import type { NonNullableArgsOutput } from '@/types';
 
@@ -7,7 +7,7 @@ export type GetCommands = (
 ) => string[];
 
 const getCommands: GetCommands = (args) => {
-  const { config, typescript, prettier, language, packageManager, legacyConfig } = args;
+  const { config, language, formatter, runtime, packageManager, legacyConfig } = args;
 
   const pmInstallationCommand = {
     [packageManagers.NPM]: 'install',
@@ -26,26 +26,26 @@ const getCommands: GetCommands = (args) => {
     'eslint-config-airbnb-extended',
   ];
 
-  if (typescript) {
+  if (language === languages.TYPESCRIPT) {
     commands.push('eslint-import-resolver-typescript', 'typescript-eslint');
   }
 
-  if (prettier) {
+  if (formatter === formatters.PRETTIER) {
     commands.push('prettier', 'eslint-plugin-prettier', 'eslint-config-prettier');
   }
 
   if (config === configs.EXTENDED) {
     commands.push('@stylistic/eslint-plugin@^3.1.0', 'eslint-plugin-import-x');
 
-    if (language === languages.REACT || language === languages.NEXT) {
+    if (runtime === runtimes.REACT || runtime === runtimes.NEXT) {
       commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
     }
 
-    if (language === languages.NEXT) {
+    if (runtime === runtimes.NEXT) {
       commands.push('@next/eslint-plugin-next');
     }
 
-    if (language === languages.NODE) {
+    if (runtime === runtimes.NODE) {
       commands.push('eslint-plugin-n');
     }
   }

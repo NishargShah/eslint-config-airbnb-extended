@@ -1,4 +1,4 @@
-import { configs, languages, legacyLanguages } from '@cli/constants';
+import { configs, runtimes, legacyLanguages } from '@cli/constants';
 import {
   defaultConfig,
   gitignoreCode,
@@ -22,7 +22,7 @@ interface GetContentConfigurations {
 
 export interface GetContentParams {
   type: ValueOf<typeof configs>;
-  language: ValueOf<typeof languages> | ValueOf<typeof legacyLanguages>;
+  language: ValueOf<typeof runtimes> | ValueOf<typeof legacyLanguages>;
   languagePreference: ValueOf<typeof languagePreferences>;
   configurations: GetContentConfigurations;
   strictConfig: ValueOf<typeof strictConfigs>[];
@@ -37,14 +37,14 @@ const getContent: GetContent = (params) => {
   const reactArray =
     (isLegacy &&
       ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
-    (!isLegacy && ([languages.REACT, languages.NEXT] as string[]).includes(language))
+    (!isLegacy && ([runtimes.REACT, runtimes.NEXT] as string[]).includes(language))
       ? [...reactConfig(params), '']
       : [];
 
   const typescriptArray =
     languagePreference === languagePreferences.TYPESCRIPT ? [...typescriptConfig(params), ''] : [];
 
-  const nodeArray = !isLegacy && language === languages.NODE ? [...nodeConfig, ''] : [];
+  const nodeArray = !isLegacy && language === runtimes.NODE ? [...nodeConfig, ''] : [];
 
   const prettierArray = configurations.prettier ? [...prettierConfig, ''] : [];
 

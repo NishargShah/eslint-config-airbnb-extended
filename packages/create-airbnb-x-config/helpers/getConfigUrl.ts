@@ -1,6 +1,14 @@
 import pc from 'picocolors';
 
-import { baseGithubUrl, configs, eslintConfigName, legacyLanguages, subFolders } from '@/constants';
+import {
+  baseGithubUrl,
+  configs,
+  eslintConfigName,
+  formatters,
+  languages,
+  legacyLanguages,
+  subFolders,
+} from '@/constants';
 
 import type { NonNullableArgsOutput } from '@/types';
 
@@ -12,16 +20,16 @@ interface GetConfigUrlOutput {
 export type GetConfigUrl = (
   args: Pick<
     NonNullableArgsOutput,
-    'config' | 'typescript' | 'prettier' | 'strictConfig' | 'language' | 'legacyConfig'
+    'config' | 'language' | 'formatter' | 'strictConfig' | 'runtime' | 'legacyConfig'
   >,
 ) => GetConfigUrlOutput | null;
 
 const getConfigUrl: GetConfigUrl = (args) => {
-  const { config, typescript, prettier, strictConfig, language, legacyConfig } = args;
+  const { config, language, formatter, strictConfig, runtime, legacyConfig } = args;
   const isLegacy = config === configs.LEGACY;
 
-  const prettierText = prettier ? 'prettier' : null;
-  const tsOrJsText = typescript ? 'ts' : 'js';
+  const prettierText = formatter === formatters.PRETTIER ? 'prettier' : null;
+  const tsOrJsText = language === languages.TYPESCRIPT ? 'ts' : 'js';
   const legacyLanguage = (() => {
     if (config === configs.EXTENDED) return null;
 
@@ -40,7 +48,7 @@ const getConfigUrl: GetConfigUrl = (args) => {
   })();
 
   const path = [
-    ...(isLegacy ? [configs.LEGACY, legacyLanguage] : [language]),
+    ...(isLegacy ? [configs.LEGACY, legacyLanguage] : [runtime]),
     prettierText,
     tsOrJsText,
     ...strictOrDefaultText,

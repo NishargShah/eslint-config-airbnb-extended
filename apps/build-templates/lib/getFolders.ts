@@ -1,4 +1,4 @@
-import { configs, languages, legacyLanguages } from '@cli/constants';
+import { configs, runtimes, legacyLanguages } from '@cli/constants';
 import { subFolders, templateConstants } from '@/lib/constants';
 import getAllFolders from '@/lib/getAllFolders';
 import getDefaultSubFolders from '@/lib/getDefaultSubFolders';
@@ -34,25 +34,25 @@ const getFolders: GetFolders = () => {
         config: configs.LEGACY,
       },
     },
-    [languages.REACT]: {
+    [runtimes.REACT]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
         config: configs.EXTENDED,
-        language: languages.REACT,
+        language: runtimes.REACT,
       },
     },
-    [languages.NEXT]: {
+    [runtimes.NEXT]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
         config: configs.EXTENDED,
-        language: languages.NEXT,
+        language: runtimes.NEXT,
       },
     },
-    [languages.NODE]: {
+    [runtimes.NODE]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
         config: configs.EXTENDED,
-        language: languages.NODE,
+        language: runtimes.NODE,
       },
     },
   } satisfies Folders;
