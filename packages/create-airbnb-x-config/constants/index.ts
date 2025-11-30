@@ -10,13 +10,13 @@ export const strictConfigs = {
   TYPESCRIPT: 'typescript',
 } as const;
 
-export const configTypes = {
+export const configs = {
   EXTENDED: 'extended',
   LEGACY: 'legacy',
 } as const;
 
 export const defaults = {
-  configType: configTypes.EXTENDED,
+  config: configs.EXTENDED,
   typescript: true,
   prettier: true,
   strictConfig: false,

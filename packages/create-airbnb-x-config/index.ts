@@ -4,7 +4,7 @@ import pc from 'picocolors';
 import prompts from 'prompts';
 
 import {
-  configTypes,
+  configs,
   defaults,
   eslintConfigName,
   languages,
@@ -16,7 +16,7 @@ import getArgs from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
 import getConfigUrl from '@/helpers/getConfigUrl';
 import installPackages from '@/helpers/installPackages';
-import { exit, handleSigTerm, onCancel, onPromptState, success } from '@/utils';
+import { exit, handleSigTerm, onCancel, onPromptState } from '@/utils';
 
 import type { NonNullableArgsOutput } from '@/types';
 
@@ -26,13 +26,13 @@ process.on('SIGTERM', handleSigTerm);
 const run = async () => {
   let args = await getArgs();
 
-  if (args.configType === null) {
+  if (args.config === null) {
     const { configTypeBoolean } = await prompts(
       {
         type: 'toggle',
         name: 'configTypeBoolean',
         message: 'Config type?',
-        initial: defaults.configType === configTypes.EXTENDED,
+        initial: defaults.config === configs.EXTENDED,
         active: 'Extended',
         inactive: 'Legacy',
         onState: onPromptState,
@@ -42,11 +42,11 @@ const run = async () => {
       },
     );
 
-    const configType = configTypeBoolean ? configTypes.EXTENDED : configTypes.LEGACY;
+    const config = configTypeBoolean ? configs.EXTENDED : configs.LEGACY;
     args = {
       ...args,
-      configType,
-      ...(configType === configTypes.EXTENDED
+      config,
+      ...(config === configs.EXTENDED
         ? {
             legacyConfig: null,
           }
@@ -94,7 +94,7 @@ const run = async () => {
     args = { ...args, prettier };
   }
 
-  if (args.configType === configTypes.EXTENDED) {
+  if (args.config === configs.EXTENDED) {
     if (!args.language) {
       const { language } = await prompts(
         {
@@ -193,7 +193,7 @@ const run = async () => {
     }
   }
 
-  if (args.configType === configTypes.LEGACY) {
+  if (args.config === configs.LEGACY) {
     if (!args.legacyConfig || args.legacyConfig.base === null || args.legacyConfig.react === null) {
       const { legacyConfigType } = await prompts(
         {
@@ -327,5 +327,12 @@ const run = async () => {
   console.log();
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await
-run().then(success).catch(exit);
+try {
+  await run();
+} catch (error) {
+  if (error instanceof Error) {
+    exit(error);
+  } else {
+    console.error(error);
+  }
+}

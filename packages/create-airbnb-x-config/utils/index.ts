@@ -44,12 +44,6 @@ export const onCancel = (): void => {
   process.exit(1);
 };
 
-// Run Function Then block
-
-export const success = (): void => {
-  // noop
-};
-
 // Run Function Catch Block
 
 type Exit = (error: Error) => void;
@@ -59,10 +53,12 @@ type Exit = (error: Error) => void;
  */
 export const exit: Exit = (error) => {
   console.log('Aborting installation.');
+
   if (error.cause === 'package-failed') {
     console.log(`${pc.red(error.message)} has failed.`);
   } else {
     console.log(`${pc.red('Unexpected error. Please report it as a bug:')}\n`, error);
   }
+
   process.exit(1);
 };

@@ -1,4 +1,4 @@
-import { configTypes, languages, packageManagers, strictConfigs } from '@/constants';
+import { configs, languages, packageManagers, strictConfigs } from '@/constants';
 import { getPackageManager } from '@/helpers/getPackageManager';
 import program from '@/helpers/program';
 
@@ -6,13 +6,13 @@ import type { ValueOf } from '@/types';
 
 // Get Config Type
 
-type GetConfigType = (opts: Partial<ProgramOpts>) => GetArgsOutput['configType'];
+type GetConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['config'];
 
-const getConfigType: GetConfigType = (opts) => {
+const getConfig: GetConfig = (opts) => {
   const { extended, legacy } = opts;
 
-  if (extended) return configTypes.EXTENDED;
-  if (legacy) return configTypes.LEGACY;
+  if (extended) return configs.EXTENDED;
+  if (legacy) return configs.LEGACY;
   return null;
 };
 
@@ -118,7 +118,7 @@ interface GetArgsLegacyConfig {
 }
 
 export interface GetArgsOutput {
-  configType: ValueOf<typeof configTypes> | null;
+  config: ValueOf<typeof configs> | null;
   typescript: boolean | null;
   prettier: true | null;
   strictConfig: ValueOf<typeof strictConfigs>[] | null;
@@ -133,9 +133,10 @@ type GetArgs = () => Promise<GetArgsOutput>;
 
 const getArgs: GetArgs = async () => {
   const opts: Partial<ProgramOpts> = program.opts();
+  console.log(opts);
 
   return {
-    configType: getConfigType(opts),
+    config: getConfig(opts),
     typescript: getTypescript(opts),
     prettier: opts.prettier ? true : null,
     strictConfig: getStrictConfig(opts),

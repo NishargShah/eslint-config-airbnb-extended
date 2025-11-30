@@ -1,4 +1,4 @@
-import { configTypes, languages, packageManagers } from '@/constants';
+import { configs, languages, packageManagers } from '@/constants';
 
 import type { NonNullableArgsOutput } from '@/types';
 
@@ -7,7 +7,7 @@ export type GetCommands = (
 ) => string[];
 
 const getCommands: GetCommands = (args) => {
-  const { configType, typescript, prettier, language, packageManager, legacyConfig } = args;
+  const { config, typescript, prettier, language, packageManager, legacyConfig } = args;
 
   const pmInstallationCommand = {
     [packageManagers.NPM]: 'install',
@@ -34,7 +34,7 @@ const getCommands: GetCommands = (args) => {
     commands.push('prettier', 'eslint-plugin-prettier', 'eslint-config-prettier');
   }
 
-  if (configType === configTypes.EXTENDED) {
+  if (config === configs.EXTENDED) {
     commands.push('@stylistic/eslint-plugin@^3.1.0', 'eslint-plugin-import-x');
 
     if (language === languages.REACT || language === languages.NEXT) {
@@ -50,7 +50,7 @@ const getCommands: GetCommands = (args) => {
     }
   }
 
-  if (configType === configTypes.LEGACY) {
+  if (config === configs.LEGACY) {
     commands.push('eslint-plugin-import');
 
     if (legacyConfig) {

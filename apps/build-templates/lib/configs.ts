@@ -1,4 +1,4 @@
-import { configTypes, languages, legacyLanguages, strictConfigs } from '@cli/constants';
+import { configs, languages, legacyLanguages, strictConfigs } from '@cli/constants';
 import { languagePreferences } from '@/lib/constants';
 
 import type { Content } from '@/lib/contentFormatter';
@@ -22,7 +22,7 @@ export const startingComments = [
 // IMPORTS
 
 export const imports: Config = ({ type, configurations, strictConfig }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
   const hasStrictConfig = strictConfig.length > 0;
 
   const importStatement = (() => {
@@ -55,7 +55,7 @@ export const gitignoreCode = ["const gitignorePath = path.resolve('.', '.gitigno
 // JAVASCRIPT CONFIG
 
 export const jsConfig: Config = ({ type, language, strictConfig }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
   const hasStrictImportConfig = strictConfig.includes(strictConfigs.IMPORT);
 
   const jsArray = (() => {
@@ -92,7 +92,7 @@ export const jsConfig: Config = ({ type, language, strictConfig }) => {
 // REACT & NEXT CONFIG
 
 export const reactConfig: Config = ({ type, language, strictConfig }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
   const isNextJs = language === languages.NEXT;
   const hasStrictReactConfig = strictConfig.includes(strictConfigs.REACT);
 
@@ -147,7 +147,7 @@ export const nodeConfig = [
 // TYPESCRIPT CONFIG
 
 export const typescriptConfig: Config = ({ type, language, strictConfig }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
   const reactArray = ['// Airbnb React TypeScript Config', '...configs.react.typescript,'];
   const nextArray = ['// Airbnb Next TypeScript Config', '...configs.next.typescript,'];
   const hasStrictTypescriptConfig = strictConfig.includes(strictConfigs.TYPESCRIPT);
@@ -206,7 +206,7 @@ export const prettierConfig = [
 // DEFAULT CONFIG
 
 export const defaultConfig: Config = ({ type, language, languagePreference, configurations }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
 
   const reactArray = ['// React Config', '...reactConfig,'];
   const nextArray = ['// Next Config', '...nextConfig,'];

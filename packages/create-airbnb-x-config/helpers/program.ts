@@ -1,7 +1,7 @@
-import { Command } from 'commander';
+import { Command, Option } from 'commander';
 
 import { name, version } from '@/package.json';
-import { eslintConfigName } from '@/constants';
+import { configs, eslintConfigName } from '@/constants';
 
 /**
  * Program Command
@@ -11,8 +11,14 @@ const program = new Command()
   .name(name)
   .version(version, '-v, --version', 'Output the current version of create-airbnb-x-config.')
   .helpOption('-h, --help', 'Display this help message.')
-  .option('--extended', 'Explicitly tell the CLI to use extended configurations.')
-  .option('--legacy', 'Explicitly tell the CLI to use legacy configurations.')
+
+  // Config
+  .addOption(
+    new Option('--config <type>', 'Explicitly tell the CLI to use this config').choices(
+      Object.values(configs),
+    ),
+  )
+
   .option('--ts, --typescript', 'Generate configuration for a TypeScript project.')
   .option('--js, --javascript', 'Generate configuration for a JavaScript project.')
   .option('--prettier', 'Include Prettier specific linting rules.')

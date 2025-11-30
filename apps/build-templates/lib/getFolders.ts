@@ -1,4 +1,4 @@
-import { configTypes, languages, legacyLanguages } from '@cli/constants';
+import { configs, languages, legacyLanguages } from '@cli/constants';
 import { subFolders, templateConstants } from '@/lib/constants';
 import getAllFolders from '@/lib/getAllFolders';
 import getDefaultSubFolders from '@/lib/getDefaultSubFolders';
@@ -9,7 +9,7 @@ type GetFolders = () => ReturnType<typeof getAllFolders>;
 
 const getFolders: GetFolders = () => {
   const folders = {
-    [configTypes.LEGACY]: {
+    [configs.LEGACY]: {
       data: {
         [subFolders.BASE]: {
           data: getDefaultSubFolders({ strict: false }),
@@ -31,27 +31,27 @@ const getFolders: GetFolders = () => {
         },
       },
       meta: {
-        configType: configTypes.LEGACY,
+        config: configs.LEGACY,
       },
     },
     [languages.REACT]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
-        configType: configTypes.EXTENDED,
+        config: configs.EXTENDED,
         language: languages.REACT,
       },
     },
     [languages.NEXT]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
-        configType: configTypes.EXTENDED,
+        config: configs.EXTENDED,
         language: languages.NEXT,
       },
     },
     [languages.NODE]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
-        configType: configTypes.EXTENDED,
+        config: configs.EXTENDED,
         language: languages.NODE,
       },
     },
