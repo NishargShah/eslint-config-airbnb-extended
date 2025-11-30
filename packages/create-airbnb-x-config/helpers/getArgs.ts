@@ -46,6 +46,25 @@ const getFormatter: GetFormatter = (opts) => {
   return null;
 };
 
+// Get Runtime
+
+type GetRuntime = (opts: Partial<ProgramOpts>) => GetArgsOutput['runtime'];
+
+const getRuntime: GetRuntime = (opts) => {
+  const { runtime } = opts;
+
+  if (
+    runtime &&
+    ([runtimes.REACT, runtimes.REACT_ROUTER, runtimes.REMIX] as string[]).includes(runtime)
+  ) {
+    return runtimes.REACT;
+  }
+
+  if (runtime === runtimes.NEXT) return runtimes.NEXT;
+  if (runtime === runtimes.NODE) return runtimes.NODE;
+  return null;
+};
+
 // Get Strict Config
 
 type GetStrictConfig = (opts: Partial<ProgramOpts>) => GetArgsOutput['strictConfig'];
@@ -60,19 +79,6 @@ const getStrictConfig: GetStrictConfig = (opts) => {
   if (strictTypescriptConfig) strictConfig.push(strictConfigs.TYPESCRIPT);
 
   return strictConfig.length > 0 ? strictConfig : null;
-};
-
-// Get Runtime
-
-type GetRuntime = (opts: Partial<ProgramOpts>) => GetArgsOutput['runtime'];
-
-const getRuntime: GetRuntime = (opts) => {
-  const { react, reactRouter, next, node } = opts;
-
-  if (react || reactRouter) return runtimes.REACT;
-  if (next) return runtimes.NEXT;
-  if (node) return runtimes.NODE;
-  return null;
 };
 
 // Get Legacy Config
@@ -109,10 +115,7 @@ export interface ProgramOpts {
   config: ValueOf<typeof configs>;
   language: ValueOf<typeof languages>;
   formatter: ValueOf<typeof formatters>;
-  react: true;
-  reactRouter: true;
-  next: true;
-  node: true;
+  runtime: Exclude<ValueOf<typeof runtimes>, typeof runtimes.REACT_ROUTER | typeof runtimes.REMIX>;
   strictImportConfig: true;
   strictReactConfig: true;
   strictTypescriptConfig: true;
@@ -134,8 +137,8 @@ export interface GetArgsOutput {
   config: ProgramOpts['config'] | null;
   language: ProgramOpts['language'] | null;
   formatter: ProgramOpts['formatter'] | null;
+  runtime: ProgramOpts['runtime'] | null;
   strictConfig: ValueOf<typeof strictConfigs>[] | null;
-  runtime: ValueOf<typeof runtimes> | null;
   legacyConfig: GetArgsLegacyConfig | null;
   packageManager: ProgramOpts['packageManager'] | null;
   createESLintFile: true | null;
@@ -152,8 +155,8 @@ const getArgs: GetArgs = async () => {
     config: getConfig(opts),
     language: getLanguage(opts),
     formatter: getFormatter(opts),
-    strictConfig: getStrictConfig(opts),
     runtime: getRuntime(opts),
+    strictConfig: getStrictConfig(opts),
     legacyConfig: getLegacyConfig(opts),
     packageManager: getPackageManagerFromOpts(opts) ?? (await getPackageManager()),
     createESLintFile: opts.createEslintFile ? true : null,

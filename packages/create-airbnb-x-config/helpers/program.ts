@@ -1,7 +1,14 @@
 import { Command, Option } from 'commander';
 
 import { name, version } from '@/package.json';
-import { configs, eslintConfigName, formatters, languages, packageManagers } from '@/constants';
+import {
+  configs,
+  eslintConfigName,
+  formatters,
+  languages,
+  packageManagers,
+  runtimes,
+} from '@/constants';
 
 /**
  * Program Command
@@ -35,10 +42,14 @@ const program = new Command()
     ).choices(Object.values(formatters)),
   )
 
-  .option('--react', 'Include React specific linting rules.')
-  .option('--remix, --react-router', 'Include Remix/React Router specific linting rules.')
-  .option('--next', 'Include Next.js specific linting rules.')
-  .option('--node', 'Include Node.js specific linting rules.')
+  // Runtimes
+  .addOption(
+    new Option(
+      '--runtime <runtime>',
+      'Include selected runtime for specific linting rules.',
+    ).choices(Object.values(runtimes)),
+  )
+
   .option('--strict-import-config', 'Include the strict Import ESLint configuration.')
   .option('--strict-react-config', 'Include the strict React ESLint configuration.')
   .option('--strict-typescript-config', 'Include the strict TypeScript ESLint configuration.')

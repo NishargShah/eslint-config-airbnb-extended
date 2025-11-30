@@ -9,6 +9,8 @@ export const formatters = {
 
 export const runtimes = {
   REACT: 'react',
+  REACT_ROUTER: 'react-router',
+  REMIX: 'remix',
   NEXT: 'next',
   NODE: 'node',
 } as const;
