@@ -28,23 +28,25 @@
   },
   "license": "MIT",
   "author": "Nisharg Shah <nishargshah3101@gmail.com>",
-  "type": "commonjs",
+  "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/@types/index.d.ts",
-      "default": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./legacy": {
-      "types": "./dist/@types/legacy.d.ts",
-      "default": "./dist/legacy.js"
-    }
+      "import": "./dist/legacy.js",
+      "require": "./dist/legacy.cjs"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/@types/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.cts",
   "scripts": {
-    "prebuild": "pnpm check:updates && rimraf ./dist",
-    "build": "tsc -b",
-    "postbuild": "tsc-alias",
+    "prebuild": "pnpm check:updates",
+    "build": "tsdown",
+    "build:dev": "tsdown --watch",
     "check:updates": "tsx script/checkUpdates.ts",
     "typecheck": "tsc --noEmit"
   },
@@ -54,8 +56,7 @@
   },
   "devDependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
-    "rimraf": "catalog:",
-    "tsc-alias": "catalog:",
+    "tsdown": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:"
   },

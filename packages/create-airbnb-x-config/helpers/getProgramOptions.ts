@@ -16,6 +16,7 @@ import { name, version } from '@/package.json';
 import type { StrictConfigType } from '@/constants/@types/index.types';
 import type {
   GetProgramOptions,
+  GetProgramOptionsOutput,
   PartialProgramOptions,
 } from '@/helpers/@types/getProgramOptions.types';
 
@@ -138,7 +139,7 @@ const getProgramOptions: GetProgramOptions = () => {
       : {
           skipInstall: opts.skipInstall === true ? stringBooleans.TRUE : opts.skipInstall,
         }),
-  } as ReturnType<GetProgramOptions>;
+  } as GetProgramOptionsOutput;
 
   return programOptions;
 };

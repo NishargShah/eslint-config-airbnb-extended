@@ -54,7 +54,6 @@
   "devDependencies": {
     "@types/cross-spawn": "^6.0.6",
     "@types/prompts": "^2.4.9",
-    "rimraf": "catalog:",
     "tsdown": "catalog:",
     "tsx": "catalog:",
     "type-fest": "catalog:",

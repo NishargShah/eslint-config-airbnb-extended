@@ -4,8 +4,6 @@ packages:
   - packages/*
 
 catalog:
-  rimraf: ^6.1.2
-  tsc-alias: ^1.8.16
   tsdown: ^0.16.8
   tsx: ^4.20.6
   typescript: ^5.9.3
