@@ -144,7 +144,7 @@ export default defineConfig({
         items: [
           {
             text: 'Upgrade to v3',
-            link: '/migration/v3',
+            link: '/migration/upgrade-to-v3',
           },
         ],
       },
