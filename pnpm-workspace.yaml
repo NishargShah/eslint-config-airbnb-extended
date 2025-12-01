@@ -5,10 +5,10 @@ packages:
 
 catalog:
   tsdown: ^0.16.8
-  tsx: ^4.20.6
+  tsx: ^4.21.0
   typescript: ^5.9.3
-  type-fest: ^5.2.0
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - esbuild
   - unrs-resolver

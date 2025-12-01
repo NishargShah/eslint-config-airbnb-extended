@@ -7,7 +7,7 @@ import {
   runtimes,
   stringBooleans,
 } from '@/constants';
-import { getPackageManager } from '@/helpers/getPackageManager';
+import getPackageManager from '@/helpers/getPackageManager';
 import getProgramOptions from '@/helpers/getProgramOptions';
 
 import type {

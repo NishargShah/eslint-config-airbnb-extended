@@ -19,11 +19,13 @@
     "dev": "tsx lib/index.ts",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "create-airbnb-x-config": "workspace:*"
+  },
   "devDependencies": {
-    "tsx": "catalog:",
-    "typescript": "catalog:"
+    "tsx": "catalog:"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=24.0.0"
   }
 }

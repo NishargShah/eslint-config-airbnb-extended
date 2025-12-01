@@ -1,4 +1,4 @@
-import { configs, legacyLanguages, runtimes } from '@cli/constants';
+import { configs, legacyConfigs, runtimes } from '@cli/constants';
 
 import { subFolders, templateConstants } from '@/lib/constants';
 import getAllFolders from '@/lib/getAllFolders';
@@ -15,19 +15,19 @@ const getFolders: GetFolders = () => {
         [subFolders.BASE]: {
           data: getDefaultSubFolders({ strict: false }),
           meta: {
-            language: legacyLanguages.BASE,
+            language: legacyConfigs.BASE,
           },
         },
         [subFolders.REACT]: {
           data: getDefaultSubFolders({ strict: false }),
           meta: {
-            language: legacyLanguages.REACT,
+            language: legacyConfigs.REACT,
           },
         },
         [subFolders.REACT_HOOKS]: {
           data: getDefaultSubFolders({ strict: false }),
           meta: {
-            language: legacyLanguages.REACT_HOOKS,
+            language: legacyConfigs.REACT_HOOKS,
           },
         },
       },

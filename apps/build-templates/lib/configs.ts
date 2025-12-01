@@ -1,4 +1,4 @@
-import { configs, legacyLanguages, runtimes, strictConfigs } from '@cli/constants';
+import { configs, legacyConfigs, runtimes, strictConfigs } from '@cli/constants';
 
 import { languagePreferences } from '@/lib/constants';
 
@@ -61,7 +61,7 @@ export const jsConfig: Config = ({ type, language, strictConfig }) => {
 
   const jsArray = (() => {
     if (isLegacy) {
-      return language === legacyLanguages.BASE
+      return language === legacyConfigs.BASE
         ? ['// Airbnb Base Recommended Config', '...configs.base.recommended,']
         : [];
     }
@@ -111,7 +111,7 @@ export const reactConfig: Config = ({ type, language, strictConfig }) => {
   const legacyArray = [
     'const reactConfig = [',
     ['// Airbnb React Recommended Config', '...configs.react.recommended,'],
-    language === legacyLanguages.REACT_HOOKS
+    language === legacyConfigs.REACT_HOOKS
       ? ['// Airbnb React Hooks Config', '...configs.react.hooks,']
       : [],
     '];',
@@ -155,7 +155,7 @@ export const typescriptConfig: Config = ({ type, language, strictConfig }) => {
 
   const legacyArray = [
     'const typescriptConfig = [',
-    language === legacyLanguages.BASE
+    language === legacyConfigs.BASE
       ? ['// Airbnb Base TypeScript Config', '...configs.base.typescript,']
       : ['// Airbnb React TypeScript Config', '...configs.react.typescript,'],
     '];',
@@ -223,7 +223,7 @@ export const defaultConfig: Config = ({ type, language, languagePreference, conf
       '// Javascript Config',
       '...jsConfig,',
       ...((isLegacy &&
-        ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
+        ([legacyConfigs.REACT, legacyConfigs.REACT_HOOKS] as string[]).includes(language)) ||
       (!isLegacy && language === runtimes.REACT)
         ? reactArray
         : []),

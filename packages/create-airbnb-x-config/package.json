@@ -34,8 +34,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "bin": {
-    "create-airbnb-extended-config": "./dist/index.js",
-    "create-airbnb-x-config": "./dist/index.js"
+    "create-airbnb-extended-config": "./dist/index.mjs",
+    "create-airbnb-x-config": "./dist/index.mjs"
   },
   "scripts": {
     "build": "tsdown",
@@ -55,9 +55,7 @@
     "@types/cross-spawn": "^6.0.6",
     "@types/prompts": "^2.4.9",
     "tsdown": "catalog:",
-    "tsx": "catalog:",
-    "type-fest": "catalog:",
-    "typescript": "catalog:"
+    "tsx": "catalog:"
   },
   "engines": {
     "node": ">=18.0.0"

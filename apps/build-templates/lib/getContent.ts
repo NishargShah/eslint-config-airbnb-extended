@@ -1,4 +1,4 @@
-import { configs, legacyLanguages, runtimes } from '@cli/constants';
+import { configs, legacyConfigs, runtimes } from '@cli/constants';
 
 import {
   defaultConfig,
@@ -15,7 +15,7 @@ import { languagePreferences } from '@/lib/constants';
 import contentFormatter from '@/lib/contentFormatter';
 
 import type { strictConfigs } from '@cli/constants';
-import type { ValueOf } from '@cli/types';
+import type { ValueOf } from '@cli/types/lib.types';
 
 interface GetContentConfigurations {
   prettier: boolean;
@@ -23,7 +23,7 @@ interface GetContentConfigurations {
 
 export interface GetContentParams {
   type: ValueOf<typeof configs>;
-  language: ValueOf<typeof runtimes> | ValueOf<typeof legacyLanguages>;
+  language: ValueOf<typeof runtimes> | ValueOf<typeof legacyConfigs>;
   languagePreference: ValueOf<typeof languagePreferences>;
   configurations: GetContentConfigurations;
   strictConfig: ValueOf<typeof strictConfigs>[];
@@ -37,7 +37,7 @@ const getContent: GetContent = (params) => {
 
   const reactArray =
     (isLegacy &&
-      ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
+      ([legacyConfigs.REACT, legacyConfigs.REACT_HOOKS] as string[]).includes(language)) ||
     (!isLegacy && ([runtimes.REACT, runtimes.NEXT] as string[]).includes(language))
       ? [...reactConfig(params), '']
       : [];

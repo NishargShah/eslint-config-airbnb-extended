@@ -11,7 +11,7 @@
   "include": [
     "**/*.ts",
     "../../packages/create-airbnb-x-config/constants/index.ts",
-    "../../packages/create-airbnb-x-config/types/index.ts"
+    "../../packages/create-airbnb-x-config/types/lib.types.ts"
   ],
   "exclude": ["node_modules"]
 }

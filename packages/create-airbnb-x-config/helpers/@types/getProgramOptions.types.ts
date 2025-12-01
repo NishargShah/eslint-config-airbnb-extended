@@ -1,5 +1,3 @@
-import type { OverrideProperties } from 'type-fest';
-
 import type { runtimes } from '@/constants';
 import type {
   ConfigType,
@@ -27,13 +25,10 @@ interface ProgramOptions {
 export type PartialProgramOptions = Partial<ProgramOptions>;
 
 export type GetProgramOptionsOutput = Partial<
-  OverrideProperties<
-    ProgramOptions,
-    {
-      createEslintFile: StringBooleanType;
-      skipInstall: StringBooleanType;
-    }
-  >
+  Omit<ProgramOptions, 'createEslintFile' | 'skipInstall'> & {
+    createEslintFile: StringBooleanType;
+    skipInstall: StringBooleanType;
+  }
 >;
 
 export type GetProgramOptions = () => GetProgramOptionsOutput;

@@ -57,8 +57,7 @@
   "devDependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
     "tsdown": "catalog:",
-    "tsx": "catalog:",
-    "typescript": "catalog:"
+    "tsx": "catalog:"
   },
   "peerDependencies": {
     "@next/eslint-plugin-next": "^15.0.0 || ^16.0.0",
