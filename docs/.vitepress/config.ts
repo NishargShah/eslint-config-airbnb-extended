@@ -139,6 +139,15 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: 'Migration',
+        items: [
+          {
+            text: 'Upgrade to v3',
+            link: '/migration/v3',
+          },
+        ],
+      },
     ],
     socialLinks: [
       {

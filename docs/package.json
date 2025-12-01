@@ -30,6 +30,6 @@
     "vitepress-plugin-group-icons": "^1.6.5"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=24.0.0"
   }
 }
