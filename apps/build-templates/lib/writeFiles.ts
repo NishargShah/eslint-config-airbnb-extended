@@ -20,8 +20,8 @@ const writeFiles: WriteFiles = async () => {
       const writePath = [path, eslintConfigName].join('/');
       const data = getContent({
         type: config,
-        language,
-        languagePreference,
+        language: language as NonNullable<typeof language>,
+        languagePreference: languagePreference as NonNullable<typeof languagePreference>,
         configurations: {
           prettier: !!hasPrettier,
         },
