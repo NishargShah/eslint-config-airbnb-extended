@@ -13,6 +13,7 @@ import {
   stringBooleans,
 } from '@/constants';
 import { GetProgramOptions, PartialProgramOptions } from '@/helpers/@types/getProgramOptions.types';
+import { StrictConfigType } from '@/constants/@types/index.types';
 
 const getProgramOptions: GetProgramOptions = () => {
   /**
@@ -104,6 +105,26 @@ const getProgramOptions: GetProgramOptions = () => {
   // Program options
   const programOptions = {
     ...opts,
+    ...(typeof opts.strictConfig !== 'undefined'
+      ? {
+          strictConfig: opts.strictConfig.reduce<StrictConfigType[]>((acc, val) => {
+            const { language, runtime } = opts;
+
+            const isImportConfig = val === strictConfigs.IMPORT;
+            const isReactConfig =
+              runtime &&
+              ([runtimes.REACT, runtimes.NEXT] as string[]).includes(runtime) &&
+              val === strictConfigs.REACT;
+
+            const isTypeScriptConfig =
+              language === languages.TYPESCRIPT && val === strictConfigs.TYPESCRIPT;
+
+            if (isImportConfig || isReactConfig || isTypeScriptConfig) acc.push(val);
+
+            return acc;
+          }, []),
+        }
+      : null),
     ...(typeof opts.createEslintFile !== 'undefined'
       ? {
           createEslintFile:

@@ -16,7 +16,7 @@ interface ProgramOptions {
   language: LanguageType;
   formatter: FormatterType;
   runtime: Exclude<RuntimeType, typeof runtimes.REACT_ROUTER | typeof runtimes.REMIX>;
-  strictConfig: StrictConfigType;
+  strictConfig: StrictConfigType[];
   legacyConfig: LegacyConfigType;
   packageManager: PackageManagerType;
   createEslintFile: StringBooleanType | true;
