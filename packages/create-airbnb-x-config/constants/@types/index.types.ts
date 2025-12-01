@@ -1,3 +1,5 @@
+import type { ValueOf } from 'type-fest';
+
 import type {
   configs,
   formatters,
@@ -8,7 +10,6 @@ import type {
   strictConfigs,
   stringBooleans,
 } from '@/constants';
-import type { ValueOf } from 'type-fest';
 
 export type ConfigType = ValueOf<typeof configs>;
 

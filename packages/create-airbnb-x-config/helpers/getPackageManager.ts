@@ -2,7 +2,7 @@ import { detect } from 'package-manager-detector/detect';
 
 import { packageManagers } from '@/constants';
 
-import { GetPackageManager } from '@/helpers/@types/getPackageManager.types';
+import type { GetPackageManager } from '@/helpers/@types/getPackageManager.types';
 
 export const getPackageManager: GetPackageManager = async () => {
   const pm = await detect();

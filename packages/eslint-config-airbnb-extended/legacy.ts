@@ -1,4 +1,4 @@
-/* eslint-disable import-x/no-rename-default, unicorn/prefer-export-from */
+/* eslint-disable unicorn/prefer-export-from */
 
 import allConfigs from '@/legacy/configs';
 import allRules from '@/legacy/rules';

@@ -1,6 +1,5 @@
 import { Command, Option } from 'commander';
 
-import { name, version } from '@/package.json';
 import {
   configs,
   eslintConfigName,
@@ -12,8 +11,13 @@ import {
   strictConfigs,
   stringBooleans,
 } from '@/constants';
-import { GetProgramOptions, PartialProgramOptions } from '@/helpers/@types/getProgramOptions.types';
-import { StrictConfigType } from '@/constants/@types/index.types';
+import { name, version } from '@/package.json';
+
+import type { StrictConfigType } from '@/constants/@types/index.types';
+import type {
+  GetProgramOptions,
+  PartialProgramOptions,
+} from '@/helpers/@types/getProgramOptions.types';
 
 const getProgramOptions: GetProgramOptions = () => {
   /**
@@ -62,9 +66,7 @@ const getProgramOptions: GetProgramOptions = () => {
         'Include the selected strict ESLint config.',
       )
         .choices(Object.values(strictConfigs))
-        .argParser<string[]>((value, previous) => [
-          ...new Set([...(previous ? previous : []), value]),
-        ])
+        .argParser<string[]>((value, previous) => [...new Set([...(previous || []), value])])
         .conflicts(['legacy-config']),
     )
 
@@ -105,8 +107,9 @@ const getProgramOptions: GetProgramOptions = () => {
   // Program options
   const programOptions = {
     ...opts,
-    ...(typeof opts.strictConfig !== 'undefined'
-      ? {
+    ...(opts.strictConfig === undefined
+      ? null
+      : {
           strictConfig: opts.strictConfig.reduce<StrictConfigType[]>((acc, val) => {
             const { language, runtime } = opts;
 
@@ -123,19 +126,18 @@ const getProgramOptions: GetProgramOptions = () => {
 
             return acc;
           }, []),
-        }
-      : null),
-    ...(typeof opts.createEslintFile !== 'undefined'
-      ? {
+        }),
+    ...(opts.createEslintFile === undefined
+      ? null
+      : {
           createEslintFile:
             opts.createEslintFile === true ? stringBooleans.TRUE : opts.createEslintFile,
-        }
-      : null),
-    ...(typeof opts.skipInstall !== 'undefined'
-      ? {
+        }),
+    ...(opts.skipInstall === undefined
+      ? null
+      : {
           skipInstall: opts.skipInstall === true ? stringBooleans.TRUE : opts.skipInstall,
-        }
-      : null),
+        }),
   } as ReturnType<GetProgramOptions>;
 
   return programOptions;

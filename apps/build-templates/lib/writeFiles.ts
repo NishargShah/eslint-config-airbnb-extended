@@ -1,6 +1,7 @@
 import fsPromise from 'node:fs/promises';
 
 import { eslintConfigName } from '@cli/constants';
+
 import getContent from '@/lib/getContent';
 import getFolders from '@/lib/getFolders';
 
@@ -19,8 +20,8 @@ const writeFiles: WriteFiles = async () => {
       const writePath = [path, eslintConfigName].join('/');
       const data = getContent({
         type: config,
-        language: language as NonNullable<typeof language>,
-        languagePreference: languagePreference as NonNullable<typeof languagePreference>,
+        language,
+        languagePreference,
         configurations: {
           prettier: !!hasPrettier,
         },

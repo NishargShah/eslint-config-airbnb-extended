@@ -1,4 +1,5 @@
 import { runtimes, strictConfigs } from '@cli/constants';
+
 import { languagePreferences, subFolders } from '@/lib/constants';
 
 import type { Folders } from '@/lib/getAllFolders';

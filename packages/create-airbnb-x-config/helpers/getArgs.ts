@@ -1,13 +1,16 @@
 import {
   configs,
-  runtimes,
-  packageManagers,
-  languages,
   formatters,
+  languages,
   legacyConfigs,
+  packageManagers,
+  runtimes,
   stringBooleans,
 } from '@/constants';
-import {
+import { getPackageManager } from '@/helpers/getPackageManager';
+import getProgramOptions from '@/helpers/getProgramOptions';
+
+import type {
   GetArgs,
   GetConfig,
   GetCreateEslintFile,
@@ -19,8 +22,6 @@ import {
   GetSkipInstall,
   GetStrictConfig,
 } from '@/helpers/@types/getArgs.types';
-import { getPackageManager } from '@/helpers/getPackageManager';
-import getProgramOptions from '@/helpers/getProgramOptions';
 
 // Get Config
 
@@ -96,7 +97,7 @@ const getPackageManagerFromOpts: GetPackageManagerFromOpts = async (opts) => {
   if (packageManager === packageManagers.YARN) return packageManagers.YARN;
   if (packageManager === packageManagers.PNPM) return packageManagers.PNPM;
   if (packageManager === packageManagers.BUN) return packageManagers.BUN;
-  return await getPackageManager();
+  return getPackageManager();
 };
 
 // Get Eslint File

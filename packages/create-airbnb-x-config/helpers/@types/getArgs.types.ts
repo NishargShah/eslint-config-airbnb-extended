@@ -1,5 +1,6 @@
-import { GetProgramOptionsOutput } from '@/helpers/@types/getProgramOptions.types';
-import { SetNonNullable } from 'type-fest';
+import type { SetNonNullable } from 'type-fest';
+
+import type { GetProgramOptionsOutput } from '@/helpers/@types/getProgramOptions.types';
 
 // Get Config
 

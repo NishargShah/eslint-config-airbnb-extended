@@ -9,7 +9,7 @@ import {
   subFolders,
 } from '@/constants';
 
-import { GetConfigUrl } from '@/helpers/@types/getConfigUrl.types';
+import type { GetConfigUrl } from '@/helpers/@types/getConfigUrl.types';
 
 const getConfigUrl: GetConfigUrl = (args) => {
   const { config, language, formatter, strictConfig, runtime, legacyConfig } = args;

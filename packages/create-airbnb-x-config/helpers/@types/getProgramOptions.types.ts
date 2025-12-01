@@ -1,15 +1,16 @@
-import { runtimes } from '@/constants';
-import {
+import type { OverrideProperties } from 'type-fest';
+
+import type { runtimes } from '@/constants';
+import type {
   ConfigType,
-  LanguageType,
   FormatterType,
-  RuntimeType,
-  StrictConfigType,
+  LanguageType,
   LegacyConfigType,
   PackageManagerType,
+  RuntimeType,
+  StrictConfigType,
   StringBooleanType,
 } from '@/constants/@types/index.types';
-import { OverrideProperties } from 'type-fest';
 
 interface ProgramOptions {
   config: ConfigType;

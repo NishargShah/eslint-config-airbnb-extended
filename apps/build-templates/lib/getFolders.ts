@@ -1,4 +1,5 @@
-import { configs, runtimes, legacyLanguages } from '@cli/constants';
+import { configs, legacyLanguages, runtimes } from '@cli/constants';
+
 import { subFolders, templateConstants } from '@/lib/constants';
 import getAllFolders from '@/lib/getAllFolders';
 import getDefaultSubFolders from '@/lib/getDefaultSubFolders';

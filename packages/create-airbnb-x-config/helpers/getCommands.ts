@@ -1,12 +1,13 @@
 import {
   configs,
-  runtimes,
-  packageManagers,
-  languages,
   formatters,
+  languages,
   legacyConfigs,
+  packageManagers,
+  runtimes,
 } from '@/constants';
-import { GetCommands } from '@/helpers/@types/getCommands.types';
+
+import type { GetCommands } from '@/helpers/@types/getCommands.types';
 
 const getCommands: GetCommands = (args) => {
   const { config, language, formatter, runtime, packageManager, legacyConfig } = args;

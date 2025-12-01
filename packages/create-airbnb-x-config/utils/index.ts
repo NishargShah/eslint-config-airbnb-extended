@@ -1,7 +1,8 @@
-import { Exit, HandleSigTerm, OnCancel, PromptState } from '@/utils/@types/index.types';
 import path from 'node:path';
 
 import pc from 'picocolors';
+
+import type { Exit, HandleSigTerm, OnCancel, PromptState } from '@/utils/@types/index.types';
 
 // Root Path
 

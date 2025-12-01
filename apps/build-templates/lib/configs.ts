@@ -1,4 +1,5 @@
-import { configs, runtimes, legacyLanguages, strictConfigs } from '@cli/constants';
+import { configs, legacyLanguages, runtimes, strictConfigs } from '@cli/constants';
+
 import { languagePreferences } from '@/lib/constants';
 
 import type { Content } from '@/lib/contentFormatter';

@@ -1,4 +1,5 @@
-import { configs, runtimes, legacyLanguages } from '@cli/constants';
+import { configs, legacyLanguages, runtimes } from '@cli/constants';
+
 import {
   defaultConfig,
   gitignoreCode,
