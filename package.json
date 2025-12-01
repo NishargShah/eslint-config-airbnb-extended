@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended-project",
-  "version": "3.0.0-beta-1",
+  "version": "3.0.0-beta-2",
   "description": "Eslint Airbnb Config Extended Project",
   "homepage": "https://eslint-airbnb-extended.nishargshah.dev",
   "bugs": {
@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "author": "Nisharg Shah <nishargshah3101@gmail.com>",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "build": "pnpm -r build",
     "clean:all": "pnpm clean:node_modules && pnpm clean:generated-folders",

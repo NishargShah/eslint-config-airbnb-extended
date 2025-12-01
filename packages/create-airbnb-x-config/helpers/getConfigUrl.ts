@@ -2,41 +2,22 @@ import pc from 'picocolors';
 
 import {
   baseGithubUrl,
-  configTypes,
+  configs,
   eslintConfigName,
-  legacyLanguages,
+  formatters,
+  languages,
   subFolders,
 } from '@/constants';
 
-import type { NonNullableArgsOutput } from '@/types';
-
-interface GetConfigUrlOutput {
-  path: string;
-  url: string;
-}
-
-export type GetConfigUrl = (
-  args: Pick<
-    NonNullableArgsOutput,
-    'configType' | 'typescript' | 'prettier' | 'strictConfig' | 'language' | 'legacyConfig'
-  >,
-) => GetConfigUrlOutput | null;
+import type { GetConfigUrl } from '@/helpers/@types/getConfigUrl.types';
 
 const getConfigUrl: GetConfigUrl = (args) => {
-  const { configType, typescript, prettier, strictConfig, language, legacyConfig } = args;
-  const isLegacy = configType === configTypes.LEGACY;
+  const { config, language, formatter, strictConfig, runtime, legacyConfig } = args;
+  const isLegacy = config === configs.LEGACY;
 
-  const prettierText = prettier ? 'prettier' : null;
-  const tsOrJsText = typescript ? 'ts' : 'js';
-  const legacyLanguage = (() => {
-    if (configType === configTypes.EXTENDED) return null;
-
-    if (legacyConfig.base) return legacyLanguages.BASE;
-    // NOTE: React Hooks should come first in the condition, because if someone selects "Yes", it must appear in the config otherwise, it won’t be reached.
-    if (legacyConfig.reactHooks) return legacyLanguages.REACT_HOOKS;
-    if (legacyConfig.react) return legacyLanguages.REACT;
-    return null;
-  })();
+  const prettierText = formatter === formatters.PRETTIER ? 'prettier' : null;
+  const tsOrJsText = language === languages.TYPESCRIPT ? 'ts' : 'js';
+  const legacyLanguage = config === configs.EXTENDED ? null : legacyConfig;
 
   const strictOrDefaultText = (() => {
     if (!strictConfig || strictConfig.length === 0) return [subFolders.DEFAULT];
@@ -46,7 +27,7 @@ const getConfigUrl: GetConfigUrl = (args) => {
   })();
 
   const path = [
-    ...(isLegacy ? [configTypes.LEGACY, legacyLanguage] : [language]),
+    ...(isLegacy ? [configs.LEGACY, legacyLanguage] : [runtime]),
     prettierText,
     tsOrJsText,
     ...strictOrDefaultText,

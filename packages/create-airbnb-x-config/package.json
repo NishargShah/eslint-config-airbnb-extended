@@ -1,6 +1,6 @@
 {
   "name": "create-airbnb-x-config",
-  "version": "3.0.0-beta-1",
+  "version": "3.0.0-beta-2",
   "description": "Airbnb Extended Config CLI",
   "keywords": [
     "eslint",
@@ -34,8 +34,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "bin": {
-    "create-airbnb-extended-config": "./dist/index.js",
-    "create-airbnb-x-config": "./dist/index.js"
+    "create-airbnb-extended-config": "./dist/index.mjs",
+    "create-airbnb-x-config": "./dist/index.mjs"
   },
   "scripts": {
     "build": "tsdown",
@@ -54,10 +54,8 @@
   "devDependencies": {
     "@types/cross-spawn": "^6.0.6",
     "@types/prompts": "^2.4.9",
-    "rimraf": "catalog:",
     "tsdown": "catalog:",
-    "tsx": "catalog:",
-    "typescript": "catalog:"
+    "tsx": "catalog:"
   },
   "engines": {
     "node": ">=18.0.0"

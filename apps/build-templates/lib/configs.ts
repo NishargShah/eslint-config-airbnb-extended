@@ -1,4 +1,5 @@
-import { configTypes, languages, legacyLanguages, strictConfigs } from '@cli/constants';
+import { configs, legacyConfigs, runtimes, strictConfigs } from '@cli/constants';
+
 import { languagePreferences } from '@/lib/constants';
 
 import type { Content } from '@/lib/contentFormatter';
@@ -22,7 +23,7 @@ export const startingComments = [
 // IMPORTS
 
 export const imports: Config = ({ type, configurations, strictConfig }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
   const hasStrictConfig = strictConfig.length > 0;
 
   const importStatement = (() => {
@@ -55,12 +56,12 @@ export const gitignoreCode = ["const gitignorePath = path.resolve('.', '.gitigno
 // JAVASCRIPT CONFIG
 
 export const jsConfig: Config = ({ type, language, strictConfig }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
   const hasStrictImportConfig = strictConfig.includes(strictConfigs.IMPORT);
 
   const jsArray = (() => {
     if (isLegacy) {
-      return language === legacyLanguages.BASE
+      return language === legacyConfigs.BASE
         ? ['// Airbnb Base Recommended Config', '...configs.base.recommended,']
         : [];
     }
@@ -92,8 +93,8 @@ export const jsConfig: Config = ({ type, language, strictConfig }) => {
 // REACT & NEXT CONFIG
 
 export const reactConfig: Config = ({ type, language, strictConfig }) => {
-  const isLegacy = type === configTypes.LEGACY;
-  const isNextJs = language === languages.NEXT;
+  const isLegacy = type === configs.LEGACY;
+  const isNextJs = language === runtimes.NEXT;
   const hasStrictReactConfig = strictConfig.includes(strictConfigs.REACT);
 
   const reactArray = [
@@ -110,7 +111,7 @@ export const reactConfig: Config = ({ type, language, strictConfig }) => {
   const legacyArray = [
     'const reactConfig = [',
     ['// Airbnb React Recommended Config', '...configs.react.recommended,'],
-    language === legacyLanguages.REACT_HOOKS
+    language === legacyConfigs.REACT_HOOKS
       ? ['// Airbnb React Hooks Config', '...configs.react.hooks,']
       : [],
     '];',
@@ -147,14 +148,14 @@ export const nodeConfig = [
 // TYPESCRIPT CONFIG
 
 export const typescriptConfig: Config = ({ type, language, strictConfig }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
   const reactArray = ['// Airbnb React TypeScript Config', '...configs.react.typescript,'];
   const nextArray = ['// Airbnb Next TypeScript Config', '...configs.next.typescript,'];
   const hasStrictTypescriptConfig = strictConfig.includes(strictConfigs.TYPESCRIPT);
 
   const legacyArray = [
     'const typescriptConfig = [',
-    language === legacyLanguages.BASE
+    language === legacyConfigs.BASE
       ? ['// Airbnb Base TypeScript Config', '...configs.base.typescript,']
       : ['// Airbnb React TypeScript Config', '...configs.react.typescript,'],
     '];',
@@ -170,8 +171,8 @@ export const typescriptConfig: Config = ({ type, language, strictConfig }) => {
       ...(hasStrictTypescriptConfig
         ? ['// Strict TypeScript Config', 'rules.typescript.typescriptEslintStrict,']
         : []),
-      ...(language === languages.REACT ? reactArray : []),
-      ...(language === languages.NEXT ? nextArray : []),
+      ...(language === runtimes.REACT ? reactArray : []),
+      ...(language === runtimes.NEXT ? nextArray : []),
     ],
     '];',
   ];
@@ -206,7 +207,7 @@ export const prettierConfig = [
 // DEFAULT CONFIG
 
 export const defaultConfig: Config = ({ type, language, languagePreference, configurations }) => {
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
 
   const reactArray = ['// React Config', '...reactConfig,'];
   const nextArray = ['// Next Config', '...nextConfig,'];
@@ -222,12 +223,12 @@ export const defaultConfig: Config = ({ type, language, languagePreference, conf
       '// Javascript Config',
       '...jsConfig,',
       ...((isLegacy &&
-        ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
-      (!isLegacy && language === languages.REACT)
+        ([legacyConfigs.REACT, legacyConfigs.REACT_HOOKS] as string[]).includes(language)) ||
+      (!isLegacy && language === runtimes.REACT)
         ? reactArray
         : []),
-      ...(!isLegacy && language === languages.NEXT ? nextArray : []),
-      ...(!isLegacy && language === languages.NODE ? nodeArray : []),
+      ...(!isLegacy && language === runtimes.NEXT ? nextArray : []),
+      ...(!isLegacy && language === runtimes.NODE ? nodeArray : []),
       ...(languagePreference === languagePreferences.TYPESCRIPT ? typescriptArray : []),
       ...(configurations.prettier ? prettierArray : []),
     ],
