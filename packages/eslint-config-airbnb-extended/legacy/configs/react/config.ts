@@ -8,6 +8,6 @@ const legacyReactConfig = {
   base: legacyReactBaseRules,
   jsxA11y: legacyReactJsxA11yRules,
   hooks: legacyReactHooksRules,
-} satisfies Record<string, Linter.Config>;
+} as Record<string, Linter.Config>;
 
 export default legacyReactConfig;

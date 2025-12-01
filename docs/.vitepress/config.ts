@@ -12,10 +12,13 @@ const githubUrl = 'https://github.com/NishargShah/eslint-config-airbnb-extended'
 const npmUrl = 'https://www.npmjs.com/package/eslint-config-airbnb-extended';
 const siteUrl = 'https://eslint-airbnb-extended.nishargshah.dev';
 
+const title = 'ESLint Airbnb Extended';
+const description =
+  'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.';
+
 export default defineConfig({
-  title: 'ESLint Airbnb Extended',
-  description:
-    'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
+  title,
+  description,
   cleanUrls: true,
   lastUpdated: true,
   rewrites: {},
@@ -41,7 +44,7 @@ export default defineConfig({
         text: `v${version}`,
         items: [
           {
-            text: `Release Notes`,
+            text: 'Release Notes',
             link: `${githubUrl}/releases`,
           },
           {
@@ -49,7 +52,7 @@ export default defineConfig({
             link: `${githubUrl}/blob/master/CHANGELOG.md`,
           },
           {
-            text: `Contributing`,
+            text: 'Contributing',
             link: '/contribute/guide',
           },
         ],
@@ -136,6 +139,15 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: 'Migration',
+        items: [
+          {
+            text: 'Upgrade to v3',
+            link: '/migration/upgrade-to-v3',
+          },
+        ],
+      },
     ],
     socialLinks: [
       {
@@ -173,7 +185,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }],
-    ['meta', { name: 'author', content: 'ESLint Airbnb Extended Team' }],
+    ['meta', { name: 'author', content: `${title} Team` }],
     [
       'meta',
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' },
@@ -182,8 +194,7 @@ export default defineConfig({
       'meta',
       {
         name: 'description',
-        content:
-          'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
+        content: description,
       },
     ],
     [
@@ -195,13 +206,12 @@ export default defineConfig({
       },
     ],
     // OG
-    ['meta', { property: 'og:title', content: 'ESLint Airbnb Extended' }],
+    ['meta', { property: 'og:title', content: title }],
     [
       'meta',
       {
         property: 'og:description',
-        content:
-          'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
+        content: description,
       },
     ],
     [
@@ -213,15 +223,14 @@ export default defineConfig({
     ],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: siteUrl }],
-    ['meta', { property: 'og:site_name', content: 'ESLint Airbnb Extended' }],
+    ['meta', { property: 'og:site_name', content: title }],
     // TWITTER
-    ['meta', { name: 'twitter:title', content: 'ESLint Airbnb Extended' }],
+    ['meta', { name: 'twitter:title', content: title }],
     [
       'meta',
       {
         name: 'twitter:description',
-        content:
-          'A powerful ESLint configuration extending the popular Airbnb style guide, with added support for TypeScript.',
+        content: description,
       },
     ],
     [

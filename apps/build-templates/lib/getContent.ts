@@ -1,4 +1,5 @@
-import { configTypes, languages, legacyLanguages } from '@/constants';
+import { configs, legacyConfigs, runtimes } from '@cli/constants';
+
 import {
   defaultConfig,
   gitignoreCode,
@@ -9,20 +10,20 @@ import {
   reactConfig,
   startingComments,
   typescriptConfig,
-} from '@/lib/templates/configs';
-import { languagePreferences } from '@/lib/templates/constants';
-import contentFormatter from '@/lib/templates/contentFormatter';
+} from '@/lib/configs';
+import { languagePreferences } from '@/lib/constants';
+import contentFormatter from '@/lib/contentFormatter';
 
-import type { strictConfigs } from '@/constants';
-import type { ValueOf } from '@/utils/types';
+import type { strictConfigs } from '@cli/constants';
+import type { ValueOf } from '@cli/types/lib.types';
 
 interface GetContentConfigurations {
   prettier: boolean;
 }
 
 export interface GetContentParams {
-  type: ValueOf<typeof configTypes>;
-  language: ValueOf<typeof languages> | ValueOf<typeof legacyLanguages>;
+  type: ValueOf<typeof configs>;
+  language: ValueOf<typeof runtimes> | ValueOf<typeof legacyConfigs>;
   languagePreference: ValueOf<typeof languagePreferences>;
   configurations: GetContentConfigurations;
   strictConfig: ValueOf<typeof strictConfigs>[];
@@ -32,19 +33,19 @@ type GetContent = (params: GetContentParams) => string;
 
 const getContent: GetContent = (params) => {
   const { type, language, languagePreference, configurations } = params;
-  const isLegacy = type === configTypes.LEGACY;
+  const isLegacy = type === configs.LEGACY;
 
   const reactArray =
     (isLegacy &&
-      ([legacyLanguages.REACT, legacyLanguages.REACT_HOOKS] as string[]).includes(language)) ||
-    (!isLegacy && ([languages.REACT, languages.NEXT] as string[]).includes(language))
+      ([legacyConfigs.REACT, legacyConfigs.REACT_HOOKS] as string[]).includes(language)) ||
+    (!isLegacy && ([runtimes.REACT, runtimes.NEXT] as string[]).includes(language))
       ? [...reactConfig(params), '']
       : [];
 
   const typescriptArray =
     languagePreference === languagePreferences.TYPESCRIPT ? [...typescriptConfig(params), ''] : [];
 
-  const nodeArray = !isLegacy && language === languages.NODE ? [...nodeConfig, ''] : [];
+  const nodeArray = !isLegacy && language === runtimes.NODE ? [...nodeConfig, ''] : [];
 
   const prettierArray = configurations.prettier ? [...prettierConfig, ''] : [];
 

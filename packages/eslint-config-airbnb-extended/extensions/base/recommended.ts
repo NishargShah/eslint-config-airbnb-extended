@@ -29,6 +29,6 @@ const baseRecommendedExtensionsConfig = [
     files: allFiles,
     ...getStylisticLegacyConfig('javascript'),
   },
-] satisfies Linter.Config[];
+] as Linter.Config[];
 
 export default baseRecommendedExtensionsConfig;

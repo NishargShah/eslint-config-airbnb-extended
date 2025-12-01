@@ -1,7 +1,8 @@
-import { languages, strictConfigs } from '@/constants';
-import { languagePreferences, subFolders } from '@/lib/templates/constants';
+import { runtimes, strictConfigs } from '@cli/constants';
 
-import type { Folders } from '@/lib/templates/getAllFolders';
+import { languagePreferences, subFolders } from '@/lib/constants';
+
+import type { Folders } from '@/lib/getAllFolders';
 
 const strictDefaultSubFolders = {
   [subFolders.STRICT]: {
@@ -17,7 +18,7 @@ const strictDefaultSubFolders = {
         },
         cond: ({ meta }) => {
           if (meta.language) {
-            return ([languages.REACT, languages.NEXT] as string[]).includes(meta.language);
+            return ([runtimes.REACT, runtimes.NEXT] as string[]).includes(meta.language);
           }
 
           return false;
@@ -36,9 +37,7 @@ const strictDefaultSubFolders = {
         cond: ({ meta }) => {
           if (meta.language) {
             const tsCond = meta.languagePreference === languagePreferences.TYPESCRIPT;
-            const reactCond = ([languages.REACT, languages.NEXT] as string[]).includes(
-              meta.language,
-            );
+            const reactCond = ([runtimes.REACT, runtimes.NEXT] as string[]).includes(meta.language);
 
             return tsCond && reactCond;
           }
@@ -52,7 +51,7 @@ const strictDefaultSubFolders = {
         },
         cond: ({ meta }) => {
           if (meta.language) {
-            return ([languages.REACT, languages.NEXT] as string[]).includes(meta.language);
+            return ([runtimes.REACT, runtimes.NEXT] as string[]).includes(meta.language);
           }
 
           return false;
@@ -65,9 +64,7 @@ const strictDefaultSubFolders = {
         cond: ({ meta }) => {
           if (meta.language) {
             const tsCond = meta.languagePreference === languagePreferences.TYPESCRIPT;
-            const reactCond = ([languages.REACT, languages.NEXT] as string[]).includes(
-              meta.language,
-            );
+            const reactCond = ([runtimes.REACT, runtimes.NEXT] as string[]).includes(meta.language);
 
             return tsCond && reactCond;
           }

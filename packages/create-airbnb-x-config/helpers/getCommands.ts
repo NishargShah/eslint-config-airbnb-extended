@@ -1,13 +1,16 @@
-import { configTypes, languages, packageManagers } from '@/constants';
+import {
+  configs,
+  formatters,
+  languages,
+  legacyConfigs,
+  packageManagers,
+  runtimes,
+} from '@/constants';
 
-import type { NonNullableArgsOutput } from '@/utils/types';
-
-export type GetCommands = (
-  args: Omit<NonNullableArgsOutput, 'createESLintFile' | 'skipInstall'>,
-) => string[];
+import type { GetCommands } from '@/helpers/@types/getCommands.types';
 
 const getCommands: GetCommands = (args) => {
-  const { configType, typescript, prettier, language, packageManager, legacyConfig } = args;
+  const { config, language, formatter, runtime, packageManager, legacyConfig } = args;
 
   const pmInstallationCommand = {
     [packageManagers.NPM]: 'install',
@@ -26,43 +29,39 @@ const getCommands: GetCommands = (args) => {
     'eslint-config-airbnb-extended',
   ];
 
-  if (typescript) {
+  if (language === languages.TYPESCRIPT) {
     commands.push('eslint-import-resolver-typescript', 'typescript-eslint');
   }
 
-  if (prettier) {
+  if (formatter === formatters.PRETTIER) {
     commands.push('prettier', 'eslint-plugin-prettier', 'eslint-config-prettier');
   }
 
-  if (configType === configTypes.EXTENDED) {
+  if (config === configs.EXTENDED) {
     commands.push('@stylistic/eslint-plugin@^3.1.0', 'eslint-plugin-import-x');
 
-    if (language === languages.REACT || language === languages.NEXT) {
+    if (runtime === runtimes.REACT || runtime === runtimes.NEXT) {
       commands.push('eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-jsx-a11y');
     }
 
-    if (language === languages.NEXT) {
+    if (runtime === runtimes.NEXT) {
       commands.push('@next/eslint-plugin-next');
     }
 
-    if (language === languages.NODE) {
+    if (runtime === runtimes.NODE) {
       commands.push('eslint-plugin-n');
     }
   }
 
-  if (configType === configTypes.LEGACY) {
+  if (config === configs.LEGACY) {
     commands.push('eslint-plugin-import');
 
-    if (legacyConfig) {
-      const { react, reactHooks } = legacyConfig;
+    if (legacyConfig === legacyConfigs.REACT || legacyConfig === legacyConfigs.REACT_HOOKS) {
+      commands.push('eslint-plugin-react', 'eslint-plugin-jsx-a11y');
+    }
 
-      if (react) {
-        commands.push('eslint-plugin-react', 'eslint-plugin-jsx-a11y');
-      }
-
-      if (reactHooks) {
-        commands.push('eslint-plugin-react-hooks');
-      }
+    if (legacyConfig === legacyConfigs.REACT_HOOKS) {
+      commands.push('eslint-plugin-react-hooks');
     }
   }
 

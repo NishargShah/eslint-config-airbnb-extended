@@ -1,8 +1,9 @@
 import fsPromise from 'node:fs/promises';
 
-import { eslintConfigName } from '@/helpers/getConfigUrl';
-import getContent from '@/lib/templates/getContent';
-import getFolders from '@/lib/templates/getFolders';
+import { eslintConfigName } from '@cli/constants';
+
+import getContent from '@/lib/getContent';
+import getFolders from '@/lib/getFolders';
 
 type WriteFiles = () => Promise<void>;
 
@@ -12,13 +13,13 @@ const writeFiles: WriteFiles = async () => {
   await Promise.all(
     allFolders.map(async (folder) => {
       const { path, meta } = folder;
-      const { configType, language, languagePreference, hasPrettier, strictConfig } = meta;
+      const { config, language, languagePreference, hasPrettier, strictConfig } = meta;
 
-      if (!configType) return;
+      if (!config) return;
 
       const writePath = [path, eslintConfigName].join('/');
       const data = getContent({
-        type: configType,
+        type: config,
         language: language as NonNullable<typeof language>,
         languagePreference: languagePreference as NonNullable<typeof languagePreference>,
         configurations: {

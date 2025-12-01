@@ -1,58 +1,59 @@
-import { configTypes, languages, legacyLanguages } from '@/constants';
-import { subFolders, templateConstants } from '@/lib/templates/constants';
-import getAllFolders from '@/lib/templates/getAllFolders';
-import getDefaultSubFolders from '@/lib/templates/getDefaultSubFolders';
+import { configs, legacyConfigs, runtimes } from '@cli/constants';
 
-import type { Folders } from '@/lib/templates/getAllFolders';
+import { subFolders, templateConstants } from '@/lib/constants';
+import getAllFolders from '@/lib/getAllFolders';
+import getDefaultSubFolders from '@/lib/getDefaultSubFolders';
+
+import type { Folders } from '@/lib/getAllFolders';
 
 type GetFolders = () => ReturnType<typeof getAllFolders>;
 
 const getFolders: GetFolders = () => {
   const folders = {
-    [configTypes.LEGACY]: {
+    [configs.LEGACY]: {
       data: {
         [subFolders.BASE]: {
           data: getDefaultSubFolders({ strict: false }),
           meta: {
-            language: legacyLanguages.BASE,
+            language: legacyConfigs.BASE,
           },
         },
         [subFolders.REACT]: {
           data: getDefaultSubFolders({ strict: false }),
           meta: {
-            language: legacyLanguages.REACT,
+            language: legacyConfigs.REACT,
           },
         },
         [subFolders.REACT_HOOKS]: {
           data: getDefaultSubFolders({ strict: false }),
           meta: {
-            language: legacyLanguages.REACT_HOOKS,
+            language: legacyConfigs.REACT_HOOKS,
           },
         },
       },
       meta: {
-        configType: configTypes.LEGACY,
+        config: configs.LEGACY,
       },
     },
-    [languages.REACT]: {
+    [runtimes.REACT]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
-        configType: configTypes.EXTENDED,
-        language: languages.REACT,
+        config: configs.EXTENDED,
+        language: runtimes.REACT,
       },
     },
-    [languages.NEXT]: {
+    [runtimes.NEXT]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
-        configType: configTypes.EXTENDED,
-        language: languages.NEXT,
+        config: configs.EXTENDED,
+        language: runtimes.NEXT,
       },
     },
-    [languages.NODE]: {
+    [runtimes.NODE]: {
       data: getDefaultSubFolders({ strict: true }),
       meta: {
-        configType: configTypes.EXTENDED,
-        language: languages.NODE,
+        config: configs.EXTENDED,
+        language: runtimes.NODE,
       },
     },
   } satisfies Folders;
