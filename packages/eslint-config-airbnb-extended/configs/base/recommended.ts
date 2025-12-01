@@ -6,6 +6,6 @@ import type { Linter } from 'eslint';
 const baseRecommendedConfig = [
   ...Object.values(baseConfig),
   ...baseRecommendedExtensionsConfig,
-] satisfies Linter.Config[];
+] as Linter.Config[];
 
 export default baseRecommendedConfig;

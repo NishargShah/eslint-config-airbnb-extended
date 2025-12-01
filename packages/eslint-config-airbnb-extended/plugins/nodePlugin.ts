@@ -10,6 +10,6 @@ const nodePlugin = {
   plugins: {
     n: plugin,
   },
-} satisfies Linter.Config;
+} as Linter.Config;
 
 export default nodePlugin;

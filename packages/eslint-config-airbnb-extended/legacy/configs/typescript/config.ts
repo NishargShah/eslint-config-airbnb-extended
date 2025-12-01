@@ -8,6 +8,6 @@ const legacyTypescriptConfig = {
   base: legacyTypescriptBaseRules,
   overrides: legacyTypescriptOverridesRules,
   settings: legacyTypescriptSettingsRules,
-} satisfies Record<string, Linter.Config>;
+} as Record<string, Linter.Config>;
 
 export default legacyTypescriptConfig;

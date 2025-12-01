@@ -18,10 +18,7 @@ const customImportESLintConfig = [
   // Disable Dependencies Import Issue for Templates ESLint Files
   {
     name: 'x/import-x/disable-extraneous-deps',
-    files: [
-      'packages/create-airbnb-x-config/templates/**/eslint.config.mjs',
-      'docs/**/*.{ts,cts,mts,tsx}',
-    ],
+    files: ['apps/build-templates/templates/**/eslint.config.mjs', 'docs/**/*.{ts,cts,mts,tsx}'],
     rules: {
       'import-x/no-extraneous-dependencies': 'off',
     },

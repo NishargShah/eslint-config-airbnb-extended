@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airbnb-extended-project",
-  "version": "2.3.3",
+  "version": "3.0.0-beta-1",
   "description": "Eslint Airbnb Config Extended Project",
   "homepage": "https://eslint-airbnb-extended.nishargshah.dev",
   "bugs": {
@@ -21,7 +21,6 @@
     "clean:node_modules": "pnpx rimraf node_modules && pnpm -r exec pnpx rimraf node_modules",
     "clean:workspace": "pnpm clean:node_modules && pnpx rimraf pnpm-lock.yaml",
     "cli:build": "pnpm --filter create-airbnb-x-config build",
-    "cli:build-templates": "pnpm --filter create-airbnb-x-config build:templates",
     "cli:dev": "pnpm --filter create-airbnb-x-config dev",
     "cli:start": "pnpm --filter create-airbnb-x-config start",
     "config:build": "pnpm --filter eslint-config-airbnb-extended build",
@@ -38,6 +37,8 @@
     "pkg:publish": "pnpm -r build && pnpm changeset publish",
     "prepare": "husky || true",
     "script:lint": "bash -e ./scripts/lint.sh",
+    "templates:build": "pnpm --filter build-templates build",
+    "templates:dev": "pnpm --filter build-templates dev",
     "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
@@ -45,7 +46,7 @@
     "@eslint/compat": "^2.0.0",
     "@eslint/js": "^9.39.1",
     "@stylistic/eslint-plugin": "^3.1.0",
-    "@types/node": "^22.19.1",
+    "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "eslint-config-airbnb-extended": "workspace:*",
     "eslint-config-prettier": "^10.1.8",
@@ -59,7 +60,7 @@
     "eslint-plugin-unused-imports": "^4.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.7.2",
+    "prettier": "^3.7.3",
     "prettier-plugin-packagejson": "^2.5.20",
     "typescript": "catalog:",
     "typescript-eslint": "^8.48.0"
@@ -68,7 +69,7 @@
   "engines": {
     "node": ">=16.0.0",
     "npm": "please-use-pnpm",
-    "pnpm": ">=10.12.0",
+    "pnpm": ">=10.24.0",
     "yarn": "please-use-pnpm"
   }
 }

@@ -3,15 +3,22 @@
 import pc from 'picocolors';
 import prompts from 'prompts';
 
-import { configTypes, defaults, languages, legacyConfigs, strictConfigs } from '@/constants';
+import {
+  configTypes,
+  defaults,
+  eslintConfigName,
+  languages,
+  legacyConfigs,
+  strictConfigs,
+} from '@/constants';
 import createESLintConfigFile from '@/helpers/createEslintConfigFile';
 import getArgs from '@/helpers/getArgs';
 import getCommands from '@/helpers/getCommands';
-import getConfigUrl, { eslintConfigName } from '@/helpers/getConfigUrl';
+import getConfigUrl from '@/helpers/getConfigUrl';
 import installPackages from '@/helpers/installPackages';
 import { exit, handleSigTerm, onCancel, onPromptState, success } from '@/utils';
 
-import type { NonNullableArgsOutput } from '@/utils/types';
+import type { NonNullableArgsOutput } from '@/types';
 
 process.on('SIGINT', handleSigTerm);
 process.on('SIGTERM', handleSigTerm);

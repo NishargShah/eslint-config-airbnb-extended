@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@cli/*": ["./../../packages/create-airbnb-x-config/*"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "../../packages/create-airbnb-x-config/constants/index.ts",
+    "../../packages/create-airbnb-x-config/types/index.ts"
+  ],
+  "exclude": ["node_modules"]
+}

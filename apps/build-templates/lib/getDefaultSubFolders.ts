@@ -1,7 +1,7 @@
-import { languages, strictConfigs } from '@/constants';
-import { languagePreferences, subFolders } from '@/lib/templates/constants';
+import { languages, strictConfigs } from '@cli/constants';
+import { languagePreferences, subFolders } from '@/lib/constants';
 
-import type { Folders } from '@/lib/templates/getAllFolders';
+import type { Folders } from '@/lib/getAllFolders';
 
 const strictDefaultSubFolders = {
   [subFolders.STRICT]: {

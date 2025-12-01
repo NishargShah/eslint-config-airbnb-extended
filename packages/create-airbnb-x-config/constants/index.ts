@@ -42,3 +42,18 @@ export const legacyLanguages = {
   REACT: 'react',
   REACT_HOOKS: 'react-hooks',
 } as const;
+
+// This constant is based on /apps/templates/lib/constants.ts
+export const subFolders = {
+  DEFAULT: 'default',
+  STRICT: 'strict',
+};
+
+export const eslintConfigName = 'eslint.config.mjs';
+
+export const baseGithubUrl =
+  'https://github.com/NishargShah/eslint-config-airbnb-extended/tree/master/apps/build-templates/templates';
+
+// FIXME FROM CANARY
+export const baseGithubRawUrl =
+  'https://raw.githubusercontent.com/NishargShah/eslint-config-airbnb-extended/refs/heads/canary/apps/build-templates/templates';

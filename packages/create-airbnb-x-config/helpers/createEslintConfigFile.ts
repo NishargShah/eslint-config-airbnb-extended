@@ -1,10 +1,10 @@
 import fsPromise from 'node:fs/promises';
-import path from 'node:path';
 
-import getConfigUrl, { eslintConfigName } from '@/helpers/getConfigUrl';
-import { packageRootPath, rootPath } from '@/utils';
+import getConfigUrl from '@/helpers/getConfigUrl';
+import { rootPath } from '@/utils';
 
 import type { GetConfigUrl } from '@/helpers/getConfigUrl';
+import { baseGithubRawUrl, eslintConfigName } from '@/constants';
 
 type CreateESLintConfigFile = (args: Parameters<GetConfigUrl>[0]) => Promise<void>;
 
@@ -13,8 +13,11 @@ const createESLintConfigFile: CreateESLintConfigFile = async (args) => {
     const config = getConfigUrl(args);
     if (!config) return;
 
-    const configPath = path.join(packageRootPath, config.path);
-    const data = await fsPromise.readFile(configPath, { encoding: 'utf8' });
+    const { path: configPath } = config;
+    const url = `${baseGithubRawUrl}/${configPath}`;
+
+    const res = await fetch(url);
+    const data = await res.text();
 
     await fsPromise.writeFile(`${rootPath}/${eslintConfigName}`, data, {
       encoding: 'utf8',

@@ -1,8 +1,8 @@
-import { configTypes, languages, legacyLanguages, strictConfigs } from '@/constants';
-import { languagePreferences } from '@/lib/templates/constants';
+import { configTypes, languages, legacyLanguages, strictConfigs } from '@cli/constants';
+import { languagePreferences } from '@/lib/constants';
 
-import type { Content } from '@/lib/templates/contentFormatter';
-import type { GetContentParams } from '@/lib/templates/getContent';
+import type { Content } from '@/lib/contentFormatter';
+import type { GetContentParams } from '@/lib/getContent';
 
 // TYPES
 

@@ -1,3 +1,4 @@
+import nextPlugin from '@next/eslint-plugin-next';
 import stylisticPlugin from '@stylistic/eslint-plugin';
 import importXPlugin from 'eslint-plugin-import-x';
 import reactJsxA11yPlugin from 'eslint-plugin-jsx-a11y';
@@ -28,9 +29,6 @@ import typescriptStylisticRules, {
   deprecatedTypescriptStylisticRules,
 } from '@/rules/typescript/typescriptStylistic';
 import typescriptStylisticPlusRules from '@/rules/typescript/typescriptStylisticPlus';
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const nextPlugin = require('@next/eslint-plugin-next');
 
 const getRulesArray = (prefix: string, arr: string[]) =>
   arr.filter((rule) => rule.startsWith(prefix));

@@ -7,6 +7,6 @@ const legacyReactRecommendedConfig = [
   ...legacyBaseRecommendedConfig,
   legacyReactConfig.base,
   legacyReactConfig.jsxA11y,
-] satisfies Linter.Config[];
+] as Linter.Config[];
 
 export default legacyReactRecommendedConfig;

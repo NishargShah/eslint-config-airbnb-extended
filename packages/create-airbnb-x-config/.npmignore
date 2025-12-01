@@ -3,7 +3,6 @@
 
 # Not ignored folders
 !dist
-!templates
 
 # Note Ignored files
 !package.json

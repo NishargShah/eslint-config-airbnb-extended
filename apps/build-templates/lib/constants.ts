@@ -7,6 +7,7 @@ export const languagePreferences = {
   TYPESCRIPT: 'ts',
 } as const;
 
+// One of the constant in CLI (/packages/create-airbnb-x-config/constants/index.ts) is based on this
 export const subFolders = {
   ...languagePreferences,
   DEFAULT: 'default',

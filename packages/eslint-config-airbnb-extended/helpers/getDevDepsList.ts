@@ -28,6 +28,8 @@ const getDevDepsList: GetDevDepsList = (extensions) => [
   `**/prettier.config.{${extensions}}`,
   `**/vite.config.{${extensions}}`,
   `**/tailwind.config.{${extensions}}`,
+  `**/tsdown.config.{${extensions}}`,
+  `**/tsup.config.{${extensions}}`,
 ];
 
 export default getDevDepsList;

@@ -52,6 +52,6 @@ const nodeRecommendedExtensionsConfig = [
         }
       : null),
   },
-] satisfies Linter.Config[];
+] as Linter.Config[];
 
 export default nodeRecommendedExtensionsConfig;

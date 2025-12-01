@@ -8,18 +8,6 @@ import type { InitialReturnValue } from 'prompts';
 
 export const rootPath = path.resolve('.');
 
-// Package Root Path
-// This function should return the top-level root directory, not the dist folder, because the root directory is where node_modules is located in order to access the templates.
-
-export const packageRootPath = (() => {
-  const pkgRootPath = path.resolve(__dirname, '..');
-  const buildFolderName = 'dist';
-
-  return pkgRootPath.endsWith('dist')
-    ? pkgRootPath.slice(0, (buildFolderName.length + 1) * -1)
-    : pkgRootPath;
-})();
-
 // Handle Sigterm
 
 export const handleSigTerm = (): void => process.exit(0);

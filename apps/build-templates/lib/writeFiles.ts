@@ -1,8 +1,8 @@
 import fsPromise from 'node:fs/promises';
 
-import { eslintConfigName } from '@/helpers/getConfigUrl';
-import getContent from '@/lib/templates/getContent';
-import getFolders from '@/lib/templates/getFolders';
+import { eslintConfigName } from '@cli/constants';
+import getContent from '@/lib/getContent';
+import getFolders from '@/lib/getFolders';
 
 type WriteFiles = () => Promise<void>;
 
