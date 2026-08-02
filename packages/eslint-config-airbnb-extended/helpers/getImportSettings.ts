@@ -1,6 +1,6 @@
-import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import { createNodeResolver } from 'eslint-plugin-import-x';
 
+import { createAutoTypeScriptImportResolver } from '@/helpers/createAutoTypeScriptImportResolver';
 import {
   jsExtensions,
   jsExtensionsWithReact,
@@ -8,18 +8,21 @@ import {
   tsExtensionsWithReactDTS,
 } from '@/utils';
 
+import type { TypeScriptResolverOptions } from 'eslint-import-resolver-typescript';
+
 import type { ConfigRaw } from '@/types/common.types';
 
 export interface GetImportSettingsParams {
   javascript: boolean;
   typescript: boolean;
   jsx: boolean;
+  typescriptResolver?: TypeScriptResolverOptions;
 }
 
 type GetImportSettings = (params: GetImportSettingsParams) => ConfigRaw['settings'];
 
 export const getImportSettings: GetImportSettings = (params) => {
-  const { javascript, typescript, jsx } = params;
+  const { javascript, typescript, jsx, typescriptResolver } = params;
 
   const extensions = (() => {
     if (jsx) {
@@ -36,13 +39,7 @@ export const getImportSettings: GetImportSettings = (params) => {
   return {
     'import-x/resolver-next': [
       createNodeResolver({ extensions: [...extensions, '.json'] }),
-      ...(typescript
-        ? [
-            createTypeScriptImportResolver({
-              alwaysTryTypes: true,
-            }),
-          ]
-        : []),
+      ...(typescript ? [createAutoTypeScriptImportResolver(typescriptResolver)] : []),
     ],
     'import-x/extensions': extensions,
     ...(typescript
