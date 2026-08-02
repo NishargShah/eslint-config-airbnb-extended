@@ -115,6 +115,8 @@ Path aliases are resolved automatically per linted file (see [`createAutoTypeScr
 
 ```ts
 // apps/web/eslint.config.js
+import { fileURLToPath } from 'node:url';
+
 import { configs, helpers } from 'eslint-config-airbnb-extended';
 
 export default [
@@ -125,7 +127,7 @@ export default [
       typescript: true,
       jsx: true,
       typescriptResolver: {
-        project: `${import.meta.dirname}/tsconfig.eslint.json`,
+        project: fileURLToPath(new URL('tsconfig.json', import.meta.url)),
       },
     }),
   },
