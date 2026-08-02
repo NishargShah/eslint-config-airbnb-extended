@@ -1,3 +1,15 @@
+## 3.2.0 (2026-08-03)
+
+### 🚀 Features
+
+- **eslint-config-airbnb-extended:** Introduced `helpers.createAutoTypeScriptImportResolver`, a drop-in replacement for `createTypeScriptImportResolver` that discovers the `tsconfig.json` closest to each linted file instead of relying on the process working directory, and caches one underlying resolver per discovered tsconfig
+- **eslint-config-airbnb-extended:** All prebuilt configs now use the automatic TypeScript import resolver, so monorepos where sibling packages declare the same path alias (e.g. `@/*`) work out of the box, no more false `import-x/no-unresolved`, `import-x/extensions`, or `import-x/no-extraneous-dependencies` errors when a single editor ESLint session lints files across packages
+- **eslint-config-airbnb-extended:** Added an optional `typescriptResolver` param to `helpers.getImportSettings` to forward options to `eslint-import-resolver-typescript` (merged over the default `{ alwaysTryTypes: true }`), passing an explicit `project` opts out of the automatic tsconfig discovery
+
+### 🩹 Fixes
+
+- **eslint-config-airbnb-extended:** Import resolution now matches TypeScript semantics, each file resolves against its nearest `tsconfig.json`, exactly like `tsc` and the IDE, instead of whichever tsconfig the process working directory happened to point at
+
 ## 3.1.1 (2026-07-12)
 
 ### 🩹 Fixes
