@@ -62,7 +62,7 @@
   },
   "packageManager": "pnpm@11.18.0",
   "engines": {
-    "node": "^18.18.0 || ^20.9.0 || >=21.1.0",
+    "node": "^22.22.1 || >=24.11.0",
     "npm": "please-use-pnpm",
     "pnpm": ">=10.26.0",
     "yarn": "please-use-pnpm"
