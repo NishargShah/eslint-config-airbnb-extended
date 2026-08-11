@@ -81,6 +81,7 @@ type GetImportSettingsParams = {
   javascript: boolean;
   typescript: boolean;
   jsx: boolean;
+  vue?: boolean;
   typescriptResolver?: TypeScriptResolverOptions;
 };
 ```
@@ -89,8 +90,10 @@ type GetImportSettingsParams = {
 - Automatically selects extensions based on:
   - JavaScript vs TypeScript
   - React / JSX usage
+  - Vue SFC usage (`.vue`)
 
 - Adds TypeScript-specific parsing and type resolution when enabled
+- Adds `vue-eslint-parser` for `.vue` files when `vue` is enabled
 - `typescriptResolver` forwards extra options to `eslint-import-resolver-typescript`, merged over the default `{ alwaysTryTypes: true }`
 
 ### Example {#get-import-settings-example}

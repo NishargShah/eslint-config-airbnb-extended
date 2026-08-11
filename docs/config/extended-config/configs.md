@@ -1,7 +1,7 @@
 # Configs {#configs}
 
 **Configs** are ready-to-use collections of rule groups combined with extensions.
-They give you a complete setup out of the box for different environments like **Base**, **React**, **Next.js**, and **Node**.
+They give you a complete setup out of the box for different environments like **Base**, **React**, **Next.js**, **Node**, and **Vue**.
 Each config has variants like **recommended**, **typescript**, and **all**, so you can pick exactly what fits your project.
 
 ## Base Config {#base-config}
@@ -81,5 +81,26 @@ import { configs } from 'eslint-config-airbnb-extended';
 export default [
   // Node recommended config
   ...configs.node.recommended,
+];
+```
+
+## Vue Config {#vue-config}
+
+| Variant         | Description                                                                                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Recommended** | Includes Base rules applied to the `<script>` block + Vue rules + the Vue Recommended extension (`flat/essential`). |
+| **TypeScript**  | Includes TypeScript rules applied to `.vue` files + the Vue TypeScript extension.                                   |
+| **All**         | Combines both Vue **Recommended** and **TypeScript** configs.                                                       |
+
+### Example {#vue-example}
+
+```ts
+import { configs } from 'eslint-config-airbnb-extended';
+
+export default [
+  // Vue recommended config
+  ...configs.vue.recommended,
+  // Vue TypeScript config
+  ...configs.vue.typescript,
 ];
 ```
