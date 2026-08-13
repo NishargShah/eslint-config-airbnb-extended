@@ -5,14 +5,16 @@ Normally, many plugins hide their **recommended configs**. That means if you wan
 An **extension** = `rules + parser + settings` → combined into a reusable layer.
 Now, every **Extended config** is built as `rules + extension = config`. This makes it easier to create your own **base config** with full customization.
 
-| Extension   | Variant     | Description                                                                                                                            |
-| ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **Base**    | Recommended | Adds parser, resolver, and import settings for JavaScript. Disables legacy stylistic JS rules.                                         |
-|             | TypeScript  | Adds parser, resolver, and import settings for TypeScript. Also disables JS rules not recommended by the TypeScript team.              |
-| **React**   | Recommended | Adds parser, resolver, and import settings for React. Enables required ESLint and stylistic rules.                                     |
-|             | TypeScript  | Adds parser, resolver, and import settings for TypeScript. Adjusts specific React rules to work better with TypeScript.                |
-| **Next.js** | Recommended | Disables certain import rules based on Next.js best practices and also turns off React rules that are unnecessary in Next.js projects. |
-| **Node**    | Recommended | Detects if the project uses CommonJS or ESM and adjusts rules accordingly.                                                             |
+| Extension   | Variant     | Description                                                                                                                                                                                             |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Base**    | Recommended | Adds parser, resolver, and import settings for JavaScript. Disables legacy stylistic JS rules.                                                                                                          |
+|             | TypeScript  | Adds parser, resolver, and import settings for TypeScript. Also disables JS rules not recommended by the TypeScript team.                                                                               |
+| **React**   | Recommended | Adds parser, resolver, and import settings for React. Enables required ESLint and stylistic rules.                                                                                                      |
+|             | TypeScript  | Adds parser, resolver, and import settings for TypeScript. Adjusts specific React rules to work better with TypeScript.                                                                                 |
+| **Next.js** | Recommended | Disables certain import rules based on Next.js best practices and also turns off React rules that are unnecessary in Next.js projects.                                                                  |
+| **Node**    | Recommended | Detects if the project uses CommonJS or ESM and adjusts rules accordingly.                                                                                                                              |
+| **Vue**     | Recommended | Adds `vue-eslint-parser`, processor, and import settings for Vue SFCs. Enables essential Vue rules and allows `state` param reassignment for Vuex/Pinia. Enforces explicit `.vue` extension in imports. |
+|             | TypeScript  | Parses the `<script lang="ts">` block of `.vue` files with the TypeScript parser and enforces `lang="ts"` via `vue/block-lang`.                                                                         |
 
 ### Example {#extensions-example}
 

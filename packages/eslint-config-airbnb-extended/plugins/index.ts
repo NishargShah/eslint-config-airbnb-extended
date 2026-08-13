@@ -6,6 +6,8 @@ import { reactHooksPlugin } from '@/plugins/reactHooksPlugin';
 import { reactPlugin } from '@/plugins/reactPlugin';
 import { stylisticPlugin } from '@/plugins/stylisticPlugin';
 import { typescriptEslintPlugin } from '@/plugins/typescriptEslintPlugin';
+import { vueA11yPlugin } from '@/plugins/vueA11yPlugin';
+import { vuePlugin } from '@/plugins/vuePlugin';
 
 export const plugins = {
   stylistic: stylisticPlugin,
@@ -16,4 +18,6 @@ export const plugins = {
   reactHooks: reactHooksPlugin,
   next: nextPlugin,
   typescriptEslint: typescriptEslintPlugin,
+  vue: vuePlugin,
+  vueA11y: vueA11yPlugin,
 } as const;

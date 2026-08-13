@@ -83,6 +83,24 @@ export default [...configs.react.typescript];
 
 :::
 
+### 4. For [`@vue/eslint-config-airbnb`](https://www.npmjs.com/package/@vue/eslint-config-airbnb) {#for-vue-eslint-config-airbnb}
+
+Use this when working with **Vue**. It provides a one-to-one mapping with the standard Airbnb Vue presets, including the `<script lang="ts">` setup.
+
+::: code-group
+
+```ts [eslint.config.mjs]
+import { configs } from 'eslint-config-airbnb-extended/legacy';
+
+// Equivalent to @vue/eslint-config-airbnb
+export default [...configs.vue.recommended];
+
+// Equivalent to @vue/eslint-config-airbnb/with-typescript
+export default [...configs.vue.recommended, ...configs.vue.typescript];
+```
+
+:::
+
 ## Rules {#rules}
 
 The `rules` are the building blocks of `configs`. Each config combines these rule groups.
@@ -115,6 +133,14 @@ The `rules` are the building blocks of `configs`. Each config combines these rul
 | **Base**      | Core TypeScript linting rules for types, syntax, and consistency.                                          |
 | **Overrides** | Adjusts ESLint by disabling rules covered by TypeScript and enabling ones that benefit from type-checking. |
 | **Settings**  | Additional config values for TypeScript resolver and parser options.                                       |
+
+### Vue Rules {#vue-rules}
+
+| Rule Group            | Description                                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Base**              | Core Vue rules, extending Airbnb base and style rules (e.g. `eqeqeq`, `comma-dangle`) to `<template>`. |
+| **JSX**               | Airbnb JSX rules adapted for Vue JSX / render functions via `eslint-plugin-react`.                     |
+| **JSX Accessibility** | Accessibility rules via `eslint-plugin-vuejs-accessibility` for inclusive Vue templates.               |
 
 ## Why Legacy Config Exists {#why-legacy-config-exists}
 

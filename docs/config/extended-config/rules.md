@@ -112,3 +112,25 @@ export default [
   rules.typescript.imports,
 ];
 ```
+
+## Vue Rules {#vue-rules}
+
+| Rule Group            | Description                                                                                           |
+| --------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Base**              | Core Vue rules, extending Airbnb base rules (e.g. `eqeqeq`, `camelcase`) to `<template>` expressions. |
+| **JSX**               | Airbnb JSX rules adapted for Vue JSX / render functions via `eslint-plugin-react`.                    |
+| **JSX Accessibility** | Accessibility rules via `eslint-plugin-vuejs-accessibility` for inclusive Vue templates.              |
+| **Stylistic**         | Applies Airbnb stylistic rules to `<template>` and enforces consistent Vue file formatting.           |
+
+### Example {#vue-rules-example}
+
+```ts
+import { rules } from 'eslint-config-airbnb-extended';
+
+export default [
+  // Base
+  rules.vue.base,
+  // Stylistic
+  rules.vue.stylistic,
+];
+```

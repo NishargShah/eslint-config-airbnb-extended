@@ -20,6 +20,10 @@ export const tsExtensionsRule = Object.fromEntries(
   Object.values(tsExtensionsWithReact).map((val) => [val.slice(1), 'never']),
 );
 
+// VUE
+
+export const vueExtensions = ['.vue'];
+
 // ESLINT CONFIG FILES
 
 export const jsFiles = jsExtensionsWithReact.map((val) => `**/*${val}`);
@@ -29,5 +33,7 @@ export const jsFileWithoutReact = jsExtensions.map((val) => `**/*${val}`);
 export const tsFiles = tsExtensionsWithReactDTS.map((val) => `**/*${val}`);
 
 export const tsFileWithoutReact = tsExtensionsResolver.map((val) => `**/*${val}`);
+
+export const vueFiles = vueExtensions.map((val) => `**/*${val}`);
 
 export const allFiles = [...jsFiles, ...tsFiles];
